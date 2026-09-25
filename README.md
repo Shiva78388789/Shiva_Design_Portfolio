@@ -51,11 +51,17 @@ Set `NEXT_PUBLIC_FORMSPREE_ID` to a [Formspree](https://formspree.io) form id to
 messages. Without it, submitting opens the visitor's mail app addressed to
 kumarshiva1990@gmail.com (the prototype's behaviour).
 
-## Deploy
+## Deploy (Vercel)
 
-`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to
-`main`. One-time setup: **Settings → Pages → Source: GitHub Actions**. Optionally add a
-`FORMSPREE_ID` repository variable (Settings → Secrets and variables → Actions → Variables).
+The site is hosted on [Vercel](https://vercel.com); `vercel.json` holds the build settings.
 
-For hosting at a domain root (Vercel, Netlify, a custom domain), build without
-`NEXT_PUBLIC_BASE_PATH`.
+One-time setup:
+1. On Vercel, **Add New… → Project**, and import `Shiva78388789/Shiva_Design_Portfolio`
+   from GitHub (install the Vercel GitHub app for the repo if asked).
+2. Keep the detected settings (framework: Next.js) and click **Deploy**.
+3. Optional: under **Settings → Environment Variables**, add `NEXT_PUBLIC_FORMSPREE_ID`
+   to deliver the contact form, then redeploy.
+4. Optional: add a custom domain under **Settings → Domains**.
+
+After that, every push to `main` deploys to production and every other branch or pull
+request gets its own preview URL.
