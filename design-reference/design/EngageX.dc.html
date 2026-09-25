@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/styles.css">
+<script src="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<script src="./image-slot.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<style>
+html,body{margin:0;background:#1C1C1C;color:#FFFFFF}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:#7FD3F7}a:hover{color:#FFFFFF}
+*{box-sizing:border-box}
+h1,h2{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:normal!important}
+@media (max-width:900px){
+  [data-mw~="col"]{width:auto!important;margin-left:20px!important;margin-right:20px!important;align-self:stretch!important}
+  section{padding-top:96px!important}
+  [data-title]{width:auto!important;max-width:340px;margin-left:auto!important;margin-right:auto!important}
+  [data-ttext]{font-size:38px!important}
+  section p[data-reveal]{font-size:16px!important;margin-top:36px!important}
+
+  header{padding:64px 20px 0!important;gap:32px!important}
+  header h1{font-size:60px!important}
+  header [data-hero="sub"]{font-size:16px!important}
+  [data-mw~="chips"]{flex-wrap:wrap}
+  header > div:nth-child(2){width:100%!important;height:auto!important;margin-top:0!important;display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}
+  header > div:nth-child(2) > [data-note]{position:relative!important;left:auto!important;right:auto!important;top:auto!important;width:auto!important;padding-bottom:12px!important}
+  header > div:nth-child(2) > [data-note] div{font-size:13px!important}
+  header > div:nth-child(2) > [data-note]:nth-child(3){grid-column:1 / -1;justify-self:start;min-width:48%}
+
+  [data-mw~="laptop"]{width:auto!important;margin:72px 20px 0!important}
+  [data-cursor] span{font-size:11px!important;padding:5px 11px!important}
+  [data-cursor="1"]{right:auto!important;left:-8px!important;top:auto!important;bottom:-18px!important}
+  [data-cursor="2"]{left:auto!important;right:-6px!important;top:-14px!important}
+  [data-mw~="notice"]{margin-top:64px!important}
+
+  [data-mw~="goal"]{margin-left:0!important}
+
+  [data-impact]{grid-template-columns:1fr!important;row-gap:64px;margin-top:48px!important}
+  [data-impact] > [data-divider]{display:none!important}
+  [data-impact] > div{padding:0!important}
+  [data-impact] [data-note]{margin:0 auto!important}
+  [data-mw~="mgrid"]{row-gap:36px!important;margin-top:36px!important}
+
+  [data-mw~="folders"]{grid-template-columns:1fr!important;gap:24px!important;margin-top:40px!important}
+  [data-mw~="fbody"]{height:auto!important;padding:20px 22px 24px!important}
+
+  [data-persona]{padding:20px 16px 24px!important}
+  [data-persona] > div:first-child{gap:16px!important}
+  [data-persona] > div:first-child > div{padding-top:4px!important}
+  [data-persona] img{width:72px!important;height:72px!important;margin-left:0!important}
+
+  [data-iawrap]{width:auto!important;margin:40px 20px 0!important;padding:24px 16px 28px!important;overflow:visible!important}
+  [data-iawrap] > div{min-width:0!important}
+  [data-ia-root]{width:auto!important;display:inline-block!important;margin:0!important;padding:10px 20px!important}
+  [data-ia-stem]{margin:0 0 0 20px!important}
+  [data-mw~="iagrid"]{grid-template-columns:1fr!important;gap:18px!important;margin-left:20px;border-left:1.5px solid #5BC0E8;padding:12px 0 0 18px}
+  [data-ia-col]{padding-top:0!important}
+  [data-ia-col] > [data-ia-bus]{left:-18px!important;right:auto!important;width:18px;top:17px!important}
+  [data-ia-col] > [data-mw~="stubabs"]{display:none!important}
+  [data-ia-col] > [data-mw~="stubblk"]{margin:0 0 0 10px!important}
+  [data-ia-node]{text-align:left!important;width:auto!important;margin:0!important}
+  [data-mw~="iasub"]{grid-template-columns:1fr!important;gap:14px!important;margin-left:10px;border-left:1.5px solid #5BC0E8;padding:10px 0 0 13px}
+  [data-ia-sub]{padding-top:0!important}
+  [data-ia-sub] > [data-ia-bus]{left:-13px!important;right:auto!important;width:13px;top:17px!important}
+  [data-ia-sub] > [data-ia-stub]{display:none!important}
+
+  [data-proto] iframe{height:70vh!important}
+  [data-mw~="laptop"] img{width:100%!important}
+  [data-mw~="uiframe"]{width:auto!important}
+
+  [data-ui]{margin-top:24px!important}
+  [data-mw~="uiframe"]{height:auto!important;aspect-ratio:16 / 10}
+  [data-ui-note]{min-width:0!important;padding:10px 12px 8px!important}
+  [data-ui-label]{font-size:15px!important}
+
+  [data-bento]{grid-template-columns:1fr 1fr!important;grid-auto-rows:150px!important;grid-auto-flow:dense;gap:10px!important;margin-top:32px!important}
+  [data-bt-name]{opacity:1!important;transform:none!important;font-size:10px!important}
+  [data-lb]{flex-wrap:wrap;gap:16px!important;padding:20px;align-content:center}
+  [data-lb-card]{width:100%!important;order:-1}
+
+  [data-wins]{grid-template-columns:1fr 1fr!important;row-gap:44px;margin-top:48px!important}
+  [data-wins] > [data-win]:nth-child(3) [data-win-div]{display:none!important}
+}
+</style>
+</helmet>
+
+<div style="background-color:#1C1C1C;background-image:radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px);background-size:28px 28px;background-position:-14px -14px;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
+  <div style="max-width:1512px;margin:0 auto;position:relative">
+
+    <header style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:40px;padding:120px clamp(24px,8vw,120px) 0">
+      <div style="flex:0 1 auto">
+      <img data-hero="logo" src="assets/engagex/xtelify-logo.png" alt="Xtelify" style="display:block;width:100px;height:auto"></img>
+      <h1 aria-label="Engage X" style="margin:18px 0 0;font-size:96px;line-height:1;font-weight:700;letter-spacing:0.01em;display:flex;overflow:hidden;padding-bottom:6px">
+        <span data-char="1" style="display:inline-block">E</span><span data-char="1" style="display:inline-block">n</span><span data-char="1" style="display:inline-block">g</span><span data-char="1" style="display:inline-block">a</span><span data-char="1" style="display:inline-block">g</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block;width:0.3em"> </span><span data-char="1" style="display:inline-block">X</span>
+      </h1>
+      <p data-hero="sub" style="margin:18px 0 0;font-size:20px;font-weight:500;letter-spacing:0.01em">A Unified Campaign Lifecycle Manager</p>
+      <div data-mw="chips" style="display:flex;gap:8px;margin-top:22px">
+        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:500;padding:5px 7px;border:1px solid #9BDDF5">Design Lead</span>
+        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:500;padding:5px 7px;border:1px solid #9BDDF5">From concept to launch</span>
+        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:500;padding:5px 7px;border:1px solid #9BDDF5">6 Months</span>
+      </div>
+
+      </div>
+      <div style="position:relative;flex:0 0 auto;width:500px;height:200px;margin-top:88px">
+      <div data-note="1" data-rot="-4" style="position:absolute;left:2px;top:0;width:232px;padding:12px 12px 10px;background:#7FD3F7;color:#12303D;transform:rotate(-4deg)">
+        <div style="font-size:15px;font-weight:700">Role</div>
+        <div style="font-size:15px;font-weight:500">Lead Experience Designer</div>
+      </div>
+      <div data-note="1" data-rot="1.5" style="position:absolute;left:0;top:92px;width:236px;padding:12px 12px 10px;background:#A8E6BF;color:#15361F;transform:rotate(1.5deg)">
+        <div style="font-size:15px;font-weight:700">Team</div>
+        <div style="font-size:15px;font-weight:500">2 PM, 6 Engineers &amp; Me</div>
+      </div>
+      <div data-note="1" data-rot="2.5" style="position:absolute;right:0;top:56px;width:234px;padding:12px 12px 22px;background:#F6DFA6;color:#3D3010;transform:rotate(2.5deg)">
+        <div style="font-size:15px;font-weight:700">Platform</div>
+        <div style="font-size:15px;font-weight:500">Web</div>
+      </div>
+      </div>
+    </header>
+
+    <div data-mw="laptop" style="position:relative;width:640px;margin:130px auto 0">
+      <img data-laptop="1" src="assets/engagex/laptop.png" alt="Engage X — Create new campaign screen" style="display:block;width:100%;height:auto"></img>
+      <div data-cursor="1" style="position:absolute;right:calc(100% - 90px);top:285px;width:max-content;display:flex;align-items:flex-start">
+        <span style="background:#E0217A;color:#FFFFFF;font-size:15px;font-weight:500;padding:8px 18px;border-radius:999px;margin-top:6px">Please refer PRD</span>
+        <svg width="18" height="20" viewBox="0 0 18 20" style="margin-left:-2px;transform:scaleX(-1)"><path d="M1 1l15 7-6.5 2L7 17z" fill="#1C1C1C" stroke="#FFFFFF" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+      </div>
+      <div data-cursor="2" style="position:absolute;left:calc(100% - 60px);top:185px;width:max-content;display:flex;align-items:flex-start">
+        <svg width="18" height="20" viewBox="0 0 18 20" style="margin-right:-2px"><path d="M1 1l15 7-6.5 2L7 17z" fill="#1C1C1C" stroke="#FFFFFF" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+        <span style="background:#2BA84A;color:#FFFFFF;font-size:15px;font-weight:500;padding:8px 18px;border-radius:999px;margin-top:10px">Detach Instance</span>
+      </div>
+    </div>
+
+    <div data-reveal="1" data-mw="col notice" style="width:840px;margin:100px auto 0;background:#F4C542;color:#2A220A;padding:16px 14px 14px">
+      <div style="font-size:12px;font-weight:700">Confidentiality Notice</div>
+      <p style="margin:3px 0 0;font-size:11.5px;line-height:1.45">My work at Airtel is focused on highly sensitive cybersecurity and privacy initiatives. To comply with strict non-disclosure agreements, all proprietary data, live interfaces, and specific workflows have been omitted. This case study focuses exclusively on high-level strategy, organizational architecture, and publicly communicable outcomes.</p>
+    </div>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:64px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Problem<br>Statement</h2>
+      </div>
+      <p data-reveal="1" style="margin:52px 0 0;font-size:18px;line-height:1.5">Airtel’s customer communication ecosystem suffers from a fragmented campaign lifecycle across channels, tools, and teams. This creates operational inefficiencies across planning, audience selection, content creation, scheduling, and execution resulting in high manual effort, delayed rollouts, and inconsistent messaging.</p>
+      <div data-note="1" data-rot="-4" data-mw="goal" style="width:164px;margin:42px 0 0 -62px;padding:14px 0 12px;background:#F6DFA6;color:#3D3010;text-align:center;font-size:15px;font-weight:700;transform:rotate(-4deg)">Goal</div>
+      <p data-reveal="1" style="margin:22px 0 0;font-size:18px;line-height:1.5">Build a single, scalable campaign management platform to streamline workflows, accelerate execution, ensure brand consistency, and drive better customer engagement.</p>
+    </section>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:12px 0 10px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Impact</h2>
+      </div>
+
+      <div data-impact="1" style="display:grid;grid-template-columns:1fr 1fr;margin-top:80px;position:relative">
+        <div data-divider="1" style="position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed #555555;transform-origin:top"></div>
+        <div style="padding-right:10px">
+          <div data-note="1" data-rot="3" style="width:162px;margin:0 0 0 118px;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:15px;font-weight:700;transform:rotate(3deg)">Business</div>
+          <div data-mw="mgrid" style="display:grid;grid-template-columns:1fr 1fr;row-gap:70px;margin-top:52px;text-align:center">
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="10" data-prefix="+">+10</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Increase customer retention rate</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="20" data-prefix="-">-20</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Reduce customer acquisition cost</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="20" data-prefix="+">+20</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Increase customer lifecycle value</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="30" data-prefix="-">-30</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Reduce operational dependancy</div></div>
+          </div>
+        </div>
+        <div style="padding-left:10px">
+          <div data-note="1" data-rot="-3" style="width:162px;margin:-8px 0 0 136px;padding:9px 0 8px;background:#F6DFA6;color:#3D3010;text-align:center;font-size:15px;font-weight:700;transform:rotate(-3deg)">UX</div>
+          <div data-mw="mgrid" style="display:grid;grid-template-columns:1fr 1fr;row-gap:70px;margin-top:60px;text-align:center">
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="30" data-prefix="+">+30</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Task completion rate</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="20" data-prefix="-">-20</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Lower user churn</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="15" data-prefix="+">+15</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Improved CSAT/NPS</div></div>
+            <div data-metric="1"><div style="font-size:34px;font-weight:500"><span data-count="15" data-prefix="+">+15</span>%</div><div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Feature adoption</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:200px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Design<br>Approach</h2>
+      </div>
+
+      <div data-mw="folders" style="display:grid;grid-template-columns:263px 263px 278px;gap:18px;margin-top:60px;align-items:start">
+        <div data-folder="1" style="position:relative;padding-top:28px">
+          <div style="position:absolute;left:0;top:0;width:88px;height:30px;background:#5BC0E8;clip-path:polygon(0 0,78% 0,100% 100%,0 100%)"></div>
+          <div data-mw="fbody" style="background:#5BC0E8;color:#12303D;height:206px;padding:22px 24px">
+            <div style="font-size:18px;font-weight:700;letter-spacing:0.02em">RESEARCH</div>
+            <ul style="margin:4px 0 0;padding-left:26px;font-size:16px;line-height:1.6;font-weight:500">
+              <li data-li="1">Personas</li><li data-li="1">Benchmarking</li><li data-li="1">Affinity Mapping</li><li data-li="1">User Interviews</li>
+            </ul>
+          </div>
+        </div>
+        <div data-folder="1" style="position:relative;padding-top:28px">
+          <div style="position:absolute;left:0;top:0;width:88px;height:30px;background:#5BC0E8;clip-path:polygon(0 0,78% 0,100% 100%,0 100%)"></div>
+          <div data-mw="fbody" style="background:#5BC0E8;color:#12303D;height:206px;padding:22px 24px">
+            <div style="font-size:18px;font-weight:700;letter-spacing:0.02em">DESIGN</div>
+            <ul style="margin:4px 0 0;padding-left:26px;font-size:16px;line-height:1.6;font-weight:500">
+              <li data-li="1">Group Brainstorming</li><li data-li="1">AI prototypes</li><li data-li="1">AI illustrations</li><li data-li="1">DS powered UI</li><li data-li="1">Interactions</li>
+            </ul>
+          </div>
+        </div>
+        <div data-folder="1" style="position:relative;padding-top:28px">
+          <div style="position:absolute;left:0;top:0;width:88px;height:30px;background:#5BC0E8;clip-path:polygon(0 0,78% 0,100% 100%,0 100%)"></div>
+          <div data-mw="fbody" style="background:#5BC0E8;color:#12303D;height:206px;padding:22px 24px">
+            <div style="font-size:18px;font-weight:700;letter-spacing:0.02em">EVALUATE</div>
+            <ul style="margin:4px 0 0;padding-left:26px;font-size:16px;line-height:1.6;font-weight:500">
+              <li data-li="1">Usability Testing</li><li data-li="1">Refinements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Proto<br>Personas</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:38px;margin-top:56px">
+        <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 30px">
+          <div style="display:flex;gap:28px;align-items:flex-start">
+            <img src="assets/engagex/kamakshi.png" alt="Kamakshi Yadav" style="width:108px;height:108px;border-radius:50%;object-fit:cover;flex:0 0 auto;margin-left:6px"></img>
+            <div style="padding-top:14px">
+              <div style="font-size:16px;font-weight:700">Kamakshi Yadav</div>
+              <div style="margin-top:4px;font-size:13.5px;color:#D6D6D6">Customer success lead</div>
+              <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Manages high-touch enterprise accounts and tracks post-onboarding client health across multiple dashboards.</p>
+            </div>
+          </div>
+          <div style="margin-top:26px;font-size:15px;font-weight:700">Goals</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Identify churn risks early, accelerate Time-to-Value (TTV), and conduct timely outreach without manually assembling data from disparate tools.</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Pain Points</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Disjointed tools require switching between CRM, support tickets, and product analytics; lack of context causes awkward customer check-ins.</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Key Platform Need</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">A unified customer health dashboard with automated risk alerts and single-pane-of-glass timeline views.</p>
+        </article>
+
+        <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 30px">
+          <div style="display:flex;gap:28px;align-items:flex-start">
+            <img src="assets/engagex/gaurav.png" alt="Gaurav Sharma" style="width:120px;height:120px;border-radius:50%;object-fit:cover;flex:0 0 auto"></img>
+            <div style="padding-top:14px">
+              <div style="font-size:16px;font-weight:700">Gaurav Sharma</div>
+              <div style="margin-top:4px;font-size:13.5px;color:#D6D6D6">Business Head</div>
+              <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Oversees cross-departmental revenue goals, focusing on Net Revenue Retention (NRR) and Customer Lifetime Value (LTV).</p>
+            </div>
+          </div>
+          <div style="margin-top:26px;font-size:15px;font-weight:700">Goals</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Track overall lifecycle conversions, lower Customer Acquisition Cost (CAC), and forecast quarterly revenue based on real customer data.</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Pain Points</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Inconsistent cross-departmental reports, delayed metrics on expansion opportunities, and lack of visibility into post-sale customer drops.</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Key Platform Need</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">High-level executive reporting suite featuring NRR trends, cohort analysis, and lifecycle health overviews.</p>
+        </article>
+
+        <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 30px">
+          <div style="display:flex;gap:28px;align-items:flex-start">
+            <img src="assets/engagex/priya.png" alt="Priya Kharbanda" style="width:92px;height:92px;border-radius:50%;object-fit:cover;flex:0 0 auto;margin-left:10px"></img>
+            <div style="padding-top:6px">
+              <div style="font-size:16px;font-weight:700">Priya Kharbanda</div>
+              <div style="margin-top:4px;font-size:13.5px;color:#D6D6D6">Marketing Lead</div>
+              <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Manage campaigns across multiple channels to increase revenue of core lob business</p>
+            </div>
+          </div>
+          <div style="margin-top:26px;font-size:15px;font-weight:700">Goals</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Drive full-funnel growth and Net Revenue Retention (NRR) by delivering dynamic, personalized cross-channel campaigns</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Pain Points</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">Frequently face fragmented data where critical product usage signals are locked inside analytics tools, forcing them to rely heavily on engineering teams for manual list exports that delay campaign execution and miss key onboarding windows.</p>
+          <div style="margin-top:22px;font-size:15px;font-weight:700">Key Platform Need</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.45;color:#D6D6D6">A 360-degree customer profile dashboard that aggregates behavioral, transactional, and support data in real time, paired with a visual, no-code audience segmenter.</p>
+        </article>
+      </div>
+    </section>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Information<br>Architecture</h2>
+      </div>
+    </section>
+    <div data-iawrap="1" style="width:min(1392px, calc(100% - 48px));margin:56px auto 0;border:2px dashed #6A6A6A;background:#1C1C1C;padding:36px 28px 40px;overflow-x:auto">
+      <div style="min-width:1320px">
+      <div data-ia-root="1" style="width:220px;margin:0 auto;background:#FFFFFF;color:#1C1C1C;font-size:16px;font-weight:700;padding:12px 0;text-align:center">Engage X</div>
+      <span data-ia-stem="1" style="display:block;width:1.5px;height:24px;background:#5BC0E8;margin:0 auto;transform-origin:top"></span>
+      <div data-mw="iagrid" style="display:grid;grid-template-columns:1fr 1fr 2.1fr 1fr 1fr 1fr 1fr 1fr;gap:14px;align-items:start">
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:50%;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Login</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Enter user name</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Enter password</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Campaign Listing</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Campaign Listing Table</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;width:60%;margin:0 auto;">Campaigns</div><span data-ia-stub="1" data-mw="stubblk" style="display:block;width:1.5px;height:12px;background:#5BC0E8;margin:0 auto;transform-origin:top"></span><div data-mw="iasub" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div data-ia-sub="1" style="position:relative;padding-top:14px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:50%;right:-5px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:14px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">SMS Campaign</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Campaign Type</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Basic Configuration</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;margin-top:10px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Sender</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Recipient</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Template</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;margin-top:10px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Test Campaign</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Schedule Campaign</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Launch</div></div></div><div data-ia-sub="1" style="position:relative;padding-top:14px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-5px;right:50%;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:14px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">WhatsApp</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Campaign Type</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Basic Configuration</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;margin-top:10px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Sender</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Recipient</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Add Template</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;margin-top:10px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Test Campaign</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Schedule Campaign</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Launch</div></div></div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Schedule Campaign</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>One-time Schedule</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Recurring Schedule</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Event Trigger Hook</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Audiences</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Users &amp; Segments</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Audience Selection</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>User Attributes Mapping</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Uploaded Lists</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Channel Reachability</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Content</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Media Library</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Templates Portal</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:-7px;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Reporting</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Campaign Performance</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Flexible Metric Filters</div><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Channel Error Logging</div></div></div>
+          <div data-ia-col="1" style="position:relative;padding-top:22px;min-width:0"><span data-ia-bus="1" style="position:absolute;top:0;left:-7px;right:50%;height:1.5px;background:#5BC0E8"></span><span data-ia-stub="1" data-mw="stubabs" style="position:absolute;top:0;left:calc(50% - 0.75px);width:1.5px;height:22px;background:#5BC0E8;transform-origin:top"></span><div data-ia-node="1" style="position:relative;background:#5BC0E8;color:#12303D;font-size:13px;font-weight:700;line-height:1.25;padding:9px 10px;text-align:center;">Events &amp; Goals</div><div style="position:relative;margin-left:10px;padding:8px 0 0 13px;display:flex;flex-direction:column;gap:6px"><span data-ia-spine="1" style="position:absolute;left:0;top:0;bottom:15px;width:1.5px;background:#5BC0E8;transform-origin:top"></span><div data-ia-kid="1" style="position:relative;background:#FFFFFF;color:#1C1C1C;font-size:12px;font-weight:500;line-height:1.3;padding:7px 9px;"><span data-ia-tick="1" style="position:absolute;left:-13px;top:50%;width:13px;height:1.5px;background:#5BC0E8"></span>Custom Conversion Metrics</div></div></div>
+      </div>
+      </div>
+    </div>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">AI<br>Prototype</h2>
+      </div>
+      <p data-reveal="1" style="margin:52px 0 0;font-size:18px;line-height:1.5">A working prototype of the unified campaign flow, built in Figma Make. Click through it below.</p>
+    </section>
+    <div data-proto="1" data-mw="col" style="width:840px;margin:40px auto 0">
+      <div style="border:2px solid #3A3A3A;background:#0F0F0F">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+          <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+          <span style="flex:1 1 auto;margin-left:10px;font-size:12px;color:#9A9A9A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Unified CLM — Prompt Version 1</span>
+          <a href="https://www.figma.com/make/oYWaqmm7Dgtf73TVdMz5M9/Unified-CLM-Prompt-Version-1?fullscreen=1&amp;t=qIcNDzO6gDcvTYhp-1&amp;code-node-id=0-9" target="_blank" rel="noopener" style="flex:0 0 auto;font-size:12px;font-weight:600;color:#5BC0E8;text-decoration:none" style-hover="color:#FFFFFF">Open full screen ↗</a>
+        </div>
+        <iframe src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fmake%2FoYWaqmm7Dgtf73TVdMz5M9%2FUnified-CLM-Prompt-Version-1%3Ffullscreen%3D1%26t%3DqIcNDzO6gDcvTYhp-1%26code-node-id%3D0-9" title="Engage X AI prototype" allow="clipboard-write; fullscreen" allowfullscreen="" loading="lazy" style="display:block;width:100%;height:min(820px, 78vh);border:0;background:#0F0F0F"></iframe>
+      </div>
+    </div>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">UI<br>Design</h2>
+      </div>
+    </section>
+    <div data-ui="1" style="position:relative;height:500vh;margin-top:40px">
+      <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
+        <div data-mw="col" style="width:840px;display:flex;align-items:flex-end;justify-content:space-between">
+          <div data-ui-note="1" style="min-width:230px;padding:12px 16px 10px;background:#F6DFA6;color:#3D3010;transform:rotate(-2deg)">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Now viewing</div>
+            <div data-ui-label="1" style="margin-top:2px;font-size:18px;font-weight:700">Campaign Dashboard</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <span data-ui-count="1" style="font-size:13px;font-weight:600;color:#FFFFFF;letter-spacing:0.08em">01 / 05</span>
+            <div style="display:flex;gap:6px"><span data-ui-dot="0" style="width:22px;height:8px;background:#5BC0E8;transition:width 0.3s ease, background 0.3s ease"></span><span data-ui-dot="1" style="width:8px;height:8px;background:#555555;transition:width 0.3s ease, background 0.3s ease"></span><span data-ui-dot="2" style="width:8px;height:8px;background:#555555;transition:width 0.3s ease, background 0.3s ease"></span><span data-ui-dot="3" style="width:8px;height:8px;background:#555555;transition:width 0.3s ease, background 0.3s ease"></span><span data-ui-dot="4" style="width:8px;height:8px;background:#555555;transition:width 0.3s ease, background 0.3s ease"></span></div>
+          </div>
+        </div>
+        <div data-mw="col uiframe" style="width:840px;height:min(525px, calc(100vh - 200px));overflow:hidden">
+          <div data-ui-track="1" style="display:flex;height:100%;will-change:transform">
+            <div data-ui-panel="0" style="flex:0 0 100%;height:100%;display:flex;flex-direction:column;border:2px solid #3A3A3A;background:#0F0F0F">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+                <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+                <span style="margin-left:10px;font-size:12px;color:#9A9A9A">Campaign Dashboard</span>
+              </div>
+              <div style="flex:1 1 auto;min-height:0;position:relative;border:0">
+                <image-slot id="ui-screen-1" placeholder="Drop the Campaign Dashboard screen" style="display:block;width:100%;height:100%"></image-slot>
+              </div>
+            </div>
+            <div data-ui-panel="1" style="flex:0 0 100%;height:100%;display:flex;flex-direction:column;border:2px solid #3A3A3A;background:#0F0F0F">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+                <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+                <span style="margin-left:10px;font-size:12px;color:#9A9A9A">Create Campaign</span>
+              </div>
+              <div style="flex:1 1 auto;min-height:0;position:relative;border:0">
+                <image-slot id="ui-screen-2" placeholder="Drop the Create Campaign screen" style="display:block;width:100%;height:100%"></image-slot>
+              </div>
+            </div>
+            <div data-ui-panel="2" style="flex:0 0 100%;height:100%;display:flex;flex-direction:column;border:2px solid #3A3A3A;background:#0F0F0F">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+                <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+                <span style="margin-left:10px;font-size:12px;color:#9A9A9A">Audience Segments</span>
+              </div>
+              <div style="flex:1 1 auto;min-height:0;position:relative;border:0">
+                <image-slot id="ui-screen-3" placeholder="Drop the Audience Segments screen" style="display:block;width:100%;height:100%"></image-slot>
+              </div>
+            </div>
+            <div data-ui-panel="3" style="flex:0 0 100%;height:100%;display:flex;flex-direction:column;border:2px solid #3A3A3A;background:#0F0F0F">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+                <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+                <span style="margin-left:10px;font-size:12px;color:#9A9A9A">Schedule Campaign</span>
+              </div>
+              <div style="flex:1 1 auto;min-height:0;position:relative;border:0">
+                <image-slot id="ui-screen-4" placeholder="Drop the Schedule Campaign screen" style="display:block;width:100%;height:100%"></image-slot>
+              </div>
+            </div>
+            <div data-ui-panel="4" style="flex:0 0 100%;height:100%;display:flex;flex-direction:column;border:2px solid #3A3A3A;background:#0F0F0F">
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:2px solid #3A3A3A">
+                <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28C840"></span>
+                <span style="margin-left:10px;font-size:12px;color:#9A9A9A">Campaign Reporting</span>
+              </div>
+              <div style="flex:1 1 auto;min-height:0;position:relative;border:0">
+                <image-slot id="ui-screen-5" placeholder="Drop the Campaign Reporting screen" style="display:block;width:100%;height:100%"></image-slot>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#9A9A9A;letter-spacing:0.08em">Scroll to move through the screens</div>
+      </div>
+    </div>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:16px 0 12px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Illustrations</h2>
+      </div>
+      <p data-reveal="1" style="margin:52px 0 0;font-size:18px;line-height:1.5">A set of 12 illustrations drawn for empty states, alerts and onboarding across the platform. Click any one to view it larger.</p>
+      <div data-bento="1" style="margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:196px;gap:12px;perspective:1000px">
+        <div data-bt="0" style="grid-column:span 2;grid-row:span 2;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/1.png" alt="Omnichannel Campaigns" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Omnichannel Campaigns</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">01</span>
+          </div>
+        </div>
+        <div data-bt="1" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/2.png" alt="Analytics Deep-dive" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Analytics Deep-dive</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">02</span>
+          </div>
+        </div>
+        <div data-bt="2" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/3.png" alt="Secure Access" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Secure Access</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">03</span>
+          </div>
+        </div>
+        <div data-bt="3" style="grid-column:span 2;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/4.png" alt="Performance Review" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Performance Review</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">04</span>
+          </div>
+        </div>
+        <div data-bt="4" style="grid-column:span 1;grid-row:span 2;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/5.png" alt="Media Upload" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Media Upload</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">05</span>
+          </div>
+        </div>
+        <div data-bt="5" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/6.png" alt="API Failure" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">API Failure</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">06</span>
+          </div>
+        </div>
+        <div data-bt="6" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/7.png" alt="Billing Servers" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Billing Servers</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">07</span>
+          </div>
+        </div>
+        <div data-bt="7" style="grid-column:span 1;grid-row:span 2;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/8.png" alt="In-app Chat" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">In-app Chat</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">08</span>
+          </div>
+        </div>
+        <div data-bt="8" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/9.png" alt="Notifications" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Notifications</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">09</span>
+          </div>
+        </div>
+        <div data-bt="9" style="grid-column:span 1;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/10.png" alt="Insights" style="position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Insights</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">10</span>
+          </div>
+        </div>
+        <div data-bt="10" style="grid-column:span 2;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/11.png" alt="Segment Approved" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">Segment Approved</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">11</span>
+          </div>
+        </div>
+        <div data-bt="11" style="grid-column:span 2;grid-row:span 1;position:relative;overflow:hidden;background:#FFFFFF;cursor:zoom-in;transform-style:preserve-3d;will-change:transform">
+          <div data-bt-glow="1" style="position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(91,192,232,0.28), transparent 60%)"></div>
+          <img data-bt-img="1" src="assets/engagex/ill/12.png" alt="User Lists" style="position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;pointer-events:none"></img>
+          <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;pointer-events:none">
+            <span data-bt-name="1" style="background:#1C1C1C;color:#FFFFFF;font-size:11px;font-weight:600;padding:5px 8px;opacity:0;transform:translateY(8px)">User Lists</span>
+            <span style="font-size:11px;font-weight:700;color:#9A9A9A">12</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-lb="1" onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:50;background:rgba(10,10,10,0.88);display:flex;align-items:center;justify-content:center;gap:28px;cursor:zoom-out">
+        <button onClick="{{ prevLb }}" aria-label="Previous" style="width:48px;height:48px;border:1.5px solid #5BC0E8;background:transparent;color:#FFFFFF;font-size:20px;cursor:pointer" style-hover="background:#5BC0E8;color:#12303D">←</button>
+        <div data-lb-card="1" onClick="{{ stop }}" style="position:relative;width:min(560px, 70vw);background:#FFFFFF;cursor:default">
+          <img src="{{ lbSrc }}" alt="{{ lbName }}" style="display:block;width:100%;height:auto;aspect-ratio:332/348;object-fit:contain"></img>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1C1C1C;color:#FFFFFF;border:1.5px solid #FFFFFF">
+            <span style="font-size:14px;font-weight:600">{{ lbName }}</span>
+            <span style="font-size:12px;color:#9A9A9A">{{ lbCount }}</span>
+          </div>
+        </div>
+        <button onClick="{{ nextLb }}" aria-label="Next" style="width:48px;height:48px;border:1.5px solid #5BC0E8;background:transparent;color:#FFFFFF;font-size:20px;cursor:pointer" style-hover="background:#5BC0E8;color:#12303D">→</button>
+      </div>
+    </sc-if>
+
+    <section data-mw="col" style="width:840px;margin:0 auto;padding-top:160px">
+      <div data-title="1" style="position:relative;width:500px;margin:0 auto;padding:12px 0 10px;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+        <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span><span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+        <h2 data-ttext="1" style="position:relative;margin:0;font-size:62px;line-height:1.16;font-weight:500">Early Wins</h2>
+      </div>
+      <div data-wins="1" style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px">
+        <div data-win="1" style="position:relative;text-align:center;padding:0 10px">
+          <div style="font-size:34px;font-weight:500"><span data-wcount="66" data-prefix="">66</span>%</div>
+          <div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Reduction in campaign setup time</div>
+        </div>
+        <div data-win="1" style="position:relative;text-align:center;padding:0 10px"><div data-win-div="1" style="position:absolute;left:0;top:0;bottom:0;border-left:2px dashed #555555;transform-origin:top"></div>
+          <div style="font-size:34px;font-weight:500"><span data-wcount="2" data-prefix="">2</span>X</div>
+          <div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Better CTR with new channels</div>
+        </div>
+        <div data-win="1" style="position:relative;text-align:center;padding:0 10px"><div data-win-div="1" style="position:absolute;left:0;top:0;bottom:0;border-left:2px dashed #555555;transform-origin:top"></div>
+          <div style="font-size:34px;font-weight:500"><span data-wcount="20" data-prefix="">20</span>%</div>
+          <div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Reduction in marketing spends</div>
+        </div>
+        <div data-win="1" style="position:relative;text-align:center;padding:0 10px"><div data-win-div="1" style="position:absolute;left:0;top:0;bottom:0;border-left:2px dashed #555555;transform-origin:top"></div>
+          <div style="font-size:34px;font-weight:500"><span data-wcount="30" data-prefix="">30</span> Cr</div>
+          <div style="margin:4px auto 0;max-width:160px;font-size:13px;line-height:1.3">Revenue generated</div>
+        </div>
+      </div>
+    </section>
+
+    <div data-mw="col" style="width:840px;margin:80px auto 0">
+      <a href="Portfolio.dc.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:#9A9A9A" style-hover="color:#FFFFFF">← Back to portfolio</a>
+    </div>
+
+  </div>
+</div>
+
+<x-import component-from-global-scope="dock-nav" from="./dock-nav.js" active="work" hint-size="0px,0px"></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const wait = () => {
+      if (window.gsap && window.ScrollTrigger) this.initMotion();
+      else if (tries++ < 100) this._t = setTimeout(wait, 60);
+    };
+    wait();
+  }
+  componentWillUnmount() {
+    clearTimeout(this._t);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._lenis) this._lenis.destroy();
+    if (this._ctx) this._ctx.revert();
+    if (this._keys) window.removeEventListener('keydown', this._keys);
+  }
+  initMotion() {
+    const gsap = window.gsap, ST = window.ScrollTrigger;
+    gsap.registerPlugin(ST);
+    if (window.Lenis && !this._lenis) {
+      const lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+      this._lenis = lenis; window.__lenis = lenis;
+      lenis.on('scroll', ST.update);
+      const raf = (t) => { lenis.raf(t); this._raf = requestAnimationFrame(raf); };
+      this._raf = requestAnimationFrame(raf);
+    }
+    const $ = (s) => Array.from(document.querySelectorAll(s));
+    this._ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      tl.from('[data-hero="logo"]', { y: 20, opacity: 0, duration: 0.7 })
+        .from('[data-char]', { yPercent: 115, duration: 0.9, stagger: 0.045 }, '-=0.35')
+        .from('[data-hero="sub"]', { y: 16, opacity: 0, duration: 0.6 }, '-=0.55')
+        .from('[data-hero="chip"]', { y: 12, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.4')
+        .from('header [data-note]', { y: -60, opacity: 0, rotation: (i, el) => +el.dataset.rot + (i % 2 ? 12 : -12), duration: 0.9, stagger: 0.12, ease: 'back.out(1.6)' }, '-=0.7')
+        .from('[data-laptop]', { y: 80, opacity: 0, scale: 0.94, duration: 1.1 }, '-=0.6')
+        .from('[data-cursor]', { opacity: 0, scale: 0.6, duration: 0.6, stagger: 0.15, ease: 'back.out(2)' }, '-=0.4');
+
+      gsap.to('[data-cursor="1"]', { x: 16, y: -12, duration: 2.6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2 });
+      gsap.to('[data-cursor="2"]', { x: -14, y: 14, duration: 3.1, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2.3 });
+      gsap.to('[data-laptop]', { yPercent: -6, ease: 'none', scrollTrigger: { trigger: '[data-laptop]', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+      $('[data-title]').forEach((el) => {
+        const t = gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 82%' } });
+        t.from(el.querySelector('[data-frame]'), { scaleX: 0, scaleY: 0.2, duration: 0.7, ease: 'expo.out' })
+         .from(el.querySelectorAll('[data-handle]'), { scale: 0, duration: 0.35, stagger: 0.05, ease: 'back.out(3)' }, '-=0.35')
+         .from(el.querySelector('[data-ttext]'), { y: 24, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+      });
+
+      $('[data-reveal]').forEach((el) => gsap.from(el, { y: 40, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+      $('section [data-note]').forEach((el) => gsap.from(el, { y: -40, opacity: 0, rotation: +el.dataset.rot - 14, duration: 0.8, ease: 'back.out(1.8)', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+
+      const imp = document.querySelector('[data-impact]');
+      if (imp) {
+        gsap.from('[data-divider]', { scaleY: 0, duration: 1.1, ease: 'power2.inOut', scrollTrigger: { trigger: imp, start: 'top 80%' } });
+        gsap.from('[data-metric]', { y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: imp, start: 'top 78%' } });
+        $('[data-count]').forEach((el) => {
+          const end = +el.dataset.count, pre = el.dataset.prefix, o = { v: 0 };
+          el.textContent = pre + '0';
+          gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: { trigger: imp, start: 'top 78%' }, onUpdate: () => { el.textContent = pre + Math.round(o.v); } });
+        });
+      }
+
+      const folders = $('[data-folder]');
+      if (folders.length) {
+        const ft = gsap.timeline({ scrollTrigger: { trigger: folders[0], start: 'top 82%' } });
+        ft.from(folders, { clipPath: 'inset(100% 0% 0% 0%)', y: 30, duration: 0.9, stagger: 0.15, ease: 'power3.inOut' })
+          .from('[data-li]', { x: -14, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.out' }, '-=0.4');
+      }
+
+      gsap.from('[data-proto]', { y: 70, opacity: 0, scale: 0.97, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '[data-proto]', start: 'top 85%' } });
+      const ui = document.querySelector('[data-ui]');
+      if (ui) {
+        const names = ["Campaign Dashboard","Create Campaign","Audience Segments","Schedule Campaign","Campaign Reporting"];
+        const n = names.length, track = ui.querySelector('[data-ui-track]');
+        const label = ui.querySelector('[data-ui-label]'), count = ui.querySelector('[data-ui-count]'), note = ui.querySelector('[data-ui-note]');
+        const dots = Array.from(ui.querySelectorAll('[data-ui-dot]'));
+        let cur = 0;
+        const setActive = (i) => {
+          if (i === cur) return;
+          cur = i;
+          dots.forEach((d, j) => { d.style.width = j === i ? '22px' : '8px'; d.style.background = j === i ? '#5BC0E8' : '#555555'; });
+          count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+          gsap.timeline()
+            .to(note, { y: -14, rotation: -6, opacity: 0, duration: 0.18, ease: 'power2.in', onComplete: () => { label.textContent = names[i]; } })
+            .fromTo(note, { y: 18, rotation: 3, opacity: 0 }, { y: 0, rotation: -2, opacity: 1, duration: 0.45, ease: 'back.out(2)' });
+        };
+        gsap.to(track, { xPercent: -100 * (n - 1), ease: 'none', scrollTrigger: { trigger: ui, start: 'top top', end: 'bottom bottom', scrub: 0.6, onUpdate: (self) => setActive(Math.min(n - 1, Math.round(self.progress * (n - 1)))) } });
+      }
+      const bento = document.querySelector('[data-bento]');
+      if (bento) {
+        const tiles = Array.from(bento.querySelectorAll('[data-bt]'));
+        gsap.set(tiles, { clipPath: 'inset(50% 50% 50% 50%)' });
+        const bt = gsap.timeline({ scrollTrigger: { trigger: bento, start: 'top 78%' } });
+        bt.to(tiles, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.9, ease: 'expo.inOut', stagger: { each: 0.07, from: 'start', grid: 'auto' } })
+          .from(bento.querySelectorAll('[data-bt-img]'), { scale: 1.35, rotation: (i) => (i % 2 ? 6 : -6), opacity: 0, duration: 0.9, ease: 'back.out(1.6)', stagger: 0.07 }, 0.25);
+        gsap.to(bento.querySelectorAll('[data-bt-img]'), { y: (i) => (i % 3 - 1) * -18, ease: 'none', scrollTrigger: { trigger: bento, start: 'top bottom', end: 'bottom top', scrub: true } });
+        tiles.forEach((t) => {
+          const img = t.querySelector('[data-bt-img]'), glow = t.querySelector('[data-bt-glow]'), nm = t.querySelector('[data-bt-name]');
+          t.addEventListener('mouseenter', () => {
+            gsap.to(t, { scale: 1.02, zIndex: 2, duration: 0.4, ease: 'power3.out' });
+            gsap.to(glow, { opacity: 1, duration: 0.3 });
+            gsap.to(nm, { opacity: 1, y: 0, duration: 0.35, ease: 'power3.out' });
+            gsap.to(tiles.filter((o) => o !== t), { opacity: 0.55, duration: 0.35 });
+          });
+          t.addEventListener('mousemove', (e) => {
+            const r = t.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+            t.style.setProperty('--mx', (px + 0.5) * 100 + '%'); t.style.setProperty('--my', (py + 0.5) * 100 + '%');
+            gsap.to(t, { rotateY: px * 10, rotateX: -py * 10, duration: 0.5, ease: 'power2.out' });
+            gsap.to(img, { x: px * 18, y: py * 18, scale: 1.08, duration: 0.6, ease: 'power2.out' });
+          });
+          t.addEventListener('mouseleave', () => {
+            gsap.to(t, { rotateX: 0, rotateY: 0, scale: 1, zIndex: 0, duration: 0.7, ease: 'elastic.out(1, 0.6)' });
+            gsap.to(img, { x: 0, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' });
+            gsap.to(glow, { opacity: 0, duration: 0.3 });
+            gsap.to(nm, { opacity: 0, y: 8, duration: 0.25 });
+            gsap.to(tiles, { opacity: 1, duration: 0.35 });
+          });
+          t.addEventListener('click', () => this.setState({ lb: +t.dataset.bt }));
+        });
+      }
+      const wins = document.querySelector('[data-wins]');
+      if (wins) {
+        const wst = { trigger: wins, start: 'top 80%' };
+        gsap.from(wins.querySelectorAll('[data-win-div]'), { scaleY: 0, duration: 1.1, ease: 'power2.inOut', stagger: 0.1, scrollTrigger: wst });
+        gsap.from(wins.querySelectorAll('[data-win]'), { y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: wst });
+        wins.querySelectorAll('[data-wcount]').forEach((el) => {
+          const end = +el.dataset.wcount, pre = el.dataset.prefix, o = { v: 0 };
+          el.textContent = pre + '0';
+          gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: wst, onUpdate: () => { el.textContent = pre + Math.round(o.v); } });
+        });
+      }
+      const iaw = document.querySelector('[data-iawrap]');
+      if (iaw) {
+        const it = gsap.timeline({ scrollTrigger: { trigger: iaw, start: 'top 75%' } });
+        it.from('[data-ia-root]', { y: -50, opacity: 0, duration: 0.6, ease: 'bounce.out' })
+          .from('[data-ia-stem]', { scaleY: 0, duration: 0.25, ease: 'none' })
+          .from(iaw.querySelectorAll('[data-ia-col] > [data-ia-bus]'), { scaleX: 0, duration: 0.5, ease: 'power2.out' });
+        iaw.querySelectorAll('[data-ia-col]').forEach((col, ci) => {
+          const ct = gsap.timeline();
+          col.querySelectorAll('[data-ia-stub],[data-ia-node],[data-ia-sub] > [data-ia-bus],[data-ia-spine],[data-ia-kid]').forEach((el) => {
+            if (el.hasAttribute('data-ia-stub') || el.hasAttribute('data-ia-spine')) ct.from(el, { scaleY: 0, duration: 0.18, ease: 'none' }, '>-0.05');
+            else if (el.hasAttribute('data-ia-bus')) ct.from(el, { scaleX: 0, duration: 0.2, ease: 'none' }, '<');
+            else if (el.hasAttribute('data-ia-node')) ct.from(el, { y: -40, opacity: 0, duration: 0.5, ease: 'bounce.out' }, '>-0.05');
+            else ct.from(el, { y: -26, opacity: 0, duration: 0.42, ease: 'back.out(2.2)' }, '>-0.3');
+          });
+          it.add(ct, 1.1 + ci * 0.22);
+        });
+      }
+      $('[data-persona]').forEach((el, i) => {
+        const t = gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 85%' } });
+        t.from(el, { y: 60, opacity: 0, duration: 0.9, ease: 'power3.out' })
+         .from(el.querySelector('img'), { scale: 0.6, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, '-=0.6')
+         .from(el.querySelectorAll('div,p'), { y: 12, opacity: 0, duration: 0.45, stagger: 0.03, ease: 'power2.out' }, '-=0.45');
+      });
+    });
+  }
+  state = { lb: null };
+  componentDidUpdate() {
+    const ps = this._prev || { lb: null };
+    this._prev = { ...this.state };
+    if (ps.lb === null && this.state.lb !== null && window.gsap) {
+      window.gsap.from('[data-lb]', { opacity: 0, duration: 0.3 });
+      window.gsap.from('[data-lb-card]', { scale: 0.8, y: 40, rotation: -3, duration: 0.6, ease: 'back.out(1.7)' });
+      if (this._lenis) this._lenis.stop();
+    } else if (ps.lb !== null && this.state.lb !== null && ps.lb !== this.state.lb && window.gsap) {
+      window.gsap.fromTo('[data-lb-card] img', { opacity: 0, x: this._dir * 40 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power3.out' });
+    } else if (ps.lb !== null && this.state.lb === null && this._lenis) this._lenis.start();
+  }
+  renderVals() {
+    const names = ["Omnichannel Campaigns","Analytics Deep-dive","Secure Access","Performance Review","Media Upload","API Failure","Billing Servers","In-app Chat","Notifications","Insights","Segment Approved","User Lists"];
+    const lb = this.state.lb, n = names.length;
+    const go = (d) => (e) => { e && e.stopPropagation(); this._dir = d; this.setState((st) => ({ lb: (st.lb + d + n) % n })); };
+    if (!this._keys) {
+      this._keys = (e) => {
+        if (this.state.lb === null) return;
+        if (e.key === 'Escape') this.setState({ lb: null });
+        if (e.key === 'ArrowRight') go(1)();
+        if (e.key === 'ArrowLeft') go(-1)();
+      };
+      window.addEventListener('keydown', this._keys);
+    }
+    return {
+      lbOpen: lb !== null,
+      lbSrc: lb !== null ? 'assets/engagex/ill/' + (lb + 1) + '.png' : '',
+      lbName: lb !== null ? names[lb] : '',
+      lbCount: lb !== null ? String(lb + 1).padStart(2, '0') + ' / ' + n : '',
+      closeLb: () => this.setState({ lb: null }),
+      prevLb: go(-1), nextLb: go(1),
+      stop: (e) => e.stopPropagation(),
+    };
+  }
+}
+</script>
+</body>
+</html>
