@@ -43,8 +43,6 @@ npm start        # serve out/
 
 - **Jugnu imagery:** the case study expects images in `public/assets/jugnu/` (the file
   names are in `src/views/JugnuView.tsx`); until they're added each shows a placeholder frame.
-- **Akhbar Bash videos:** the `.mp4` files referenced in `src/views/AkhbarView.tsx` weren't
-  in the handoff; add them to `public/assets/akhbar/video/`. Their posters already show.
 - **Project imagery:** the five Engage X UI screens were empty image slots in the design. Add the files to `public/assets/` and map each slot id
   in `src/content/image-slots.ts`; until then they show a placeholder frame.
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in
