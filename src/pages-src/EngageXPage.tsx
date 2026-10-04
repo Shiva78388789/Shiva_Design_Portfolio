@@ -4,9 +4,9 @@
 // Behaviour for the EngageX page, ported from design-reference/design/EngageX.dc.html.
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
 import DCPage from '@/lib/DCPage';
 import { asset } from '@/lib/dc';
+import Lenis from 'lenis';
 import EngageXView from '@/views/EngageXView';
 
 
@@ -15,7 +15,7 @@ export default class EngageXPage extends DCPage {
 
   componentDidMount() {
     this._keys = (e) => {
-      if (this.state.lb === null) return;
+      if (this.state.lb === null || !this._go) return;
       if (e.key === 'Escape') this.setState({ lb: null });
       if (e.key === 'ArrowRight') this._go(1)();
       if (e.key === 'ArrowLeft') this._go(-1)();
@@ -38,7 +38,6 @@ export default class EngageXPage extends DCPage {
   initMotion() {
     const ST = ScrollTrigger;
     gsap.registerPlugin(ST);
-    // Smooth scrolling is skipped for visitors who prefer reduced motion.
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !this._lenis) {
       const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
       this._lenis = lenis; window.__lenis = lenis;
@@ -75,10 +74,40 @@ export default class EngageXPage extends DCPage {
       if (imp) {
         gsap.from('[data-divider]', { scaleY: 0, duration: 1.1, ease: 'power2.inOut', scrollTrigger: { trigger: imp, start: 'top 80%' } });
         gsap.from('[data-metric]', { y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: imp, start: 'top 78%' } });
-        $('[data-count]').forEach((el) => {
-          const end = +el.dataset.count, pre = el.dataset.prefix, o = { v: 0 };
-          el.textContent = pre + '0';
-          gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: { trigger: imp, start: 'top 78%' }, onUpdate: () => { el.textContent = pre + Math.round(o.v); } });
+        const P = '0.18em', H = '1.05em', C = '1.41em';
+        const mask = `linear-gradient(to bottom, transparent 0, #000 ${P}, #000 calc(100% - ${P}), transparent 100%)`;
+        $('[data-count]').forEach((el, mi) => {
+          if (el.__nf) return; el.__nf = true;
+          const val = String(el.dataset.count), pre = el.dataset.prefix || '';
+          el.setAttribute('aria-label', pre + val);
+          el.textContent = '';
+          el.style.cssText += ';display:inline-flex;font-variant-numeric:tabular-nums';
+          const sign = document.createElement('span');
+          sign.textContent = pre; sign.setAttribute('aria-hidden', 'true');
+          sign.style.cssText = 'display:inline-block;opacity:0;transform:translateY(0.3em) scale(0.8);transition:opacity .5s ease, transform .9s cubic-bezier(.3,1.5,.5,1)';
+          el.appendChild(sign);
+          const wheels = [...val].map((ch, di) => {
+            const box = document.createElement('span');
+            box.setAttribute('aria-hidden', 'true');
+            box.style.cssText = `box-sizing:content-box;display:inline-block;vertical-align:top;height:${C};margin:-${P} -0.02em;overflow:hidden;-webkit-mask-image:${mask};mask-image:${mask}`;
+            const col = document.createElement('span');
+            col.style.cssText = 'display:flex;flex-direction:column;will-change:transform';
+            for (let k = 0; k < 20; k++) { const c = document.createElement('span'); c.textContent = k % 10; c.style.cssText = `display:block;height:${C};line-height:${C};text-align:center`; col.appendChild(c); }
+            box.appendChild(col); el.appendChild(box);
+            return { col, d: +ch, di };
+          });
+          const play = () => {
+            requestAnimationFrame(() => {
+              sign.style.opacity = '1'; sign.style.transform = 'none';
+              wheels.forEach(({ col, d, di }) => {
+                const n = wheels.length, target = 10 + d;
+                col.animate([{ transform: 'translateY(0)', filter: 'blur(0px)' }, { filter: 'blur(1.2px)', offset: 0.35 }, { transform: `translateY(calc(-${target} * ${C}))`, filter: 'blur(0px)' }],
+                  { duration: 1300 + (n - di) * 180, delay: mi * 90 + (n - di - 1) * 60, easing: 'cubic-bezier(0.18, 1.06, 0.3, 1)', fill: 'forwards' });
+              });
+            });
+          };
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { sign.style.opacity = '1'; sign.style.transform = 'none'; wheels.forEach(({ col, d }) => { col.style.transform = `translateY(calc(-${d} * ${C}))`; }); return; }
+          ScrollTrigger.create({ trigger: imp, start: 'top 78%', once: true, onEnter: play });
         });
       }
 

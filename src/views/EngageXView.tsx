@@ -252,96 +252,96 @@ export default function EngageXView({ v }: { v: any }) {
           {" "}
           <section data-mw="col" style={{ width: "840px", margin: "0 auto", paddingTop: "160px" }}>
             {" "}
-            <div data-title="1" style={{ position: "relative", width: "500px", margin: "0 auto", padding: "12px 0 10px", textAlign: "center" }}>
+            <div data-title="1" data-imp-title="1" style={{ position: "relative", width: "360px", margin: "0 auto", padding: "14px 0 18px", textAlign: "center" }}>
               {" "}
-              <div data-frame="1" style={{ position: "absolute", inset: "0", border: "1.5px solid #4AA8E0" }} />
+              <div data-frame="1" style={{ position: "absolute", inset: "0", border: "2px solid #5BC0E8" }} />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", left: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", left: "-12px", top: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", right: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", right: "-12px", top: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", left: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", left: "-12px", bottom: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", right: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", right: "-12px", bottom: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
-              <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "62px", lineHeight: "1.16", fontWeight: "500" }}>
+              <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "76px", lineHeight: "1.16", fontWeight: "500" }}>
                 Impact
               </h2>
               {" "}
             </div>
             {" "}
-            <div data-impact="1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", marginTop: "80px", position: "relative" }}>
+            <div data-impact="1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", marginTop: "104px", position: "relative" }}>
               {" "}
-              <div data-divider="1" style={{ position: "absolute", left: "50%", top: "0", bottom: "0", borderLeft: "2px dashed #555555", transformOrigin: "top" }} />
+              <div data-divider="1" style={{ position: "absolute", left: "50%", top: "0", bottom: "0", borderLeft: "2px dashed #6A6A6A", transformOrigin: "top" }} />
               {" "}
               <div style={{ paddingRight: "10px" }}>
                 {" "}
                 <div
                   data-note="1"
-                  data-rot="3"
-                  style={{ width: "162px", margin: "0 0 0 118px", padding: "9px 0 8px", background: "#A8E6BF", color: "#15361F", textAlign: "center", fontSize: "15px", fontWeight: "700", transform: "rotate(3deg)" }}
+                  data-rot="8"
+                  style={{ width: "158px", margin: "0 auto", padding: "10px 0 9px", background: "#A8E6BF", color: "#15361F", textAlign: "center", fontSize: "15px", fontWeight: "700", transform: "rotate(8deg)" }}
                 >
                   Business
                 </div>
                 {" "}
-                <div data-mw="mgrid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: "70px", marginTop: "52px", textAlign: "center" }}>
+                <div data-mw="mgrid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: "44px", marginTop: "44px", textAlign: "center" }}>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="10" data-prefix="+">
                         +10
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Increase customer retention rate
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="20" data-prefix="-">
                         -20
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Reduce customer acquisition cost
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="20" data-prefix="+">
                         +20
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Increase customer lifecycle value
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="30" data-prefix="-">
                         -30
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Reduce operational dependancy
                     </div>
                   </div>
@@ -350,62 +350,64 @@ export default function EngageXView({ v }: { v: any }) {
                 {" "}
               </div>
               {" "}
+              <div data-hdiv="1" style={{ display: "none", borderTop: "2px dashed #6A6A6A", margin: "0 -10px" }} />
+              {" "}
               <div style={{ paddingLeft: "10px" }}>
                 {" "}
                 <div
                   data-note="1"
-                  data-rot="-3"
-                  style={{ width: "162px", margin: "-8px 0 0 136px", padding: "9px 0 8px", background: "#F6DFA6", color: "#3D3010", textAlign: "center", fontSize: "15px", fontWeight: "700", transform: "rotate(-3deg)" }}
+                  data-rot="-4"
+                  style={{ width: "158px", margin: "22px auto 0", padding: "13px 0 12px", background: "#F6DFA6", color: "#3D3010", textAlign: "center", fontSize: "15px", fontWeight: "700", transform: "rotate(-4deg)" }}
                 >
                   UX
                 </div>
                 {" "}
-                <div data-mw="mgrid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: "70px", marginTop: "60px", textAlign: "center" }}>
+                <div data-mw="mgrid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: "56px", marginTop: "44px", textAlign: "center" }}>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="30" data-prefix="+">
                         +30
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Task completion rate
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="20" data-prefix="-">
                         -20
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Lower user churn
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="15" data-prefix="+">
                         +15
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Improved CSAT/NPS
                     </div>
                   </div>
                   {" "}
                   <div data-metric="1">
-                    <div style={{ fontSize: "34px", fontWeight: "500" }}>
+                    <div data-mnum="1" style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
                       <span data-count="15" data-prefix="+">
                         +15
                       </span>
                       %
                     </div>
-                    <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                    <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                       Feature adoption
                     </div>
                   </div>
@@ -2095,7 +2097,7 @@ export default function EngageXView({ v }: { v: any }) {
                   %
                 </div>
                 {" "}
-                <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                   Reduction in campaign setup time
                 </div>
                 {" "}
@@ -2111,7 +2113,7 @@ export default function EngageXView({ v }: { v: any }) {
                   X
                 </div>
                 {" "}
-                <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                   Better CTR with new channels
                 </div>
                 {" "}
@@ -2127,7 +2129,7 @@ export default function EngageXView({ v }: { v: any }) {
                   %
                 </div>
                 {" "}
-                <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                   Reduction in marketing spends
                 </div>
                 {" "}
@@ -2143,7 +2145,7 @@ export default function EngageXView({ v }: { v: any }) {
                   {" "}Cr
                 </div>
                 {" "}
-                <div style={{ margin: "4px auto 0", maxWidth: "160px", fontSize: "13px", lineHeight: "1.3" }}>
+                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
                   Revenue generated
                 </div>
                 {" "}

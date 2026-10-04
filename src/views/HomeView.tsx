@@ -9,1898 +9,689 @@ import ImageSlot from '@/components/ImageSlot';
 export default function HomeView({ v }: { v: any }) {
   return (
     <>
-      <div data-theme={v.theme} style={{ background: "var(--ground)", color: "var(--ink)", minHeight: "100vh", position: "relative" }}>
-        {" "}
-        <div
-          data-m="chrome"
-          data-pin={v.pinState}
-          style={{ position: "absolute", top: "0", left: "0", right: "0", zIndex: "50", padding: "18px var(--gut) 0", pointerEvents: "none" }}
-        >
-          {" "}
-        </div>
-        {" "}
-        <div
-          data-m="ruler"
-          aria-hidden="true"
-          style={{ position: "absolute", top: "76px", left: "0", right: "0", height: "24px", zIndex: "45", background: "#FFFFFF", borderBottom: "1px solid #d8d6d4", overflow: "hidden", pointerEvents: "none", fontFamily: "'Archivo','Montserrat',sans-serif" }}
-        >
-          {" "}
-          <div ref={v.rulerTrack} style={{ position: "absolute", top: "0", left: "0", width: "300%", height: "100%", willChange: "transform" }}>
+      <div data-screen-label="Homepage" style={{ position: "relative", minHeight: "100vh", background: "#1c1c1c", color: "#f5f5f5", overflow: "clip" }}>
+        {v.isDesk ? (
+          <>
+          <div data-view="desktop" style={{ position: "relative" }}>
             {" "}
-            <div
-              style={{ position: "absolute", top: "0", left: "0", right: "0", height: "100%", backgroundImage: "repeating-linear-gradient(to right,#9a9794 0 1px,transparent 1px 10px),repeating-linear-gradient(to right,#4a4744 0 1px,transparent 1px 100px)", backgroundSize: "100% 6px,100% 11px", backgroundPosition: "0 100%,0 100%", backgroundRepeat: "repeat-x" }}
-            />
-            {" "}
-            {((v.rulerTicks ?? []) as any[]).map((t: any, i0: number) => (
-              <Fragment key={i0}>
-                {" "}
-                <span style={css(`position:absolute;top:2px;left:${t?.left ?? ""};font-size:9px;letter-spacing:0.04em;color:#4a4744`)}>
-                  {t?.label}
-                </span>
-                {" "}
-              </Fragment>
-            ))}
-            {" "}
-          </div>
-          {" "}
-          <div ref={v.rulerMark} style={{ position: "absolute", top: "0", left: "0", width: "1px", height: "100%", background: "#ec3013", willChange: "transform" }} />
-          {" "}
-        </div>
-        {" "}
-        <div
-          data-m="drawer"
-          data-open={v.menuState}
-          style={{ position: "fixed", inset: "0", zIndex: "60", display: "none", flexDirection: "column", background: "var(--ground)", padding: "22px" }}
-        >
-          {" "}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            {" "}
-            <span style={{ fontWeight: "800", fontSize: "14px", letterSpacing: "-0.01em" }}>
-              SHIVA KUMAR
-            </span>
-            {" "}
-            <button
-              onClick={v.toggleMenu}
-              aria-label="Close menu"
-              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "38px", height: "38px", padding: "0", cursor: "pointer", background: "transparent", border: "1px solid var(--rule)", borderRadius: "50%", color: "var(--ink)" }}
-            >
-              {v.closeIcon}
-            </button>
-            {" "}
-          </div>
-          {" "}
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "48px" }}>
-            {" "}
-            <a
-              href="#work"
-              onClick={v.closeMenu}
-              style={{ fontSize: "38px", fontWeight: "800", letterSpacing: "-0.03em", color: "var(--ink)", textDecoration: "none", padding: "14px 0", borderBottom: "2px solid var(--rule)" }}
-            >
-              Work
-            </a>
-            {" "}
-            <a
-              href="#experience"
-              onClick={v.closeMenu}
-              style={{ fontSize: "38px", fontWeight: "800", letterSpacing: "-0.03em", color: "var(--ink)", textDecoration: "none", padding: "14px 0", borderBottom: "2px solid var(--rule)" }}
-            >
-              Experience
-            </a>
-            {" "}
-            <a
-              href="#contact"
-              onClick={v.closeMenu}
-              style={{ fontSize: "38px", fontWeight: "800", letterSpacing: "-0.03em", color: "var(--ink)", textDecoration: "none", padding: "14px 0", borderBottom: "2px solid var(--rule)" }}
-            >
-              Contact
-            </a>
-            {" "}
-          </div>
-          {" "}
-          <a
-            href={asset("/assets/Shiva_Kumar_Resume.pdf")}
-            download=""
-            style={{ marginTop: "auto", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", background: "var(--redsolid)", color: "#f3f2f2", textDecoration: "none", fontSize: "14px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase", padding: "16px 20px", borderRadius: "12px" }}
-          >
-            Download Resume
-          </a>
-          {" "}
-        </div>
-        {" "}
-        <nav
-          data-m="nav"
-          data-glass={v.navState}
-          style={{ pointerEvents: "auto", borderRadius: "15px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", padding: "12px 22px" }}
-        >
-          {" "}
-          <a href="#top" style={{ fontWeight: "800", fontSize: "14px", letterSpacing: "-0.01em", textDecoration: "none", color: "var(--ink)" }}>
-            SHIVA KUMAR
-          </a>
-          {" "}
-          <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
-            {" "}
-            <div data-m="navlinks" style={{ display: "flex", alignItems: "center", gap: "22px", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            {v.showRuler ? (
+              <>
               {" "}
-              <a href="#work" style={{ textDecoration: "none", color: "var(--ink)" }}>
-                Work
-              </a>
-              {" "}
-              <a href="#experience" style={{ textDecoration: "none", color: "var(--ink)" }}>
-                Experience
-              </a>
-              {" "}
-              <a href="#contact" style={{ textDecoration: "none", color: "var(--ink)" }}>
-                Contact
-              </a>
-              {" "}
-            </div>
-            {" "}
-            <button
-              data-m="burger"
-              onClick={v.toggleMenu}
-              aria-label="Open menu"
-              style={{ display: "none", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", padding: "0", cursor: "pointer", background: "transparent", border: "1px solid var(--rule)", borderRadius: "50%", color: "var(--ink)" }}
-            >
-              {v.burgerIcon}
-            </button>
-            {" "}
-          </div>
-          {" "}
-        </nav>
-        <div data-m="vpwrap">
-          <section
-            id="top"
-            style={{ minHeight: "100svh", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingTop: "104px", boxSizing: "border-box", backgroundImage: "radial-gradient(circle, var(--soft) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px" }}
-          >
-            {" "}
-            <div
-              data-m="cursor"
-              aria-hidden="true"
-              style={css(`opacity:${v.revealOpacity ?? ""};transition:opacity .5s ease;position:absolute;left:clamp(20px,22cqw,420px);top:34%;z-index:2;animation:driftA 12s ease-in-out infinite`)}
-            >
-              {" "}
-            </div>
-            <div
-              data-m="pin"
-              onMouseEnter={v.onPinEnter}
-              onMouseLeave={v.onPinLeave}
-              style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; position: absolute; right: 244px; top: 104px; z-index: 4; display: flex; align-items: flex-start; gap: 10px; cursor: pointer`)}
-            >
-              {" "}
-              <span
-                style={{ width: "57px", height: "57px", borderRadius: "50% 50% 50% 4px", overflow: "hidden", flex: "none", border: "2px solid #ffffff", boxShadow: "0 10px 26px rgba(0,0,0,0.38)", background: "var(--panel)", display: "block" }}
+              <div
+                aria-hidden="true"
+                style={{ position: "sticky", top: "0", zIndex: "60", height: "24px", backgroundColor: "#ffffff", backgroundImage: "repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px)", backgroundSize: "100% 5px", backgroundRepeat: "repeat-x", backgroundPosition: "0 100%", overflow: "hidden" }}
               >
                 {" "}
-                <img
-                  src={asset("/assets/shiva.png")}
-                  alt="Shiva Kumar"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 12%", display: "block" }}
-                />
-              </span>
-              {" "}
-              <span
-                style={css(`background:#ffffff;border-radius:4px 14px 14px 14px;padding:12px 16px;box-shadow:0 16px 40px rgba(0,0,0,0.35);display:flex;flex-direction:column;gap:3px;white-space:nowrap;transform-origin:top left;transform:${v.pinTransform ?? ""};opacity:${v.pinOpacity ?? ""};pointer-events:none;transition:transform .28s cubic-bezier(.2,.7,.2,1),opacity .2s ease`)}
-              >
-                {" "}
-                <span style={{ color: "#6b6663", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  Shiva Kumar
-                </span>
-                {" "}
-                <span style={{ color: "#201e1d", fontSize: "16px", fontWeight: "600", letterSpacing: "-0.01em" }}>
-                  Have a nice day
-                </span>
-                {" "}
-              </span>
-              {" "}
-            </div>
-            {" "}
-            <div
-              style={{ width: "100%", maxWidth: "1576px", padding: "0 var(--gut)", position: "relative", zIndex: "1", display: "flex", flex: "1 1 auto", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "34px", minHeight: "0" }}
-            >
-              {" "}
-              {v.showComment ? (
-                <>
-                {" "}
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", animation: "popIn .32s cubic-bezier(.2,.7,.2,1) both" }}>
+                <div style={{ position: "relative", maxWidth: "1440px", height: "100%", margin: "0 auto" }}>
                   {" "}
-                  <span
-                    style={{ width: "34px", height: "34px", borderRadius: "50% 50% 50% 2px", background: "#3E92E0", display: "inline-flex", alignItems: "center", justifyContent: "center", flex: "none", color: "#fff", fontSize: "13px", fontWeight: "800", boxShadow: "0 10px 24px rgba(0,0,0,0.3)" }}
-                  >
-                    SK
-                  </span>
+                  {((v.rulerDesk ?? []) as any[]).map((r: any, i0: number) => (
+                    <Fragment key={i0}>
+                      {" "}
+                      <span style={css(`position:absolute;top:5px;left:${r?.x ?? ""}px;font-size:8px;line-height:10px;color:#7a7a7a;transform:translateX(-50%)`)}>
+                        {r?.n}
+                      </span>
+                      {" "}
+                    </Fragment>
+                  ))}
                   {" "}
-                  <span
-                    style={{ background: "#3E92E0", borderRadius: "16px 16px 16px 4px", padding: "16px 22px", boxShadow: "0 14px 36px rgba(0,0,0,0.34)", display: "inline-flex", alignItems: "center", minWidth: "170px" }}
+                  <div
+                    data-rmark=""
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "0", opacity: "0", pointerEvents: "none", transition: "opacity 0.15s ease" }}
                   >
                     {" "}
-                    <span style={{ color: "#fff", fontSize: "clamp(22px,3.4cqw,38px)", fontWeight: "600", letterSpacing: "-0.01em", whiteSpace: "pre" }}>
-                      {v.typed}
-                    </span>
-                    {" "}
-                    <span style={{ color: "#fff", fontSize: "clamp(22px,3.4cqw,38px)", fontWeight: "400", animation: "blink 1s step-end infinite" }}>
-                      |
-                    </span>
-                    {" "}
-                  </span>
-                  {" "}
-                </div>
-                {" "}
-                </>
-              ) : null}
-              {" "}
-              {v.showName ? (
-                <>
-                {" "}
-                <div
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "clamp(20px,4cqw,52px)", flexWrap: "wrap", animation: "riseIn .7s cubic-bezier(.2,.7,.2,1) both" }}
-                >
-                  {" "}
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px" }}>
+                    <span style={{ position: "absolute", left: "-0.5px", bottom: "0", width: "1px", height: "10px", background: "#0d99ff" }} />
                     {" "}
                     <span
-                      data-m="hi"
-                      style={{ fontFamily: "Trebuchet MS", fontWeight: "600", fontSize: "clamp(28px,4cqw,54px)", color: "var(--dim)", lineHeight: "1", transform: "rotate(-3deg)", alignSelf: "center", textAlign: "center" }}
+                      data-rmark-label=""
+                      style={{ position: "absolute", top: "4px", left: "0", transform: "translateX(-50%)", padding: "1px 4px", borderRadius: "2px", background: "#0d99ff", color: "#ffffff", fontSize: "8px", lineHeight: "10px", fontWeight: "600", whiteSpace: "nowrap" }}
                     >
-                      <span style={{ fontWeight: "300", fontSize: "32px", color: "#F3F2F2", letterSpacing: "1px" }}>
-                        my name is
-                      </span>
-                    </span>
-                    <span style={{ position: "relative", display: "inline-block", marginTop: "10px", padding: "26px 32px", outline: "2px solid #ffffff", outlineOffset: "0" }}>
-                      {" "}
-                      <span data-m="name" style={{ fontSize: "70px", fontWeight: "600", letterSpacing: "0.02em", lineHeight: "0.95", display: "block" }}>
-                        Shiva Kumar
-                      </span>
-                      {" "}
-                      <span
-                        aria-hidden="true"
-                        style={{ position: "absolute", left: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                      />
-                      {" "}
-                      <span
-                        aria-hidden="true"
-                        style={{ position: "absolute", right: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                      />
-                      {" "}
-                      <span
-                        aria-hidden="true"
-                        style={{ position: "absolute", left: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                      />
-                      {" "}
-                      <span
-                        aria-hidden="true"
-                        style={{ position: "absolute", right: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                      />
-                      {" "}
+                      0
                     </span>
                     {" "}
                   </div>
                   {" "}
                 </div>
                 {" "}
-                </>
-              ) : null}
-              {" "}
-              <div style={css(`opacity:${v.revealOpacity ?? ""};transition:opacity .5s ease;display:flex;align-items:center;justify-content:center;gap:10px`)}>
-                {" "}
-                <span
-                  aria-hidden="true"
-                  style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#3ddc84", boxShadow: "0 0 12px rgba(61,220,132,0.75)", flex: "none", animation: "liveBlink 2.4s ease-in-out infinite" }}
-                />
-                <span
-                  style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "13px", fontWeight: "500", letterSpacing: "0.16em", textTransform: "uppercase", color: "#FFFFFF" }}
-                >
-                  Available for thoughtful projects
-                </span>
-                {" "}
               </div>
               {" "}
-              <div
-                data-m="cursor"
-                aria-hidden="true"
-                style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; position: absolute; left: 294px; top: 282px; z-index: 2; animation: driftA 11s ease-in-out infinite`)}
-              >
-                {" "}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  style={{ position: "absolute", left: "0", top: "0", width: "24px", height: "24px", overflow: "visible", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.25))" }}
-                >
-                  <path d="M8.75418 20.0002L5.62291 4.04113L20 11.9184L12.9181 13.973L8.75418 20.0002Z" fill="black" stroke="white" />
-                </svg>
-                <span
-                  style={{ margin: "16px 0 0 16px", display: "inline-flex", alignItems: "center", height: "40px", padding: "0 17px", background: "#DD2590", border: "2px solid #C11574", borderRadius: "2px 20px 20px 24px", boxShadow: "4px 4px 10px rgba(221,37,144,0.16)", color: "#FFFFFF", fontFamily: "'Archivo','Montserrat',sans-serif", fontSize: "20px", fontWeight: "400", lineHeight: "1", letterSpacing: "0", whiteSpace: "nowrap" }}
-                >
-                  Product Designer
-                </span>
-                {" "}
-              </div>
-              <div
-                data-m="cursor"
-                aria-hidden="true"
-                style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; position: absolute; top: 212px; right: 340px; z-index: 2; animation: driftB 13s ease-in-out infinite`)}
-              >
-                {" "}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  style={{ position: "absolute", left: "0", top: "0", width: "24px", height: "24px", overflow: "visible", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.25))" }}
-                >
-                  <path d="M8.75418 20.0002L5.62291 4.04113L20 11.9184L12.9181 13.973L8.75418 20.0002Z" fill="black" stroke="white" />
-                </svg>
-                <span
-                  style={{ margin: "16px 0 0 16px", display: "inline-flex", alignItems: "center", height: "40px", padding: "0 17px", background: "#51AC65", border: "2px solid #418A51", borderRadius: "2px 20px 20px 24px", boxShadow: "4px 4px 10px rgba(81,172,101,0.16)", color: "#FFFFFF", fontFamily: "'Archivo','Montserrat',sans-serif", fontSize: "20px", fontWeight: "400", lineHeight: "1", letterSpacing: "0", whiteSpace: "nowrap" }}
-                >
-                  Gurugram
-                </span>
-                {" "}
-              </div>
-              <div
-                data-m="cursor"
-                aria-hidden="true"
-                style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; position: absolute; left: 360px; top: 104px; z-index: 2; animation: driftA 12s ease-in-out infinite`)}
-              >
-                {" "}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  style={{ position: "absolute", right: "0", top: "0", width: "24px", height: "24px", overflow: "visible", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.25))" }}
-                >
-                  <path d="M4.36 12.86 16.86 2 17.15 18.55 11.77 13.42 4.36 12.86Z" fill="black" stroke="white" />
-                </svg>
-                <span
-                  style={{ margin: "16px 16px 0 0", display: "inline-flex", alignItems: "center", height: "40px", padding: "0 17px", background: "#F7D158", border: "2px solid #C8A947", borderRadius: "20px 2px 24px 20px", boxShadow: "4px 4px 10px rgba(247,209,88,0.16)", color: "#201e1d", fontFamily: "'Archivo','Montserrat',sans-serif", fontSize: "20px", fontWeight: "400", lineHeight: "1", letterSpacing: "0", whiteSpace: "nowrap", position: "relative" }}
-                >
-                  Currently in Airtel
-                </span>
-                {" "}
-              </div>
-              <div
-                data-m="pin"
-                onMouseEnter={v.onPin2Enter}
-                onMouseLeave={v.onPin2Leave}
-                style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; position: absolute; left: 230px; z-index: 4; display: flex; align-items: flex-start; gap: 10px; cursor: pointer; top: 411px`)}
-              >
-                {" "}
-                <span
-                  style={{ width: "56px", height: "56px", borderRadius: "50% 50% 50% 4px", overflow: "hidden", flex: "none", border: "2px solid #ffffff", boxShadow: "0 10px 26px rgba(0,0,0,0.38)", background: "var(--panel)", display: "block" }}
-                >
-                  {" "}
-                  <img
-                    src={asset("/assets/shiva.png")}
-                    alt="Shiva Kumar"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 12%", display: "block" }}
-                  />
-                  {" "}
-                </span>
-                {" "}
-                <span
-                  style={css(`background:#ffffff;border-radius:4px 14px 14px 14px;padding:12px 16px;box-shadow:0 16px 40px rgba(0,0,0,0.35);display:flex;flex-direction:column;gap:3px;white-space:nowrap;transform-origin:top left;transform:${v.pin2Transform ?? ""};opacity:${v.pin2Opacity ?? ""};pointer-events:none;transition:transform .28s cubic-bezier(.2,.7,.2,1),opacity .2s ease`)}
-                >
-                  {" "}
-                  <span style={{ color: "#6b6663", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                    Shiva Kumar
-                  </span>
-                  {" "}
-                  <span style={{ color: "#201e1d", fontSize: "16px", fontWeight: "600", letterSpacing: "-0.01em" }}>
-                    Thanks for stopping by
-                  </span>
-                  {" "}
-                </span>
-                {" "}
-              </div>
-            </div>
-            <div
-              style={css(`opacity: ${v.revealOpacity ?? ""}; transition: opacity .5s ease; transform: translateY(-100px); margin-top: 200px; position: relative; z-index: 3; flex: none; width: 100%; max-width: 1576px; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 0 var(--gut) min(200px,18vh)`)}
+              </>
+            ) : null}
+            {" "}
+            <section
+              id="top"
+              style={{ position: "relative", maxWidth: "1440px", margin: "0 auto", paddingTop: "140px", display: "flex", flexDirection: "column", alignItems: "center" }}
             >
               {" "}
-              <p
-                style={{ margin: "0", fontFamily: "'Montserrat',sans-serif", fontSize: "36px", fontWeight: "300", letterSpacing: "0.03em", color: "#FFFFFF", textAlign: "center", textWrap: "pretty", width: "100%", maxWidth: "486px" }}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "20px", lineHeight: "24px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-4deg)" }}
               >
+                my name is
+              </span>
+              {" "}
+              <div style={{ position: "relative", marginTop: "58px", border: "2px solid #63c4ec", padding: "7px 26px" }}>
+                {" "}
+                <h1 style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", letterSpacing: "-0.005em", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  Shiva Kumar
+                </h1>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div
+                style={{ marginTop: "21px", display: "flex", alignItems: "center", gap: "10px", fontSize: "13px", lineHeight: "16px", fontWeight: "500", letterSpacing: "0.08em", color: "#f5f5f5" }}
+              >
+                {" "}
+                <span data-blip="" style={{ position: "relative", width: "8px", height: "8px", borderRadius: "50%", background: "#2fd46f" }}>
+                  <span data-blip-ring="" style={{ position: "absolute", inset: "0", borderRadius: "50%", background: "#2fd46f", opacity: "0" }} />
+                </span>
+                {" "}
+                <span>
+                  AVAILABLE FOR THOUGHTFUL PROJECTS
+                </span>
+                {" "}
+              </div>
+              {" "}
+              <p style={{ margin: "78px 0 0", fontSize: "40px", lineHeight: "50px", fontWeight: "300", textAlign: "center", whiteSpace: "nowrap", color: "#f5f5f5" }}>
                 I design{" "}
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  style={{ display: "inline-block", verticalAlign: "-0.12em", width: "32px", height: "32px", margin: "0 0.1em" }}
-                >
-                  <path d="M0 10V0C5.52285 0 10 4.47717 10 10V20C4.47715 20 0 15.5228 0 10Z" fill="#51AC65" />
-                  <path d="M20 20C20 25.5228 15.5228 30 10 30H0C0 24.4772 4.47715 20 10 20H20Z" fill="#51AC65" />
-                  <path d="M20 10V20C20 25.5228 24.4771 30 30 30V20C30 14.4772 25.5228 10 20 10Z" fill="#51AC65" />
-                  <path d="M20 0H30C30 5.52283 25.5228 10 20 10H10C10 4.47717 14.4772 0 20 0Z" fill="#51AC65" />
-                </svg>
-                {" "}outstanding digital products{" "}
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  style={{ display: "inline-block", verticalAlign: "-0.12em", width: "32px", height: "32px", margin: "0 0.1em", transformOrigin: "50% 50%", animation: "spinSlow 14s linear infinite" }}
-                >
-                  <path d="M30 0C30 8.28172 23.2884 14.9959 15.0077 15H15L15 14.9923C15.0041 6.71159 21.7183 0 30 0Z" fill="#DD2590" />
-                  <path
-                    d="M0.00765133 30C8.28841 29.9959 15 23.2817 15 15C15 23.2817 21.7116 29.9959 29.9923 30H30L30 29.9923C29.9959 21.7116 23.2817 15 15 15C6.71828 15 0.00413418 21.7116 1.90735e-06 29.9923L0 30H0.00765133Z"
-                    fill="#DD2590"
-                  />
-                  <path d="M14.9923 15C6.71159 14.9959 0 8.28172 0 0C8.28172 0 14.9959 6.71159 15 14.9923L15 15H14.9923Z" fill="#DD2590" />
-                </svg>
+                <img
+                  src={asset("/assets/home/pinwheel-green.png")}
+                  alt=""
+                  style={{ display: "inline-block", maxWidth: "none", width: "46px", height: "46px", verticalAlign: "-10px", margin: "0 -2px" }}
+                />
+                {" "}outstanding
+                <br />
+                digital products{" "}
+                <img
+                  data-spin=""
+                  src={asset("/assets/home/flower-pink.png")}
+                  alt=""
+                  style={{ display: "inline-block", maxWidth: "none", width: "58px", height: "58px", verticalAlign: "-18px", marginLeft: "-4px" }}
+                />
               </p>
               {" "}
               <a
+                data-shimmer=""
+                data-lmbtn=""
                 href="#contact"
-                style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "13px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", color: "#111111", textDecoration: "none", border: "2px solid #FFFFFF", background: "#FFFFFF", padding: "13px 26px", transition: "background .2s ease,color .2s ease", borderRadius: "10px", display: "inline-flex", alignItems: "center", gap: "10px" }}
-                data-m="callbtn"
+                style={{ position: "relative", overflow: "hidden", marginTop: "43px", display: "flex", padding: "2px", boxSizing: "border-box", height: "45px", borderRadius: "999px", background: "#bdbdbd", textDecoration: "none", boxShadow: "0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" }}
                 className="home-hover-0"
               >
-                Contact me
-                <svg
-                  data-m="callico"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  style={{ flex: "none", width: "20px", height: "20px", transformOrigin: "50% 60%" }}
+                <span
+                  data-lm=""
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "50%", top: "50%", width: "300px", height: "300px", margin: "-150px 0 0 -150px", background: "conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff)", filter: "blur(3px)", pointerEvents: "none" }}
+                />
+                <span
+                  style={{ position: "relative", overflow: "hidden", flex: "1", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", padding: "0 20px", borderRadius: "999px", background: "linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%)", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", boxShadow: "inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)" }}
                 >
-                  <path
-                    d="M24.9994 19.9201V22.9201C25.0006 23.1986 24.9435 23.4743 24.832 23.7294C24.7204 23.9846 24.5567 24.2137 24.3515 24.402C24.1463 24.5902 23.904 24.7336 23.6402 24.8228C23.3764 24.912 23.0968 24.9452 22.8194 24.9201C19.7423 24.5857 16.7864 23.5342 14.1894 21.8501C11.7733 20.3148 9.72478 18.2663 8.18945 15.8501C6.49942 13.2413 5.44769 10.2711 5.11944 7.1801C5.09446 6.90356 5.12732 6.62486 5.21595 6.36172C5.30457 6.09859 5.44702 5.85679 5.63421 5.65172C5.82141 5.44665 6.04925 5.28281 6.30324 5.17062C6.55722 5.05843 6.83179 5.00036 7.10945 5.0001H10.1094C10.5948 4.99532 11.0652 5.16718 11.4332 5.48363C11.8012 5.80008 12.0415 6.23954 12.1094 6.7201C12.2361 7.68016 12.4709 8.62282 12.8094 9.5301C12.944 9.88802 12.9731 10.277 12.8934 10.651C12.8136 11.0249 12.6283 11.3682 12.3594 11.6401L11.0894 12.9101C12.513 15.4136 14.5859 17.4865 17.0894 18.9101L18.3594 17.6401C18.6313 17.3712 18.9746 17.1859 19.3486 17.1062C19.7225 17.0264 20.1115 17.0556 20.4694 17.1901C21.3767 17.5286 22.3194 17.7635 23.2794 17.8901C23.7652 17.9586 24.2088 18.2033 24.526 18.5776C24.8431 18.9519 25.0116 19.4297 24.9994 19.9201Z"
-                    fill="currentColor"
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
                   />
-                </svg>
+                  <span style={{ position: "relative" }}>
+                    CONTACT ME
+                  </span>
+                  <svg data-ring="" style={{ position: "relative" }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"
+                    />
+                  </svg>
+                </span>
               </a>
               {" "}
-            </div>
+              <div data-float="1" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% - 336px)", top: "296px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 4 4 10.5l6.5 2.9L13.4 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% - 500px)", top: "314px", height: "37px", padding: "0 18px", display: "flex", alignItems: "center", background: "#f7d158", color: "#1c1c1c", fontSize: "14px", fontWeight: "500", borderRadius: "999px 0 999px 999px", boxShadow: "0 0 14px rgba(247,209,88,0.45)" }}
+                  >
+                    Currently in Airtel
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+              <div data-float="2" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% + 187px)", top: "339px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4l16 6.5-6.5 2.9L10.6 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% + 201px)", top: "357px", height: "39px", padding: "0 18px", display: "flex", alignItems: "center", background: "#e0258f", color: "#ffffff", fontSize: "14px", fontWeight: "500", borderRadius: "0 999px 999px 999px", boxShadow: "0 0 14px rgba(224,37,143,0.45)" }}
+                  >
+                    Product Designer
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+              <div data-float="3" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% + 215px)", top: "513px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4l16 6.5-6.5 2.9L10.6 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% + 228px)", top: "529px", height: "39px", padding: "0 18px", display: "flex", alignItems: "center", background: "#51ac65", color: "#ffffff", fontSize: "14px", fontWeight: "500", borderRadius: "0 999px 999px 999px", boxShadow: "0 0 14px rgba(81,172,101,0.45)" }}
+                  >
+                    Gurugram
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+            </section>
             {" "}
-          </section>
-          <section
-            id="about"
-            ref={v.aboutRef}
-            style={{ minHeight: "100vh", transform: "translateY(-100px)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(90px,10vh,150px) calc(var(--gut) + clamp(150px,17cqw,230px) + 40px)", backgroundImage: "radial-gradient(circle, var(--soft) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px" }}
-          >
-            {" "}
-            <div
-              data-m="dragphoto"
-              onPointerDown={v.onDragStart}
-              data-drag="a"
-              data-slide="l"
-              style={css(`position:absolute;left:${v.pAx ?? ""}px;top:${v.pAy ?? ""}px;z-index:2;width:clamp(150px,17cqw,230px);touch-action:none;cursor:grab;transform:rotate(-4deg);box-shadow:0 22px 48px rgba(0,0,0,0.34);background:#ffffff`)}
+            <section
+              id="about"
+              style={{ position: "relative", maxWidth: "1440px", margin: "302px auto 0", display: "flex", flexDirection: "column", alignItems: "center" }}
             >
               {" "}
-              <img src={asset("/assets/shiva-2026.png")} alt="Shiva Kumar" draggable="false" style={{ width: "100%", display: "block", pointerEvents: "none" }} />
-              {" "}
-            </div>
-            {" "}
-            <div
-              data-m="dragphoto"
-              onPointerDown={v.onDragStart}
-              data-drag="b"
-              data-slide="r"
-              style={css(`position:absolute;left:${v.pBx ?? ""}px;top:${v.pBy ?? ""}px;z-index:2;width:clamp(150px,17cqw,230px);touch-action:none;cursor:grab;transform:rotate(5deg);box-shadow:0 22px 48px rgba(0,0,0,0.34);background:#ffffff`)}
-            >
-              {" "}
-              <img src={asset("/assets/workplace.png")} alt="My Work Place" draggable="false" style={{ width: "100%", display: "block", pointerEvents: "none" }} />
-              {" "}
-            </div>
-            {" "}
-            <span style={{ position: "relative", display: "inline-block", padding: "10px 18px", outline: "2px solid #ffffff" }}>
-              {" "}
-              <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "32px", fontWeight: "500", textTransform: "none", color: "#FFFFFF", letterSpacing: "1px" }}>
-                what's up
-              </span>
-              {" "}
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-7px", top: "-7px", width: "14px", height: "14px", border: "2px solid #ffffff", background: "#000000" }}
-              />
-              {" "}
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-7px", top: "-7px", width: "14px", height: "14px", border: "2px solid #ffffff", background: "#000000" }}
-              />
-              {" "}
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-7px", bottom: "-7px", width: "14px", height: "14px", border: "2px solid #ffffff", background: "#000000" }}
-              />
-              {" "}
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-7px", bottom: "-7px", width: "14px", height: "14px", border: "2px solid #ffffff", background: "#000000" }}
-              />
-              {" "}
-            </span>
-            <div
-              style={{ marginTop: "30px", position: "relative", zIndex: "3", flex: "none", minHeight: "0", display: "flex", flexDirection: "column", alignItems: "center", gap: "30px", maxWidth: "min(717px,100%)", textAlign: "center", pointerEvents: "none" }}
-            >
-              {" "}
-              <p
-                data-m="revealtext"
-                style={{ margin: "0", fontFamily: "'Montserrat',sans-serif", fontSize: "60px", fontWeight: "500", lineHeight: "1.25", letterSpacing: "-0.02em", color: "#FFFFFF", textWrap: "pretty", width: "100%", maxWidth: "717px" }}
+              <div
+                style={{ position: "absolute", left: "calc(50% - 621px)", top: "131px", width: "256px", height: "349px", transform: "rotate(-12deg)", borderRadius: "14px", overflow: "hidden", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
               >
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  I{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 12ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  am S
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 24ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  hiva{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 36ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  a P
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 48ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  roduct D
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 60ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  esigner{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 72ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  in{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 84ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  Gurugram{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 96ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  who{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 108ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  gets{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 120ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  excited{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 132ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  about{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 144ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  making{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 156ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  complicated{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 168ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  things{" "}
-                </span>
-                <span
-                  style={{ display: "inline-block", whiteSpace: "pre", opacity: "1", transform: "translateY(0px)", filter: "blur(0px)", transition: "opacity 0.45s 180ms, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.45s" }}
-                >
-                  simple
-                </span>
-              </p>
-              {" "}
-            </div>
-          </section>
-          <section
-            id="work"
-            style={{ borderBottom: "2px solid var(--rule)", backgroundImage: "radial-gradient(circle, var(--soft) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px" }}
-          >
-            {" "}
-            <div
-              style={{ padding: "clamp(70px,8cqw,120px) var(--gut) clamp(26px,4cqw,52px)", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", textAlign: "center" }}
-            >
-              {" "}
-              <span style={{ fontFamily: "Montserrat", fontSize: "32px", fontWeight: "300", color: "var(--dim)", lineHeight: "1", transform: "rotate(-3deg)" }}>
-                explore my work!
-              </span>
-              {" "}
-              <span style={{ position: "relative", display: "inline-block", padding: "26px 32px", outline: "2px solid #ffffff", outlineOffset: "0" }}>
                 {" "}
-                <h2
-                  style={{ margin: "0", fontFamily: "'Montserrat',sans-serif", fontSize: "70px", fontWeight: "600", letterSpacing: "0.02em", lineHeight: "0.95", textTransform: "none", color: "#FFFFFF" }}
-                >
-                  Featured
-                  <br />
-                  works
+                <ImageSlot id="home-about-1" shape="rounded" radius="14" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
+                {" "}
+              </div>
+              {" "}
+              <div
+                style={{ position: "absolute", left: "calc(50% + 393px)", top: "161px", width: "254px", height: "350px", transform: "rotate(4deg)", borderRadius: "14px", overflow: "hidden", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
+              >
+                {" "}
+                <ImageSlot id="home-about-2" shape="rounded" radius="14" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
+                {" "}
+              </div>
+              {" "}
+              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "23px 31px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "36px", lineHeight: "44px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  what’s up
                 </h2>
                 {" "}
                 <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", left: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
+                  style={{ position: "absolute", left: "-10px", top: "-10px", width: "18px", height: "18px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
                 />
                 {" "}
                 <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", right: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
+                  style={{ position: "absolute", right: "-10px", top: "-10px", width: "18px", height: "18px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
                 />
                 {" "}
                 <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", left: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
+                  style={{ position: "absolute", left: "-10px", bottom: "-10px", width: "18px", height: "18px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
                 />
                 {" "}
                 <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", right: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
+                  style={{ position: "absolute", right: "-10px", bottom: "-10px", width: "18px", height: "18px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
                 />
                 {" "}
-              </span>
-              <span
-                style={{ background: "#F3E2A9", color: "#201e1d", fontFamily: "'Montserrat',sans-serif", fontSize: "16px", fontWeight: "500", lineHeight: "1.5", padding: "12px 16px", maxWidth: "34ch", transform: "rotate(-1deg)", boxShadow: "0 12px 30px rgba(0,0,0,0.28)", width: "327px", height: "70px" }}
-              >
-                This is a showcase of what happens when curiosity drives the process.
-              </span>
+              </div>
               {" "}
-            </div>
+              <p
+                style={{ position: "relative", margin: "42px 0 0", fontSize: "56px", lineHeight: "73px", fontWeight: "500", textAlign: "center", color: "#f5f5f5" }}
+                data-line-reveal="1"
+              >
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    I am Shiva a Product
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    Designer in Gurugram
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    who gets excited
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    about making
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    complicated things
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    simple
+                  </span>
+                </span>
+              </p>
+              {" "}
+            </section>
             {" "}
-            <div data-m="workstack" style={{ padding: "30px var(--gut) clamp(70px,8cqw,120px)", display: "block" }}>
+            <section id="work" style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "325px", display: "flex", flexDirection: "column", alignItems: "center" }}>
               {" "}
-              <article
-                data-m="workrow"
-                style={{ position: "sticky", top: "70px", zIndex: "1", marginBottom: "clamp(140px,22vh,240px)", outline: "2px solid #111111", background: "#22BDE8", color: "#0B1F26", boxShadow: "0 -18px 44px rgba(0,0,0,0.32)" }}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
               >
+                explore my work
+              </span>
+              {" "}
+              <div style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px" }}>
                 {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "-30px", height: "30px", background: "#22BDE8", padding: "0 20px 0 22px", display: "flex", alignItems: "center", gap: "8px", clipPath: "polygon(0 0,calc(100% - 22px) 0,100% 100%,0 100%)" }}
-                >
+                <h2 style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  Featured Works
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div data-stack="60,22" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", marginTop: "125px", display: "flex", flexDirection: "column", gap: "80px" }}>
+                {" "}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                   {" "}
                   <span
-                    style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "10px", fontWeight: "700", letterSpacing: "0.18em", color: "#0B1F26", fontVariantNumeric: "tabular-nums" }}
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "104px", paddingLeft: "16px", boxSizing: "border-box", background: "#22bde8", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em" }}
                   >
                     PROJECT 01
                   </span>
                   {" "}
-                </div>
-                {" "}
-                <div
-                  data-m="cardgrid"
-                  style={{ display: "grid", gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.08fr)", gap: "clamp(20px,3cqw,44px)", alignItems: "center", padding: "clamp(28px,3.2cqw,46px)" }}
-                >
-                  {" "}
-                  <div data-m="cardbody" style={{ display: "flex", flexDirection: "column", minWidth: "0", gap: "clamp(14px,1.6cqw,22px)" }}>
+                  <div style={{ position: "relative", alignSelf: "stretch", background: "#22bde8", padding: "31px 30px 154px" }}>
                     {" "}
-                    <h3
-                      style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,5cqw,64px)", fontWeight: "400", letterSpacing: "-0.015em", lineHeight: "1", margin: "0", color: "#0B1F26" }}
-                    >
-                      Engage X
-                    </h3>
+                    <div style={{ maxWidth: "min(460px,calc(51% - 40px))", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "60px", lineHeight: "72px", fontWeight: "400", letterSpacing: "-0.01em", color: "#0f1d24" }}>
+                        Engage X
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "13px 0 0", fontSize: "20px", lineHeight: "24px", fontWeight: "400", color: "#0f1d24" }}>
+                        A unified campaign lifecycle manager
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/engage-x/")}
+                        style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#22bde8", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
                     {" "}
-                    <p
-                      style={{ margin: "0", maxWidth: "34ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(15px,1.5cqw,20px)", fontWeight: "400", lineHeight: "1.35", color: "#0B1F26" }}
-                    >
-                      A unified campaign lifecycle manager
-                    </p>
-                    {" "}
-                    <a
-                      href={href("/work/engage-x/")}
-                      style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", background: "#0B1F26", color: "#22BDE8", fontFamily: "'Montserrat',sans-serif", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", padding: "13px 18px", transition: "opacity .2s ease" }}
-                      className="home-hover-1"
-                    >
-                      View project{" "}
-                      <span style={{ fontSize: "15px", lineHeight: "1" }}>
-                        →
-                      </span>
-                    </a>
-                    {" "}
-                    <div data-m="cardtags" style={{ marginTop: "clamp(26px,4cqw,62px)", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                    <div style={{ position: "absolute", left: "19px", bottom: "19px", display: "flex", gap: "12px" }}>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#0B1F26", color: "#22BDE8", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#22bde8", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#0B1F26", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Martech
+                        MARTECH
                       </span>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#0B1F26", color: "#22BDE8", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#22bde8", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#0B1F26", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        CPaaS
+                        CPAAS
                       </span>
                       {" "}
                     </div>
                     {" "}
-                  </div>
-                  {" "}
-                  <div data-m="cardmedia" style={{ position: "relative", minWidth: "0", padding: "9px" }}>
-                    {" "}
-                    <div style={{ position: "relative", outline: "2px solid #1473E6", minHeight: "clamp(230px,28cqw,400px)", overflow: "hidden", background: "var(--panel)" }}>
-                      {" "}
-                      <ImageSlot id="work-card-1" shape="rect" radius="0" placeholder="Drop product imagery" />
-                      {" "}
-                      <span
-                        data-m="jpgchip"
-                        style={{ position: "absolute", right: "14px", top: "14px", display: "flex", alignItems: "center", gap: "9px", background: "#FFFFFF", padding: "8px 12px", pointerEvents: "none" }}
-                      >
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "22px", height: "22px", background: "#1473E6", color: "#FFFFFF", fontFamily: "'Montserrat',sans-serif", fontSize: "8px", fontWeight: "700" }}
-                        >
-                          JPG
-                        </span>
-                        <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", color: "#111111" }}>
-                          IMAGE.JPG
-                        </span>
-                      </span>
-                      {" "}
+                    <div
+                      style={{ position: "absolute", top: "17px", right: "11px", bottom: "17px", width: "48.85%", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}
+                    >
+                      <img
+                        src={asset("/assets/home/engage.jpg")}
+                        alt="Engage X dashboard on a laptop"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
                     </div>
-                    {" "}
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
                     {" "}
                   </div>
                   {" "}
                 </div>
                 {" "}
-              </article>
-              {" "}
-              <article
-                data-m="workrow"
-                style={{ position: "sticky", top: "118px", zIndex: "2", marginBottom: "clamp(140px,22vh,240px)", background: "#111111", color: "#FFFFFF", boxShadow: "0 -18px 44px rgba(0,0,0,0.32)" }}
-              >
-                {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "-30px", height: "30px", background: "#111111", padding: "0 20px 0 22px", display: "flex", alignItems: "center", gap: "8px", clipPath: "polygon(0 0,calc(100% - 22px) 0,100% 100%,0 100%)" }}
-                >
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                   {" "}
                   <span
-                    style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "10px", fontWeight: "700", letterSpacing: "0.18em", color: "#FFFFFF", fontVariantNumeric: "tabular-nums" }}
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "104px", paddingLeft: "16px", boxSizing: "border-box", background: "#dd3732", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em" }}
                   >
                     PROJECT 02
                   </span>
                   {" "}
-                </div>
-                {" "}
-                <div
-                  data-m="cardgrid"
-                  style={{ display: "grid", gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.08fr)", gap: "clamp(20px,3cqw,44px)", alignItems: "center", padding: "clamp(28px,3.2cqw,46px)" }}
-                >
-                  {" "}
-                  <div data-m="cardbody" style={{ display: "flex", flexDirection: "column", minWidth: "0", gap: "clamp(14px,1.6cqw,22px)" }}>
+                  <div style={{ position: "relative", alignSelf: "stretch", background: "#dd3732", padding: "31px 30px 154px" }}>
                     {" "}
-                    <h3
-                      style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,5cqw,64px)", fontWeight: "400", letterSpacing: "-0.015em", lineHeight: "1", margin: "0", color: "#FFFFFF" }}
-                    >
-                      Price simplification
-                    </h3>
+                    <div style={{ maxWidth: "min(460px,calc(51% - 40px))", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "60px", lineHeight: "72px", fontWeight: "400", letterSpacing: "-0.01em", color: "#0f1d24" }}>
+                        DTH Price Simplification
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "13px 0 0", fontSize: "20px", lineHeight: "24px", fontWeight: "400", color: "#0f1d24" }}>
+                        Clearer DTH packs, priced so they compare
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/dth-price-simplification/")}
+                        style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#dd3732", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
                     {" "}
-                    <p
-                      style={{ margin: "0", maxWidth: "34ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(15px,1.5cqw,20px)", fontWeight: "400", lineHeight: "1.35", color: "#FFFFFF" }}
-                    >
-                      Clearer DTH packs, priced so they compare
-                    </p>
-                    {" "}
-                    <a
-                      href={href("/work/dth-price-simplification/")}
-                      style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", background: "#FFFFFF", color: "#111111", fontFamily: "'Montserrat',sans-serif", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", padding: "13px 18px", transition: "opacity .2s ease" }}
-                      className="home-hover-1"
-                    >
-                      View project{" "}
-                      <span style={{ fontSize: "15px", lineHeight: "1" }}>
-                        →
-                      </span>
-                    </a>
-                    {" "}
-                    <div data-m="cardtags" style={{ marginTop: "clamp(26px,4cqw,62px)", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                    <div style={{ position: "absolute", left: "19px", bottom: "19px", display: "flex", gap: "12px" }}>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#FFFFFF", color: "#111111", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#dd3732", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#FFFFFF", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Telecom
+                        TELCO
                       </span>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#FFFFFF", color: "#111111", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#dd3732", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#FFFFFF", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Pricing UX
+                        B2C
                       </span>
                       {" "}
                     </div>
                     {" "}
-                  </div>
-                  {" "}
-                  <div data-m="cardmedia" style={{ position: "relative", minWidth: "0", padding: "9px" }}>
-                    {" "}
-                    <div style={{ position: "relative", outline: "2px solid #1473E6", minHeight: "clamp(230px,28cqw,400px)", overflow: "hidden", background: "var(--panel)" }}>
-                      {" "}
-                      <ImageSlot id="work-card-2" shape="rect" radius="0" placeholder="Drop product imagery" />
-                      {" "}
-                      <span
-                        data-m="jpgchip"
-                        style={{ position: "absolute", right: "14px", top: "14px", display: "flex", alignItems: "center", gap: "9px", background: "#FFFFFF", padding: "8px 12px", pointerEvents: "none" }}
-                      >
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "22px", height: "22px", background: "#1473E6", color: "#FFFFFF", fontFamily: "'Montserrat',sans-serif", fontSize: "8px", fontWeight: "700" }}
-                        >
-                          JPG
-                        </span>
-                        <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", color: "#111111" }}>
-                          IMAGE.JPG
-                        </span>
-                      </span>
-                      {" "}
+                    <div
+                      style={{ position: "absolute", top: "17px", right: "11px", bottom: "17px", width: "48.85%", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}
+                    >
+                      <img
+                        src={asset("/assets/home/dth.jpg")}
+                        alt="TV showing Netflix in a dark room"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
                     </div>
-                    {" "}
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
                     {" "}
                   </div>
                   {" "}
                 </div>
                 {" "}
-              </article>
-              {" "}
-              <article
-                data-m="workrow"
-                style={{ position: "sticky", top: "166px", zIndex: "3", marginBottom: "clamp(140px,22vh,240px)", outline: "2px solid #111111", background: "#51834A", color: "#FFFFFF", boxShadow: "0 -18px 44px rgba(0,0,0,0.32)" }}
-              >
-                {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "-30px", height: "30px", background: "#51834A", padding: "0 20px 0 22px", display: "flex", alignItems: "center", gap: "8px", clipPath: "polygon(0 0,calc(100% - 22px) 0,100% 100%,0 100%)" }}
-                >
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                   {" "}
                   <span
-                    style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "10px", fontWeight: "700", letterSpacing: "0.18em", color: "#FFFFFF", fontVariantNumeric: "tabular-nums" }}
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "104px", paddingLeft: "16px", boxSizing: "border-box", background: "#51ac65", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em" }}
                   >
                     PROJECT 03
                   </span>
                   {" "}
-                </div>
-                {" "}
-                <div
-                  data-m="cardgrid"
-                  style={{ display: "grid", gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.08fr)", gap: "clamp(20px,3cqw,44px)", alignItems: "center", padding: "clamp(28px,3.2cqw,46px)" }}
-                >
-                  {" "}
-                  <div data-m="cardbody" style={{ display: "flex", flexDirection: "column", minWidth: "0", gap: "clamp(14px,1.6cqw,22px)" }}>
+                  <div style={{ position: "relative", alignSelf: "stretch", background: "#51ac65", padding: "31px 30px 154px" }}>
                     {" "}
-                    <h3
-                      style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,5cqw,64px)", fontWeight: "400", letterSpacing: "-0.015em", lineHeight: "1", margin: "0", color: "#FFFFFF" }}
-                    >
-                      Bijak Web Design System
-                    </h3>
+                    <div style={{ maxWidth: "min(460px,calc(51% - 40px))", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "60px", lineHeight: "72px", fontWeight: "400", letterSpacing: "-0.01em", color: "#0f1d24" }}>
+                        Bijak Web Design System
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "13px 0 0", fontSize: "20px", lineHeight: "24px", fontWeight: "400", color: "#0f1d24" }}>
+                        Foundations and components for Bijak on the web
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/bijak-design-system/")}
+                        style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#51ac65", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
                     {" "}
-                    <p
-                      style={{ margin: "0", maxWidth: "34ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(15px,1.5cqw,20px)", fontWeight: "400", lineHeight: "1.35", color: "#FFFFFF" }}
-                    >
-                      Foundations and components for Bijak on the web
-                    </p>
-                    {" "}
-                    <a
-                      href={href("/work/bijak-design-system/")}
-                      style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", background: "#FFFFFF", color: "#1F3A1C", fontFamily: "'Montserrat',sans-serif", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", padding: "13px 18px", transition: "opacity .2s ease" }}
-                      className="home-hover-1"
-                    >
-                      View project{" "}
-                      <span style={{ fontSize: "15px", lineHeight: "1" }}>
-                        →
-                      </span>
-                    </a>
-                    {" "}
-                    <div data-m="cardtags" style={{ marginTop: "clamp(26px,4cqw,62px)", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                    <div style={{ position: "absolute", left: "19px", bottom: "19px", display: "flex", gap: "12px" }}>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#FFFFFF", color: "#51834A", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#51ac65", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#FFFFFF", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Design system
+                        DESIGN SYSTEM
                       </span>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#FFFFFF", color: "#51834A", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#51ac65", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#FFFFFF", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Agritech
+                        AGRITECH
                       </span>
                       {" "}
                     </div>
                     {" "}
-                  </div>
-                  {" "}
-                  <div data-m="cardmedia" style={{ position: "relative", minWidth: "0", padding: "9px" }}>
-                    {" "}
-                    <div style={{ position: "relative", outline: "2px solid #1473E6", minHeight: "clamp(230px,28cqw,400px)", overflow: "hidden", background: "var(--panel)" }}>
-                      {" "}
-                      <ImageSlot id="work-card-bijak" shape="rect" radius="0" placeholder="Drop product imagery" />
-                      {" "}
-                      <span
-                        data-m="jpgchip"
-                        style={{ position: "absolute", right: "14px", top: "14px", display: "flex", alignItems: "center", gap: "9px", background: "#FFFFFF", padding: "8px 12px", pointerEvents: "none" }}
-                      >
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "22px", height: "22px", background: "#1473E6", color: "#FFFFFF", fontFamily: "'Montserrat',sans-serif", fontSize: "8px", fontWeight: "700" }}
-                        >
-                          JPG
-                        </span>
-                        <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", color: "#111111" }}>
-                          IMAGE.JPG
-                        </span>
-                      </span>
-                      {" "}
+                    <div
+                      style={{ position: "absolute", top: "17px", right: "11px", bottom: "17px", width: "48.85%", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}
+                    >
+                      <img
+                        src={asset("/assets/home/bijak.jpg")}
+                        alt="Design system components on a tablet and monitor"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
                     </div>
-                    {" "}
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
                     {" "}
                   </div>
                   {" "}
                 </div>
                 {" "}
-              </article>
-              {" "}
-              <article
-                data-m="workrow"
-                style={{ position: "sticky", top: "214px", zIndex: "4", marginBottom: "clamp(140px,22vh,240px)", outline: "2px solid #111111", background: "#EFB420", color: "#211705", boxShadow: "0 -18px 44px rgba(0,0,0,0.32)" }}
-              >
-                {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "-30px", height: "30px", background: "#EFB420", padding: "0 20px 0 22px", display: "flex", alignItems: "center", gap: "8px", clipPath: "polygon(0 0,calc(100% - 22px) 0,100% 100%,0 100%)" }}
-                >
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                   {" "}
                   <span
-                    style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "10px", fontWeight: "700", letterSpacing: "0.18em", color: "#211705", fontVariantNumeric: "tabular-nums" }}
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "104px", paddingLeft: "16px", boxSizing: "border-box", background: "#f26667", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em" }}
                   >
                     PROJECT 04
                   </span>
                   {" "}
-                </div>
-                {" "}
-                <div
-                  data-m="cardgrid"
-                  style={{ display: "grid", gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.08fr)", gap: "clamp(20px,3cqw,44px)", alignItems: "center", padding: "clamp(28px,3.2cqw,46px)" }}
-                >
-                  {" "}
-                  <div data-m="cardbody" style={{ display: "flex", flexDirection: "column", minWidth: "0", gap: "clamp(14px,1.6cqw,22px)" }}>
+                  <div style={{ position: "relative", alignSelf: "stretch", background: "#f26667", padding: "31px 30px 154px" }}>
                     {" "}
-                    <h3
-                      style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,5cqw,64px)", fontWeight: "400", letterSpacing: "-0.015em", lineHeight: "1", margin: "0", color: "#211705" }}
-                    >
-                      Toffee Seller App
-                    </h3>
+                    <div style={{ maxWidth: "min(460px,calc(51% - 40px))", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "60px", lineHeight: "72px", fontWeight: "400", letterSpacing: "-0.01em", color: "#0f1d24" }}>
+                        Toffee Seller App
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "13px 0 0", fontSize: "20px", lineHeight: "24px", fontWeight: "400", color: "#0f1d24" }}>
+                        Insurance App for cycle insurance
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/toffee-seller-app/")}
+                        style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#f26667", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
                     {" "}
-                    <p
-                      style={{ margin: "0", maxWidth: "34ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(15px,1.5cqw,20px)", fontWeight: "400", lineHeight: "1.35", color: "#211705" }}
-                    >
-                      Insurance App for cycle insurance
-                    </p>
-                    {" "}
-                    <a
-                      href={href("/work/toffee-seller-app/")}
-                      style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", background: "#211705", color: "#EFB420", fontFamily: "'Montserrat',sans-serif", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", padding: "13px 18px", transition: "opacity .2s ease" }}
-                      className="home-hover-1"
-                    >
-                      View project{" "}
-                      <span style={{ fontSize: "15px", lineHeight: "1" }}>
-                        →
-                      </span>
-                    </a>
-                    {" "}
-                    <div data-m="cardtags" style={{ marginTop: "clamp(26px,4cqw,62px)", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                    <div style={{ position: "absolute", left: "19px", bottom: "19px", display: "flex", gap: "12px" }}>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#211705", color: "#EFB420", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f26667", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#211705", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Insurtech
+                        REVAMP
                       </span>
                       {" "}
                       <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#211705", color: "#EFB420", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f26667", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
                       >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#211705", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        0 → 1
+                        INSURETECH
                       </span>
                       {" "}
                     </div>
                     {" "}
-                  </div>
-                  {" "}
-                  <div data-m="cardmedia" style={{ position: "relative", minWidth: "0", padding: "9px" }}>
-                    {" "}
-                    <div style={{ position: "relative", outline: "2px solid #1473E6", minHeight: "clamp(230px,28cqw,400px)", overflow: "hidden", background: "var(--panel)" }}>
-                      {" "}
-                      <ImageSlot id="work-card-3" shape="rect" radius="0" placeholder="Drop product imagery" />
-                      {" "}
-                      <span
-                        data-m="jpgchip"
-                        style={{ position: "absolute", right: "14px", top: "14px", display: "flex", alignItems: "center", gap: "9px", background: "#FFFFFF", padding: "8px 12px", pointerEvents: "none" }}
-                      >
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "22px", height: "22px", background: "#1473E6", color: "#FFFFFF", fontFamily: "'Montserrat',sans-serif", fontSize: "8px", fontWeight: "700" }}
-                        >
-                          JPG
-                        </span>
-                        <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", color: "#111111" }}>
-                          IMAGE.JPG
-                        </span>
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-              </article>
-              {" "}
-              <article
-                data-m="workrow"
-                style={{ position: "sticky", top: "262px", zIndex: "5", outline: "2px solid #111111", background: "#D97757", color: "#1F1410", boxShadow: "0 -18px 44px rgba(0,0,0,0.32)" }}
-              >
-                {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "-30px", height: "30px", background: "#D97757", padding: "0 20px 0 22px", display: "flex", alignItems: "center", gap: "8px", clipPath: "polygon(0 0,calc(100% - 22px) 0,100% 100%,0 100%)" }}
-                >
-                  {" "}
-                  <span
-                    style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "10px", fontWeight: "700", letterSpacing: "0.18em", color: "#1F1410", fontVariantNumeric: "tabular-nums" }}
-                  >
-                    PROJECT 05
-                  </span>
-                  {" "}
-                </div>
-                {" "}
-                <div
-                  data-m="cardgrid"
-                  style={{ display: "grid", gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.08fr)", gap: "clamp(20px,3cqw,44px)", alignItems: "center", padding: "clamp(28px,3.2cqw,46px)" }}
-                >
-                  {" "}
-                  <div data-m="cardbody" style={{ display: "flex", flexDirection: "column", minWidth: "0", gap: "clamp(14px,1.6cqw,22px)" }}>
-                    {" "}
-                    <h3
-                      style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,5cqw,64px)", fontWeight: "400", letterSpacing: "-0.015em", lineHeight: "1", margin: "0", color: "#1F1410" }}
+                    <div
+                      style={{ position: "absolute", top: "17px", right: "11px", bottom: "17px", width: "48.85%", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}
                     >
-                      Claude Code projects
-                    </h3>
-                    {" "}
-                    <p
-                      style={{ margin: "0", maxWidth: "34ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(15px,1.5cqw,20px)", fontWeight: "400", lineHeight: "1.35", color: "#1F1410" }}
-                    >
-                      Tools and prototypes I build with Claude Code
-                    </p>
-                    {" "}
-                    <a
-                      href="#"
-                      onClick={v.soon}
-                      style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", background: "#1F1410", color: "#D97757", fontFamily: "'Montserrat',sans-serif", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", padding: "13px 18px", transition: "opacity .2s ease" }}
-                      className="home-hover-1"
-                    >
-                      View project{" "}
-                      <span style={{ fontSize: "15px", lineHeight: "1" }}>
-                        →
-                      </span>
-                    </a>
-                    {" "}
-                    <div data-m="cardtags" style={{ marginTop: "clamp(26px,4cqw,62px)", display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                      {" "}
-                      <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#1F1410", color: "#D97757", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
-                      >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#1F1410", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        AI
-                      </span>
-                      {" "}
-                      <span
-                        style={{ position: "relative", display: "inline-flex", alignItems: "center", background: "#1F1410", color: "#D97757", fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "500", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "12px 16px", marginTop: "9px" }}
-                      >
-                        <span
-                          aria-hidden="true"
-                          style={{ position: "absolute", left: "0", top: "-9px", height: "9px", width: "54%", background: "#1F1410", clipPath: "polygon(0 0,74% 0,100% 100%,0 100%)" }}
-                        />
-                        Claude Code
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                  <div data-m="cardmedia" style={{ position: "relative", minWidth: "0", padding: "9px" }}>
-                    {" "}
-                    <div style={{ position: "relative", outline: "2px solid #1473E6", minHeight: "clamp(230px,28cqw,400px)", overflow: "hidden", background: "var(--panel)" }}>
-                      {" "}
-                      <ImageSlot id="work-card-4" shape="rect" radius="0" placeholder="Drop product imagery" />
-                      {" "}
-                      <span
-                        data-m="jpgchip"
-                        style={{ position: "absolute", right: "14px", top: "14px", display: "flex", alignItems: "center", gap: "9px", background: "#FFFFFF", padding: "8px 12px", pointerEvents: "none" }}
-                      >
-                        <span
-                          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "22px", height: "22px", background: "#1473E6", color: "#FFFFFF", fontFamily: "'Montserrat',sans-serif", fontSize: "8px", fontWeight: "700" }}
-                        >
-                          JPG
-                        </span>
-                        <span style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", color: "#111111" }}>
-                          IMAGE.JPG
-                        </span>
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", top: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "3px", bottom: "3px", width: "12px", height: "12px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                    />
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-              </article>
-              {" "}
-            </div>
-          </section>
-          {" "}
-          <section id="experience" style={{ borderBottom: "2px solid var(--rule)" }}>
-            {" "}
-            <div
-              style={{ padding: "clamp(56px,6cqw,96px) var(--gut) clamp(26px,4cqw,52px)", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", textAlign: "center" }}
-            >
-              {" "}
-              <span style={{ fontFamily: "Montserrat", fontSize: "32px", fontWeight: "400", color: "var(--dim)", lineHeight: "1", transform: "rotate(-3deg)" }}>
-                where I've been!
-              </span>
-              {" "}
-              <span style={{ position: "relative", display: "inline-block", padding: "26px 32px", outline: "2px solid var(--ink)", outlineOffset: "0" }}>
-                {" "}
-                <h2
-                  style={{ margin: "0", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(34px,6cqw,70px)", fontWeight: "600", letterSpacing: "0.02em", lineHeight: "0.95", color: "var(--ink)" }}
-                >
-                  9 years of
-                  <br />
-                  shipped work
-                </h2>
-                {" "}
-                <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", left: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                />
-                {" "}
-                <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", right: "-13px", top: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                />
-                {" "}
-                <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", left: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                />
-                {" "}
-                <span
-                  aria-hidden="true"
-                  style={{ position: "absolute", right: "-13px", bottom: "-13px", width: "26px", height: "26px", border: "2.5px solid #ffffff", background: "#000000" }}
-                />
-                {" "}
-              </span>
-              {" "}
-            </div>
-            {" "}
-            <div data-m="xlist" style={{ padding: "clamp(10px,2cqw,24px) var(--gut) clamp(64px,7cqw,110px)" }}>
-              {" "}
-              <div style={{ maxWidth: "1080px", margin: "0 auto", display: "flex", flexDirection: "column" }}>
-                {" "}
-                <span aria-hidden="true" style={{ display: "block", height: "1px", background: "var(--soft)" }} />
-                {" "}
-                <div data-reveal="" data-xrow="0" data-xopen={v.x0Open} style={{ position: "relative", transitionDelay: "0ms" }}>
-                  {" "}
-                  <span data-xsel="1" aria-hidden="true" style={{ position: "absolute", inset: "0", outline: "2px solid #1473E6", pointerEvents: "none" }} />
-                  {" "}
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  {" "}
-                  <button
-                    type="button"
-                    data-exp="0"
-                    onClick={v.xToggle}
-                    aria-expanded={v.x0Aria}
-                    data-m="xhead"
-                    style={{ appearance: "none", border: "0", background: "transparent", margin: "0", font: "inherit", color: "inherit", textAlign: "left", boxSizing: "border-box", width: "100%", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px", padding: "26px 22px" }}
-                  >
-                    {" "}
-                    <span
-                      data-xname="1"
-                      style={{ flex: "1 1 auto", minWidth: "0", fontSize: "clamp(24px,2.8cqw,38px)", fontWeight: "500", letterSpacing: "-0.01em", lineHeight: "1.1", color: "var(--ink)" }}
-                    >
-                      Airtel
-                    </span>
-                    {" "}
-                    <span data-m="xmeta" style={{ display: "flex", alignItems: "baseline", gap: "22px", flex: "0 0 auto" }}>
-                      {" "}
-                      <span style={{ fontSize: "15px", fontWeight: "500", color: "var(--ink)" }}>
-                        Lead Experience Designer
-                      </span>
-                      {" "}
-                      <span style={{ minWidth: "96px", textAlign: "right", fontSize: "13px", fontWeight: "400", color: "var(--dim)", whiteSpace: "nowrap" }}>
-                        2021 — Now
-                      </span>
-                      {" "}
-                    </span>
-                    {" "}
-                    <svg
-                      data-xchev="1"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      style={{ flex: "0 0 auto", color: "var(--dim)" }}
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                    {" "}
-                  </button>
-                  {" "}
-                  <div data-xbody="1">
-                    {" "}
-                    <div style={{ overflow: "hidden", minHeight: "0" }}>
-                      {" "}
-                      <ul
-                        data-m="xlistp"
-                        style={{ listStyle: "none", margin: "0", padding: "0 22px 28px", display: "flex", flexDirection: "column", gap: "12px", maxWidth: "760px" }}
-                      >
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Led the end to end UX strategy for Engage X. Transforming fragmented campaign operation into a scalable multi channel platform
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Revamped the IQ Reach platform to help 1M+ users to engage with their customers in an omni channel experience
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Led the redesign of core/new Airtel journeys for Prepaid, Postpaid, DTH, Fiber, Xsafe, and Esim.
-                          </span>
-                        </li>
-                        {" "}
-                      </ul>
-                      {" "}
+                      <img
+                        src={asset("/assets/home/toffee.jpg")}
+                        alt="Toffee seller app on a phone"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
                     </div>
                     {" "}
                   </div>
                   {" "}
                 </div>
-                {" "}
-                <span aria-hidden="true" style={{ display: "block", height: "1px", background: "var(--soft)" }} />
-                {" "}
-                <div data-reveal="" data-xrow="1" data-xopen={v.x1Open} style={{ position: "relative", transitionDelay: "90ms" }}>
-                  {" "}
-                  <span data-xsel="1" aria-hidden="true" style={{ position: "absolute", inset: "0", outline: "2px solid #1473E6", pointerEvents: "none" }} />
-                  {" "}
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  {" "}
-                  <button
-                    type="button"
-                    data-exp="1"
-                    onClick={v.xToggle}
-                    aria-expanded={v.x1Aria}
-                    data-m="xhead"
-                    style={{ appearance: "none", border: "0", background: "transparent", margin: "0", font: "inherit", color: "inherit", textAlign: "left", boxSizing: "border-box", width: "100%", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px", padding: "26px 22px" }}
-                  >
-                    {" "}
-                    <span
-                      data-xname="1"
-                      style={{ flex: "1 1 auto", minWidth: "0", fontSize: "clamp(24px,2.8cqw,38px)", fontWeight: "500", letterSpacing: "-0.01em", lineHeight: "1.1", color: "var(--ink)" }}
-                    >
-                      Bijak
-                    </span>
-                    {" "}
-                    <span data-m="xmeta" style={{ display: "flex", alignItems: "baseline", gap: "22px", flex: "0 0 auto" }}>
-                      {" "}
-                      <span style={{ fontSize: "15px", fontWeight: "500", color: "var(--ink)" }}>
-                        Senior Product Designer
-                      </span>
-                      {" "}
-                      <span style={{ minWidth: "96px", textAlign: "right", fontSize: "13px", fontWeight: "400", color: "var(--dim)", whiteSpace: "nowrap" }}>
-                        2020 — 2021
-                      </span>
-                      {" "}
-                    </span>
-                    {" "}
-                    <svg
-                      data-xchev="1"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      style={{ flex: "0 0 auto", color: "var(--dim)" }}
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                    {" "}
-                  </button>
-                  {" "}
-                  <div data-xbody="1">
-                    {" "}
-                    <div style={{ overflow: "hidden", minHeight: "0" }}>
-                      {" "}
-                      <ul
-                        data-m="xlistp"
-                        style={{ listStyle: "none", margin: "0", padding: "0 22px 28px", display: "flex", flexDirection: "column", gap: "12px", maxWidth: "760px" }}
-                      >
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Led the design team building Bijak's core features from scratch — mandi rates, referral programme and credit engine — increasing engagement and generating 5M+ in platform revenue.
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Established design guidelines for the Bijak and Just apps, which later grew into a full design system.
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Proposed a vernacular approach to scale the product across India — 2 languages, then 24 — which opened tier 2 and 3 cities and added 2M+ in revenue.
-                          </span>
-                        </li>
-                        {" "}
-                      </ul>
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-                <span aria-hidden="true" style={{ display: "block", height: "1px", background: "var(--soft)" }} />
-                {" "}
-                <div data-reveal="" data-xrow="2" data-xopen={v.x2Open} style={{ position: "relative", transitionDelay: "180ms" }}>
-                  {" "}
-                  <span data-xsel="1" aria-hidden="true" style={{ position: "absolute", inset: "0", outline: "2px solid #1473E6", pointerEvents: "none" }} />
-                  {" "}
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  {" "}
-                  <button
-                    type="button"
-                    data-exp="2"
-                    onClick={v.xToggle}
-                    aria-expanded={v.x2Aria}
-                    data-m="xhead"
-                    style={{ appearance: "none", border: "0", background: "transparent", margin: "0", font: "inherit", color: "inherit", textAlign: "left", boxSizing: "border-box", width: "100%", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px", padding: "26px 22px" }}
-                  >
-                    {" "}
-                    <span
-                      data-xname="1"
-                      style={{ flex: "1 1 auto", minWidth: "0", fontSize: "clamp(24px,2.8cqw,38px)", fontWeight: "500", letterSpacing: "-0.01em", lineHeight: "1.1", color: "var(--ink)" }}
-                    >
-                      Toffee Insurance
-                    </span>
-                    {" "}
-                    <span data-m="xmeta" style={{ display: "flex", alignItems: "baseline", gap: "22px", flex: "0 0 auto" }}>
-                      {" "}
-                      <span style={{ fontSize: "15px", fontWeight: "500", color: "var(--ink)" }}>
-                        Senior UI/UX Designer
-                      </span>
-                      {" "}
-                      <span style={{ minWidth: "96px", textAlign: "right", fontSize: "13px", fontWeight: "400", color: "var(--dim)", whiteSpace: "nowrap" }}>
-                        2018 — 2019
-                      </span>
-                      {" "}
-                    </span>
-                    {" "}
-                    <svg
-                      data-xchev="1"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      style={{ flex: "0 0 auto", color: "var(--dim)" }}
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                    {" "}
-                  </button>
-                  {" "}
-                  <div data-xbody="1">
-                    {" "}
-                    <div style={{ overflow: "hidden", minHeight: "0" }}>
-                      {" "}
-                      <ul
-                        data-m="xlistp"
-                        style={{ listStyle: "none", margin: "0", padding: "0 22px 28px", display: "flex", flexDirection: "column", gap: "12px", maxWidth: "760px" }}
-                      >
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Designed the end-to-end experience for the Toffee Insurance seller app and website. The seller app enabled users to sell 30% more insurance monthly.
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Revamped the claims process. The improved journey let customers self-serve on the platform, reducing settlement time from weeks to days.
-                          </span>
-                        </li>
-                        {" "}
-                      </ul>
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-                <span aria-hidden="true" style={{ display: "block", height: "1px", background: "var(--soft)" }} />
-                {" "}
-                <div data-reveal="" data-xrow="3" data-xopen={v.x3Open} style={{ position: "relative", transitionDelay: "270ms" }}>
-                  {" "}
-                  <span data-xsel="1" aria-hidden="true" style={{ position: "absolute", inset: "0", outline: "2px solid #1473E6", pointerEvents: "none" }} />
-                  {" "}
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", top: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  <span
-                    data-xh="1"
-                    aria-hidden="true"
-                    style={{ position: "absolute", right: "-6px", bottom: "-6px", width: "10px", height: "10px", background: "#FFFFFF", border: "2px solid #1473E6" }}
-                  />
-                  {" "}
-                  <button
-                    type="button"
-                    data-exp="3"
-                    onClick={v.xToggle}
-                    aria-expanded={v.x3Aria}
-                    data-m="xhead"
-                    style={{ appearance: "none", border: "0", background: "transparent", margin: "0", font: "inherit", color: "inherit", textAlign: "left", boxSizing: "border-box", width: "100%", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px", padding: "26px 22px" }}
-                  >
-                    {" "}
-                    <span
-                      data-xname="1"
-                      style={{ flex: "1 1 auto", minWidth: "0", fontSize: "clamp(24px,2.8cqw,38px)", fontWeight: "500", letterSpacing: "-0.01em", lineHeight: "1.1", color: "var(--ink)" }}
-                    >
-                      BYO
-                    </span>
-                    {" "}
-                    <span data-m="xmeta" style={{ display: "flex", alignItems: "baseline", gap: "22px", flex: "0 0 auto" }}>
-                      {" "}
-                      <span style={{ fontSize: "15px", fontWeight: "500", color: "var(--ink)" }}>
-                        UI/UX Designer
-                      </span>
-                      {" "}
-                      <span style={{ minWidth: "96px", textAlign: "right", fontSize: "13px", fontWeight: "400", color: "var(--dim)", whiteSpace: "nowrap" }}>
-                        2017 — 2018
-                      </span>
-                      {" "}
-                    </span>
-                    {" "}
-                    <svg
-                      data-xchev="1"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      style={{ flex: "0 0 auto", color: "var(--dim)" }}
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                    {" "}
-                  </button>
-                  {" "}
-                  <div data-xbody="1">
-                    {" "}
-                    <div style={{ overflow: "hidden", minHeight: "0" }}>
-                      {" "}
-                      <ul
-                        data-m="xlistp"
-                        style={{ listStyle: "none", margin: "0", padding: "0 22px 28px", display: "flex", flexDirection: "column", gap: "12px", maxWidth: "760px" }}
-                      >
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Redesigned the UX across multiple screens of the BYO app and implemented gamification strategies.
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Created over 500 icons — colour and line versions — for the app and website.
-                          </span>
-                        </li>
-                        {" "}
-                        <li data-xitem="1" style={{ display: "flex", gap: "14px", fontSize: "14.5px", lineHeight: "1.55", color: "var(--dim)", textWrap: "pretty" }}>
-                          <span aria-hidden="true" style={{ flex: "0 0 auto", width: "6px", height: "6px", marginTop: "9px", background: "#1473E6" }} />
-                          <span>
-                            Designed multiple landing pages for product campaigns.
-                          </span>
-                        </li>
-                        {" "}
-                      </ul>
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-                <span aria-hidden="true" style={{ display: "block", height: "1px", background: "var(--soft)" }} />
-                {" "}
-                <a
-                  data-reveal=""
-                  href={asset("/assets/Shiva_Kumar_Resume.pdf")}
-                  download=""
-                  data-xres="1"
-                  style={{ alignSelf: "center", marginTop: "clamp(40px,5cqw,64px)", display: "inline-flex", alignItems: "center", gap: "12px", background: "#1473E6", color: "#FFFFFF", textDecoration: "none", padding: "15px 24px", fontSize: "13px", fontWeight: "600", letterSpacing: "0.08em", textTransform: "uppercase" }}
-                  className="home-hover-2"
-                >
-                  {" "}
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 15V3" />
-                    <path d="m7 10 5 5 5-5" />
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  </svg>
-                  {" "}Download resume{" "}
-                </a>
                 {" "}
               </div>
               {" "}
-            </div>
+            </section>
             {" "}
-          </section>
-          {" "}
-          <section
-            id="contact"
-            style={{ position: "relative", overflow: "hidden", backgroundImage: "radial-gradient(circle, var(--soft) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px" }}
-          >
-            {" "}
-            <div
-              style={{ padding: "clamp(80px,9cqw,140px) var(--gut) clamp(50px,6cqw,90px)", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "clamp(32px,5cqw,70px)", alignItems: "center" }}
-            >
+            <section id="claude" style={{ position: "relative", marginTop: "290px", background: "#d97757", padding: "52px 0 44px" }}>
               {" "}
-              <div data-m="blob" style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                data-mascot=""
+                aria-label="Claude mascot waving hello"
+                role="img"
+                style={{ position: "absolute", bottom: "100%", left: "min(calc(50% + 300px), calc(100% - 260px))", zIndex: "2", flex: "none", width: "170px", paddingTop: "48px" }}
+              >
                 {" "}
-                <svg
-                  ref={v.blobRef}
-                  viewBox="0 0 30 30"
-                  width="100%"
-                  style={{ maxWidth: "300px", height: "auto", display: "block", overflow: "visible", cursor: "grab", touchAction: "none", willChange: "transform" }}
-                  aria-hidden="true"
+                <div
+                  data-bubble=""
+                  style={{ position: "absolute", top: "0", left: "105px", background: "#ffffff", color: "#1c1c1c", border: "2px solid #1c1c1c", padding: "6px 12px", fontSize: "15px", lineHeight: "1.2", fontWeight: "700", whiteSpace: "nowrap", transformOrigin: "0% 100%", boxShadow: "3px 3px 0 #1c1c1c" }}
                 >
+                  Hello!
+                  <span
+                    style={{ position: "absolute", left: "8px", bottom: "-8px", width: "8px", height: "8px", background: "#ffffff", borderLeft: "2px solid #1c1c1c", borderBottom: "2px solid #1c1c1c", boxSizing: "content-box", transform: "translateY(-3px) skewY(-45deg)" }}
+                  />
+                </div>
+                {" "}
+                <svg data-bob="" viewBox="0 0 18 11" width="170" height="104" shapeRendering="crispEdges" style={{ display: "block", overflow: "visible" }}>
                   {" "}
-                  <path d="M0 0H15L15 15C6.71573 15 0 8.28427 0 0Z" fill="#F7D158" />
+                  <rect x="2" y="0" width="12" height="8" fill="#c15f3c" />
                   {" "}
-                  <path d="M30 0V15L15 15C15 6.71573 21.7157 0 30 0Z" fill="#F7D158" />
+                  <rect x="0" y="3" width="2" height="2" fill="#c15f3c" />
                   {" "}
-                  <path d="M15 15L15 30L30 30C30 21.7157 23.2843 15 15 15Z" fill="#F7D158" />
+                  <g data-wave="" style={{ transformBox: "fill-box", transformOrigin: "0% 50%" }}>
+                    <rect x="14" y="3" width="2.4" height="2" fill="#c15f3c" />
+                  </g>
                   {" "}
-                  <path d="M0 30V15L15 15C15 23.2843 8.28427 30 0 30Z" fill="#F7D158" />
+                  <rect x="5" y="2" width="1" height="2" fill="#1c1c1c" />
+                  {" "}
+                  <rect x="10" y="2" width="1" height="2" fill="#1c1c1c" />
+                  {" "}
+                  <rect x="3" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="5" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="10" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="12" y="8" width="1" height="3" fill="#c15f3c" />
                   {" "}
                 </svg>
                 {" "}
               </div>
               {" "}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "0 auto" }}>
                 {" "}
-                <h2
-                  style={{ margin: "0", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(40px,7cqw,96px)", fontWeight: "700", letterSpacing: "-0.04em", lineHeight: "0.95", textTransform: "uppercase", color: "#FFFFFF" }}
-                >
-                  Let's talk
-                </h2>
+                <img src={asset("/assets/home/claude-code-logo.png")} alt="Claude Code" style={{ display: "block", width: "437px", height: "auto" }} />
                 {" "}
-                <p
-                  style={{ margin: "0", maxWidth: "46ch", fontFamily: "'Montserrat',sans-serif", fontSize: "clamp(14px,1.4cqw,18px)", fontWeight: "400", lineHeight: "1.55", color: "var(--dim)" }}
-                >
-                  I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
+                <p style={{ margin: "29px 0 0", fontSize: "14px", lineHeight: "18px", fontWeight: "600", color: "#ffffff" }}>
+                  Tools and Prototypes I build with Claude Code
                 </p>
                 {" "}
-                <form onSubmit={v.cfSubmit} noValidate style={{ display: "flex", flexDirection: "column", gap: "18px", marginTop: "10px", maxWidth: "560px" }}>
+                <div style={{ marginTop: "67px", display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "19px" }}>
                   {" "}
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: "18px" }}>
-                    {" "}
-                    <label style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                      {" "}
-                      <span style={{ fontSize: "11px", fontWeight: "600", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)" }}>
-                        Your name
-                      </span>
-                      {" "}
-                      <input
-                        data-cf="1"
-                        name="name"
-                        type="text"
-                        placeholder="Jane Doe"
-                        value={v.cf_name}
-                        onChange={v.cfSet}
-                        required
-                        style={{ boxSizing: "border-box", width: "100%", height: "52px", background: "transparent", border: "2px solid var(--rule)", borderRadius: "0", padding: "0 16px", fontFamily: "'Montserrat',sans-serif", fontSize: "15px", color: "var(--ink)", outline: "none", transition: "border-color .25s ease, box-shadow .25s ease" }}
-                        className="home-focus-3"
-                      />
-                      {" "}
-                    </label>
-                    {" "}
-                    <label style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                      {" "}
-                      <span style={{ fontSize: "11px", fontWeight: "600", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)" }}>
-                        Your email
-                      </span>
-                      {" "}
-                      <input
-                        data-cf="1"
-                        name="email"
-                        type="email"
-                        placeholder="jane@company.com"
-                        value={v.cf_email}
-                        onChange={v.cfSet}
-                        required
-                        style={{ boxSizing: "border-box", width: "100%", height: "52px", background: "transparent", border: "2px solid var(--rule)", borderRadius: "0", padding: "0 16px", fontFamily: "'Montserrat',sans-serif", fontSize: "15px", color: "var(--ink)", outline: "none", transition: "border-color .25s ease, box-shadow .25s ease" }}
-                        className="home-focus-3"
-                      />
-                      {" "}
-                    </label>
-                    {" "}
-                  </div>
-                  {" "}
-                  <label style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    {" "}
-                    <span style={{ fontSize: "11px", fontWeight: "600", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)" }}>
-                      Description
-                    </span>
-                    {" "}
-                    <textarea
-                      data-cf="1"
-                      name="message"
-                      rows={4}
-                      placeholder="Tell me about the project, team or role"
-                      value={v.cf_msg}
-                      onChange={v.cfSet}
-                      required
-                      style={{ boxSizing: "border-box", width: "100%", resize: "vertical", minHeight: "120px", background: "transparent", border: "2px solid var(--rule)", borderRadius: "0", padding: "14px 16px", fontFamily: "'Montserrat',sans-serif", fontSize: "15px", lineHeight: "1.5", color: "var(--ink)", outline: "none", transition: "border-color .25s ease, box-shadow .25s ease" }}
-                      className="home-focus-3"
+                  <a
+                    href={href("/work/akhbar-bash/")}
+                    aria-label="Akhbar Bash — case study"
+                    data-shimmer=""
+                    style={{ position: "relative", display: "block", height: "290px", borderRadius: "8px", overflow: "hidden" }}
+                  >
+                    <img
+                      src={asset("/assets/home/claude-1.jpg")}
+                      alt="Hands playing a game on a phone"
+                      style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
                     />
-                    {" "}
-                  </label>
-                  {" "}
-                  <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
-                    {" "}
-                    <button
-                      type="submit"
-                      data-cfbtn="1"
-                      style={{ appearance: "none", border: "0", borderRadius: "0", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "12px", background: "#1473E6", color: "#FFFFFF", padding: "16px 26px", fontFamily: "'Montserrat',sans-serif", fontSize: "13px", fontWeight: "600", letterSpacing: "0.08em", textTransform: "uppercase", transition: "background .25s ease, transform .15s ease" }}
-                      className={["home-hover-4", "home-active-5"].join(' ')}
+                    <span
+                      data-shine=""
+                      aria-hidden="true"
+                      style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                    />
+                    <span
+                      data-hover-label=""
+                      aria-hidden="true"
+                      style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "0", transform: "translateY(6px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
                     >
-                      {" "}Submit{" "}
+                      VIEW PROJECT{" "}
                       <svg
-                        width="16"
-                        height="16"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2.2"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         aria-hidden="true"
@@ -1908,48 +699,1311 @@ export default function HomeView({ v }: { v: any }) {
                         <path d="M5 12h14" />
                         <path d="m12 5 7 7-7 7" />
                       </svg>
-                      {" "}
-                    </button>
-                    {" "}
-                    <span role="status" aria-live="polite" data-cfmsg={v.cfTone} style={{ fontSize: "13px", fontWeight: "500", color: "var(--dim)" }}>
-                      {v.cfMsg}
                     </span>
-                    {" "}
-                  </div>
+                  </a>
                   {" "}
-                </form>
+                  <a
+                    href={href("/work/jugnu/")}
+                    aria-label="Jugnu — case study"
+                    data-shimmer=""
+                    style={{ position: "relative", display: "block", height: "290px", borderRadius: "8px", overflow: "hidden" }}
+                  >
+                    <img
+                      src={asset("/assets/home/claude-2.jpg")}
+                      alt="Toy robot in front of an orange light"
+                      style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                    <span
+                      data-shine=""
+                      aria-hidden="true"
+                      style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                    />
+                    <span
+                      data-hover-label=""
+                      aria-hidden="true"
+                      style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "0", transform: "translateY(6px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
+                    >
+                      VIEW PROJECT{" "}
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </span>
+                  </a>
+                  {" "}
+                </div>
                 {" "}
               </div>
               {" "}
-            </div>
+            </section>
             {" "}
-          </section>
+            <section id="experience" style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-2deg)" }}
+              >
+                Where I have been
+              </span>
+              {" "}
+              <div style={{ position: "relative", marginTop: "50px", border: "2px solid #63c4ec", padding: "21px 60px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", whiteSpace: "nowrap" }}>
+                  9 Years Of
+                  <br />
+                  Shipped Work
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div style={{ width: "calc(100% - 64px)", maxWidth: "1040px", marginTop: "123px", display: "flex", flexDirection: "column" }}>
+                {" "}
+                <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) 265px 122px", columnGap: "40px", alignItems: "center", height: "122px" }}>
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                    <span style={{ fontSize: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Airtel
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
+                    >
+                      5 Projects
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5" }}>
+                    Lead Experience Designer
+                  </span>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5", textAlign: "right" }}>
+                    2021 — Now
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) 265px 122px", columnGap: "40px", alignItems: "center", height: "122px", borderTop: "1px solid rgba(245,245,245,0.14)" }}
+                >
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                    <span style={{ fontSize: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Bijak
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
+                    >
+                      3 Projects
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5" }}>
+                    Senior Product Designer
+                  </span>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5", textAlign: "right" }}>
+                    2019 — 2021
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) 265px 122px", columnGap: "40px", alignItems: "center", height: "122px", borderTop: "1px solid rgba(245,245,245,0.14)" }}
+                >
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                    <span style={{ fontSize: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Toffee Insurance
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
+                    >
+                      2 Projects
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5" }}>
+                    Senior UI/UX Designer
+                  </span>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5", textAlign: "right" }}>
+                    2018 — 2019
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) 265px 122px", columnGap: "40px", alignItems: "center", height: "122px", borderTop: "1px solid rgba(245,245,245,0.14)" }}
+                >
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                    <span style={{ fontSize: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      BYO
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
+                    >
+                      1 Projects
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5" }}>
+                    Senior UI/UX Designer
+                  </span>
+                  {" "}
+                  <span style={{ fontSize: "16px", fontWeight: "500", color: "#f5f5f5", textAlign: "right" }}>
+                    2018 — 2019
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section
+              id="contact"
+              style={{ maxWidth: "1440px", margin: "0 auto", padding: "244px 0 224px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            >
+              {" "}
+              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "23px 47px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  Let’s Talk
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div style={{ width: "calc(100% - 64px)", maxWidth: "1040px", marginTop: "102px", display: "grid", gridTemplateColumns: "minmax(0,530fr) minmax(0,510fr)" }}>
+                {" "}
+                <div style={{ padding: "256px 0 0 88px" }}>
+                  {" "}
+                  <div aria-hidden="true" style={{ width: "333px", height: "333px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}>
+                    {" "}
+                    <span style={{ background: "#f7d158", borderBottomLeftRadius: "100%" }} />
+                    {" "}
+                    <span style={{ background: "#f7d158", borderTopLeftRadius: "100%" }} />
+                    {" "}
+                    <span style={{ background: "#f7d158", borderBottomRightRadius: "100%" }} />
+                    {" "}
+                    <span style={{ background: "#f7d158", borderTopRightRadius: "100%" }} />
+                    {" "}
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div>
+                  {" "}
+                  <p style={{ margin: "0", fontSize: "20px", lineHeight: "27px", fontWeight: "500", color: "#f5f5f5" }}>
+                    I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
+                  </p>
+                  {" "}
+                  <form
+                    onSubmit={v.onSubmit}
+                    noValidate
+                    style={{ marginTop: "36px", background: "#51ac65", borderRadius: "8px", padding: "34px 32px 32px", display: "flex", flexDirection: "column" }}
+                  >
+                    {" "}
+                    <label htmlFor="cf-name-d" style={{ fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
+                      YOUR NAME
+                    </label>
+                    {" "}
+                    <input
+                      id="cf-name-d"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
+                      className="home-focus-1"
+                    />
+                    {" "}
+                    <label htmlFor="cf-email-d" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
+                      YOUR EMAIL
+                    </label>
+                    {" "}
+                    <input
+                      id="cf-email-d"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
+                      className="home-focus-1"
+                    />
+                    {" "}
+                    <label htmlFor="cf-msg-d" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
+                      IDEAS/PROJECTS DESCRIPTION
+                    </label>
+                    {" "}
+                    <textarea
+                      id="cf-msg-d"
+                      name="message"
+                      style={{ marginTop: "13px", height: "197px", padding: "12px 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", lineHeight: "1.4", resize: "none", outline: "none" }}
+                      className="home-focus-1"
+                    />
+                    {" "}
+                    <button
+                      type="submit"
+                      style={{ marginTop: "42px", height: "45px", border: "0", borderRadius: "4px", background: "#ffffff", color: "#1c1c1c", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
+                      className="home-hover-2"
+                    >
+                      SUBMIT
+                    </button>
+                    {" "}
+                    {v.hasNote ? (
+                      <>
+                      <p style={{ margin: "14px 0 0", fontSize: "13px", lineHeight: "18px", color: "#ffffff" }}>
+                        {v.cfNote}
+                      </p>
+                      </>
+                    ) : null}
+                    {" "}
+                  </form>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+          </div>
+          </>
+        ) : null}
+        {v.isMob ? (
+          <>
+          <div data-view="mobile" style={{ position: "relative" }}>
+            {" "}
+            {v.showRuler ? (
+              <>
+              {" "}
+              <div
+                aria-hidden="true"
+                style={{ position: "sticky", top: "0", zIndex: "60", height: "24px", backgroundColor: "#ffffff", backgroundImage: "repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px)", backgroundSize: "100% 5px", backgroundRepeat: "repeat-x", backgroundPosition: "0 100%", overflow: "hidden" }}
+              >
+                {" "}
+                {((v.rulerMob ?? []) as any[]).map((r: any, i0: number) => (
+                  <Fragment key={i0}>
+                    {" "}
+                    <span style={css(`position:absolute;top:6px;left:${r?.x ?? ""};font-size:8px;line-height:10px;color:#7a7a7a;transform:translateX(-50%)`)}>
+                      {r?.n}
+                    </span>
+                    {" "}
+                  </Fragment>
+                ))}
+                {" "}
+              </div>
+              {" "}
+              </>
+            ) : null}
+            {" "}
+            <section id="top" style={{ position: "relative", paddingTop: "86px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "14px", lineHeight: "18px", fontWeight: "500", padding: "4px 9px", transform: "rotate(-4deg)" }}
+              >
+                my name is
+              </span>
+              {" "}
+              <div style={{ position: "relative", marginTop: "23px", border: "2px solid #63c4ec", padding: "15px 24px" }}>
+                {" "}
+                <h1 style={{ margin: "0", fontSize: "42px", lineHeight: "49px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  Shiva Kumar
+                </h1>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div
+                style={{ marginTop: "23px", display: "flex", alignItems: "center", gap: "8px", fontSize: "10.5px", lineHeight: "14px", fontWeight: "500", letterSpacing: "0.08em", color: "#f5f5f5" }}
+              >
+                {" "}
+                <span data-blip="" style={{ position: "relative", width: "8px", height: "8px", borderRadius: "50%", background: "#2fd46f" }}>
+                  <span data-blip-ring="" style={{ position: "absolute", inset: "0", borderRadius: "50%", background: "#2fd46f", opacity: "0" }} />
+                </span>
+                {" "}
+                <span>
+                  AVAILABLE FOR THOUGHTFUL PROJECTS
+                </span>
+                {" "}
+              </div>
+              {" "}
+              <p style={{ margin: "57px 0 0", fontSize: "28px", lineHeight: "38px", fontWeight: "300", textAlign: "center", whiteSpace: "nowrap", color: "#f5f5f5" }}>
+                I design{" "}
+                <img
+                  src={asset("/assets/home/pinwheel-green.png")}
+                  alt=""
+                  style={{ display: "inline-block", maxWidth: "none", width: "36px", height: "36px", verticalAlign: "-9px", margin: "0 -2px" }}
+                />
+                {" "}outstanding
+                <br />
+                digital products{" "}
+                <img
+                  data-spin=""
+                  src={asset("/assets/home/flower-pink.png")}
+                  alt=""
+                  style={{ display: "inline-block", maxWidth: "none", width: "46px", height: "46px", verticalAlign: "-15px", marginLeft: "-3px" }}
+                />
+              </p>
+              {" "}
+              <a
+                data-shimmer=""
+                data-lmbtn=""
+                href="#contact"
+                style={{ position: "relative", overflow: "hidden", marginTop: "43px", display: "flex", padding: "2px", boxSizing: "border-box", height: "45px", borderRadius: "999px", background: "#bdbdbd", textDecoration: "none", boxShadow: "0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" }}
+                className="home-hover-0"
+              >
+                <span
+                  data-lm=""
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "50%", top: "50%", width: "300px", height: "300px", margin: "-150px 0 0 -150px", background: "conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff)", filter: "blur(3px)", pointerEvents: "none" }}
+                />
+                <span
+                  style={{ position: "relative", overflow: "hidden", flex: "1", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", padding: "0 20px", borderRadius: "999px", background: "linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%)", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", boxShadow: "inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)" }}
+                >
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                  />
+                  <span style={{ position: "relative" }}>
+                    CONTACT ME
+                  </span>
+                  <svg data-ring="" style={{ position: "relative" }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"
+                    />
+                  </svg>
+                </span>
+              </a>
+              {" "}
+              <div data-float="4" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% - 57px)", top: "263px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4l16 6.5-6.5 2.9L10.6 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% - 191px)", top: "273px", height: "39px", padding: "0 14px", display: "flex", alignItems: "center", background: "#f7d158", color: "#1c1c1c", fontSize: "13px", fontWeight: "500", borderRadius: "999px 0 999px 999px", boxShadow: "0 0 14px rgba(247,209,88,0.45)" }}
+                  >
+                    Currently in Airtel
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+              <div data-float="5" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% + 49px)", top: "393px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4l16 6.5-6.5 2.9L10.6 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% + 64px)", top: "409px", height: "39px", padding: "0 16px", display: "flex", alignItems: "center", background: "#51ac65", color: "#ffffff", fontSize: "13px", fontWeight: "500", borderRadius: "0 999px 999px 999px", boxShadow: "0 0 14px rgba(81,172,101,0.45)" }}
+                  >
+                    Gurugram
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+              <div data-float="6" style={{ position: "absolute", inset: "0", pointerEvents: "none" }}>
+                <div data-repel="" style={{ position: "absolute", inset: "0", willChange: "transform" }}>
+                  {" "}
+                  <svg
+                    style={{ position: "absolute", left: "calc(50% - 10px)", top: "520px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="#1c1c1c"
+                    stroke="#f5f5f5"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4l16 6.5-6.5 2.9L10.6 20z" />
+                  </svg>
+                  {" "}
+                  <span
+                    style={{ position: "absolute", left: "calc(50% + 5px)", top: "536px", height: "39px", padding: "0 16px", display: "flex", alignItems: "center", background: "#e0258f", color: "#ffffff", fontSize: "13px", fontWeight: "500", borderRadius: "0 999px 999px 999px", boxShadow: "0 0 14px rgba(224,37,143,0.45)" }}
+                  >
+                    Product Designer
+                  </span>
+                  {" "}
+                </div>
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="about" style={{ position: "relative", marginTop: "162px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "17px 26px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  what’s up
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <p
+                style={{ margin: "35px 0 0", padding: "0 20px", fontSize: "38px", lineHeight: "49px", fontWeight: "500", textAlign: "center", color: "#f5f5f5" }}
+                data-line-reveal="1"
+              >
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    I am Shiva a
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    Product
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    Designer in
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    Gurugram
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    who gets excited
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    about making
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    complicated
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    things
+                  </span>
+                </span>
+                <span style={{ display: "block", overflow: "hidden" }}>
+                  <span data-line="1" style={{ display: "block" }}>
+                    simple
+                  </span>
+                </span>
+              </p>
+              {" "}
+              <div style={{ position: "relative", alignSelf: "stretch", height: "280px", marginTop: "17px" }}>
+                {" "}
+                <div
+                  style={{ position: "absolute", left: "calc(50% - 206px)", top: "10px", width: "180px", height: "252px", transform: "rotate(-6deg)", borderRadius: "12px", overflow: "hidden", boxShadow: "0 14px 30px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
+                >
+                  {" "}
+                  <ImageSlot id="home-about-1" shape="rounded" radius="12" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  style={{ position: "absolute", left: "calc(50% + 22px)", top: "10px", width: "180px", height: "252px", transform: "rotate(5deg)", borderRadius: "12px", overflow: "hidden", boxShadow: "0 14px 30px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
+                >
+                  {" "}
+                  <ImageSlot id="home-about-2" shape="rounded" radius="12" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="work" style={{ paddingTop: "167px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "16px", lineHeight: "20px", fontWeight: "500", padding: "3px 10px", transform: "rotate(5deg)" }}
+              >
+                explore my work
+              </span>
+              {" "}
+              <div style={{ position: "relative", marginTop: "17px", border: "2px solid #63c4ec", padding: "22px 32px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "42px", lineHeight: "49px", fontWeight: "600", color: "#f5f5f5", textAlign: "center" }}>
+                  Featured
+                  <br />
+                  Works
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div data-stack="40,12" style={{ alignSelf: "stretch", margin: "82px 20px 0", display: "flex", flexDirection: "column", gap: "61px" }}>
+                {" "}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                  {" "}
+                  <span
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "102px", paddingLeft: "16px", boxSizing: "border-box", background: "#22bde8", color: "#0f1d24", fontSize: "8px", fontWeight: "700", letterSpacing: "0.08em" }}
+                  >
+                    PROJECT 01
+                  </span>
+                  {" "}
+                  <div style={{ alignSelf: "stretch", background: "#22bde8", padding: "30px 11px 11px" }}>
+                    {" "}
+                    <div style={{ paddingLeft: "19px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "32px", lineHeight: "40px", fontWeight: "400", color: "#0f1d24" }}>
+                        Engage X
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "11px 0 0", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#0f1d24" }}>
+                        A unified campaign lifecycle manager
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/engage-x/")}
+                        style={{ marginTop: "23px", display: "inline-flex", alignItems: "center", gap: "10px", height: "41px", padding: "0 12px", background: "#0f1d24", color: "#22bde8", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ margin: "70px 0 0 9px", display: "flex", gap: "12px" }}>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#22bde8", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        MARTECH
+                      </span>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#22bde8", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        CPAAS
+                      </span>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ marginTop: "37px", height: "180px", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}>
+                      <img
+                        src={asset("/assets/home/engage.jpg")}
+                        alt="Engage X dashboard on a laptop"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                    {" "}
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                  {" "}
+                  <span
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "102px", paddingLeft: "16px", boxSizing: "border-box", background: "#dd3732", color: "#0f1d24", fontSize: "8px", fontWeight: "700", letterSpacing: "0.08em" }}
+                  >
+                    PROJECT 02
+                  </span>
+                  {" "}
+                  <div style={{ alignSelf: "stretch", background: "#dd3732", padding: "30px 11px 11px" }}>
+                    {" "}
+                    <div style={{ paddingLeft: "19px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "32px", lineHeight: "40px", fontWeight: "400", color: "#0f1d24" }}>
+                        DTH Price
+                        <br />
+                        Simplification
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "11px 0 0", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#0f1d24" }}>
+                        Clearer DTH packs, priced so they compare
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/dth-price-simplification/")}
+                        style={{ marginTop: "23px", display: "inline-flex", alignItems: "center", gap: "10px", height: "41px", padding: "0 12px", background: "#0f1d24", color: "#dd3732", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ margin: "70px 0 0 9px", display: "flex", gap: "12px" }}>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#dd3732", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        TELCO
+                      </span>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#dd3732", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        B2C
+                      </span>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ marginTop: "37px", height: "180px", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}>
+                      <img
+                        src={asset("/assets/home/dth.jpg")}
+                        alt="TV showing Netflix in a dark room"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                    {" "}
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                  {" "}
+                  <span
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "102px", paddingLeft: "16px", boxSizing: "border-box", background: "#51ac65", color: "#0f1d24", fontSize: "8px", fontWeight: "700", letterSpacing: "0.08em" }}
+                  >
+                    PROJECT 03
+                  </span>
+                  {" "}
+                  <div style={{ alignSelf: "stretch", background: "#51ac65", padding: "30px 11px 11px" }}>
+                    {" "}
+                    <div style={{ paddingLeft: "19px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "32px", lineHeight: "40px", fontWeight: "400", color: "#0f1d24" }}>
+                        Bijak Web Design
+                        <br />
+                        System
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "11px 0 0", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#0f1d24" }}>
+                        Foundations and components for Bijak on the web
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/bijak-design-system/")}
+                        style={{ marginTop: "23px", display: "inline-flex", alignItems: "center", gap: "10px", height: "41px", padding: "0 12px", background: "#0f1d24", color: "#51ac65", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ margin: "70px 0 0 9px", display: "flex", gap: "12px" }}>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#51ac65", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        DESIGN SYSTEM
+                      </span>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#51ac65", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        AGRITECH
+                      </span>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ marginTop: "37px", height: "180px", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}>
+                      <img
+                        src={asset("/assets/home/bijak.jpg")}
+                        alt="Design system components on a tablet and monitor"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                    {" "}
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                  {" "}
+                  <span
+                    style={{ display: "flex", alignItems: "center", height: "36px", width: "102px", paddingLeft: "16px", boxSizing: "border-box", background: "#f26667", color: "#0f1d24", fontSize: "8px", fontWeight: "700", letterSpacing: "0.08em" }}
+                  >
+                    PROJECT 04
+                  </span>
+                  {" "}
+                  <div style={{ alignSelf: "stretch", background: "#f26667", padding: "30px 11px 11px" }}>
+                    {" "}
+                    <div style={{ paddingLeft: "19px", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      {" "}
+                      <h3 style={{ margin: "0", fontSize: "32px", lineHeight: "40px", fontWeight: "400", color: "#0f1d24" }}>
+                        Toffee Seller App
+                      </h3>
+                      {" "}
+                      <p style={{ margin: "11px 0 0", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#0f1d24" }}>
+                        Insurance App for cycle insurance
+                      </p>
+                      {" "}
+                      <a
+                        href={href("/work/toffee-seller-app/")}
+                        style={{ marginTop: "23px", display: "inline-flex", alignItems: "center", gap: "10px", height: "41px", padding: "0 12px", background: "#0f1d24", color: "#f26667", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                      >
+                        VIEW PROJECT{" "}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ margin: "70px 0 0 9px", display: "flex", gap: "12px" }}>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f26667", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        REVAMP
+                      </span>
+                      {" "}
+                      <span
+                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 8px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f26667", fontSize: "9px", fontWeight: "500", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                      >
+                        INSURETECH
+                      </span>
+                      {" "}
+                    </div>
+                    {" "}
+                    <div style={{ marginTop: "37px", height: "180px", border: "2px solid #0f1d24", boxSizing: "border-box", overflow: "hidden" }}>
+                      <img
+                        src={asset("/assets/home/toffee.jpg")}
+                        alt="Toffee seller app on a phone"
+                        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                    {" "}
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="claude" style={{ position: "relative", marginTop: "161px", background: "#d97757", padding: "47px 20px 42px" }}>
+              {" "}
+              <div
+                data-mascot=""
+                aria-label="Claude mascot waving hello"
+                role="img"
+                style={{ position: "absolute", bottom: "100%", right: "28px", zIndex: "2", flex: "none", width: "96px", paddingTop: "34px" }}
+              >
+                {" "}
+                <div
+                  data-bubble=""
+                  style={{ position: "absolute", top: "0", left: "60px", background: "#ffffff", color: "#1c1c1c", border: "2px solid #1c1c1c", padding: "4px 8px", fontSize: "12px", lineHeight: "1.2", fontWeight: "700", whiteSpace: "nowrap", transformOrigin: "0% 100%", boxShadow: "3px 3px 0 #1c1c1c" }}
+                >
+                  Hello!
+                  <span
+                    style={{ position: "absolute", left: "8px", bottom: "-8px", width: "8px", height: "8px", background: "#ffffff", borderLeft: "2px solid #1c1c1c", borderBottom: "2px solid #1c1c1c", boxSizing: "content-box", transform: "translateY(-3px) skewY(-45deg)" }}
+                  />
+                </div>
+                {" "}
+                <svg data-bob="" viewBox="0 0 18 11" width="96" height="59" shapeRendering="crispEdges" style={{ display: "block", overflow: "visible" }}>
+                  {" "}
+                  <rect x="2" y="0" width="12" height="8" fill="#c15f3c" />
+                  {" "}
+                  <rect x="0" y="3" width="2" height="2" fill="#c15f3c" />
+                  {" "}
+                  <g data-wave="" style={{ transformBox: "fill-box", transformOrigin: "0% 50%" }}>
+                    <rect x="14" y="3" width="2.4" height="2" fill="#c15f3c" />
+                  </g>
+                  {" "}
+                  <rect x="5" y="2" width="1" height="2" fill="#1c1c1c" />
+                  {" "}
+                  <rect x="10" y="2" width="1" height="2" fill="#1c1c1c" />
+                  {" "}
+                  <rect x="3" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="5" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="10" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                  <rect x="12" y="8" width="1" height="3" fill="#c15f3c" />
+                  {" "}
+                </svg>
+                {" "}
+              </div>
+              {" "}
+              <img src={asset("/assets/home/claude-code-logo.png")} alt="Claude Code" style={{ display: "block", width: "205px", height: "auto" }} />
+              {" "}
+              <p style={{ margin: "25px 0 0", fontSize: "13px", lineHeight: "18px", fontWeight: "600", color: "#ffffff" }}>
+                Tools and Prototypes I build with Claude Code
+              </p>
+              {" "}
+              <div style={{ marginTop: "39px", display: "flex", flexDirection: "column", gap: "32px" }}>
+                {" "}
+                <a
+                  href={href("/work/akhbar-bash/")}
+                  aria-label="Akhbar Bash — case study"
+                  data-shimmer=""
+                  style={{ position: "relative", display: "block", height: "298px", borderRadius: "8px", overflow: "hidden" }}
+                >
+                  <img
+                    src={asset("/assets/home/claude-1.jpg")}
+                    alt="Hands playing a game on a phone"
+                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                  />
+                  <span
+                    data-hover-label=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "1", transform: "translateY(0px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
+                  >
+                    VIEW PROJECT{" "}
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
+                {" "}
+                <a
+                  href={href("/work/jugnu/")}
+                  aria-label="Jugnu — case study"
+                  data-shimmer=""
+                  style={{ position: "relative", display: "block", height: "298px", borderRadius: "8px", overflow: "hidden" }}
+                >
+                  <img
+                    src={asset("/assets/home/claude-2.jpg")}
+                    alt="Toy robot in front of an orange light"
+                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                  />
+                  <span
+                    data-hover-label=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "1", transform: "translateY(0px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
+                  >
+                    VIEW PROJECT{" "}
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="experience" style={{ padding: "169px 20px 0", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "16px", lineHeight: "20px", fontWeight: "500", padding: "4px 10px", transform: "rotate(2deg)" }}
+              >
+                Where I have been
+              </span>
+              {" "}
+              <div style={{ position: "relative", alignSelf: "stretch", marginTop: "17px", border: "2px solid #63c4ec", padding: "20px 12px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "42px", lineHeight: "49px", fontWeight: "600", color: "#f5f5f5", textAlign: "center" }}>
+                  9 Years of
+                  <br />
+                  Shipped Work
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div style={{ alignSelf: "stretch", marginTop: "36px", display: "flex", flexDirection: "column" }}>
+                {" "}
+                <div style={{ padding: "34px 0 33px", display: "flex", flexDirection: "column" }}>
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
+                    <span style={{ fontSize: "26px", lineHeight: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Airtel
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "26px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "11px", fontWeight: "600" }}
+                    >
+                      5 PROJECTS
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ marginTop: "14px", fontSize: "16px", lineHeight: "22px", fontWeight: "600", color: "#f5f5f5" }}>
+                    Lead Experience Designer
+                  </span>
+                  {" "}
+                  <span style={{ marginTop: "8px", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#f5f5f5" }}>
+                    2021 — Now
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ padding: "34px 0 33px", display: "flex", flexDirection: "column", borderTop: "1px solid rgba(245,245,245,0.14)" }}>
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
+                    <span style={{ fontSize: "26px", lineHeight: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Bijak
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "26px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "11px", fontWeight: "600" }}
+                    >
+                      3 PROJECTS
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ marginTop: "14px", fontSize: "16px", lineHeight: "22px", fontWeight: "600", color: "#f5f5f5" }}>
+                    Senior Product Designer
+                  </span>
+                  {" "}
+                  <span style={{ marginTop: "8px", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#f5f5f5" }}>
+                    2019 — 2021
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ padding: "34px 0 33px", display: "flex", flexDirection: "column", borderTop: "1px solid rgba(245,245,245,0.14)" }}>
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
+                    <span style={{ fontSize: "26px", lineHeight: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      Toffee Insurance
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "26px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "11px", fontWeight: "600" }}
+                    >
+                      2 PROJECTS
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ marginTop: "14px", fontSize: "16px", lineHeight: "22px", fontWeight: "600", color: "#f5f5f5" }}>
+                    Senior UI/UX Designer
+                  </span>
+                  {" "}
+                  <span style={{ marginTop: "8px", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#f5f5f5" }}>
+                    2018 — 2019
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+                <div style={{ padding: "34px 0 33px", display: "flex", flexDirection: "column", borderTop: "1px solid rgba(245,245,245,0.14)" }}>
+                  {" "}
+                  <div style={{ display: "flex", alignItems: "center", gap: "17px" }}>
+                    <span style={{ fontSize: "26px", lineHeight: "34px", fontWeight: "500", color: "#f5f5f5" }}>
+                      BYO
+                    </span>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", height: "26px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "11px", fontWeight: "600" }}
+                    >
+                      1 PROJECT
+                    </span>
+                  </div>
+                  {" "}
+                  <span style={{ marginTop: "14px", fontSize: "16px", lineHeight: "22px", fontWeight: "600", color: "#f5f5f5" }}>
+                    UI/UX Designer
+                  </span>
+                  {" "}
+                  <span style={{ marginTop: "8px", fontSize: "16px", lineHeight: "22px", fontWeight: "400", color: "#f5f5f5" }}>
+                    2018 — 2019
+                  </span>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+              <a
+                href={asset("/assets/Shiva_Kumar_Resume.pdf")}
+                download=""
+                style={{ marginTop: "27px", width: "225px", height: "47px", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", boxSizing: "border-box", background: "#ffffff", color: "#1c1c1c", borderRadius: "4px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+              >
+                DOWNLOAD RESUME{" "}
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 15V3" />
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                </svg>
+                {" "}
+              </a>
+              {" "}
+            </section>
+            {" "}
+            <section id="contact" style={{ padding: "162px 20px 89px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {" "}
+              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "21px 18px" }}>
+                {" "}
+                <h2 style={{ margin: "0", fontSize: "42px", lineHeight: "49px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
+                  Lets Talk
+                </h2>
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+                <span
+                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                />
+                {" "}
+              </div>
+              {" "}
+              <div
+                aria-hidden="true"
+                style={{ marginTop: "31px", width: "111px", height: "111px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}
+              >
+                {" "}
+                <span style={{ background: "#f7d158", borderBottomLeftRadius: "100%" }} />
+                {" "}
+                <span style={{ background: "#f7d158", borderTopLeftRadius: "100%" }} />
+                {" "}
+                <span style={{ background: "#f7d158", borderBottomRightRadius: "100%" }} />
+                {" "}
+                <span style={{ background: "#f7d158", borderTopRightRadius: "100%" }} />
+                {" "}
+              </div>
+              {" "}
+              <p style={{ alignSelf: "stretch", margin: "41px 0 0", fontSize: "15px", lineHeight: "19.5px", fontWeight: "500", color: "#f5f5f5" }}>
+                I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
+              </p>
+              {" "}
+              <form
+                onSubmit={v.onSubmit}
+                noValidate
+                style={{ alignSelf: "stretch", marginTop: "24px", background: "#51ac65", borderRadius: "8px", padding: "30px 20px 27px", display: "flex", flexDirection: "column" }}
+              >
+                {" "}
+                <label htmlFor="cf-name-m" style={{ fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
+                  YOUR NAME
+                </label>
+                {" "}
+                <input
+                  id="cf-name-m"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  style={{ marginTop: "12px", height: "49px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
+                  className="home-focus-1"
+                />
+                {" "}
+                <label htmlFor="cf-email-m" style={{ marginTop: "28px", fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
+                  YOUR EMAIL
+                </label>
+                {" "}
+                <input
+                  id="cf-email-m"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  style={{ marginTop: "12px", height: "49px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
+                  className="home-focus-1"
+                />
+                {" "}
+                <label htmlFor="cf-msg-m" style={{ marginTop: "28px", fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
+                  IDEAS/PROJECTS DESCRIPTION
+                </label>
+                {" "}
+                <textarea
+                  id="cf-msg-m"
+                  name="message"
+                  style={{ marginTop: "12px", height: "198px", padding: "12px 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", lineHeight: "1.4", resize: "none", outline: "none" }}
+                  className="home-focus-1"
+                />
+                {" "}
+                <button
+                  type="submit"
+                  style={{ marginTop: "41px", height: "45px", border: "0", borderRadius: "4px", background: "#ffffff", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
+                  className="home-hover-2"
+                >
+                  SUBMIT
+                </button>
+                {" "}
+                {v.hasNote ? (
+                  <>
+                  <p style={{ margin: "14px 0 0", fontSize: "13px", lineHeight: "18px", color: "#ffffff" }}>
+                    {v.cfNote}
+                  </p>
+                  </>
+                ) : null}
+                {" "}
+              </form>
+              {" "}
+            </section>
+          </div>
+          </>
+        ) : null}
+        {v.showDock ? (
+          <>
           {" "}
-          <footer
-            style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "space-between", padding: "22px var(--gut)", borderTop: "2px solid var(--rule)", fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)" }}
-          >
-            {" "}
-            <span>
-              Shiva Kumar — Portfolio 2026
-            </span>
-            {" "}
-            <span>
-              Lead Experience Designer, AI enabled
-            </span>
-            {" "}
-          </footer>
-        </div>
+          <DockNav />
+          </>
+        ) : null}
       </div>
-      <div
-        data-soon={v.soonShow}
-        role="status"
-        aria-live="polite"
-        style={{ position: "fixed", left: "50%", bottom: "96px", zIndex: "200", display: "flex", alignItems: "center", gap: "12px", background: "#0B1F26", color: "#FFFFFF", border: "2px solid #22BDE8", padding: "14px 22px", fontFamily: "'Montserrat',sans-serif", fontSize: "14px", fontWeight: "600", pointerEvents: "none", transition: "opacity 0.3s ease, transform 0.35s cubic-bezier(.2,.9,.3,1.3)" }}
-      >
-        <span style={{ width: "8px", height: "8px", background: "#22BDE8" }} />
-        Case study coming soon
-      </div>
-      <DockNav />
     </>
   );
 }

@@ -24,6 +24,8 @@ const PAGES = [
   { file: 'DTH Price Simplification.dc.html', name: 'Dth', css: 'dth' },
   { file: 'Bijak Web Design System.dc.html', name: 'Bijak', css: 'bijak' },
   { file: 'Toffee Seller App.dc.html', name: 'Toffee', css: 'toffee' },
+  { file: 'JugnuCaseStudy.dc.html', name: 'Jugnu', css: 'jugnu' },
+  { file: 'Akhbar Bash Case Study.dc.html', name: 'Akhbar', css: 'akhbar' },
 ];
 
 export const ROUTES = {
@@ -32,6 +34,8 @@ export const ROUTES = {
   'DTH Price Simplification.dc.html': '/work/dth-price-simplification/',
   'Bijak Web Design System.dc.html': '/work/bijak-design-system/',
   'Toffee Seller App.dc.html': '/work/toffee-seller-app/',
+  'JugnuCaseStudy.dc.html': '/work/jugnu/',
+  'Akhbar Bash Case Study.dc.html': '/work/akhbar-bash/',
 };
 
 const EVENT_MAP = {
@@ -52,7 +56,7 @@ const ATTR_MAP = {
 };
 
 const BOOLEAN_ATTRS = new Set(['required', 'noValidate', 'allowFullScreen', 'hidden', 'disabled',
-  'checked', 'autoPlay', 'muted', 'loop', 'playsInline', 'readOnly', 'multiple']);
+  'checked', 'autoPlay', 'muted', 'loop', 'playsInline', 'readOnly', 'multiple', 'controls']);
 
 const NUMERIC_ATTRS = new Set(['rows', 'cols', 'maxLength', 'tabIndex', 'colSpan', 'rowSpan']);
 
@@ -76,14 +80,17 @@ function splitDecls(css) {
 }
 
 function cssToObj(css) {
-  const o = [];
+  // later declarations win, as in CSS
+  const o = new Map();
   for (const decl of splitDecls(css)) {
     const i = decl.indexOf(':');
     if (i < 0) continue;
     const prop = decl.slice(0, i).trim();
-    o.push([prop.startsWith('--') ? prop : camel(prop), decl.slice(i + 1).trim()]);
+    const key = prop.startsWith('--') ? prop : camel(prop);
+    o.delete(key);
+    o.set(key, decl.slice(i + 1).trim());
   }
-  return o;
+  return [...o];
 }
 
 const importantify = (css) =>
@@ -246,7 +253,7 @@ function convertPage(page) {
       if (expr != null) { props.push(`${key}={${expr}}`); continue; }
       if (BOOLEAN_ATTRS.has(key) && value === '') { props.push(key); continue; }
       if (NUMERIC_ATTRS.has(key) && /^\d+$/.test(value)) { props.push(`${key}={${value}}`); continue; }
-      if ((key === 'href' || key === 'src') && urlExpr(value)) { props.push(`${key}={${urlExpr(value)}}`); continue; }
+      if ((key === 'href' || key === 'src' || key === 'poster' || key === 'data-open') && urlExpr(value)) { props.push(`${key}={${urlExpr(value)}}`); continue; }
       props.push(`${key}=${JSON.stringify(value)}`);
     }
     if (classes.length || classExpr) {
