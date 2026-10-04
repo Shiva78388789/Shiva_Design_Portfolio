@@ -2,366 +2,272 @@
 'use client';
 
 // Behaviour for the Home page, ported from design-reference/design/Portfolio.dc.html.
-import React from 'react';
-import gsap from 'gsap';
 import DCPage from '@/lib/DCPage';
-import { sendContact } from '@/lib/contact';
+import { submitContactForm } from '@/lib/contactForm';
 import HomeView from '@/views/HomeView';
 
 
 
-const DEFAULT_THEME = 'dark';
-
 export default class HomePage extends DCPage {
 
-  state = { dark: null };
-
-  initRuler() {
-    if (this._rulerInit) return;
-    this._rulerInit = true;
-    this._onRulerMove = (e) => {
-      const r = this._rulerRefs; if (!r) return;
-      const t = r.track.current, m = r.mark.current;
-      if (t) t.style.transform = 'translateX(' + (-e.clientX * 0.08).toFixed(1) + 'px)';
-      if (m) m.style.transform = 'translateX(' + e.clientX.toFixed(1) + 'px)';
-    };
-    window.addEventListener('mousemove', this._onRulerMove, { passive: true });
-  }
-
-  initTextReveal() {
-    if (this._revealInit) return;
-    const p = document.querySelector('[data-m="revealtext"]');
-    if (!p) return;
-    this._revealInit = true;
-    const words = (p.textContent || '').trim().split(/\s+/);
-    p.textContent = '';
-    this._revealWords = words.map((w, i) => {
-      const sp = document.createElement('span');
-      sp.textContent = w + (i < words.length - 1 ? ' ' : '');
-      sp.style.display = 'inline-block';
-      sp.style.whiteSpace = 'pre';
-      sp.style.opacity = '0.12';
-      sp.style.transform = 'translateY(14px)';
-      sp.style.filter = 'blur(3px)';
-      sp.style.transition = 'opacity .45s ease, transform .45s cubic-bezier(.22,.61,.36,1), filter .45s ease';
-      p.appendChild(sp);
-      return sp;
-    });
-    this._revealTick = () => {
-      const r = p.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const prog = Math.max(0, Math.min(1, (vh * 0.88 - r.top) / (r.height + vh * 0.34)));
-      const n = this._revealWords.length;
-      this._revealWords.forEach((sp, i) => {
-        const on = prog * n * 1.25 > i;
-        sp.style.opacity = on ? '1' : '0.12';
-        sp.style.transform = on ? 'translateY(0)' : 'translateY(14px)';
-        sp.style.filter = on ? 'blur(0)' : 'blur(3px)';
-        sp.style.transitionDelay = on ? Math.min(i * 12, 240) + 'ms' : '0ms';
-      });
-    };
-    const photos = document.querySelectorAll('[data-slide]');
-    if (photos.length) {
-      const pio = new IntersectionObserver((es) => {
-        es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('slid'); pio.unobserve(e.target); } });
-      }, { threshold: 0.15 });
-      photos.forEach((el) => pio.observe(el));
-    }
-    window.addEventListener('scroll', this._revealTick, { passive: true });
-    window.addEventListener('resize', this._revealTick, { passive: true });
-    this._revealTick();
-  }
-
+  state = { w: 1440, cfNote: '' };
   componentDidMount() {
-    setTimeout(() => this.initTextReveal(), 120);
-    this.initRuler();
-    const saved = localStorage.getItem('sk-portfolio-theme');
-    const dark = saved ? saved === 'dark' : DEFAULT_THEME === 'dark';
-    // Right-hand photo starts near the viewport's right edge.
-    this.setState({ dark, pBx: this.state.pBx ?? Math.max(260, window.innerWidth - Math.min(230, Math.max(150, window.innerWidth * 0.17)) - 60) });
-
-    const els = Array.from(this.el?.querySelectorAll?.('[data-reveal]') || document.querySelectorAll('[data-reveal]'));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    els.forEach((el) => io.observe(el));
-    this._io = io;
-    this._fallback = setTimeout(() => els.forEach((el) => el.classList.add('in')), 3000);
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    this.onScroll();
-    this.runTypewriter();
-
-    this._onGaze = (e) => {
-      const svg = this._blobRef && this._blobRef.current;
-      const g = this._pupilRef && this._pupilRef.current;
-      if (!svg || !g) return;
-      const r = svg.getBoundingClientRect();
-      const cx = r.left + r.width / 2, cy = r.top + r.height * 0.46;
-      const dx = e.clientX - cx, dy = e.clientY - cy;
-      const d = Math.hypot(dx, dy) || 1;
-      const k = Math.min(1, d / 320) * 6.5;
-      g.setAttribute('transform', 'translate(' + (dx / d * k).toFixed(2) + ' ' + (dy / d * k).toFixed(2) + ')');
-    };
-    window.addEventListener('mousemove', this._onGaze, { passive: true });
-    this.setupSpinner();
-    this._expMq = window.matchMedia('(max-width: 1180px)');
-    this._onExpMq = () => this.setState({ expNarrow: this._expMq.matches, expOpen: null });
-    this._onExpMq();
-    this._expMq.addEventListener('change', this._onExpMq);
-
-    this._youRef = this._youRef || { current: null };
-    const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-    if (fine) {
-      this._onMove = (e) => {
-        const n = this._youRef.current;
-        if (!n) return;
-        n.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-        n.style.opacity = '1';
-      };
-      this._onOut = () => { if (this._youRef.current) this._youRef.current.style.opacity = '0'; };
-      window.addEventListener('mousemove', this._onMove, { passive: true });
-      document.addEventListener('mouseleave', this._onOut);
-    }
+    // SSR renders the 1440px layout; settle the real width first so DOM wiring targets the final tree.
+    this.setState({ w: window.innerWidth }, () => this.initMount());
   }
-
-  runTypewriter() {
-    this._timers = [];
-    const at = (ms, fn) => this._timers.push(setTimeout(fn, ms));
-    let t = 450;
-    const type = (word, speed) => {
-      for (let i = 1; i <= word.length; i++) {
-        t += speed;
-        at(t, () => this.setState({ typed: word.slice(0, i) }));
-      }
-    };
-    const erase = (word, speed) => {
-      for (let i = word.length - 1; i >= 0; i--) {
-        t += speed;
-        at(t, () => this.setState({ typed: word.slice(0, i) }));
-      }
-    };
-    type('Hi there', 95);
-    t += 900;
-    erase('Hi there', 55);
-    t += 320;
-    type('welcome', 110);
-    t += 1200;
-    at(t, () => this.setState({ phase: 'name' }));
+  initMount() {
+    if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.querySelectorAll('[data-lm]').forEach((el) => el.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], { duration: 3500, iterations: Infinity }));
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.mouse = { x: -9999, y: -9999 };
+    this.onMove = (e) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; };
+    this.onLeave = () => { this.mouse.x = -9999; this.mouse.y = -9999; };
+    window.addEventListener('mousemove', this.onMove, { passive: true });
+    document.addEventListener('mouseleave', this.onLeave);
+    const loop = () => { this.tickRepel(); this.tickLines(); this.raf = requestAnimationFrame(loop); };
+    this.raf = requestAnimationFrame(loop);
+    this.setupFloat();
+    setTimeout(() => this.runIntro(), 60);
   }
-
-  onScroll = () => {
-    const hero = document.getElementById('top');
-    const trigger = hero ? hero.offsetHeight - 140 : 320;
-    const on = window.scrollY > Math.max(80, trigger);
-    if (on !== this.state.glass) this.setState({ glass: on });
-    const pin = window.scrollY > (hero ? hero.offsetHeight * 0.1 : 90);
-    if (pin !== this.state.pinned) this.setState({ pinned: pin });
-  };
-
-  setupSpinner() {
-    const el = this._blobRef && this._blobRef.current;
-    if (!el || this._spinReady) return;
-    const g = gsap;
-    if (!g) { this._spinTry = (this._spinTry || 0) + 1; if (this._spinTry < 40) setTimeout(() => this.setupSpinner(), 150); return; }
-    this._spinReady = true;
-
-    const st = { r: 0 };
-    const apply = () => { el.style.transform = 'rotate(' + st.r + 'deg)'; };
-    let tw = null;
-    const spinTo = (to, dur) => { if (tw) tw.kill(); tw = g.to(st, { r: to, duration: dur, ease: 'power3.out', onUpdate: apply }); };
-
-    // intro: fast spin that eases to a stop
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) { spinTo(1080, 3); io.disconnect(); } });
-    }, { threshold: 0.3 });
-    io.observe(el);
-    this._spinIo = io;
-
-    // hover: gentle drift
-    el.addEventListener('pointerenter', () => { if (!this._dragging) spinTo(st.r + 90, 2.2); });
-
-    const ang = (e) => { const b = el.getBoundingClientRect(); return Math.atan2(e.clientY - (b.top + b.height / 2), e.clientX - (b.left + b.width / 2)) * 180 / Math.PI; };
-    let last = 0, lastT = 0, vel = 0;
-
-    el.addEventListener('pointerdown', (e) => {
-      if (tw) tw.kill();
-      this._dragging = true; vel = 0;
-      last = ang(e); lastT = performance.now();
-      el.setPointerCapture(e.pointerId);
-      el.style.cursor = 'grabbing';
+  componentDidUpdate() { this.setupFloat(); }
+  tickLines() {
+    const p = document.querySelector('[data-line-reveal]');
+    if (!p) return;
+    const lines = p.querySelectorAll('[data-line]');
+    if (this.__reduced === undefined) this.__reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (this.__reduced) return;
+    const vh = window.innerHeight;
+    const r = p.getBoundingClientRect();
+    const start = vh * 0.92, end = vh * 0.4;
+    const prog = Math.max(0, Math.min(1, (start - r.top) / (start - end + r.height * 0.5)));
+    const n = lines.length, span = 1 / (n * 0.55);
+    lines.forEach((el, i) => {
+      const s = (i / n) * (1 - span * 0.6);
+      let t = Math.max(0, Math.min(1, (prog - s) / span));
+      t = 1 - Math.pow(1 - t, 3);
+      const key = t.toFixed(3);
+      if (el.__t === key) return;
+      el.__t = key;
+      el.style.transform = `translateY(${(1 - t) * 100}%) rotate(${(1 - t) * 3}deg)`;
+      el.style.opacity = String(0.1 + 0.9 * t);
+      el.style.filter = t >= 1 ? 'none' : `blur(${((1 - t) * 12).toFixed(2)}px)`;
+      el.style.transformOrigin = '0 0';
     });
-    el.addEventListener('pointermove', (e) => {
-      if (!this._dragging) return;
-      const a = ang(e);
-      let d = a - last;
-      if (d > 180) d -= 360; else if (d < -180) d += 360;
-      const now = performance.now(), dt = Math.max(8, now - lastT);
-      vel = d / dt * 1000;
-      last = a; lastT = now;
-      st.r += d; apply();
-    });
-    const release = () => {
-      if (!this._dragging) return;
-      this._dragging = false;
-      el.style.cursor = 'grab';
-      const throwTo = st.r + Math.max(-1440, Math.min(1440, vel * 0.55));
-      spinTo(throwTo, 2.4);
-    };
-    el.addEventListener('pointerup', release);
-    el.addEventListener('pointercancel', release);
   }
-
-  expVals() {
-    const open = this.state.expOpen;
-    const narrow = this.state.expNarrow ?? false;
-    const out = {};
-    for (let i = 0; i < 4; i++) {
-      const on = open === i;
-      out['exp' + i + 'PW'] = narrow ? '100%' : (on ? '352px' : '0px');
-      out['exp' + i + 'PH'] = narrow ? (on ? '1400px' : '0px') : 'none';
-      out['exp' + i + 'Op'] = on ? 1 : 0;
-    }
-    return out;
+  runIntro() {
+    if (this.__intro) return;
+    this.__intro = true;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const top = document.querySelector('#top');
+    const h1 = top && top.querySelector('h1');
+    if (!h1) return;
+    const box = h1.parentElement;
+    const rest = [...top.children].filter((c) => c !== box);
+    const about = document.querySelector('#about');
+    if (about) rest.push(about);
+    rest.forEach((el) => { el.style.opacity = '0'; });
+    const handles = [...box.querySelectorAll(':scope > span')];
+    handles.forEach((h) => { h.style.opacity = '0'; });
+    const bc = box.style.borderColor;
+    box.style.borderColor = 'transparent';
+    h1.style.visibility = 'hidden';
+    const W = box.offsetWidth, H = box.offsetHeight;
+    const frame = document.createElement('div');
+    Object.assign(frame.style, { position: 'absolute', left: '-2px', top: '-2px', width: '0px', height: '0px', border: '2px solid #63c4ec', boxSizing: 'border-box', background: 'rgba(99,196,236,0.08)', pointerEvents: 'none' });
+    const cur = document.createElement('div');
+    cur.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#1c1c1c" stroke="#f5f5f5" stroke-width="1.6" stroke-linejoin="round"><path d="M4 4l16 6.5-6.5 2.9L10.6 20z"></path></svg>';
+    Object.assign(cur.style, { position: 'absolute', left: '-6px', top: '-6px', zIndex: 5, opacity: '0', pointerEvents: 'none', lineHeight: 0 });
+    box.appendChild(frame); box.appendChild(cur);
+    const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+    const tween = (dur, fn) => new Promise((res) => { const t0 = performance.now(); const step = (now) => { const t = Math.min(1, (now - t0) / dur); fn(ease(t)); t < 1 ? requestAnimationFrame(step) : res(); }; requestAnimationFrame(step); });
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    (async () => {
+      await wait(250);
+      await tween(550, (e) => { cur.style.opacity = e; cur.style.transform = `translate(${-60 * (1 - e)}px,${-40 * (1 - e)}px)`; });
+      await wait(160);
+      await tween(1000, (e) => { const w = W * e, h = H * e; frame.style.width = w + 'px'; frame.style.height = h + 'px'; cur.style.transform = `translate(${w}px,${h}px)`; });
+      box.style.borderColor = bc;
+      frame.remove();
+      handles.forEach((h, i) => { h.style.opacity = ''; h.animate([{ transform: 'scale(0)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 240, delay: i * 50, easing: 'cubic-bezier(.3,1.6,.5,1)', fill: 'backwards' }); });
+      tween(400, (e) => { cur.style.opacity = 1 - e; cur.style.transform = `translate(${W + 30 * e}px,${H + 24 * e}px)`; }).then(() => cur.remove());
+      await wait(200);
+      const text = h1.textContent;
+      const t = h1.cloneNode(false);
+      t.style.cssText = h1.style.cssText;
+      Object.assign(t.style, { visibility: 'visible', position: 'absolute', left: h1.offsetLeft + 'px', top: h1.offsetTop + 'px', margin: '0' });
+      const caret = document.createElement('span');
+      Object.assign(caret.style, { display: 'inline-block', width: '3px', height: '0.78em', marginLeft: '4px', background: '#63c4ec', verticalAlign: '-0.06em' });
+      caret.animate([{ opacity: 1 }, { opacity: 1, offset: 0.5 }, { opacity: 0, offset: 0.51 }, { opacity: 0 }], { duration: 700, iterations: Infinity });
+      const txt = document.createTextNode('');
+      t.appendChild(txt); t.appendChild(caret); box.appendChild(t);
+      for (let i = 1; i <= text.length; i++) { txt.data = text.slice(0, i); await wait(text[i - 1] === ' ' ? 140 : 75 + Math.random() * 45); }
+      await wait(420);
+      t.remove();
+      h1.style.visibility = '';
+      rest.forEach((el, i) => {
+        const float = el.hasAttribute('data-float');
+        el.style.opacity = '';
+        el.animate(float ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 560, delay: i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+      });
+    })();
   }
-
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    if (this._onGaze) window.removeEventListener('mousemove', this._onGaze);
-    if (this._spinIo) this._spinIo.disconnect();
-    if (this._expMq && this._onExpMq) this._expMq.removeEventListener('change', this._onExpMq);
-    if (this._onRulerMove) window.removeEventListener('mousemove', this._onRulerMove);
-    if (this._revealTick) { window.removeEventListener('scroll', this._revealTick); window.removeEventListener('resize', this._revealTick); }
-    if (this._onMove) window.removeEventListener('mousemove', this._onMove);
-    if (this._onOut) document.removeEventListener('mouseleave', this._onOut);
-    this._io?.disconnect();
-    clearTimeout(this._fallback);
-    (this._timers || []).forEach(clearTimeout);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('mousemove', this.onMove);
+    document.removeEventListener('mouseleave', this.onLeave);
+    cancelAnimationFrame(this.raf);
   }
-
-  renderVals() {
-    const { dark, px = 0, py = 0, pOver = false } = this.state;
-    if (!this._rulerRefs) {
-      this._rulerRefs = { track: React.createRef(), mark: React.createRef() };
-      this._rulerTicks = [];
-      for (let x = 0; x <= 3000; x += 100) this._rulerTicks.push({ left: x + 'px', label: String(x) });
-    }
-    const photoTransform = pOver ? 'rotate(-6deg)' : 'rotate(0deg)';
-    const isDark = dark === null ? DEFAULT_THEME === 'dark' : dark;
-    return {
-      theme: isDark ? 'dark' : 'light',
-      rulerTrack: this._rulerRefs.track,
-      rulerMark: this._rulerRefs.mark,
-      rulerTicks: this._rulerTicks,
-      navState: this.state.glass ? 'on' : 'off',
-      pinState: this.state.pinned ? 'on' : 'off',
-      menuState: this.state.menu ? 'on' : 'off',
-      toggleMenu: () => this.setState({ menu: !this.state.menu }),
-      cf_name: this.state.cfName ?? '', cf_email: this.state.cfEmail ?? '', cf_msg: this.state.cfMsg ?? '',
-      cfSet: (e) => { const n = e.target.name; this.setState({ [n === 'name' ? 'cfName' : n === 'email' ? 'cfEmail' : 'cfMsg']: e.target.value, cfNote: '' }); },
-      cfMsg: this.state.cfNote || '', cfTone: this.state.cfTone || 'idle',
-      cfSubmit: (e) => {
-        e.preventDefault();
-        const name = (this.state.cfName || '').trim(), email = (this.state.cfEmail || '').trim(), msg = (this.state.cfMsg || '').trim();
-        if (!name || !email || !msg) return this.setState({ cfNote: 'Please fill in all three fields.', cfTone: 'err' });
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ cfNote: 'That email doesn\'t look right.', cfTone: 'err' });
-        if (this._cfSending) return;
-        this._cfSending = true;
-        this.setState({ cfNote: 'Sending…', cfTone: 'idle' });
-        sendContact({ name, email, message: msg })
-          .then((how) => this.setState({
-            cfNote: how === 'sent' ? 'Thanks — your message is on its way. I\'ll get back to you soon.' : 'Thanks — your mail app should open with the message ready to send.',
-            cfTone: 'ok', cfName: '', cfEmail: '', cfMsg: '',
-          }))
-          .catch(() => this.setState({ cfNote: 'Something went wrong sending that. Please email kumarshiva1990@gmail.com instead.', cfTone: 'err' }))
-          .finally(() => { this._cfSending = false; });
-      },
-      xToggle: (e) => { const i = +e.currentTarget.dataset.exp; this.setState((st) => ({ xOpen: (st.xOpen ?? 0) === i ? -1 : i })); },
-      x0Open: (this.state.xOpen ?? 0) === 0 ? 'on' : 'off', x1Open: this.state.xOpen === 1 ? 'on' : 'off', x2Open: this.state.xOpen === 2 ? 'on' : 'off', x3Open: this.state.xOpen === 3 ? 'on' : 'off',
-      x0Aria: (this.state.xOpen ?? 0) === 0 ? 'true' : 'false', x1Aria: this.state.xOpen === 1 ? 'true' : 'false', x2Aria: this.state.xOpen === 2 ? 'true' : 'false', x3Aria: this.state.xOpen === 3 ? 'true' : 'false',
-      soon: (e) => { e.preventDefault(); clearTimeout(this._soonT); this.setState({ soon: true }); this._soonT = setTimeout(() => this.setState({ soon: false }), 2600); },
-      soonShow: this.state.soon ? 'on' : 'off',
-      closeMenu: () => this.setState({ menu: false }),
-      burgerIcon: React.createElement('svg', { width: 17, height: 17, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', 'aria-hidden': true },
-        React.createElement('path', { d: 'M3 6h18M3 12h18M3 18h18' })),
-      closeIcon: React.createElement('svg', { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', 'aria-hidden': true },
-        React.createElement('path', { d: 'M18 6 6 18M6 6l12 12' })),
-      themeIcon: isDark
-        ? React.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true },
-            React.createElement('circle', { cx: 12, cy: 12, r: 4 }),
-            React.createElement('path', { d: 'M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4' }))
-        : React.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true },
-            React.createElement('path', { d: 'M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z' })),
-      toggleTheme: () => {
-        const next = !isDark;
-        localStorage.setItem('sk-portfolio-theme', next ? 'dark' : 'light');
-        this.setState({ dark: next });
-      },
-      photoTransform,
-      typed: this.state.typed ?? '',
-      showComment: (this.state.phase ?? 'type') !== 'name',
-      showName: (this.state.phase ?? 'type') === 'name',
-      pinTransform: this.state.pinOpen ? 'scale(1)' : 'scale(.6)',
-      pinOpacity: this.state.pinOpen ? 1 : 0,
-      youRef: (this._youRef = this._youRef || { current: null }),
-      blobRef: (this._blobRef = this._blobRef || { current: null }),
-      pupilRef: (this._pupilRef = this._pupilRef || { current: null }),
-      pAx: this.state.pAx ?? 60, pAy: this.state.pAy ?? 130,
-      pBx: this.state.pBx ?? 900, pBy: this.state.pBy ?? 420,
-      onDragStart: (e) => {
-        const node = e.currentTarget;
-        const key = node.getAttribute('data-drag');
-        const host = node.parentElement;
-        const hr = host.getBoundingClientRect();
-        const nr = node.getBoundingClientRect();
-        const offX = e.clientX - nr.left, offY = e.clientY - nr.top;
-        node.style.cursor = 'grabbing';
-        const move = (ev) => {
-          const x = Math.max(0, Math.min(hr.width - nr.width, ev.clientX - hr.left - offX));
-          const y = Math.max(0, Math.min(hr.height - nr.height, ev.clientY - hr.top - offY));
-          this.setState(key === 'a' ? { pAx: x, pAy: y } : { pBx: x, pBy: y });
-        };
-        const up = () => {
-          node.style.cursor = 'grab';
-          window.removeEventListener('pointermove', move);
-          window.removeEventListener('pointerup', up);
-        };
-        window.addEventListener('pointermove', move);
-        window.addEventListener('pointerup', up);
-      },
-      expEnter: (e) => {
-        if (this.state.expNarrow) return;
-        const card = e.currentTarget;
-        const track = card.parentElement;
-        const view = track && track.parentElement;
-        let shift = 0;
-        if (view) {
-          const grow = 16 + 352;
-          const openW = card.offsetWidth + grow;
-          const total = track.scrollWidth + grow;
-          const viewW = view.clientWidth;
-          const rightNeed = card.offsetLeft + openW - viewW; // keep the panel's right edge in view
-          const want = Math.max(card.offsetLeft + openW / 2 - viewW / 2, rightNeed);
-          shift = Math.round(Math.min(Math.max(want, 0), Math.max(0, total - viewW)));
+  setupFloat() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const cfg = { 1: [3000, 0], 2: [3400, -900], 3: [2800, -1700], 4: [3000, 0], 5: [2800, -1700], 6: [3400, -900] };
+    document.querySelectorAll('[data-shimmer]').forEach((btn) => {
+      if (btn.__fx) return;
+      btn.__fx = true;
+      const shine = btn.querySelector('[data-shine]');
+      const icon = btn.querySelector('[data-ring]');
+      const ring = () => icon && icon.animate([
+        { transform: 'rotate(0)' }, { transform: 'rotate(-16deg)' }, { transform: 'rotate(14deg)' },
+        { transform: 'rotate(-12deg)' }, { transform: 'rotate(10deg)' }, { transform: 'rotate(-6deg)' },
+        { transform: 'rotate(4deg)' }, { transform: 'rotate(0)' }
+      ], { duration: 600, easing: 'ease-in-out' });
+      let ringTimer = null;
+      btn.addEventListener('mouseenter', () => {
+        shine && shine.animate([{ transform: 'translateX(-120%) skewX(-18deg)' }, { transform: 'translateX(260%) skewX(-18deg)' }], { duration: 750, easing: 'ease-in-out' });
+        ring(); clearInterval(ringTimer); ringTimer = setInterval(ring, 900);
+        const lb = btn.querySelector('[data-hover-label]'); if (lb) { lb.style.opacity = '1'; lb.style.transform = 'none'; }
+      });
+      btn.addEventListener('mouseleave', () => { clearInterval(ringTimer); ringTimer = null; const lb = btn.querySelector('[data-hover-label]'); if (lb && !btn.closest('[data-view="mobile"]')) { lb.style.opacity = '0'; lb.style.transform = 'translateY(6px)'; } });
+      if (!(window.matchMedia && window.matchMedia('(hover: hover)').matches)) setInterval(ring, 3000);
+    });
+    document.querySelectorAll('[data-blip]').forEach((el) => {
+      if (el.__fx) return;
+      el.__fx = true;
+      el.animate([{ opacity: 1 }, { opacity: 0.45 }, { opacity: 1 }], { duration: 2400, iterations: Infinity, easing: 'ease-in-out' });
+      const ring = el.querySelector('[data-blip-ring]');
+      ring && ring.animate([{ transform: 'scale(1)', opacity: 0.6 }, { transform: 'scale(3)', opacity: 0 }], { duration: 2400, iterations: Infinity, easing: 'ease-out' });
+    });
+    document.querySelectorAll('[data-mascot]').forEach((el) => {
+      if (el.__fx) return;
+      el.__fx = true;
+      const arm = el.querySelector('[data-wave]');
+      const bob = el.querySelector('[data-bob]');
+      const bub = el.querySelector('[data-bubble]');
+      arm && arm.animate([
+        { transform: 'rotate(0deg)', offset: 0 }, { transform: 'rotate(-70deg)', offset: 0.12 },
+        { transform: 'rotate(-40deg)', offset: 0.22 }, { transform: 'rotate(-75deg)', offset: 0.32 },
+        { transform: 'rotate(-40deg)', offset: 0.42 }, { transform: 'rotate(-70deg)', offset: 0.52 },
+        { transform: 'rotate(0deg)', offset: 0.66 }, { transform: 'rotate(0deg)', offset: 1 }
+      ], { duration: 2600, iterations: Infinity, easing: 'ease-in-out' });
+      bob && bob.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-4%)' }, { transform: 'translateY(0)' }], { duration: 1300, iterations: Infinity, easing: 'ease-in-out' });
+      bub && bub.animate([
+        { transform: 'scale(0.6) rotate(-6deg)', opacity: 0, offset: 0 }, { transform: 'scale(1.08) rotate(2deg)', opacity: 1, offset: 0.1 },
+        { transform: 'scale(1) rotate(0deg)', opacity: 1, offset: 0.16 }, { transform: 'scale(1) rotate(0deg)', opacity: 1, offset: 0.62 },
+        { transform: 'scale(0.9)', opacity: 0, offset: 0.74 }, { transform: 'scale(0.6)', opacity: 0, offset: 1 }
+      ], { duration: 2600, iterations: Infinity, easing: 'ease-out' });
+    });
+    document.querySelectorAll('[data-spin]').forEach((el) => {
+      if (el.__fx) return;
+      el.__fx = true;
+      el.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], { duration: 12000, iterations: Infinity, easing: 'linear' });
+    });
+    document.querySelectorAll('[data-float]').forEach((el) => {
+      if (el.__fx) return;
+      el.__fx = true;
+      const [dur, delay] = cfg[el.getAttribute('data-float')] || [3000, 0];
+      el.animate([{ transform: 'translateY(-14px)' }, { transform: 'translateY(14px)' }],
+        { duration: dur, delay, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out' });
+    });
+  }
+  tickRuler() {
+    const mark = document.querySelector('[data-rmark]');
+    if (!mark) return;
+    const host = mark.parentElement.getBoundingClientRect();
+    const x = this.mouse.x - host.left;
+    const on = this.mouse.x > -9000 && x >= 0 && x <= host.width;
+    mark.style.opacity = on ? '1' : '0';
+    if (!on) return;
+    const v = Math.round(x - 6);
+    mark.style.transform = `translateX(${x}px)`;
+    const label = mark.querySelector('[data-rmark-label]');
+    if (label && label.__v !== v) { label.__v = v; label.textContent = v; }
+    mark.parentElement.querySelectorAll(':scope > span').forEach((s) => { s.style.opacity = Math.abs(s.offsetLeft - x) < 22 ? '0' : '1'; });
+  }
+  tickStack() {
+    const wrap = document.querySelector('[data-stack]');
+    if (!wrap) return;
+    const [base, step] = wrap.getAttribute('data-stack').split(',').map(Number);
+    const cards = [...wrap.children];
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    cards.forEach((c, i) => {
+      if (!c.__stk) {
+        c.__stk = true;
+        Object.assign(c.style, { position: 'sticky', top: base + i * step + 'px', transformOrigin: '50% 0%', willChange: 'transform' });
+      }
+    });
+    if (reduce) return;
+    cards.forEach((c, i) => {
+      let depth = 0;
+      const h = c.offsetHeight || 1;
+      const myTop = c.getBoundingClientRect().top;
+      for (let j = i + 1; j < cards.length; j++) {
+        const nt = cards[j].getBoundingClientRect().top;
+        depth += Math.max(0, Math.min(1, (myTop + h - nt) / h));
+      }
+      const sc = 1 - depth * 0.045;
+      const d = Math.min(depth, 3);
+      const br = Math.max(0.3, 1 - d * 0.24);
+      const bl = d * 2.4;
+      c.style.transform = depth ? `scale(${sc.toFixed(4)})` : '';
+      c.style.filter = depth ? `brightness(${br.toFixed(3)}) blur(${bl.toFixed(2)}px)` : '';
+    });
+  }
+  tickRepel() {
+    this.tickRuler();
+    this.tickStack();
+    const canHover = !this.isMob && window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    const R = 170, MAX = 70;
+    document.querySelectorAll('[data-repel]').forEach((el) => {
+      const st = el.__rp || (el.__rp = { x: 0, y: 0, tx: 0, ty: 0 });
+      st.tx = 0; st.ty = 0;
+      const pill = el.querySelector('span');
+      if (canHover && pill) {
+        const r = pill.getBoundingClientRect();
+        const cx = r.left + r.width / 2 - st.x, cy = r.top + r.height / 2 - st.y;
+        const dx = cx - this.mouse.x, dy = cy - this.mouse.y;
+        const d = Math.hypot(dx, dy) || 1;
+        if (d < R) {
+          const f = Math.pow(1 - d / R, 1.4) * MAX;
+          st.tx = (dx / d) * f; st.ty = (dy / d) * f;
         }
-        this.setState({ expOpen: Number(card.getAttribute('data-exp')), expShiftPx: shift });
-      },
-      expLeave: () => { if (!this.state.expNarrow) this.setState({ expOpen: null, expShiftPx: 0 }); },
-      expShift: '-' + (this.state.expShiftPx || 0) + 'px',
-      expTap: (e) => {
-        if (!this.state.expNarrow) return;
-        const i = Number(e.currentTarget.getAttribute('data-exp'));
-        this.setState({ expOpen: this.state.expOpen === i ? null : i });
-      },
-      ...this.expVals(),
-      revealOpacity: (this.state.phase ?? 'type') === 'name' ? 1 : 0,
-      pin2Transform: this.state.pin2Open ? 'scale(1)' : 'scale(.6)',
-      pin2Opacity: this.state.pin2Open ? 1 : 0,
-      onPin2Enter: () => this.setState({ pin2Open: true }),
-      onPin2Leave: () => this.setState({ pin2Open: false }),
-      onPinEnter: () => this.setState({ pinOpen: true }),
-      onPinLeave: () => this.setState({ pinOpen: false }),
-      onPhotoEnter: () => this.setState({ pOver: true }),
-      onPhotoLeave: () => this.setState({ pOver: false }),
+      }
+      st.x += (st.tx - st.x) * 0.1; st.y += (st.ty - st.y) * 0.1;
+      if (Math.abs(st.x) < 0.05 && Math.abs(st.y) < 0.05 && !st.tx && !st.ty) { st.x = 0; st.y = 0; }
+      el.style.transform = `translate(${st.x.toFixed(2)}px, ${st.y.toFixed(2)}px) rotate(${(st.x * 0.12).toFixed(2)}deg)`;
+    });
+  }
+  renderVals() {
+    const vp = 'auto';
+    const mob = vp === 'mobile' || (vp === 'auto' && this.state.w < 768);
+    this.isMob = mob;
+    const rulerDesk = Array.from({ length: 15 }, (_, i) => ({ n: i * 100, x: 6 + i * 100 }));
+    const rulerMob = [600, 700, 800, 900].map((n, i) => ({ n, x: `calc(50% + ${-111 + i * 100}px)` }));
+    return {
+      isDesk: !mob, isMob: mob,
+      showRuler: true,
+      showDock: true,
+      rulerDesk, rulerMob,
+      hasNote: !!this.state.cfNote, cfNote: this.state.cfNote,
+      onSubmit: (e) => {
+        e.preventDefault();
+        const f = new FormData(e.currentTarget);
+        const name = String(f.get('name') || '').trim();
+        const email = String(f.get('email') || '').trim();
+        const msg = String(f.get('message') || '').trim();
+        if (!name || !email || !msg) return this.setState({ cfNote: 'Please fill in all three fields.' });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ cfNote: 'That email doesn\'t look right.' });
+        submitContactForm(this, e.currentTarget, name, email, msg);
+      }
     };
   }
 

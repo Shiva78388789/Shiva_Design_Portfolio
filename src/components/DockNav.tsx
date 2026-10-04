@@ -65,23 +65,69 @@ export default function DockNav({ active }: { active?: Id }) {
   const linkRefs = useRef<Partial<Record<Id, HTMLAnchorElement | null>>>({});
   const lock = useRef(0);
 
+  const pillPos = useRef<{ x: number; w: number } | null>(null);
+  const pillAnim = useRef<Animation | null>(null);
+
+  // Liquid pill: stretches between items, pops in the first time it appears.
   const movePill = useCallback((id: Id | null, instant: boolean) => {
     const p = pillRef.current;
     if (!p) return;
     const a = id ? linkRefs.current[id] : null;
     if (!a) {
       p.style.opacity = '0';
+      pillPos.current = null;
       return;
     }
-    if (instant) p.style.transition = 'none';
-    p.style.width = a.offsetWidth + 'px';
-    p.style.transform = `translateX(${a.offsetLeft}px)`;
+    const to = { x: a.offsetLeft, w: a.offsetWidth };
+    const from = pillPos.current;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    p.style.width = to.w + 'px';
+    p.style.transform = `translateX(${to.x}px)`;
     p.style.opacity = '1';
-    if (instant) {
-      void p.offsetWidth;
-      p.style.transition = '';
+    pillPos.current = to;
+    if (instant || !from || reduce || (from.x === to.x && from.w === to.w)) {
+      if (!from && !instant && !reduce) {
+        p.animate(
+          [
+            { transform: `translateX(${to.x}px) scale(.6)`, opacity: 0 },
+            { transform: `translateX(${to.x}px) scale(1.06)`, opacity: 1, offset: 0.7 },
+            { transform: `translateX(${to.x}px) scale(1)`, opacity: 1 },
+          ],
+          { duration: 420, easing: 'cubic-bezier(.3,1.4,.5,1)' },
+        );
+      }
+      return;
     }
+    pillAnim.current?.cancel();
+    const L = Math.min(from.x, to.x);
+    const R = Math.max(from.x + from.w, to.x + to.w);
+    const right = to.x > from.x;
+    pillAnim.current = p.animate(
+      [
+        { transform: `translateX(${from.x}px) scale(1,1)`, width: from.w + 'px' },
+        { transform: `translateX(${right ? from.x : L}px) scale(1,.86)`, width: (R - L) * 0.7 + 'px', offset: 0.35 },
+        { transform: `translateX(${right ? R - (R - L) * 0.7 : L}px) scale(1,.9)`, width: (R - L) * 0.7 + 'px', offset: 0.6 },
+        { transform: `translateX(${to.x}px) scale(1.04,1.06)`, width: to.w + 'px', offset: 0.82 },
+        { transform: `translateX(${to.x}px) scale(1,1)`, width: to.w + 'px' },
+      ],
+      { duration: 620, easing: 'cubic-bezier(.45,0,.2,1)' },
+    );
   }, []);
+
+  // Glass bar follows the pointer with a soft lens and a slight squash.
+  const barRef = useRef<HTMLElement>(null);
+  const lensRef = useRef<HTMLSpanElement>(null);
+  const onBarMove = (e: React.PointerEvent) => {
+    const bar = barRef.current;
+    const lens = lensRef.current;
+    if (!bar || !lens) return;
+    const r = bar.getBoundingClientRect();
+    lens.style.transform = `translate(${e.clientX - r.left}px,${e.clientY - r.top}px)`;
+    bar.style.transform = `scale(1.03) translateX(${((e.clientX - r.left) / r.width - 0.5) * 4}px)`;
+  };
+  const setBarTransform = (t: string) => () => {
+    if (barRef.current) barRef.current.style.transform = t;
+  };
 
   const first = useRef(true);
   useEffect(() => {
@@ -216,7 +262,16 @@ export default function DockNav({ active }: { active?: Id }) {
 
   return (
     <div className={styles.host} data-hidden={hidden ? '' : undefined}>
-      <nav className={styles.bar} aria-label="Site">
+      <nav
+        className={styles.bar}
+        aria-label="Site"
+        ref={barRef}
+        onPointerMove={onBarMove}
+        onPointerLeave={setBarTransform('')}
+        onPointerDown={setBarTransform('scale(0.97)')}
+        onPointerUp={setBarTransform('scale(1.03)')}
+      >
+        <span className={styles.lens} ref={lensRef} aria-hidden="true" />
         <span className={styles.pill} ref={pillRef} />
         {ITEMS.map(([id, label], i) => (
           <Fragment key={id}>

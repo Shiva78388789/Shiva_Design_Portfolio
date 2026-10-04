@@ -10,6 +10,8 @@ It recreates the HTML design references in [`design-reference/`](design-referenc
 | `/work/dth-price-simplification/` | DTH Price Simplification |
 | `/work/bijak-design-system/` | Bijak Web Design System |
 | `/work/toffee-seller-app/` | Toffee Seller App |
+| `/work/jugnu/` | Jugnu |
+| `/work/akhbar-bash/` | Akhbar Bash |
 
 ## Develop
 
@@ -39,8 +41,9 @@ npm start        # serve out/
 
 ## Content still to add
 
-- **Project imagery:** the home-page project cards and the five Engage X UI screens were
-  empty image slots in the design. Add the files to `public/assets/` and map each slot id
+- **Jugnu imagery:** the case study expects images in `public/assets/jugnu/` (the file
+  names are in `src/views/JugnuView.tsx`); until they're added each shows a placeholder frame.
+- **Project imagery:** the five Engage X UI screens were empty image slots in the design. Add the files to `public/assets/` and map each slot id
   in `src/content/image-slots.ts`; until then they show a placeholder frame.
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in
   `public/assets/toffee/` if originals exist.
