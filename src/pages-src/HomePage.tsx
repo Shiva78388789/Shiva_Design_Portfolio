@@ -2,6 +2,8 @@
 'use client';
 
 // Behaviour for the Home page, ported from design-reference/design/Portfolio.dc.html.
+import React from 'react';
+import gsap from 'gsap';
 import DCPage from '@/lib/DCPage';
 import { submitContactForm } from '@/lib/contactForm';
 import HomeView from '@/views/HomeView';
@@ -11,6 +13,7 @@ import HomeView from '@/views/HomeView';
 export default class HomePage extends DCPage {
 
   state = { w: 1440, cfNote: '' };
+  ftRef = React.createRef(); clockRef = React.createRef();
   componentDidMount() {
     // SSR renders the 1440px layout; settle the real width first so DOM wiring targets the final tree.
     this.setState({ w: window.innerWidth }, () => this.initMount());
@@ -24,12 +27,99 @@ export default class HomePage extends DCPage {
     this.onLeave = () => { this.mouse.x = -9999; this.mouse.y = -9999; };
     window.addEventListener('mousemove', this.onMove, { passive: true });
     document.addEventListener('mouseleave', this.onLeave);
-    const loop = () => { this.tickRepel(); this.tickLines(); this.raf = requestAnimationFrame(loop); };
+    this.vcLast = performance.now(); this.vcScrollY = window.scrollY; this.vcBoost = 0; this.vcDir = -1;
+    const loop = () => { this.tickRepel(); this.tickLines(); this.tickVC(); this.raf = requestAnimationFrame(loop); };
     this.raf = requestAnimationFrame(loop);
     this.setupFloat();
+    this.setupNotice();
+    this.setupFooter();
     setTimeout(() => this.runIntro(), 60);
   }
-  componentDidUpdate() { this.setupFloat(); }
+  componentDidUpdate() { this.setupFloat(); this.setupNotice(); }
+  measureFooter() {
+    const f = this.ftRef.current; if (!f) return;
+    const H = f.offsetHeight, vh = window.innerHeight;
+    f.style.setProperty('--ft-m', Math.min(H, vh) + 'px');
+    const sd = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+    if (!sd) { const fits = H <= vh; f.style.position = fits ? 'sticky' : 'relative'; f.style.bottom = fits ? '0' : ''; }
+  }
+  setupFooter() {
+    const clk = () => { if (this.clockRef.current) this.clockRef.current.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }); };
+    clk(); this.clockT = setInterval(clk, 1000);
+    this.measureFooter();
+    if (window.ResizeObserver && this.ftRef.current) { this.ftRO = new ResizeObserver(() => this.measureFooter()); this.ftRO.observe(this.ftRef.current); }
+    this.onFtResize = () => this.measureFooter(); window.addEventListener('resize', this.onFtResize);
+    const f = this.ftRef.current; if (!f || !window.IntersectionObserver) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.ftIO = new IntersectionObserver((es) => es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      const el = en.target.__rvChild || en.target;
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, +(el.dataset.delay || 0));
+      this.ftIO.unobserve(en.target);
+    }), { threshold: 0.12 });
+    f.querySelectorAll('[data-ft-reveal]').forEach((el) => {
+      const line = el.dataset.ftReveal === 'line';
+      el.style.transition = 'opacity 1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      if (line) { el.style.transform = 'translateY(105%)'; el.parentElement.__rvChild = el; this.ftIO.observe(el.parentElement); }
+      else { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; this.ftIO.observe(el); }
+    });
+  }
+  setupNotice() {
+    const g = gsap;
+    if (!g) { if (!this.__nt) this.__nt = setTimeout(() => { this.__nt = null; this.setupNotice(); }, 200); return; }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-notice]').forEach((el) => {
+      if (el.__gs) return;
+      el.__gs = true;
+      const track = el.querySelector('[data-notice-track]');
+      if (reduce || !track) return;
+      g.from(el, { height: 0, duration: 0.6, delay: 0.3, ease: 'power3.out', clearProps: 'height' });
+      const loop = g.fromTo(track, { xPercent: 0 }, { xPercent: -50, duration: 40, ease: 'none', repeat: -1 });
+      el.addEventListener('mouseenter', () => g.to(loop, { timeScale: 0.2, duration: 0.4 }));
+      el.addEventListener('mouseleave', () => g.to(loop, { timeScale: 1, duration: 0.4 }));
+    });
+  }
+  tickVC() {
+    const now = performance.now();
+    const dt = Math.min(0.05, (now - this.vcLast) / 1000); this.vcLast = now;
+    const sy = window.scrollY, dy = sy - this.vcScrollY; this.vcScrollY = sy;
+    if (Math.abs(dy) > 0.5) this.vcDir = dy > 0 ? -1 : 1;
+    const target = Math.min(14, Math.abs(dy) / Math.max(dt, 0.001) / 120);
+    this.vcBoost += (target - this.vcBoost) * 0.08;
+    if (this.__reduced === undefined) this.__reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    document.querySelectorAll('[data-vc]').forEach((vc) => {
+      const track = vc.firstElementChild; if (!track) return;
+      const st = vc.__vc || (vc.__vc = this.initVC(vc));
+      const half = track.scrollWidth / 2; if (!half) return;
+      st.ts += ((st.hover ? 0.15 : 1) - st.ts) * 0.08;
+      const base = vc.dataset.vc === 'mob' ? 34 : 48;
+      if (!st.drag && !this.__reduced) { st.x += this.vcDir * base * (1 + this.vcBoost) * st.ts * dt + st.fling * dt; st.fling *= 0.94; }
+      st.x = ((st.x % half) - half) % half;
+      track.style.transform = `translate3d(${st.x.toFixed(2)}px,0,0)`;
+      if (vc.dataset.vc === 'mob') {
+        const cx = window.innerWidth / 2;
+        vc.querySelectorAll('[data-vc-sharp]').forEach((img) => {
+          const r = img.getBoundingClientRect();
+          const on = Math.abs(r.left + r.width / 2 - cx) < r.width * 0.55;
+          if (img.__on !== on) { img.__on = on; img.style.opacity = on ? '0' : '1'; }
+        });
+      }
+    });
+  }
+  initVC(vc) {
+    const st = { x: 0, ts: 1, hover: false, drag: false, fling: 0, px: 0, pt: 0 };
+    vc.addEventListener('mouseenter', () => { st.hover = true; });
+    vc.addEventListener('mouseleave', () => { st.hover = false; });
+    vc.addEventListener('pointerdown', (e) => { st.drag = true; st.px = e.clientX; st.pt = performance.now(); st.fling = 0; vc.style.cursor = vc.dataset.vc === 'desk' ? 'grabbing' : ''; });
+    window.addEventListener('pointermove', (e) => {
+      if (!st.drag) return;
+      const t = performance.now(), d = e.clientX - st.px;
+      st.x += d; st.fling = d / Math.max((t - st.pt) / 1000, 0.008); st.px = e.clientX; st.pt = t;
+    });
+    const up = () => { if (!st.drag) return; st.drag = false; st.fling = Math.max(-3000, Math.min(3000, st.fling)); vc.style.cursor = vc.dataset.vc === 'desk' ? 'grab' : ''; };
+    window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+    return st;
+  }
   tickLines() {
     const p = document.querySelector('[data-line-reveal]');
     if (!p) return;
@@ -116,6 +206,7 @@ export default class HomePage extends DCPage {
     window.removeEventListener('mousemove', this.onMove);
     document.removeEventListener('mouseleave', this.onLeave);
     cancelAnimationFrame(this.raf);
+    clearInterval(this.clockT); this.ftIO && this.ftIO.disconnect(); this.ftRO && this.ftRO.disconnect(); window.removeEventListener('resize', this.onFtResize);
   }
   setupFloat() {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -257,6 +348,11 @@ export default class HomePage extends DCPage {
       showRuler: true,
       showDock: true,
       rulerDesk, rulerMob,
+      ftRef: this.ftRef, clockRef: this.clockRef,
+      ftLinks: [['Home', '#top'], ['About', '#about'], ['Tools', '#tools'], ['Work', '#work'], ['Experience', '#experience']].map(([label, href]) => ({ label, href })),
+      ftSocials: [['LinkedIn', 'https://www.linkedin.com/in/shiva-kumar-10106b143/'], ['Behance', 'https://www.behance.net/kumarshiva6b36'], ['Dribbble', 'https://dribbble.com/shivakumar']].map(([label, href]) => ({ label, href })),
+      wordmark: 'SHIVA KUMAR'.split('').map((c, i) => ({ c: c === ' ' ? '\u00a0' : c, d: i * 45 })),
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
       hasNote: !!this.state.cfNote, cfNote: this.state.cfNote,
       onSubmit: (e) => {
         e.preventDefault();

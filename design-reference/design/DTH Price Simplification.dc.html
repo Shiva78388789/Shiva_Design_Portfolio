@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/styles.css">
 <script src="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/_ds_bundle.js"></script>
 <link rel="stylesheet" href="components/dth/fig-assets.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -23,67 +23,58 @@ html.lenis,html.lenis body{height:auto}
 a{color:#5BC0E8}a:hover{color:#FFFFFF}
 *{box-sizing:border-box}
 h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:normal!important}
-[data-copt]{transition:background .3s ease,color .3s ease,border-color .3s ease}
-[data-copt="on"]{background:#5BC0E8!important;color:#10384A!important;border-color:#5BC0E8!important}
-[data-fb] [data-fbbody]{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1)}
-[data-fb="on"] [data-fbbody]{grid-template-rows:1fr}
-[data-fb] [data-fbchev]{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
-[data-fb="on"] [data-fbchev]{transform:rotate(180deg)}
-[data-fb="on"] [data-fbdot]{background:#5BC0E8!important;transform:scale(1.25)}
-[data-fbdot]{transition:background .3s ease, transform .4s cubic-bezier(.3,1.6,.4,1)}
+@media (max-width:1080px){
+  [data-mw~="finals"]{justify-content:flex-start!important;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 12px!important}
+  [data-mw~="finals"] > div{scroll-snap-align:center}
+}
 @media (max-width:860px){
-  [data-mw~="two"]{grid-template-columns:1fr!important;gap:28px!important}
-  [data-mw~="three"]{grid-template-columns:1fr!important}
   [data-mw~="hphones"] > div:nth-child(1),[data-mw~="hphones"] > div:nth-child(3){display:none!important}
-  [data-mw~="panel"]{grid-template-columns:1fr!important;gap:18px!important;align-content:center}
-  [data-mw~="panel"] > div:first-child{text-align:center}
-  [data-mw~="uiframe"]{height:calc(100vh - 160px)!important}
-  [data-mw~="pscale"]{transform:scale(0.52)!important}
-  [data-mw~="pwrap"]{width:195px!important;height:422px!important}
+  [data-mw~="three"]{grid-template-columns:1fr!important}
+  [data-mw~="impact"]{grid-template-columns:1fr!important;row-gap:56px!important}
+  [data-mw~="impact"] > [data-divider]{display:none!important}
+  [data-mw~="da"]{grid-template-columns:1fr!important;row-gap:36px!important}
+  [data-mw~="da"] [data-da-line]{display:none!important}
+  [data-mw~="bench"]{grid-template-columns:1fr!important}
+  [data-mw~="notes"]{display:grid!important;grid-template-columns:1fr 1fr;gap:14px!important}
+  [data-mw~="notes"] > [data-frame-note]{grid-column:1 / -1}
+  [data-mw~="comp"]{grid-template-columns:1fr!important;max-width:420px;margin-left:auto!important;margin-right:auto!important}
+  [data-mw~="persona-head"]{flex-direction:column;align-items:flex-start!important}
   [data-mw~="next"]{grid-template-columns:1fr!important}
   [data-mw~="nextimg"]{border-right:0!important;border-bottom:2px solid #3A3A3A}
-  [data-mw~="copts"]{flex-wrap:nowrap!important;overflow-x:auto;justify-content:flex-start!important;padding-bottom:6px}
-}
-@media (max-width:560px){
-  [data-mw~="four"]{grid-template-columns:1fr!important}
+  [data-ttext]{font-size:36px!important}
 }
 </style>
 </helmet>
+<x-import component-from-global-scope="site-ruler" from="./site-ruler.js" hint-size="100%,24px"></x-import>
 
-<div style="background-color:#1C1C1C;background-image:radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px);background-size:28px 28px;background-position:-14px -14px;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
 
-  <header style="max-width:1272px;margin:0 auto;padding:clamp(64px,9vw,120px) 20px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:40px">
+<div style="background-color:#1C1C1C;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
+
+  <header style="max-width:1080px;margin:0 auto;padding:clamp(64px,8vw,110px) 20px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:40px">
     <div style="flex:0 1 auto;min-width:0">
-      <div data-hero="kicker" style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#5BC0E8">Airtel · 2022</div>
-      <h1 aria-label="DTH Price Simplification" style="margin:14px 0 0;font-size:clamp(40px,7vw,88px);line-height:1.04;font-weight:700;display:flex;flex-wrap:wrap;column-gap:0.26em">
-        <span style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">DTH</span></span>
-        <span style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">Price</span></span>
-        <span style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">Simplification</span></span>
+      <h1 aria-label="DTH Price Simplification" style="margin:0;font-size:clamp(36px,4.4vw,56px);line-height:1.12;font-weight:700;display:flex;flex-direction:column">
+        <span style="display:inline-flex;overflow:hidden;padding-bottom:0.04em"><span data-char="1" style="display:inline-block">DTH Price</span></span>
+        <span style="display:inline-flex;overflow:hidden;padding-bottom:0.04em"><span data-char="1" style="display:inline-block">Simplification</span></span>
       </h1>
-      <p data-hero="sub" style="margin:18px 0 0;font-size:clamp(16px,1.6vw,20px);font-weight:500;max-width:34ch;line-height:1.4">Simplifying the selection of DTH packs in the Airtel Black journey</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
-        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:600;padding:6px 9px">2 Sprints</span>
-        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:600;padding:6px 9px">App / SAFO</span>
-        <span data-hero="chip" style="background:#5BC0E8;color:#10384A;font-size:11px;font-weight:600;padding:6px 9px">Airtel Black</span>
-      </div>
+      <p data-hero="sub" style="margin:16px 0 0;font-size:clamp(15px,1.4vw,18px);font-weight:500;max-width:34ch;line-height:1.45">Simplifying the selection of DTH packs in the Airtel Black journey</p>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:16px 14px;max-width:500px;padding-bottom:6px">
-      <div data-note="1" data-rot="-3" style="width:230px;padding:12px 12px 10px;background:#7FD3F7;color:#12303D;transform:rotate(-3deg)">
-        <div style="font-size:15px;font-weight:700">Role</div>
-        <div style="font-size:14px;font-weight:500">Lead Experience Designer</div>
-      </div>
-      <div data-note="1" data-rot="2" style="width:230px;padding:12px 12px 10px;background:#A8E6BF;color:#15361F;transform:rotate(2deg)">
-        <div style="font-size:15px;font-weight:700">Team</div>
+    <div style="position:relative;width:min(510px,100%);display:flex;flex-wrap:wrap;gap:18px 16px;padding-top:4px">
+      <div data-note="1" data-rot="-3" style="width:232px;padding:12px 14px 10px;background:#A8E6BF;color:#15361F;transform:rotate(-3deg)">
+        <div style="font-size:14px;font-weight:700">Team</div>
         <div style="font-size:14px;font-weight:500">Product, Engineering, Growth &amp; Me</div>
       </div>
-      <div data-note="1" data-rot="1.5" style="width:230px;padding:12px 12px 10px;background:#F6DFA6;color:#3D3010;transform:rotate(1.5deg)">
-        <div style="font-size:15px;font-weight:700">Platform</div>
-        <div style="font-size:14px;font-weight:500">Mobile app</div>
+      <div data-note="1" data-rot="4" style="width:232px;padding:12px 14px 18px;margin-top:22px;background:#F6DFA6;color:#3D3010;transform:rotate(4deg)">
+        <div style="font-size:14px;font-weight:700">Platform</div>
+        <div style="font-size:14px;font-weight:500">Mobile App</div>
+      </div>
+      <div data-note="1" data-rot="-1" style="width:232px;padding:12px 14px 10px;margin-top:-18px;background:#7FD3F7;color:#12303D;transform:rotate(-1deg)">
+        <div style="font-size:14px;font-weight:700">Role</div>
+        <div style="font-size:14px;font-weight:500">Lead Experience Designer</div>
       </div>
     </div>
   </header>
 
-  <div data-mw="hphones" style="max-width:1000px;margin:clamp(64px,8vw,110px) auto 0;padding:0 20px;display:flex;justify-content:center;align-items:flex-end;gap:clamp(16px,3vw,40px)">
+  <div data-mw="hphones" style="max-width:1000px;margin:clamp(56px,7vw,90px) auto 0;padding:0 20px;display:flex;justify-content:center;align-items:flex-end;gap:clamp(16px,2vw,28px)">
     <div data-hphone="0" style="flex:0 0 auto;width:230px;height:498px;overflow:hidden;border:6px solid #0F0F0F;outline:2px solid #3A3A3A;background:#FFFFFF;margin-bottom:40px">
       <div style="width:375px;height:812px;transform:scale(0.5813);transform-origin:top left"><x-import component-from-global-scope="BOX" from="./components/dth/Components.bundle.js" hint-size="375px,812px"></x-import></div>
     </div>
@@ -95,278 +86,286 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
     </div>
   </div>
 
-  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
-      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
-      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Problem<br>Statement</h2>
-    </div>
-    <p data-reveal="1" style="margin:52px 0 0;font-size:clamp(17px,1.8vw,20px);font-weight:500;line-height:1.55">To simplify the selection of DTH packs by keeping only 2 options 350 pack and 500 pack which will help in better retention of TV channels and increase ARPU.</p>
-    <p data-reveal="1" style="margin:16px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6;color:#D6D6D6">Moreover, by taking such measures other addons such as OTT, VAS or Ala carte channels can be sold easily.</p>
-
-    <div data-mw="three" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:44px">
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:13px;font-weight:800;letter-spacing:0.14em;color:#5BC0E8">WHAT</div>
-        <p style="margin:8px 0 0;font-size:15px;font-weight:600;line-height:1.45">To improve users control and trust in creation of a pack</p>
-        <ul style="margin:12px 0 0;padding-left:18px;font-size:14px;line-height:1.7;color:#D6D6D6"><li>Ability to choose OTT</li><li>Ability to choose Channels</li><li>Ability to choose Language</li><li>Ability to add VAS</li></ul>
-      </div>
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:13px;font-weight:800;letter-spacing:0.14em;color:#5BC0E8">WHEN</div>
-        <p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#D6D6D6">When customer is bundling new dth service in airtel black journey</p>
-      </div>
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:13px;font-weight:800;letter-spacing:0.14em;color:#5BC0E8">WHY</div>
-        <p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#D6D6D6">Its an industry level change to cover the losses by the service providers + to provide an easy journey for the user to select packs</p>
-      </div>
-    </div>
-
-    <div data-note="1" data-rot="-4" style="width:190px;margin:64px 0 0 -8px;padding:14px 0 12px;background:#F6DFA6;color:#3D3010;text-align:center;font-size:15px;font-weight:700;transform:rotate(-4deg)">Requirement</div>
-    <p data-reveal="1" style="margin:22px 0 0;font-size:17px;font-weight:600">Number of packs to choose from</p>
-    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px">
-      <div data-pack="1" style="background:#FFFFFF;color:#1C1C1C;padding:24px 22px">
-        <div style="font-size:clamp(30px,3.6vw,40px);font-weight:700">Rs <span data-count="350">350</span> <span style="font-size:15px;font-weight:600;color:#555555">+ GST</span></div>
-        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.5">Offering all SD channels + Select HD (High definition) channels</p>
-      </div>
-      <div data-pack="1" style="background:#5BC0E8;color:#10384A;padding:24px 22px">
-        <div style="font-size:clamp(30px,3.6vw,40px);font-weight:700">Rs <span data-count="500">500</span> <span style="font-size:15px;font-weight:600">+ GST</span></div>
-        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.5">Offering all HD channels for a particular language/region</p>
-      </div>
-    </div>
-
-    <div data-reveal="1" style="margin-top:44px;background:#F4C542;color:#2A220A;padding:18px 18px 16px">
-      <div style="font-size:13px;font-weight:700">TRAI guidelines</div>
-      <p style="margin:6px 0 0;font-size:14px;line-height:1.55">Standalone channel can only be sold at an X (fixed) price.<br>However, the price can be increased or decreased if the channel is added in a bouquet.<br>For eg - Star sport can only be sold at Rs.19 as a standalone channel but can be sold at Rs.16 in a bouquet such as “hindi sports channel pack”</p>
-    </div>
-  </section>
-
-  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
-      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
-      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Assumptions</h2>
-    </div>
-    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px">
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:24px 22px">
-        <div data-note="1" data-rot="2" style="display:inline-block;padding:8px 12px;background:#A8E6BF;color:#15361F;font-size:14px;font-weight:700;transform:rotate(2deg)">Business Assumptions</div>
-        <p style="margin:18px 0 0;font-size:16px;line-height:1.55">Language based pack selection will be easier to sell to the customer along with other services</p>
-      </div>
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:24px 22px">
-        <div data-note="1" data-rot="-2" style="display:inline-block;padding:8px 12px;background:#7FD3F7;color:#12303D;font-size:14px;font-weight:700;transform:rotate(-2deg)">User Hypothesis/assumptions</div>
-        <p style="margin:18px 0 0;font-size:16px;line-height:1.55">It has been assumed that user like to watch channels based on one language and the local language channels can be added independently in the pack in a form ala carte.</p>
-      </div>
-    </div>
-    <div data-reveal="1" style="margin-top:36px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9A9A">9 languages</div>
-    <div data-langs="1" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Hindi</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Bengali</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Gujarati</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Kannada</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Malyalam</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Marathi</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Oriya</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Tamil</span>
-      <span data-lang="1" style="border:1.5px solid #5BC0E8;padding:8px 14px;font-size:14px;font-weight:600">Telugu</span>
-    </div>
-    <ul data-reveal="1" style="margin:36px 0 0;padding-left:20px;font-size:clamp(15px,1.5vw,17px);line-height:1.65;display:flex;flex-direction:column;gap:6px;color:#D6D6D6">
-      <li>flexibity of ala carte of pack modification</li>
-      <li>User will get freedom of choice to select channels as per the requirement</li>
-      <li>Language selection will help curate better packs for the customer and reduce coglode by reducing the seletion to 2 packs</li>
-      <li>Lack of value in packs /random packs</li>
-      <li>Nomenclature and the tone of message is very direct - assuming he/she understands it.</li>
-    </ul>
-  </section>
-
-  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
-      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
-      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Research</h2>
-    </div>
-
-    <div data-note="1" data-rot="-3" style="display:inline-block;margin-top:56px;padding:10px 14px;background:#7FD3F7;color:#12303D;font-size:14px;font-weight:700;transform:rotate(-3deg)">Part 1</div>
-    <h3 data-reveal="1" style="margin:16px 0 0;font-size:clamp(20px,2.2vw,24px);font-weight:700">UX Audit with Heuristic analysis of listing page</h3>
-    <div data-heur="1" data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px">
-      <sc-for list="{{ heuristics }}" as="h" hint-placeholder-count="8">
-        <div data-hcard="1" style="display:flex;gap:14px;align-items:flex-start;border:2px dashed #6A6A6A;padding:16px 16px">
-          <span data-prio="{{ h.p }}" style="flex:0 0 auto;min-width:34px;text-align:center;padding:4px 6px;font-size:11px;font-weight:800;background:#5BC0E8;color:#10384A">{{ h.p }}</span>
-          <span style="font-size:14.5px;line-height:1.5">{{ h.t }}</span>
-        </div>
-      </sc-for>
-    </div>
-
-    <div data-note="1" data-rot="2" style="display:inline-block;margin-top:64px;padding:10px 14px;background:#A8E6BF;color:#15361F;font-size:14px;font-weight:700;transform:rotate(2deg)">Part 2</div>
-    <h3 data-reveal="1" style="margin:16px 0 0;font-size:clamp(20px,2.2vw,24px);font-weight:700">Zomato order journey UX Audit</h3>
-    <div data-zom="1" data-mw="three" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px">
-      <sc-for list="{{ zomato }}" as="z" hint-placeholder-count="6">
-        <div data-zcard="1" style="background:#262626;padding:18px 16px;min-height:120px">
-          <div style="font-size:15px;font-weight:700;color:#5BC0E8">{{ z.h }}</div>
-          <p style="margin:6px 0 0;font-size:13.5px;line-height:1.5;color:#D6D6D6">{{ z.t }}</p>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
-      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
-      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Card<br>Exploration</h2>
-    </div>
-    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px">
-      <div>
-        <p data-reveal="1" style="margin:0;font-size:17px;font-weight:600;line-height:1.5">Goal to decide the most scalable card.</p>
-        <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
-          <span style="background:#FFFFFF;color:#1C1C1C;padding:6px 10px;font-size:12px;font-weight:700">Base Pack</span>
-          <span style="background:#FFFFFF;color:#1C1C1C;padding:6px 10px;font-size:12px;font-weight:700">Language Pack</span>
-          <span style="background:#FFFFFF;color:#1C1C1C;padding:6px 10px;font-size:12px;font-weight:700">OTT</span>
-          <span style="background:#FFFFFF;color:#1C1C1C;padding:6px 10px;font-size:12px;font-weight:700">VAS</span>
-        </div>
-      </div>
-      <div>
-        <p data-reveal="1" style="margin:0;font-size:16px;line-height:1.55;color:#D6D6D6">From our benchmarking and research we have explored a component keeping the values of</p>
-        <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
-          <span style="border:1.5px solid #5BC0E8;padding:6px 10px;font-size:12px;font-weight:700">Scalability</span>
-          <span style="border:1.5px solid #5BC0E8;padding:6px 10px;font-size:12px;font-weight:700">visceral stimulation</span>
-          <span style="border:1.5px solid #5BC0E8;padding:6px 10px;font-size:12px;font-weight:700">Provide control</span>
-        </div>
-      </div>
-    </div>
-
-    <div data-reveal="1" style="margin-top:44px;border:2px dashed #6A6A6A;padding:22px 20px">
-      <div data-mw="copts" style="display:flex;flex-wrap:wrap;gap:8px">
-        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
-          <button type="button" data-ci="{{ c.i }}" data-copt="{{ c.on }}" onClick="{{ pickCard }}" style="appearance:none;flex:0 0 auto;cursor:pointer;background:transparent;border:1.5px solid #6A6A6A;color:#FFFFFF;padding:9px 14px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600">Option {{ c.n }}</button>
-        </sc-for>
-      </div>
-      <div data-cbody="1" data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px">
-        <div style="background:#262626;padding:18px 16px">
-          <div style="font-size:12px;font-weight:800;letter-spacing:0.14em;color:#A8E6BF">PROS</div>
-          <p style="margin:8px 0 0;font-size:15px;line-height:1.5">{{ cardPro }}</p>
-        </div>
-        <div style="background:#262626;padding:18px 16px">
-          <div style="font-size:12px;font-weight:800;letter-spacing:0.14em;color:#FF8A80">CONS</div>
-          <p style="margin:8px 0 0;font-size:15px;line-height:1.5">{{ cardCon }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px">
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:15px;font-weight:800;color:#5BC0E8">Why?</div>
-        <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;color:#D6D6D6"><li>build recognition &gt; leading to faster scanning</li><li>give user control to take faster decisions</li><li>reduce design/engg effort</li><li>tackle any kind of buisness requirement</li></ul>
-      </div>
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:15px;font-weight:800;color:#5BC0E8">Why?</div>
-        <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;color:#D6D6D6"><li>give more value to the savings aspect of the bundle</li><li>drive OTT recognition viscerally associatign the logo with the top content to create a user need (esteem needs)</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
-      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
-      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Final<br>Design</h2>
-    </div>
-  </section>
-  <div data-ui="1" style="position:relative;height:700vh;margin-top:24px">
-    <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:0 20px">
-      <div style="width:min(840px,100%);display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
-        <div data-ui-note="1" style="min-width:0;padding:12px 16px 10px;background:#F6DFA6;color:#3D3010;transform:rotate(-2deg)">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Now viewing</div>
-          <div data-ui-label="1" style="margin-top:2px;font-size:18px;font-weight:700">Select a DTH box</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px">
-          <span data-ui-count="1" style="font-size:13px;font-weight:600;letter-spacing:0.08em">01 / 07</span>
-          <div style="display:flex;gap:5px">
-            <span data-ui-dot="0" style="width:22px;height:8px;background:#5BC0E8;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="1" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="2" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="3" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="4" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="5" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-            <span data-ui-dot="6" style="width:8px;height:8px;background:#555555;transition:width .3s ease, background .3s ease"></span>
-          </div>
-        </div>
-      </div>
-      <div data-mw="uiframe" style="width:min(840px,100%);height:min(620px, calc(100vh - 170px));overflow:hidden;border:2px dashed #6A6A6A;background:#141414">
-        <div data-ui-track="1" style="display:flex;height:100%;will-change:transform">
-          <sc-for list="{{ screens }}" as="s" hint-placeholder-count="7">
-            <div data-mw="panel" style="flex:0 0 100%;height:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:20px clamp(20px,4vw,48px)">
-              <div>
-                <div style="font-size:13px;font-weight:800;letter-spacing:0.14em;color:#5BC0E8">{{ s.step }}</div>
-                <div style="margin-top:8px;font-size:clamp(22px,2.8vw,32px);font-weight:700;line-height:1.15">{{ s.title }}</div>
-              </div>
-              <div data-mw="pwrap" style="width:260px;height:563px;overflow:hidden;border:6px solid #0F0F0F;outline:2px solid #3A3A3A;background:#FFFFFF;justify-self:center">
-                <div data-mw="pscale" style="width:375px;height:812px;transform:scale(0.661);transform-origin:top left">
-                  <x-import component-from-global-scope="{{ s.c }}" from="./components/dth/Components.bundle.js" hint-size="375px,812px"></x-import>
-                </div>
-              </div>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      <div style="font-size:12px;color:#9A9A9A;letter-spacing:0.08em">Scroll to move through the screens</div>
+  <div style="max-width:1080px;margin:clamp(56px,7vw,80px) auto 0;padding:0 20px">
+    <div data-reveal="1" style="background:#F4C542;color:#2A220A;padding:18px 20px 16px">
+      <div style="font-size:14px;font-weight:700">Confidentiality Notice</div>
+      <p style="margin:6px 0 0;font-size:13.5px;line-height:1.55">My work at Airtel is focused on highly sensitive cybersecurity and privacy initiatives. To comply with strict non-disclosure agreements, all proprietary data, live interfaces, and specific workflows have been omitted. This case study focuses exclusively on high-level strategy, organizational architecture, and publicly communicable outcomes.</p>
     </div>
   </div>
 
-  <section style="max-width:880px;margin:0 auto;padding:clamp(80px,10vw,130px) 20px 0">
-    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:16px 0 12px;text-align:center">
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(96px,11vw,150px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
       <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
       <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
       <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
       <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
       <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
-      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Feedback<br>Rounds</h2>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Problem Statement</h2>
     </div>
-    <p data-reveal="1" style="margin:52px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">Product/engineering/design and business feedback</p>
-    <div data-fbwrap="1" style="position:relative;margin-top:28px;padding-left:28px">
-      <span data-fbline="1" aria-hidden="true" style="position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:#3A3A3A;transform-origin:top"></span>
-      <sc-for list="{{ feedback }}" as="f" hint-placeholder-count="6">
-        <div data-fbrow="1" data-fb="{{ f.on }}" style="position:relative;border-bottom:1px solid #3A3A3A">
-          <span data-fbdot="1" aria-hidden="true" style="position:absolute;left:-28px;top:26px;width:12px;height:12px;background:#6A6A6A"></span>
-          <button type="button" data-fi="{{ f.i }}" onClick="{{ toggleFb }}" style="appearance:none;border:0;background:transparent;width:100%;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 0;text-align:left;color:#FFFFFF;font-family:'Montserrat',sans-serif">
-            <span style="flex:0 0 auto;min-width:92px;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#5BC0E8">{{ f.d }}</span>
-            <span style="flex:1 1 auto;font-size:16px;font-weight:600">{{ f.h }}</span>
-            <svg data-fbchev="1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A9A9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-          </button>
-          <div data-fbbody="1">
-            <div style="overflow:hidden;min-height:0">
-              <ul style="list-style:none;margin:0;padding:0 0 20px;display:flex;flex-direction:column;gap:8px">
-                <sc-for list="{{ f.items }}" as="it" hint-placeholder-count="3">
-                  <li style="display:flex;gap:12px;font-size:14px;line-height:1.5;color:#D6D6D6"><span style="flex:0 0 auto;width:6px;height:6px;margin-top:8px;background:#5BC0E8"></span><span>{{ it }}</span></li>
-                </sc-for>
-              </ul>
-            </div>
+    <p data-reveal="1" style="margin:56px 0 0;font-size:clamp(15px,1.3vw,17px);line-height:1.6;text-wrap:pretty">To simplify the selection of DTH packs by keeping only 2 options 350 pack and 500 pack which will help in better retention of TV channels and increase ARPU.Moreover, by taking such measures other addons such as OTT, VAS or Ala carte channels can be sold easily.</p>
+    <div data-mw="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:24px;margin-top:44px">
+      <div data-card="1" style="background:#7FD3F7;color:#12303D;padding:16px 18px 20px">
+        <div style="font-size:15px;font-weight:700">What</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.35">To improve users control and trust in creation of a pack</p>
+        <ul style="margin:2px 0 0;padding-left:22px;font-size:14.5px;line-height:1.35"><li>Ability to choose OTT</li><li>Ability to choose Channels</li><li>Ability to choose Language</li><li>Ability to add VAS</li></ul>
+      </div>
+      <div data-card="1" style="background:#7FD3F7;color:#12303D;padding:16px 18px 20px">
+        <div style="font-size:15px;font-weight:700">When</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.35">When customer is bundling new dth service in airtel black journey</p>
+      </div>
+      <div data-card="1" style="background:#7FD3F7;color:#12303D;padding:16px 18px 20px">
+        <div style="font-size:15px;font-weight:700">Why</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.35">Its an industry level change to cover the losses by the service providers + to provide an easy journey for the user to select packs</p>
+      </div>
+    </div>
+    <div data-reveal="1" style="margin-top:72px;background:#F4C542;color:#2A220A;padding:18px 20px 16px">
+      <div style="font-size:14px;font-weight:700">TRAI Guidelines</div>
+      <p style="margin:6px 0 0;font-size:13.5px;line-height:1.55">Standalone channel can only be sold at an X (fixed) price.However, the price can be increased or decreased if the channel is added in a bouquet. For eg - Star sport can only be sold at Rs.19 as a standalone channel but can be sold at Rs.16 in a bouquet such as “hindi sports channel pack”</p>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(96px,11vw,150px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Impact</h2>
+    </div>
+    <div data-impact="1" data-mw="impact" style="position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin:72px auto 0;max-width:880px">
+      <div data-divider="1" style="position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed #6A6A6A;transform-origin:top"></div>
+      <div>
+        <div data-note="1" data-rot="6" style="width:150px;margin:0 auto;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:14px;font-weight:700;transform:rotate(6deg)">Business</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;row-gap:40px;column-gap:12px;margin-top:40px;text-align:center">
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="20" data-prefix="-">-20</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:20ch;margin-left:auto;margin-right:auto">Pricing and billing-related care calls</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="9" data-prefix="+">+9</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:20ch;margin-left:auto;margin-right:auto">Pack upgrade conversion</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="15" data-prefix="+">+15</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:20ch;margin-left:auto;margin-right:auto">Long term recharge adoption</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="6" data-prefix="-">-6</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:20ch;margin-left:auto;margin-right:auto">Churn within 60 days of recharge</div></div>
+        </div>
+      </div>
+      <div>
+        <div data-note="1" data-rot="-2" style="width:150px;margin:0 auto;padding:9px 0 8px;background:#F6DFA6;color:#3D3010;text-align:center;font-size:14px;font-weight:700;transform:rotate(-2deg)">UX</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;row-gap:40px;column-gap:12px;margin-top:40px;text-align:center">
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="80" data-prefix="+">+80</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6">Task Success</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="3" data-prefix="">3</span> min</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:16ch;margin-left:auto;margin-right:auto">Time to change/ Upgrade pack</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="25" data-prefix="-">-25</span>%</div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6;max-width:16ch;margin-left:auto;margin-right:auto">Drop off in pack selection</div></div>
+          <div data-metric="1"><div style="font-size:clamp(40px,4vw,54px);line-height:1.05;font-weight:500"><span data-count="8" data-prefix="">8</span></div><div style="margin-top:6px;font-size:13px;line-height:1.35;color:#D6D6D6">Customer effort score</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Design Approach</h2>
+    </div>
+    <div data-da="1" data-mw="da" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:72px auto 0;max-width:860px">
+      <div data-da-step="1" style="position:relative">
+        <div style="display:flex;align-items:center;gap:16px"><div data-da-circle="1" style="flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#4FAE62;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500">1</div><span data-da-line="1" style="flex:1 1 auto;height:1.5px;background:linear-gradient(90deg,#4FAE62 50%,#8E8E8E 50%);transform-origin:left"></span></div>
+        <div style="margin-top:10px;font-size:15px;font-weight:700">RESEARCH</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;font-size:14.5px;color:#CFCFCF">
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Personas</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Benchmarking</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Affinity Mapping</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>User Interviews</div>
+        </div>
+      </div>
+      <div data-da-step="1" style="position:relative">
+        <div style="display:flex;align-items:center;gap:16px"><div data-da-circle="1" style="flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#4FAE62;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500">2</div><span data-da-line="1" style="flex:1 1 auto;height:1.5px;background:#8E8E8E;transform-origin:left"></span></div>
+        <div style="margin-top:10px;font-size:15px;font-weight:700">Design</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;font-size:14.5px;color:#CFCFCF">
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Group Brainstorming</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Prototypes</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>DS Powered UI</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Interactions</div>
+        </div>
+      </div>
+      <div data-da-step="1" style="position:relative">
+        <div style="display:flex;align-items:center;gap:16px"><div data-da-circle="1" style="flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#4FAE62;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:500">3</div></div>
+        <div style="margin-top:10px;font-size:15px;font-weight:700">Evaluate</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;font-size:14.5px;color:#CFCFCF">
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Usability Testing</div>
+          <div data-da-li="1" style="display:flex;align-items:center;gap:10px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#9A9A9A"></circle><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Refinements</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Personas</h2>
+    </div>
+    <div style="max-width:840px;margin:72px auto 0;display:flex;flex-direction:column;gap:40px">
+      <article data-persona="1" style="border:2px dashed #6A6A6A;padding:28px 24px 30px">
+        <div data-mw="persona-head" style="display:flex;align-items:center;gap:28px">
+          <img src="assets/dth/persona-1.png" alt="Parminder Singh" style="flex:0 0 auto;width:120px;height:120px;border-radius:50%;object-fit:cover;display:block">
+          <div>
+            <div style="font-size:16px;font-weight:700">Parminder Singh - Age 56</div>
+            <div style="margin-top:8px;font-size:14px;color:#E6E6E6">“Pack ₹299 ka bola tha, kat ₹380 kyun gaye?”</div>
+            <div style="margin-top:8px;font-size:14px;color:#D6D6D6">Retired bank clerk in Kanpur. Hindi-first. Has had a DTH connection for 12 years.</div>
           </div>
         </div>
-      </sc-for>
+        <div style="margin-top:26px;font-size:15px;font-weight:700">Goals</div>
+        <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#D6D6D6">A single, final monthly amount in plain language, and a reminder before balance runs out.</p>
+        <div style="margin-top:22px;font-size:15px;font-weight:700">Pain Points</div>
+        <ul style="margin:8px 0 0;padding-left:22px;font-size:14px;line-height:1.55;color:#D6D6D6"><li>Doesn't understand NCF or why ₹299 becomes ₹380 after taxes.</li><li>Fears losing channels if he touches anything.</li><li>Calls customer care whenever the amount changes</li></ul>
+        <div style="margin-top:22px;font-size:15px;font-weight:700">Behaviour</div>
+        <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#D6D6D6">Recharges through a local retailer or asks his son to do it on the app. Rarely changes his pack.</p>
+      </article>
+      <article data-persona="1" style="border:2px dashed #6A6A6A;padding:28px 24px 30px">
+        <div data-mw="persona-head" style="display:flex;align-items:center;gap:28px">
+          <img src="assets/dth/persona-2.png" alt="Neha Kapoor" style="flex:0 0 auto;width:120px;height:120px;border-radius:50%;object-fit:cover;display:block">
+          <div>
+            <div style="font-size:16px;font-weight:700">Neha Kapoor - Age 34</div>
+            <div style="margin-top:8px;font-size:14px;color:#E6E6E6">“I just want to know if I'm overpaying, without doing math”</div>
+            <div style="margin-top:8px;font-size:14px;color:#D6D6D6">Product manager in Pune who manages the TV for her family of four.</div>
+          </div>
+        </div>
+        <div style="margin-top:26px;font-size:15px;font-weight:700">Goals</div>
+        <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:#D6D6D6">A quick way to build or compare packs with a clear price breakdown, plus savings on long-term recharge.</p>
+        <div style="margin-top:22px;font-size:15px;font-weight:700">Pain Points</div>
+        <ul style="margin:8px 0 0;padding-left:22px;font-size:14px;line-height:1.55;color:#D6D6D6"><li>Can't easily see what her family actually watches.</li><li>HD channels eat into the channel count confusingly.</li><li>Building a custom pack is tedious.</li></ul>
+        <div style="margin-top:22px;font-size:15px;font-weight:700">Key Platform Need</div>
+        <ul style="margin:8px 0 0;padding-left:22px;font-size:14px;line-height:1.55;color:#D6D6D6"><li>Uses the app.</li><li>Compares DTH against OTT bundles.</li><li>Will pay more for HD and sports, but hates paying for channels nobody watches.</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Benchmarking</h2>
+    </div>
+    <div data-mw="bench" style="display:grid;grid-template-columns:minmax(0,520px) minmax(0,420px);justify-content:space-between;gap:48px;margin:80px auto 0;max-width:1040px">
+      <div data-bench="1" style="display:grid;grid-template-columns:1fr 1fr;gap:32px 24px;align-items:start">
+        <img data-bshot="1" src="assets/dth/bench-1.png" alt="Sun Direct – subscription plans" loading="lazy" style="display:block;width:100%;height:auto">
+        <img data-bshot="1" src="assets/dth/bench-2.png" alt="Sun Direct – pack detail" loading="lazy" style="display:block;width:100%;height:auto">
+        <img data-bshot="1" src="assets/dth/bench-3.png" alt="Dish TV – curated combos" loading="lazy" style="display:block;width:100%;height:auto">
+        <img data-bshot="1" src="assets/dth/bench-4.png" alt="Dish TV – channel filter" loading="lazy" style="display:block;width:100%;height:auto">
+        <img data-bshot="1" src="assets/dth/bench-5.png" alt="Tata Play – binge combos" loading="lazy" style="display:block;width:100%;height:auto">
+        <img data-bshot="1" src="assets/dth/bench-6.png" alt="Tata Play – combo channel list" loading="lazy" style="display:block;width:100%;height:auto">
+      </div>
+      <div data-mw="notes" style="display:flex;flex-direction:column;gap:22px">
+        <div data-bnote="1" style="width:min(242px,100%);min-height:180px;padding:16px 18px;background:#F6DFA6;color:#2A220A">
+          <div style="font-size:14px;font-weight:700">Logos</div>
+          <p style="margin:8px 0 0;font-size:14px;line-height:1.4">lend recognition value to TV channels in a list</p>
+        </div>
+        <div data-bnote="1" style="width:min(242px,100%);min-height:180px;padding:16px 18px;background:#F6DFA6;color:#2A220A">
+          <div style="font-size:14px;font-weight:700">Size</div>
+          <p style="margin:8px 0 0;font-size:14px;line-height:1.4">Size of content and other elements in screen is also of significance</p>
+        </div>
+        <div data-bnote="1" style="width:min(242px,100%);min-height:180px;padding:16px 18px;background:#F6DFA6;color:#2A220A">
+          <div style="font-size:14px;font-weight:700">Grouping</div>
+          <p style="margin:8px 0 0;font-size:14px;line-height:1.4">of channels in relevant genres - helps block unnecessary info while scanning</p>
+        </div>
+        <div data-bnote="1" style="width:min(242px,100%);min-height:180px;padding:16px 18px;background:#F6DFA6;color:#2A220A">
+          <div style="font-size:14px;font-weight:700">Flexibility and control</div>
+          <p style="margin:8px 0 0;font-size:14px;line-height:1.4">required in scanning the list (search/filter)</p>
+        </div>
+        <div data-bnote="1" data-frame-note="1" style="margin-top:12px;min-height:320px;padding:28px 28px 32px;background:#A8E6BF;color:#15361F">
+          <div style="text-align:center;font-size:24px;font-weight:500;line-height:1.2">Frame<br>“FREEDOM”</div>
+          <ul style="margin:22px 0 0;padding-left:20px;font-size:14.5px;line-height:1.45"><li>Multiple packs to choose from</li><li>Modify as you like</li></ul>
+          <ul style="margin:18px 0 0;padding-left:20px;font-size:14.5px;line-height:1.45"><li>Filters</li><li>Multiple selection</li><li>Compare option</li></ul>
+        </div>
+        <div data-bnote="1" data-frame-note="1" style="min-height:320px;padding:28px 28px 32px;background:#A8E6BF;color:#15361F">
+          <div style="text-align:center;font-size:24px;font-weight:500;line-height:1.2">Frame<br>“EASE”</div>
+          <ul style="margin:22px 0 0;padding-left:20px;font-size:14.5px;line-height:1.45"><li>easy to buy</li><li>easy to modify</li><li>already curated for you by us</li></ul>
+          <ul style="margin:18px 0 0;padding-left:20px;font-size:14.5px;line-height:1.45"><li>easily scannable list</li><li>easy to change selection</li><li>easy to place order directly</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Component<br>Exploration</h2>
     </div>
 
-    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px">
-      <div data-card="1" style="background:#5BC0E8;color:#10384A;padding:22px 20px">
-        <div style="font-size:15px;font-weight:800">Phase 2</div>
-        <p style="margin:8px 0 0;font-size:15px;font-weight:600;line-height:1.5">Learning from phase 1 has helped in better grouping and better scanning.</p>
-      </div>
-      <div data-card="1" style="border:2px dashed #6A6A6A;padding:22px 20px">
-        <div style="font-size:15px;font-weight:800;color:#5BC0E8">Actionable progress that you could see was missing</div>
-        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:1.65;color:#D6D6D6"><li>User control - create your pack, progress in btw steps, visceral stimulation</li><li>Flexibility - components, filter, back button</li><li>consistency - H1 is consistent &amp; the page heading</li><li>Feedback - progress in btw steps, CTA</li></ul>
-      </div>
+    <div data-note="1" data-rot="-4" style="width:150px;margin:96px auto 0;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:14px;font-weight:700;transform:rotate(-4deg)">Version 1</div>
+    <div data-mw="comp" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;max-width:1040px;margin:40px auto 0">
+      <div style="display:flex;flex-direction:column;gap:16px"><img data-comp="1" src="assets/dth/v1-1.png" alt="Version 1 card – compact with checkbox" loading="lazy" style="display:block;width:100%;height:auto"><img data-comp="1" src="assets/dth/v1-2.png" alt="Version 1 card – with channel logos" loading="lazy" style="display:block;width:100%;height:auto"></div>
+      <div style="display:flex;flex-direction:column;gap:16px"><img data-comp="1" src="assets/dth/v1-3.png" alt="Version 1 card – thumbnail right" loading="lazy" style="display:block;width:100%;height:auto"><img data-comp="1" src="assets/dth/v1-4.png" alt="Version 1 card – thumbnail left" loading="lazy" style="display:block;width:100%;height:auto"></div>
+      <img data-comp="1" src="assets/dth/v1-5.png" alt="Version 1 card – large banner" loading="lazy" style="display:block;width:100%;height:auto">
+    </div>
+
+    <div data-note="1" data-rot="-4" style="width:150px;margin:88px auto 0;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:14px;font-weight:700;transform:rotate(-4deg)">Version 2</div>
+    <div data-mw="comp" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;max-width:1040px;margin:40px auto 0">
+      <img data-comp="1" src="assets/dth/v2-1.png" alt="Version 2 – Amazon Prime banner" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/v2-2.png" alt="Version 2 – Disney + Hotstar banner" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/v2-3.png" alt="Version 2 – Xstream Premium banner" loading="lazy" style="display:block;width:100%;height:auto">
+    </div>
+
+    <div data-note="1" data-rot="-4" style="width:150px;margin:88px auto 0;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:14px;font-weight:700;transform:rotate(-4deg)">Version 3</div>
+    <div data-mw="comp" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;max-width:1040px;margin:40px auto 0">
+      <img data-comp="1" src="assets/dth/v3-1.png" alt="Version 3 card – thumbnail right" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/v3-2.png" alt="Version 3 card – most raised pack" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/v3-3.png" alt="Version 3 card – compact row" loading="lazy" style="display:block;width:100%;height:auto">
+    </div>
+
+    <div data-note="1" data-rot="-4" style="width:150px;margin:88px auto 0;padding:9px 0 8px;background:#A8E6BF;color:#15361F;text-align:center;font-size:14px;font-weight:700;transform:rotate(-4deg)">Bottom Sheet</div>
+    <div data-mw="comp" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start;max-width:1040px;margin:40px auto 0">
+      <img data-comp="1" src="assets/dth/bs-1.png" alt="Bottom sheet – Base Pack 1" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/bs-2.png" alt="Bottom sheet – Amazon Prime" loading="lazy" style="display:block;width:100%;height:auto">
+      <img data-comp="1" src="assets/dth/bs-3.png" alt="Bottom sheet – Vedantu Masterclass" loading="lazy" style="display:block;width:100%;height:auto">
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Final Screens</h2>
+    </div>
+  </section>
+  <div data-mw="finals" style="max-width:1080px;margin:64px auto 0;padding:0 20px;display:flex;justify-content:center;align-items:flex-start;gap:20px">
+    <div data-final="1" style="flex:0 0 auto;width:330px;height:715px;overflow:hidden;background:#FFFFFF">
+      <div style="width:375px;height:812px;transform:scale(0.88);transform-origin:top left"><x-import component-from-global-scope="BOX" from="./components/dth/Components.bundle.js" hint-size="375px,812px"></x-import></div>
+    </div>
+    <div data-final="1" style="flex:0 0 auto;width:330px;height:715px;overflow:hidden;background:#FFFFFF">
+      <div style="width:375px;height:812px;transform:scale(0.88);transform-origin:top left"><x-import component-from-global-scope="BASEPACKS" from="./components/dth/Components.bundle.js" hint-size="375px,812px"></x-import></div>
+    </div>
+    <div data-final="1" style="flex:0 0 auto;width:330px;height:715px;overflow:hidden;background:#FFFFFF">
+      <div style="width:375px;height:812px;transform:scale(0.88);transform-origin:top left"><x-import component-from-global-scope="ReviewOrder" from="./components/dth/Components.bundle.js" hint-size="375px,812px"></x-import></div>
+    </div>
+  </div>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(110px,12vw,170px) 20px 0">
+    <div data-title="1" style="position:relative;width:fit-content;max-width:100%;margin:0 auto;padding:12px 28px 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #4AA8E0"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #4AA8E0;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.16;font-weight:500">Early Metrics</h2>
+    </div>
+    <div data-metrics="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,220px));justify-content:center;column-gap:clamp(24px,5vw,72px);row-gap:56px;margin:88px auto 0;text-align:center">
+      <div data-metric="1"><div style="font-size:clamp(44px,5vw,64px);line-height:1.05;font-weight:500"><span data-count="12" data-prefix="-">-12</span>%</div><div style="margin-top:8px;font-size:14px;line-height:1.4;color:#D6D6D6">Pricing and billing-related care calls</div></div>
+      <div data-metric="1"><div style="font-size:clamp(44px,5vw,64px);line-height:1.05;font-weight:500"><span data-count="4" data-prefix="+">+4</span>%</div><div style="margin-top:8px;font-size:14px;line-height:1.4;color:#D6D6D6">Pack upgrade conversion</div></div>
+      <div data-metric="1"><div style="font-size:clamp(44px,5vw,64px);line-height:1.05;font-weight:500"><span data-count="7" data-prefix="+">+7</span>%</div><div style="margin-top:8px;font-size:14px;line-height:1.4;color:#D6D6D6">Long term recharge adoption</div></div>
+      <div data-metric="1"><div style="font-size:clamp(44px,5vw,64px);line-height:1.05;font-weight:500"><span data-count="4" data-prefix="">4</span>%</div><div style="margin-top:8px;font-size:14px;line-height:1.4;color:#D6D6D6">Churn within 60 days of recharge</div></div>
     </div>
   </section>
 
@@ -375,7 +374,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
       <div style="display:inline-block;background:#FFFFFF;color:#1C1C1C;padding:7px 14px;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase">Next project</div>
       <a href="EngageX.dc.html" data-mw="next" style="display:grid;grid-template-columns:1fr 1fr;border:2px solid #3A3A3A;background:#141414;text-decoration:none;color:#FFFFFF" style-hover="border-color:#5BC0E8">
         <div data-mw="nextimg" style="display:flex;align-items:center;justify-content:center;min-height:260px;border-right:2px solid #3A3A3A;padding:24px;overflow:hidden">
-          <img data-nextimg="1" src="assets/engagex/laptop.png" alt="Engage X" style="display:block;width:100%;max-width:340px;height:auto"></img>
+          <img data-nextimg="1" src="assets/engagex/laptop.png" alt="Engage X" style="display:block;width:100%;max-width:340px;height:auto">
         </div>
         <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding:clamp(28px,4vw,44px)">
           <h3 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:700;color:#FFFFFF">Engage X</h3>
@@ -392,52 +391,8 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
 </div>
 <x-import component-from-global-scope="dock-nav" from="./dock-nav.js" active="work" hint-size="0px,0px"></x-import>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
-const HEUR = [
-  { p: 'P0', t: 'Recognition rather than recall / Aesthetic design' },
-  { p: 'P0', t: 'Visual heirarchy of information/easy to consume/ reduced cog lode' },
-  { p: 'P0', t: 'flexibility efficiency of use' },
-  { p: 'P0', t: 'Consistency standard' },
-  { p: 'P1', t: 'System status/Feedback batch indicator for how many items added in closed accordian' },
-  { p: 'P1', t: 'Efficiency of use To speed up the order creation process' },
-  { p: 'P1', t: 'Match b/w system & real world (veg/n.veg labels)' },
-  { p: 'P2', t: 'Persuasive triggers Ratings' },
-];
-const ZOM = [
-  { h: 'Discovery', t: 'New offers or features easily discovered on home screen' },
-  { h: 'Comms', t: 'User mental model is being used for better understanding' },
-  { h: 'User control', t: 'Filters to see only the relevant information Haptic feedback (Vibrate)' },
-  { h: 'Match between real and digital world', t: 'Real image of a product' },
-  { h: 'Help users', t: 'in recognizing and preventing errors' },
-  { h: 'Consistency and standard', t: 'consistent spacing + grouping leads to better scanning' },
-];
-const CARDS = [
-  ['Overall balanced layout', 'Visual order/Balance'],
-  ['Visual stimulation', 'Content scanning'],
-  ['Compact/ relevant info/ suitalble for listing', 'too much clutter on screen'],
-  ['Better comprehension', 'Large card takes more space on the screen.'],
-  ['context/image/premium', 'Scanning/not scalable with sub ott, issue with relevant image to use'],
-];
-const SCREENS = [
-  { c: 'BOX', step: 'STEP 1', title: 'Select a DTH box' },
-  { c: 'BASEPACKS', step: 'STEP 2', title: 'Base packs' },
-  { c: 'LANGUAGEPACKS', step: 'STEP 2', title: 'Language packs' },
-  { c: 'OTT', step: 'STEP 2 · ADD-ONS', title: 'OTT' },
-  { c: 'ALACARTE', step: 'STEP 2 · ADD-ONS', title: 'A la carte channels' },
-  { c: 'VAS', step: 'STEP 2 · ADD-ONS', title: 'VAS' },
-  { c: 'ReviewOrder', step: 'STEP 3', title: 'Review order' },
-];
-const FB = [
-  { d: '21 FEB', h: '21st feb feedback', items: ['To keep a more flexible approach for addons selection', 'Benchmark E-commerce addons'] },
-  { d: '23 FEB', h: 'Feedback by product, Engineering and design', items: ['Additional language pack will have only one language channel', 'To check the nomenclature of the packs - Giri', 'Use snack bar for add-ons feedback for adding and remove', 'Both the versions will be tested in A/B environment', 'OTT meta info to be provided - Giri', 'X-stream box and add-ons price will be separated', 'VAS info shared - Giri', 'To check DTH experience post acquisition on app - Shiva'] },
-  { d: '9 MAR 2022', h: 'MOM for Design and Product discusion', items: ['Update the structure for DTH box selection - P2', 'Number of languages for selection - 9 - P1', '✅Filter for language pack selection - P0', '✅By default keep the accordian lists open - P0', 'Price range filter for ala carte - 0-22 - P1', '✅DTH review - Addons section -chevron next to line item, expanded form. ott pay at the installation comms - P0', 'A la carte - Search zero state - add cross button - multiple states as well - different page info - P0', 'Listing page ui components - P2'] },
-  { d: '14 MAR 2022', h: 'Design Feedback', items: ['Filter on ala carte needs to hve one closure button.', 'Language packs context is weak. - WHY? P0', 'Signifier for channels added.'] },
-  { d: '14 MAR 2022', h: 'Business Feedback', items: ['To be tested in A/B environment', 'No Add-ons', 'Skippable Add-ons like change plan in SAFO DTH', 'Add on page feedback', 'Individual progress in stepper', 'Continuous scroll to move from one tab to another', 'Ala carte channel already added in any pack. States - P0', 'Base pack = all channels of selected HD language + 2 genres (english entertainment and movies + premium sports) in Rs.550, RS.350 = min. channel combination of SD + HD P0'] },
-  { d: '17 MAR 2022', h: 'Growth/engineering Feedback', items: ['✅Mega pack amt. (show overall amt. with dropdown) Airtel black exclusive pack (on review page) - P0', '✅Remove total and non selected adding from review page.P0', '✅Visuals (logos) on the pack - P0', '❓Box image, Netflix example (discuss with Mohit) - P0', '✅Affordance for add ons section - make 3 addons visible in one time. Restructure Order - 1) Ott  2) ala carte and 3) language pack - P0', 'UT with users - P1', 'Scalability of languages / Kannada instead of Urdu - P1', 'Content: comms on pack & box (discuss with content team & mohit) - P0'] },
-];
-
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { card: 0, fb: 0 };
   componentDidMount() {
     let tries = 0;
     const wait = () => {
@@ -452,12 +407,6 @@ class Component extends DCLogic {
     if (this._lenis) this._lenis.destroy();
     if (this._ctx) this._ctx.revert();
   }
-  componentDidUpdate() {
-    const ps = this._prev || this.state;
-    this._prev = { ...this.state };
-    if (ps.card !== this.state.card && window.gsap) window.gsap.fromTo('[data-cbody] > div', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power3.out' });
-    if (ps.fb !== this.state.fb && window.ScrollTrigger) setTimeout(() => window.ScrollTrigger.refresh(), 600);
-  }
   initMotion() {
     const gsap = window.gsap, ST = window.ScrollTrigger;
     gsap.registerPlugin(ST);
@@ -469,13 +418,48 @@ class Component extends DCLogic {
       this._raf = requestAnimationFrame(raf);
     }
     const $ = (s, r) => Array.from((r || document).querySelectorAll(s));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+      const P = '0.18em', C = '1.41em';
+      const mask = `linear-gradient(to bottom, transparent 0, #000 ${P}, #000 calc(100% - ${P}), transparent 100%)`;
+      $('[data-count]').forEach((el) => {
+        if (el.__nf) return; el.__nf = true;
+        const grp = el.closest('[data-impact],[data-metrics]');
+        const mi = $('[data-count]', grp).indexOf(el);
+        const val = String(el.dataset.count), pre = el.dataset.prefix || '';
+        el.setAttribute('aria-label', pre + val);
+        el.textContent = '';
+        el.style.cssText += ';display:inline-flex;font-variant-numeric:tabular-nums';
+        const sign = document.createElement('span');
+        sign.textContent = pre || '\u200B'; sign.setAttribute('aria-hidden', 'true');
+        sign.style.cssText = 'display:inline-block;opacity:0;transform:translateY(0.3em) scale(0.8);transition:opacity .5s ease, transform .9s cubic-bezier(.3,1.5,.5,1)';
+        el.appendChild(sign);
+        const wheels = [...val].map((ch, di) => {
+          const box = document.createElement('span');
+          box.setAttribute('aria-hidden', 'true');
+          box.style.cssText = `box-sizing:content-box;display:inline-block;vertical-align:top;height:${C};margin:-${P} -0.02em;overflow:hidden;-webkit-mask-image:${mask};mask-image:${mask}`;
+          const col = document.createElement('span');
+          col.style.cssText = 'display:flex;flex-direction:column;will-change:transform';
+          for (let k = 0; k < 20; k++) { const c = document.createElement('span'); c.textContent = k % 10; c.style.cssText = `display:block;height:${C};line-height:${C};text-align:center`; col.appendChild(c); }
+          box.appendChild(col); el.appendChild(box);
+          return { col, d: +ch, di };
+        });
+        const play = () => requestAnimationFrame(() => {
+          sign.style.opacity = '1'; sign.style.transform = 'none';
+          wheels.forEach(({ col, d, di }) => {
+            const n = wheels.length, target = 10 + d;
+            col.animate([{ transform: 'translateY(0)', filter: 'blur(0px)' }, { filter: 'blur(1.2px)', offset: 0.35 }, { transform: `translateY(calc(-${target} * ${C}))`, filter: 'blur(0px)' }],
+              { duration: 1300 + (n - di) * 180, delay: mi * 90 + (n - di - 1) * 60, easing: 'cubic-bezier(0.18, 1.06, 0.3, 1)', fill: 'forwards' });
+          });
+        });
+        window.ScrollTrigger.create({ trigger: grp, start: 'top 78%', once: true, onEnter: play });
+      });
     this._ctx = gsap.context(() => {
       gsap.timeline({ defaults: { ease: 'power4.out' } })
-        .from('[data-hero="kicker"]', { y: 16, opacity: 0, duration: 0.6 })
-        .from('[data-char]', { yPercent: 115, duration: 0.9, stagger: 0.12 }, '-=0.3')
+        .from('[data-char]', { yPercent: 115, duration: 0.9, stagger: 0.12 })
         .from('[data-hero="sub"]', { y: 16, opacity: 0, duration: 0.6 }, '-=0.5')
-        .from('[data-hero="chip"]', { y: 12, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.4')
-        .from('header [data-note]', { y: -60, opacity: 0, rotation: (i, el) => +el.dataset.rot + (i % 2 ? 12 : -12), duration: 0.9, stagger: 0.12, ease: 'back.out(1.6)' }, '-=0.6')
+        .from('header [data-note]', { y: -60, opacity: 0, rotation: (i, el) => +el.dataset.rot + (i % 2 ? 12 : -12), duration: 0.9, stagger: 0.12, ease: 'back.out(1.6)' }, '-=0.5')
         .from('[data-hphone="1"]', { y: 120, opacity: 0, duration: 1.1 }, '-=0.5')
         .from('[data-hphone="0"]', { x: 120, rotation: 8, opacity: 0, duration: 1 }, '-=0.8')
         .from('[data-hphone="2"]', { x: -120, rotation: -8, opacity: 0, duration: 1 }, '<');
@@ -492,42 +476,33 @@ class Component extends DCLogic {
       $('section [data-note]').forEach((el) => gsap.from(el, { y: -40, opacity: 0, rotation: +el.dataset.rot - 14, duration: 0.8, ease: 'back.out(1.8)', scrollTrigger: { trigger: el, start: 'top 90%' } }));
       $('[data-card]').forEach((el, i) => gsap.from(el, { y: 50, opacity: 0, duration: 0.8, delay: (i % 3) * 0.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
 
-      const packs = $('[data-pack]');
-      if (packs.length) {
-        const pst = { trigger: packs[0], start: 'top 85%' };
-        gsap.from(packs, { rotationY: -70, transformOrigin: '0% 50%', opacity: 0, duration: 0.9, stagger: 0.18, ease: 'power3.out', scrollTrigger: pst });
-        $('[data-count]').forEach((el) => { const end = +el.dataset.count, o = { v: 0 }; el.textContent = '0'; gsap.to(o, { v: end, duration: 1.4, ease: 'power2.out', scrollTrigger: pst, onUpdate: () => { el.textContent = Math.round(o.v); } }); });
+      const imp = document.querySelector('[data-impact]');
+      if (imp) {
+        gsap.from('[data-divider]', { scaleY: 0, duration: 1.1, ease: 'power2.inOut', scrollTrigger: { trigger: imp, start: 'top 80%' } });
+        gsap.from($('[data-metric]', imp), { y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: imp, start: 'top 78%' } });
       }
-      const langs = $('[data-lang]');
-      if (langs.length) gsap.from(langs, { y: -30, opacity: 0, rotation: () => gsap.utils.random(-12, 12), duration: 0.6, stagger: 0.06, ease: 'back.out(2.2)', scrollTrigger: { trigger: '[data-langs]', start: 'top 88%' } });
-
-      const heur = $('[data-hcard]');
-      if (heur.length) gsap.from(heur, { x: (i) => (i % 2 ? 40 : -40), opacity: 0, duration: 0.6, stagger: 0.07, ease: 'power3.out', scrollTrigger: { trigger: '[data-heur]', start: 'top 82%' } });
-      const zom = $('[data-zcard]');
-      if (zom.length) gsap.from(zom, { clipPath: 'inset(0% 0% 100% 0%)', duration: 0.8, stagger: 0.08, ease: 'power3.inOut', scrollTrigger: { trigger: '[data-zom]', start: 'top 82%' } });
-
-      const ui = document.querySelector('[data-ui]');
-      if (ui) {
-        const names = SCREENS.map((s) => s.title), n = names.length, track = ui.querySelector('[data-ui-track]');
-        const label = ui.querySelector('[data-ui-label]'), count = ui.querySelector('[data-ui-count]'), note = ui.querySelector('[data-ui-note]');
-        const dots = $('[data-ui-dot]', ui);
-        let cur = 0;
-        const setActive = (i) => {
-          if (i === cur) return; cur = i;
-          dots.forEach((d, j) => { d.style.width = j === i ? '22px' : '8px'; d.style.background = j === i ? '#5BC0E8' : '#555555'; });
-          count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
-          gsap.timeline()
-            .to(note, { y: -14, rotation: -6, opacity: 0, duration: 0.18, ease: 'power2.in', onComplete: () => { label.textContent = names[i]; } })
-            .fromTo(note, { y: 18, rotation: 3, opacity: 0 }, { y: 0, rotation: -2, opacity: 1, duration: 0.45, ease: 'back.out(2)' });
-        };
-        gsap.to(track, { xPercent: -100 * (n - 1), ease: 'none', scrollTrigger: { trigger: ui, start: 'top top', end: 'bottom bottom', scrub: 0.6, onUpdate: (self) => setActive(Math.min(n - 1, Math.round(self.progress * (n - 1)))) } });
+      const da = document.querySelector('[data-da]');
+      if (da) {
+        const t = gsap.timeline({ scrollTrigger: { trigger: da, start: 'top 80%' } });
+        $('[data-da-step]', da).forEach((s) => {
+          t.from(s.querySelector('[data-da-circle]'), { scale: 0, duration: 0.4, ease: 'back.out(2.4)' })
+           .from($('[data-da-li]', s), { x: -14, opacity: 0, duration: 0.35, stagger: 0.06 }, '-=0.1');
+          const ln = s.querySelector('[data-da-line]');
+          if (ln) t.from(ln, { scaleX: 0, duration: 0.4, ease: 'power2.inOut' }, '-=0.2');
+        });
       }
-
-      const fbw = document.querySelector('[data-fbwrap]');
-      if (fbw) {
-        gsap.from('[data-fbline]', { scaleY: 0, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: fbw, start: 'top 80%' } });
-        gsap.from($('[data-fbrow]', fbw), { x: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: fbw, start: 'top 80%' } });
-      }
+      $('[data-persona]').forEach((el) => {
+        gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 85%' } })
+          .from(el, { y: 60, opacity: 0, duration: 0.9, ease: 'power3.out' })
+          .from(el.querySelector('img'), { scale: 0.6, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, '-=0.6');
+      });
+      $('[data-bshot]').forEach((el, i) => gsap.from(el, { y: 60, opacity: 0, rotation: i % 2 ? 3 : -3, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+      $('[data-bnote]').forEach((el, i) => gsap.from(el, { y: -30, opacity: 0, rotation: i % 2 ? 6 : -6, duration: 0.7, ease: 'back.out(1.8)', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+      $('[data-comp]').forEach((el) => gsap.from(el, { y: 40, opacity: 0, scale: 0.96, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 92%' } }));
+      const finals = $('[data-final]');
+      if (finals.length) gsap.from(finals, { y: 80, opacity: 0, duration: 0.9, stagger: 0.14, ease: 'power3.out', scrollTrigger: { trigger: finals[0], start: 'top 85%' } });
+      const em = document.querySelector('[data-metrics]');
+      if (em) gsap.from($('[data-metric]', em), { y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: em, start: 'top 80%' } });
 
       const next = document.querySelector('[data-next]');
       if (next) {
@@ -538,19 +513,7 @@ class Component extends DCLogic {
       }
     });
   }
-  renderVals() {
-    const card = this.state.card, fb = this.state.fb;
-    return {
-      heuristics: HEUR,
-      zomato: ZOM,
-      cards: CARDS.map((c, i) => ({ i: String(i), n: String(i + 1), on: i === card ? 'on' : 'off' })),
-      cardPro: CARDS[card][0], cardCon: CARDS[card][1],
-      pickCard: (e) => this.setState({ card: +e.currentTarget.dataset.ci }),
-      screens: SCREENS,
-      feedback: FB.map((f, i) => ({ ...f, i: String(i), on: i === fb ? 'on' : 'off' })),
-      toggleFb: (e) => { const i = +e.currentTarget.dataset.fi; this.setState((s) => ({ fb: s.fb === i ? -1 : i })); },
-    };
-  }
+  renderVals() { return {}; }
 }
 </script>
 </body>

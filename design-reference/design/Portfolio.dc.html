@@ -8,23 +8,30 @@
 <body>
 <x-dc>
 <helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#1c1c1c"><rect width="100" height="100" fill="#1c1c1c"></rect><rect x="30" y="30" width="40" height="40" fill="none" stroke="#63c4ec" stroke-width="3"></rect><text x="50" y="58" font-family="Montserrat,sans-serif" font-size="22" font-weight="600" fill="#f5f5f5" text-anchor="middle">SK</text></svg></template>
 <link rel="stylesheet" href="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/styles.css">
 <script src="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/_ds_bundle.js"></script>
 <script src="./image-slot.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
 <style>
 html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;overflow-x:clip}
 html,body,h1,h2,h3,p,span,div,a,button,input,textarea,label{font-family:"Montserrat",system-ui,sans-serif}
 a{color:#63c4ec}a:hover{color:#9ad8f2}
 html{scroll-behavior:smooth}
+[data-ft-roll-in]{transition:transform .55s cubic-bezier(.7,0,.2,1)}[data-ft-roll]:hover [data-ft-roll-in]{transform:translateY(-50%)}
+@keyframes ft-blink{50%{opacity:.25}}
+@keyframes ft-curtain{from{transform:translateY(calc(var(--ft-m,100vh) * -1))}to{transform:none}}
+@supports (animation-timeline:view()){footer[data-ft]{animation:ft-curtain linear both;animation-timeline:view();animation-range:entry 0% entry 100%}}
 </style>
 </helmet>
 
 <div data-screen-label="Homepage" style="position:relative;min-height:100vh;background:#1c1c1c;color:#f5f5f5;overflow:clip">
 
 <sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}">
-<div data-view="desktop" style="position:relative">
+<div data-view="desktop" style="position:relative;z-index:2;background:#1c1c1c;border-radius:0 0 clamp(24px,3vw,48px) clamp(24px,3vw,48px);box-shadow:0 30px 60px rgba(0,0,0,.35)">
 
   <sc-if value="{{ showRuler }}" hint-placeholder-val="{{ true }}">
   <div aria-hidden="true" style="position:sticky;top:0;z-index:60;height:24px;background-color:#ffffff;background-image:repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px);background-size:100% 5px;background-repeat:repeat-x;background-position:0 100%;overflow:hidden">
@@ -39,6 +46,10 @@ html{scroll-behavior:smooth}
     </div>
   </div>
   </sc-if>
+
+  <div data-notice="" role="status" aria-label="The website is updated weekly every Sunday" style="position:relative;z-index:5;overflow:hidden;background:#51ac65;color:#ffffff;border-bottom:2px solid #1c1c1c">
+    <div data-notice-track="" aria-hidden="true" style="display:flex;width:max-content;align-items:center;min-height:44px;font-size:15px;line-height:1.35;font-weight:600;white-space:nowrap"><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:28px;padding-right:28px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span></div>
+  </div>
 
   <section id="top" style="position:relative;max-width:1440px;margin:0 auto;padding-top:140px;display:flex;flex-direction:column;align-items:center">
     <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:20px;line-height:24px;font-weight:500;padding:4px 10px;transform:rotate(-4deg)">my name is</span>
@@ -71,12 +82,8 @@ html{scroll-behavior:smooth}
   </section>
 
   <section id="about" style="position:relative;max-width:1440px;margin:302px auto 0;display:flex;flex-direction:column;align-items:center">
-    <div style="position:absolute;left:calc(50% - 621px);top:131px;width:256px;height:349px;transform:rotate(-12deg);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,0.45);background:#f0f0f0">
-      <image-slot id="home-about-1" shape="rounded" radius="14" placeholder="Drop a photo" style="width:100%;height:100%"></image-slot>
-    </div>
-    <div style="position:absolute;left:calc(50% + 393px);top:161px;width:254px;height:350px;transform:rotate(4deg);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,0.45);background:#f0f0f0">
-      <image-slot id="home-about-2" shape="rounded" radius="14" placeholder="Drop a photo" style="width:100%;height:100%"></image-slot>
-    </div>
+    
+    
     <div style="position:relative;border:2px solid #63c4ec;padding:23px 31px">
       <h2 style="margin:0;font-size:36px;line-height:44px;font-weight:600;color:#f5f5f5;white-space:nowrap">what’s up</h2>
       <span style="position:absolute;left:-10px;top:-10px;width:18px;height:18px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
@@ -87,7 +94,29 @@ html{scroll-behavior:smooth}
     <p style="position:relative;margin:42px 0 0;font-size:56px;line-height:73px;font-weight:500;text-align:center;color:#f5f5f5" data-line-reveal="1"><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">I am Shiva a Product</span></span><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">Designer in Gurugram</span></span><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">who gets excited</span></span><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">about making</span></span><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">complicated things</span></span><span style="display:block;overflow:hidden"><span data-line="1" style="display:block">simple</span></span></p>
   </section>
 
-  <section id="work" style="max-width:1440px;margin:0 auto;padding-top:325px;display:flex;flex-direction:column;align-items:center">
+  <section id="tools" aria-label="Tools I use" style="position:relative;padding-top:260px;display:flex;flex-direction:column;align-items:center">
+    <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:22px;line-height:26px;font-weight:500;padding:4px 10px;transform:rotate(-3deg)">tools I use</span>
+    <div data-vc="desk" style="align-self:stretch;margin-top:64px;overflow:hidden;cursor:grab;touch-action:pan-y">
+      <div data-vc-track="" style="display:flex;gap:16px;width:max-content;padding-right:16px;will-change:transform">
+        <div title="Figma" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/figma-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/figma.png" alt="Figma" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Lottie" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/lottie-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/lottie.png" alt="Lottie" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Higgsfield" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/higgsfield-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/higgsfield.png" alt="Higgsfield" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Spline" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/spline-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/spline.png" alt="Spline" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Claude" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/claude-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/claude.png" alt="Claude" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Notion" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/notion-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/notion.png" alt="Notion" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Jira" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/jira-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/jira.png" alt="Jira" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Figma" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/figma-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/figma.png" alt="Figma" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Lottie" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/lottie-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/lottie.png" alt="Lottie" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Higgsfield" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/higgsfield-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/higgsfield.png" alt="Higgsfield" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Spline" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/spline-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/spline.png" alt="Spline" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Claude" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/claude-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/claude.png" alt="Claude" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Notion" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/notion-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/notion.png" alt="Notion" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+        <div title="Jira" style="position:relative;flex:none;width:214px;height:214px"><img src="assets/tools/jira-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img src="assets/tools/jira.png" alt="Jira" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease" style-hover="opacity:0"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="max-width:1440px;margin:0 auto;padding-top:260px;display:flex;flex-direction:column;align-items:center">
     <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:22px;line-height:26px;font-weight:500;padding:4px 10px;transform:rotate(6deg)">explore my work</span>
     <div style="position:relative;margin-top:51px;border:2px solid #63c4ec;padding:7px 34px">
       <h2 style="margin:0;font-size:82px;line-height:98px;font-weight:600;color:#f5f5f5;white-space:nowrap">Featured Works</h2>
@@ -165,27 +194,14 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <section id="claude" style="position:relative;margin-top:290px;background:#d97757;padding:52px 0 44px">
-    <div data-mascot="" aria-label="Claude mascot waving hello" role="img" style="position:absolute;bottom:100%;left:min(calc(50% + 300px), calc(100% - 260px));z-index:2;flex:none;width:170px;padding-top:48px">
-        <div data-bubble="" style="position:absolute;top:0;left:105px;background:#ffffff;color:#1c1c1c;border:2px solid #1c1c1c;padding:6px 12px;font-size:15px;line-height:1.2;font-weight:700;white-space:nowrap;transform-origin:0% 100%;box-shadow:3px 3px 0 #1c1c1c">Hello!<span style="position:absolute;left:8px;bottom:-8px;width:8px;height:8px;background:#ffffff;border-left:2px solid #1c1c1c;border-bottom:2px solid #1c1c1c;box-sizing:content-box;transform:translateY(-3px) skewY(-45deg)"></span></div>
-        <svg data-bob="" viewBox="0 0 18 11" width="170" height="104" shape-rendering="crispEdges" style="display:block;overflow:visible">
-          <rect x="2" y="0" width="12" height="8" fill="#c15f3c"></rect>
-          <rect x="0" y="3" width="2" height="2" fill="#c15f3c"></rect>
-          <g data-wave="" style="transform-box:fill-box;transform-origin:0% 50%"><rect x="14" y="3" width="2.4" height="2" fill="#c15f3c"></rect></g>
-          <rect x="5" y="2" width="1" height="2" fill="#1c1c1c"></rect>
-          <rect x="10" y="2" width="1" height="2" fill="#1c1c1c"></rect>
-          <rect x="3" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="5" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="10" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="12" y="8" width="1" height="3" fill="#c15f3c"></rect>
-        </svg>
-      </div>
+  <section id="claude" style="position:relative;margin-top:290px;padding:52px 0 44px">
     <div style="width:calc(100% - 64px);max-width:1040px;margin:0 auto">
-      <img src="assets/home/claude-code-logo.png" alt="Claude Code" style="display:block;width:437px;height:auto">
-      <p style="margin:29px 0 0;font-size:14px;line-height:18px;font-weight:600;color:#ffffff">Tools and Prototypes I build with Claude Code</p>
-      <div style="margin-top:67px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:19px">
-        <a href="Akhbar Bash Case Study.dc.html" aria-label="Akhbar Bash — case study" data-shimmer="" style="position:relative;display:block;height:290px;border-radius:8px;overflow:hidden"><img src="assets/home/claude-1.jpg" alt="Hands playing a game on a phone" style="display:block;width:100%;height:100%;object-fit:cover"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span data-hover-label="" aria-hidden="true" style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 12px;background:#0f1d24;color:#63c4ec;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease;pointer-events:none">VIEW PROJECT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
-        <a href="JugnuCaseStudy.dc.html" aria-label="Jugnu — case study" data-shimmer="" style="position:relative;display:block;height:290px;border-radius:8px;overflow:hidden"><img src="assets/home/claude-2.jpg" alt="Toy robot in front of an orange light" style="display:block;width:100%;height:100%;object-fit:cover"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span data-hover-label="" aria-hidden="true" style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 12px;background:#0f1d24;color:#63c4ec;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease;pointer-events:none">VIEW PROJECT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
+      <img src="assets/home/claude-code-logo-white.png" alt="Claude Code" style="display:block;width:min(490px,100%);height:auto;margin-left:-5px">
+      <p style="margin:18px 0 0;font-size:20px;line-height:24px;font-weight:600;color:#ffffff">Tools and Prototypes I build with Claude Code</p>
+
+      <div style="margin-top:65px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px">
+        <a href="Akhbar Bash Case Study.dc.html" aria-label="Akhbar Bash — case study" style="display:flex;flex-direction:column;background:#ffffff;border-radius:20px;overflow:hidden;color:#1c1c1c;text-decoration:none;transition:transform .25s ease" style-hover="transform:translateY(-4px)"><img src="assets/home/claude-akhbar.png" alt="Akhbar Bash pixel game screenshot" style="display:block;width:100%;aspect-ratio:505 / 256;height:auto;object-fit:cover"><span style="display:flex;align-items:center;gap:20px;min-height:100px;box-sizing:border-box;padding:12px 15px 12px 20px"><img src="assets/home/claude-icon.png" alt="" aria-hidden="true" style="display:block;flex:none;width:60px;height:60px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:20px;line-height:1.25;font-weight:600;color:#1c1c1c">Akhbar Bash: Game</span><span style="font-size:16px;line-height:1.3;font-weight:500;color:#a3a3a3">Edited 6 days ago</span></span><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;flex:none;width:62px;height:62px;border-radius:50%;background:#51ac65;color:#ffffff;font-size:24px;font-weight:500">SK</span></span></a>
+        <a href="JugnuCaseStudy.dc.html" aria-label="Jugnu — case study" style="display:flex;flex-direction:column;background:#ffffff;border-radius:20px;overflow:hidden;color:#1c1c1c;text-decoration:none;transition:transform .25s ease" style-hover="transform:translateY(-4px)"><img src="assets/home/claude-jugnu.png" alt="Jugnu bot floating above a base" style="display:block;width:100%;aspect-ratio:505 / 256;height:auto;object-fit:cover"><span style="display:flex;align-items:center;gap:20px;min-height:100px;box-sizing:border-box;padding:12px 15px 12px 20px"><img src="assets/home/claude-icon.png" alt="" aria-hidden="true" style="display:block;flex:none;width:60px;height:60px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:20px;line-height:1.25;font-weight:600;color:#1c1c1c">Jugnu: Bot</span><span style="font-size:16px;line-height:1.3;font-weight:500;color:#a3a3a3">Edited 10 days ago</span></span><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;flex:none;width:62px;height:62px;border-radius:50%;background:#51ac65;color:#ffffff;font-size:24px;font-weight:500">SK</span></span></a>
       </div>
     </div>
   </section>
@@ -221,45 +237,13 @@ html{scroll-behavior:smooth}
         <span style="font-size:16px;font-weight:500;color:#f5f5f5;text-align:right">2018 — 2019</span>
       </div>
     </div>
-  </section>
-
-  <section id="contact" style="max-width:1440px;margin:0 auto;padding:244px 0 224px;display:flex;flex-direction:column;align-items:center">
-    <div style="position:relative;border:2px solid #63c4ec;padding:23px 47px">
-      <h2 style="margin:0;font-size:82px;line-height:98px;font-weight:600;color:#f5f5f5;white-space:nowrap">Let’s Talk</h2>
-      <span style="position:absolute;left:-11px;top:-11px;width:20px;height:20px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;right:-11px;top:-11px;width:20px;height:20px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;left:-11px;bottom:-11px;width:20px;height:20px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;right:-11px;bottom:-11px;width:20px;height:20px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-    </div>
-    <div style="width:calc(100% - 64px);max-width:1040px;margin-top:102px;display:grid;grid-template-columns:minmax(0,530fr) minmax(0,510fr)">
-      <div style="padding:256px 0 0 88px">
-        <div aria-hidden="true" style="width:333px;height:333px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
-          <span style="background:#f7d158;border-bottom-left-radius:100%"></span>
-          <span style="background:#f7d158;border-top-left-radius:100%"></span>
-          <span style="background:#f7d158;border-bottom-right-radius:100%"></span>
-          <span style="background:#f7d158;border-top-right-radius:100%"></span>
-        </div>
-      </div>
-      <div>
-        <p style="margin:0;font-size:20px;line-height:27px;font-weight:500;color:#f5f5f5">I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.</p>
-        <form onSubmit="{{ onSubmit }}" novalidate="" style="margin-top:36px;background:#51ac65;border-radius:8px;padding:34px 32px 32px;display:flex;flex-direction:column">
-          <label for="cf-name-d" style="font-size:10px;line-height:12px;font-weight:600;letter-spacing:0.12em;color:#ffffff">YOUR NAME</label>
-          <input id="cf-name-d" name="name" type="text" autocomplete="name" style="margin-top:13px;height:50px;padding:0 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;outline:none" style-focus="border-color:#ffffff">
-          <label for="cf-email-d" style="margin-top:27px;font-size:10px;line-height:12px;font-weight:600;letter-spacing:0.12em;color:#ffffff">YOUR EMAIL</label>
-          <input id="cf-email-d" name="email" type="email" autocomplete="email" style="margin-top:13px;height:50px;padding:0 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;outline:none" style-focus="border-color:#ffffff">
-          <label for="cf-msg-d" style="margin-top:27px;font-size:10px;line-height:12px;font-weight:600;letter-spacing:0.12em;color:#ffffff">IDEAS/PROJECTS DESCRIPTION</label>
-          <textarea id="cf-msg-d" name="message" style="margin-top:13px;height:197px;padding:12px 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;line-height:1.4;resize:none;outline:none" style-focus="border-color:#ffffff"></textarea>
-          <button type="submit" style="margin-top:42px;height:45px;border:0;border-radius:4px;background:#ffffff;color:#1c1c1c;font-size:11px;font-weight:700;letter-spacing:0.1em;cursor:pointer" style-hover="background:#ecf7ee">SUBMIT</button>
-          <sc-if value="{{ hasNote }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:13px;line-height:18px;color:#ffffff">{{ cfNote }}</p></sc-if>
-        </form>
-      </div>
-    </div>
+    <a data-shimmer="" data-lmbtn="" href="assets/Shiva_Kumar_Resume.pdf" download="" style="position:relative;overflow:hidden;margin-top:64px;display:flex;padding:2px;box-sizing:border-box;height:45px;border-radius:999px;background:#bdbdbd;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" style-hover="box-shadow:0 1px 2px rgba(0,0,0,0.5),0 10px 30px rgba(255,255,255,0.16)"><span data-lm="" aria-hidden="true" style="position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;background:conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff);filter:blur(3px);pointer-events:none"></span><span style="position:relative;overflow:hidden;flex:1;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 20px;border-radius:999px;background:linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%);color:#1c1c1c;font-size:13px;font-weight:700;letter-spacing:0.06em;box-shadow:inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span style="position:relative">DOWNLOAD RESUME</span><svg style="position:relative" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg></span></a>
   </section>
 </div>
 </sc-if>
 
 <sc-if value="{{ isMob }}" hint-placeholder-val="{{ false }}">
-<div data-view="mobile" style="position:relative">
+<div data-view="mobile" style="position:relative;z-index:2;background:#1c1c1c;border-radius:0 0 clamp(24px,3vw,48px) clamp(24px,3vw,48px);box-shadow:0 30px 60px rgba(0,0,0,.35)">
 
   <sc-if value="{{ showRuler }}" hint-placeholder-val="{{ true }}">
   <div aria-hidden="true" style="position:sticky;top:0;z-index:60;height:24px;background-color:#ffffff;background-image:repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px);background-size:100% 5px;background-repeat:repeat-x;background-position:0 100%;overflow:hidden">
@@ -268,6 +252,10 @@ html{scroll-behavior:smooth}
     </sc-for>
   </div>
   </sc-if>
+
+  <div data-notice="" role="status" aria-label="The website is updated weekly every Sunday" style="position:relative;z-index:5;overflow:hidden;background:#51ac65;color:#ffffff;border-bottom:2px solid #1c1c1c">
+    <div data-notice-track="" aria-hidden="true" style="display:flex;width:max-content;align-items:center;min-height:38px;font-size:13px;line-height:1.35;font-weight:600;white-space:nowrap"><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span><span style="display:inline-flex;align-items:center;gap:20px;padding-right:20px;flex:none"><span>The website is updated weekly every Sunday</span><span aria-hidden="true" style="display:block;width:6px;height:6px;border-radius:50%;background:#ffffff"></span></span></div>
+  </div>
 
   <section id="top" style="position:relative;padding-top:86px;display:flex;flex-direction:column;align-items:center">
     <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:14px;line-height:18px;font-weight:500;padding:4px 9px;transform:rotate(-4deg)">my name is</span>
@@ -318,7 +306,29 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <section id="work" style="padding-top:167px;display:flex;flex-direction:column;align-items:center">
+  <section id="tools" aria-label="Tools I use" style="position:relative;padding-top:140px;display:flex;flex-direction:column;align-items:center">
+    <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:16px;line-height:20px;font-weight:500;padding:3px 10px;transform:rotate(-3deg)">tools I use</span>
+    <div data-vc="mob" style="align-self:stretch;margin-top:36px;overflow:hidden;touch-action:pan-y">
+      <div data-vc-track="" style="display:flex;gap:12px;width:max-content;padding-right:12px;will-change:transform">
+        <div title="Figma" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/figma-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/figma.png" alt="Figma" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Lottie" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/lottie-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/lottie.png" alt="Lottie" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Higgsfield" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/higgsfield-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/higgsfield.png" alt="Higgsfield" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Spline" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/spline-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/spline.png" alt="Spline" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Claude" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/claude-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/claude.png" alt="Claude" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Notion" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/notion-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/notion.png" alt="Notion" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Jira" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/jira-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/jira.png" alt="Jira" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Figma" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/figma-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/figma.png" alt="Figma" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Lottie" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/lottie-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/lottie.png" alt="Lottie" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Higgsfield" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/higgsfield-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/higgsfield.png" alt="Higgsfield" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Spline" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/spline-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/spline.png" alt="Spline" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Claude" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/claude-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/claude.png" alt="Claude" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Notion" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/notion-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/notion.png" alt="Notion" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+        <div title="Jira" style="position:relative;flex:none;width:140px;height:140px"><img src="assets/tools/jira-blur.png" alt="" aria-hidden="true" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block"><img data-vc-sharp="" src="assets/tools/jira.png" alt="Jira" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .35s ease"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:140px;display:flex;flex-direction:column;align-items:center">
     <span style="display:inline-block;background:#f6dfa6;color:#1c1c1c;font-size:16px;line-height:20px;font-weight:500;padding:3px 10px;transform:rotate(5deg)">explore my work</span>
     <div style="position:relative;margin-top:17px;border:2px solid #63c4ec;padding:22px 32px">
       <h2 style="margin:0;font-size:42px;line-height:49px;font-weight:600;color:#f5f5f5;text-align:center">Featured<br>Works</h2>
@@ -396,26 +406,13 @@ html{scroll-behavior:smooth}
     </div>
   </section>
 
-  <section id="claude" style="position:relative;margin-top:161px;background:#d97757;padding:47px 20px 42px">
-    <div data-mascot="" aria-label="Claude mascot waving hello" role="img" style="position:absolute;bottom:100%;right:28px;z-index:2;flex:none;width:96px;padding-top:34px">
-        <div data-bubble="" style="position:absolute;top:0;left:60px;background:#ffffff;color:#1c1c1c;border:2px solid #1c1c1c;padding:4px 8px;font-size:12px;line-height:1.2;font-weight:700;white-space:nowrap;transform-origin:0% 100%;box-shadow:3px 3px 0 #1c1c1c">Hello!<span style="position:absolute;left:8px;bottom:-8px;width:8px;height:8px;background:#ffffff;border-left:2px solid #1c1c1c;border-bottom:2px solid #1c1c1c;box-sizing:content-box;transform:translateY(-3px) skewY(-45deg)"></span></div>
-        <svg data-bob="" viewBox="0 0 18 11" width="96" height="59" shape-rendering="crispEdges" style="display:block;overflow:visible">
-          <rect x="2" y="0" width="12" height="8" fill="#c15f3c"></rect>
-          <rect x="0" y="3" width="2" height="2" fill="#c15f3c"></rect>
-          <g data-wave="" style="transform-box:fill-box;transform-origin:0% 50%"><rect x="14" y="3" width="2.4" height="2" fill="#c15f3c"></rect></g>
-          <rect x="5" y="2" width="1" height="2" fill="#1c1c1c"></rect>
-          <rect x="10" y="2" width="1" height="2" fill="#1c1c1c"></rect>
-          <rect x="3" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="5" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="10" y="8" width="1" height="3" fill="#c15f3c"></rect>
-          <rect x="12" y="8" width="1" height="3" fill="#c15f3c"></rect>
-        </svg>
-      </div>
-    <img src="assets/home/claude-code-logo.png" alt="Claude Code" style="display:block;width:205px;height:auto">
-    <p style="margin:25px 0 0;font-size:13px;line-height:18px;font-weight:600;color:#ffffff">Tools and Prototypes I build with Claude Code</p>
-    <div style="margin-top:39px;display:flex;flex-direction:column;gap:32px">
-      <a href="Akhbar Bash Case Study.dc.html" aria-label="Akhbar Bash — case study" data-shimmer="" style="position:relative;display:block;height:298px;border-radius:8px;overflow:hidden"><img src="assets/home/claude-1.jpg" alt="Hands playing a game on a phone" style="display:block;width:100%;height:100%;object-fit:cover"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span data-hover-label="" aria-hidden="true" style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 12px;background:#0f1d24;color:#63c4ec;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:1;transform:translateY(0px);transition:opacity .25s ease,transform .25s ease;pointer-events:none">VIEW PROJECT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
-      <a href="JugnuCaseStudy.dc.html" aria-label="Jugnu — case study" data-shimmer="" style="position:relative;display:block;height:298px;border-radius:8px;overflow:hidden"><img src="assets/home/claude-2.jpg" alt="Toy robot in front of an orange light" style="display:block;width:100%;height:100%;object-fit:cover"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span data-hover-label="" aria-hidden="true" style="position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 12px;background:#0f1d24;color:#63c4ec;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:1;transform:translateY(0px);transition:opacity .25s ease,transform .25s ease;pointer-events:none">VIEW PROJECT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></a>
+  <section id="claude" style="position:relative;margin-top:161px;padding:47px 20px 42px">
+    <img src="assets/home/claude-code-logo-white.png" alt="Claude Code" style="display:block;width:213px;height:auto;margin-left:-2px">
+    <p style="margin:20px 0 0;font-size:14px;line-height:18px;font-weight:600;color:#ffffff">Tools and Prototypes I build with Claude Code</p>
+
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px">
+      <a href="Akhbar Bash Case Study.dc.html" aria-label="Akhbar Bash — case study" style="display:flex;flex-direction:column;background:#ffffff;border-radius:20px;overflow:hidden;color:#1c1c1c;text-decoration:none;transition:transform .25s ease" style-hover="transform:translateY(-4px)"><img src="assets/home/claude-akhbar.png" alt="Akhbar Bash pixel game screenshot" style="display:block;width:100%;aspect-ratio:366 / 186;height:auto;object-fit:cover"><span style="display:flex;align-items:center;gap:20px;min-height:88px;box-sizing:border-box;padding:12px 21px 12px 20px"><img src="assets/home/claude-icon.png" alt="" aria-hidden="true" style="display:block;flex:none;width:40px;height:40px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:17px;line-height:1.25;font-weight:600;color:#1c1c1c">Akhbar Bash</span><span style="font-size:14px;line-height:1.3;font-weight:500;color:#a3a3a3">Edited 7 days ago</span></span><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;flex:none;width:50px;height:50px;border-radius:50%;background:#51ac65;color:#ffffff;font-size:20px;font-weight:500">SK</span></span></a>
+      <a href="JugnuCaseStudy.dc.html" aria-label="Jugnu — case study" style="display:flex;flex-direction:column;background:#ffffff;border-radius:20px;overflow:hidden;color:#1c1c1c;text-decoration:none;transition:transform .25s ease" style-hover="transform:translateY(-4px)"><img src="assets/home/claude-jugnu.png" alt="Jugnu bot floating above a base" style="display:block;width:100%;aspect-ratio:366 / 186;height:auto;object-fit:cover"><span style="display:flex;align-items:center;gap:20px;min-height:88px;box-sizing:border-box;padding:12px 21px 12px 20px"><img src="assets/home/claude-icon.png" alt="" aria-hidden="true" style="display:block;flex:none;width:40px;height:40px"><span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0"><span style="font-size:17px;line-height:1.25;font-weight:600;color:#1c1c1c">Jugnu: Bot</span><span style="font-size:14px;line-height:1.3;font-weight:500;color:#a3a3a3">Edited 7 days ago</span></span><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;flex:none;width:50px;height:50px;border-radius:50%;background:#51ac65;color:#ffffff;font-size:20px;font-weight:500">SK</span></span></a>
     </div>
   </section>
 
@@ -450,39 +447,63 @@ html{scroll-behavior:smooth}
         <span style="margin-top:8px;font-size:16px;line-height:22px;font-weight:400;color:#f5f5f5">2018 — 2019</span>
       </div>
     </div>
-    <a href="assets/Shiva_Kumar_Resume.pdf" download="" style="margin-top:27px;width:225px;height:47px;display:flex;align-items:center;justify-content:center;gap:14px;box-sizing:border-box;background:#ffffff;color:#1c1c1c;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-decoration:none">DOWNLOAD RESUME
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
-    </a>
-  </section>
-
-  <section id="contact" style="padding:162px 20px 89px;display:flex;flex-direction:column;align-items:center">
-    <div style="position:relative;border:2px solid #63c4ec;padding:21px 18px">
-      <h2 style="margin:0;font-size:42px;line-height:49px;font-weight:600;color:#f5f5f5;white-space:nowrap">Lets Talk</h2>
-      <span style="position:absolute;left:-8px;top:-8px;width:14px;height:14px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;right:-8px;top:-8px;width:14px;height:14px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;left:-8px;bottom:-8px;width:14px;height:14px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-      <span style="position:absolute;right:-8px;bottom:-8px;width:14px;height:14px;box-sizing:border-box;border:2px solid #63c4ec;background:#1c1c1c"></span>
-    </div>
-    <div aria-hidden="true" style="margin-top:31px;width:111px;height:111px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
-      <span style="background:#f7d158;border-bottom-left-radius:100%"></span>
-      <span style="background:#f7d158;border-top-left-radius:100%"></span>
-      <span style="background:#f7d158;border-bottom-right-radius:100%"></span>
-      <span style="background:#f7d158;border-top-right-radius:100%"></span>
-    </div>
-    <p style="align-self:stretch;margin:41px 0 0;font-size:15px;line-height:19.5px;font-weight:500;color:#f5f5f5">I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.</p>
-    <form onSubmit="{{ onSubmit }}" novalidate="" style="align-self:stretch;margin-top:24px;background:#51ac65;border-radius:8px;padding:30px 20px 27px;display:flex;flex-direction:column">
-      <label for="cf-name-m" style="font-size:11px;line-height:13px;font-weight:600;letter-spacing:0.15em;color:#ffffff">YOUR NAME</label>
-      <input id="cf-name-m" name="name" type="text" autocomplete="name" style="margin-top:12px;height:49px;padding:0 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;outline:none" style-focus="border-color:#ffffff">
-      <label for="cf-email-m" style="margin-top:28px;font-size:11px;line-height:13px;font-weight:600;letter-spacing:0.15em;color:#ffffff">YOUR EMAIL</label>
-      <input id="cf-email-m" name="email" type="email" autocomplete="email" style="margin-top:12px;height:49px;padding:0 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;outline:none" style-focus="border-color:#ffffff">
-      <label for="cf-msg-m" style="margin-top:28px;font-size:11px;line-height:13px;font-weight:600;letter-spacing:0.15em;color:#ffffff">IDEAS/PROJECTS DESCRIPTION</label>
-      <textarea id="cf-msg-m" name="message" style="margin-top:12px;height:198px;padding:12px 14px;box-sizing:border-box;background:#428c52;border:1px solid #66c77a;border-radius:6px;color:#ffffff;font-size:16px;line-height:1.4;resize:none;outline:none" style-focus="border-color:#ffffff"></textarea>
-      <button type="submit" style="margin-top:41px;height:45px;border:0;border-radius:4px;background:#ffffff;color:#1c1c1c;font-size:13px;font-weight:700;letter-spacing:0.1em;cursor:pointer" style-hover="background:#ecf7ee">SUBMIT</button>
-      <sc-if value="{{ hasNote }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:13px;line-height:18px;color:#ffffff">{{ cfNote }}</p></sc-if>
-    </form>
+    <a data-shimmer="" data-lmbtn="" href="assets/Shiva_Kumar_Resume.pdf" download="" style="position:relative;overflow:hidden;margin-top:27px;display:flex;padding:2px;box-sizing:border-box;height:45px;border-radius:999px;background:#bdbdbd;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" style-hover="box-shadow:0 1px 2px rgba(0,0,0,0.5),0 10px 30px rgba(255,255,255,0.16)"><span data-lm="" aria-hidden="true" style="position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;background:conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff);filter:blur(3px);pointer-events:none"></span><span style="position:relative;overflow:hidden;flex:1;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 20px;border-radius:999px;background:linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%);color:#1c1c1c;font-size:13px;font-weight:700;letter-spacing:0.06em;box-shadow:inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)"><span data-shine="" aria-hidden="true" style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%);transform:translateX(-120%) skewX(-18deg);pointer-events:none"></span><span style="position:relative">DOWNLOAD RESUME</span><svg style="position:relative" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg></span></a>
   </section>
 </div>
 </sc-if>
+
+<footer id="contact" ref="{{ ftRef }}" data-ft="" data-screen-label="Contact" style="position:relative;z-index:1;background:#63c4ec;color:#1c1c1c;overflow:hidden">
+  <div style="max-width:1600px;margin:0 auto;padding:clamp(72px,9vw,140px) clamp(20px,3vw,40px) 20px;display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px clamp(24px,3vw,48px);align-items:end">
+      <h2 data-ft-reveal="" style="margin:0;font-weight:600;font-size:clamp(64px,9vw,168px);line-height:.9;letter-spacing:-.05em;color:#1c1c1c">Let’s <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.02em">talk</em></h2>
+      <div data-ft-reveal="" data-delay="120" style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <p style="margin:0;font-size:clamp(16px,1.4vw,19px);line-height:1.45;font-weight:500;max-width:38ch;color:#1c1c1c">I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.</p>
+        <a href="mailto:kumarshiva1990@gmail.com" data-ft-roll="" style="display:flex;align-items:center;gap:14px;height:64px;padding:0 8px 0 28px;border-radius:999px;background:#1c1c1c;color:#f5f5f5;text-decoration:none;font-weight:600;font-size:18px" style-hover="color:#f5f5f5">
+          <span style="height:64px;overflow:hidden"><span data-ft-roll-in="" style="display:flex;flex-direction:column"><span style="height:64px;display:flex;align-items:center">Contact</span><span style="height:64px;display:flex;align-items:center;color:#63c4ec">Contact</span></span></span>
+          <span style="width:48px;height:48px;border-radius:50%;background:#63c4ec;color:#1c1c1c;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+        </a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50% - 12px,200px),1fr));gap:32px 24px;padding-top:28px;border-top:1px solid rgba(28,28,28,.22)">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family: Montserrat; font-style: normal; font-weight: 500; font-size: 14px; opacity: .7; margin-bottom: 6px">Menu</span>
+        <sc-for list="{{ ftLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" data-ft-roll="" style="display:block;height:28px;overflow:hidden;color:#1c1c1c;text-decoration:none;font-size:17px;font-weight:500" style-hover="color:#1c1c1c">
+            <span data-ft-roll-in="" style="display:flex;flex-direction:column"><span style="height:28px;line-height:28px">{{ l.label }}</span><span style="height:28px;line-height:28px;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:19px">{{ l.label }}</span></span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family: Montserrat; font-style: normal; font-weight: 500; font-size: 14px; opacity: .7; margin-bottom: 6px">Socials</span>
+        <sc-for list="{{ ftSocials }}" as="so" hint-placeholder-count="3">
+          <a href="{{ so.href }}" target="_blank" rel="noopener" data-ft-roll="" style="display:flex;align-items:center;gap:6px;height:28px;overflow:hidden;color:#1c1c1c;text-decoration:none;font-size:17px;font-weight:500" style-hover="color:#1c1c1c">
+            <span style="height:28px;overflow:hidden"><span data-ft-roll-in="" style="display:flex;flex-direction:column"><span style="height:28px;line-height:28px">{{ so.label }}</span><span style="height:28px;line-height:28px;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:19px">{{ so.label }}</span></span></span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family: Montserrat; font-style: normal; font-weight: 500; font-size: 14px; opacity: .7; margin-bottom: 6px">Contact</span>
+        <a href="mailto:kumarshiva1990@gmail.com" style="color: #1c1c1c; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere" style-hover="color:#1c1c1c;text-decoration-thickness:2px">kumarshiva1990@gmail.com</a>
+        <span style="font-size:17px;font-weight:500">Gurugram, India</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        
+        
+        
+      </div>
+    </div>
+    <div aria-hidden="true" style="display:flex;justify-content:space-between;font-size:clamp(32px,10.4vw,170px);font-weight:700;letter-spacing:-.04em;line-height:.85;white-space:nowrap;overflow:hidden;padding-bottom:.04em;color:#1c1c1c">
+      <sc-for list="{{ wordmark }}" as="ch" hint-placeholder-count="11"><span style="display:block;overflow:hidden"><span data-ft-reveal="line" data-delay="{{ ch.d }}" style="display:block">{{ ch.c }}</span></span></sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;border-top:1px solid rgba(28,28,28,.22);font-size:14px;font-weight:500">
+      <span>©2026 Shiva Kumar. All rights reserved</span>
+      <button onClick="{{ toTop }}" aria-label="Back to top" style="width:56px;height:56px;border-radius:50%;border:none;background:#1c1c1c;color:#63c4ec;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="background:#333333">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
+      </button>
+    </div>
+  </div>
+</footer>
 
 <sc-if value="{{ showDock }}" hint-placeholder-val="{{ true }}">
   <x-import component-from-global-scope="dock-nav" from="./dock-nav.js" hint-size="0px,0px"></x-import>
@@ -492,6 +513,7 @@ html{scroll-behavior:smooth}
 <script type="text/x-dc" data-dc-script data-props="{&quot;viewport&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;desktop&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;'auto'|'desktop'|'mobile'&quot;},&quot;showRuler&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showDock&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, cfNote: '' };
+  ftRef = React.createRef(); clockRef = React.createRef();
   componentDidMount() {
     if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.querySelectorAll('[data-lm]').forEach((el) => el.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }], { duration: 3500, iterations: Infinity }));
     this.onResize = () => this.setState({ w: window.innerWidth });
@@ -501,12 +523,99 @@ class Component extends DCLogic {
     this.onLeave = () => { this.mouse.x = -9999; this.mouse.y = -9999; };
     window.addEventListener('mousemove', this.onMove, { passive: true });
     document.addEventListener('mouseleave', this.onLeave);
-    const loop = () => { this.tickRepel(); this.tickLines(); this.raf = requestAnimationFrame(loop); };
+    this.vcLast = performance.now(); this.vcScrollY = window.scrollY; this.vcBoost = 0; this.vcDir = -1;
+    const loop = () => { this.tickRepel(); this.tickLines(); this.tickVC(); this.raf = requestAnimationFrame(loop); };
     this.raf = requestAnimationFrame(loop);
     this.setupFloat();
+    this.setupNotice();
+    this.setupFooter();
     setTimeout(() => this.runIntro(), 60);
   }
-  componentDidUpdate() { this.setupFloat(); }
+  componentDidUpdate() { this.setupFloat(); this.setupNotice(); }
+  measureFooter() {
+    const f = this.ftRef.current; if (!f) return;
+    const H = f.offsetHeight, vh = window.innerHeight;
+    f.style.setProperty('--ft-m', Math.min(H, vh) + 'px');
+    const sd = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+    if (!sd) { const fits = H <= vh; f.style.position = fits ? 'sticky' : 'relative'; f.style.bottom = fits ? '0' : ''; }
+  }
+  setupFooter() {
+    const clk = () => { if (this.clockRef.current) this.clockRef.current.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }); };
+    clk(); this.clockT = setInterval(clk, 1000);
+    this.measureFooter();
+    if (window.ResizeObserver && this.ftRef.current) { this.ftRO = new ResizeObserver(() => this.measureFooter()); this.ftRO.observe(this.ftRef.current); }
+    this.onFtResize = () => this.measureFooter(); window.addEventListener('resize', this.onFtResize);
+    const f = this.ftRef.current; if (!f || !window.IntersectionObserver) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.ftIO = new IntersectionObserver((es) => es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      const el = en.target.__rvChild || en.target;
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, +(el.dataset.delay || 0));
+      this.ftIO.unobserve(en.target);
+    }), { threshold: 0.12 });
+    f.querySelectorAll('[data-ft-reveal]').forEach((el) => {
+      const line = el.dataset.ftReveal === 'line';
+      el.style.transition = 'opacity 1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      if (line) { el.style.transform = 'translateY(105%)'; el.parentElement.__rvChild = el; this.ftIO.observe(el.parentElement); }
+      else { el.style.opacity = '0'; el.style.transform = 'translateY(40px)'; this.ftIO.observe(el); }
+    });
+  }
+  setupNotice() {
+    const g = window.gsap;
+    if (!g) { if (!this.__nt) this.__nt = setTimeout(() => { this.__nt = null; this.setupNotice(); }, 200); return; }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-notice]').forEach((el) => {
+      if (el.__gs) return;
+      el.__gs = true;
+      const track = el.querySelector('[data-notice-track]');
+      if (reduce || !track) return;
+      g.from(el, { height: 0, duration: 0.6, delay: 0.3, ease: 'power3.out', clearProps: 'height' });
+      const loop = g.fromTo(track, { xPercent: 0 }, { xPercent: -50, duration: 40, ease: 'none', repeat: -1 });
+      el.addEventListener('mouseenter', () => g.to(loop, { timeScale: 0.2, duration: 0.4 }));
+      el.addEventListener('mouseleave', () => g.to(loop, { timeScale: 1, duration: 0.4 }));
+    });
+  }
+  tickVC() {
+    const now = performance.now();
+    const dt = Math.min(0.05, (now - this.vcLast) / 1000); this.vcLast = now;
+    const sy = window.scrollY, dy = sy - this.vcScrollY; this.vcScrollY = sy;
+    if (Math.abs(dy) > 0.5) this.vcDir = dy > 0 ? -1 : 1;
+    const target = Math.min(14, Math.abs(dy) / Math.max(dt, 0.001) / 120);
+    this.vcBoost += (target - this.vcBoost) * 0.08;
+    if (this.__reduced === undefined) this.__reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    document.querySelectorAll('[data-vc]').forEach((vc) => {
+      const track = vc.firstElementChild; if (!track) return;
+      const st = vc.__vc || (vc.__vc = this.initVC(vc));
+      const half = track.scrollWidth / 2; if (!half) return;
+      st.ts += ((st.hover ? 0.15 : 1) - st.ts) * 0.08;
+      const base = vc.dataset.vc === 'mob' ? 34 : 48;
+      if (!st.drag && !this.__reduced) { st.x += this.vcDir * base * (1 + this.vcBoost) * st.ts * dt + st.fling * dt; st.fling *= 0.94; }
+      st.x = ((st.x % half) - half) % half;
+      track.style.transform = `translate3d(${st.x.toFixed(2)}px,0,0)`;
+      if (vc.dataset.vc === 'mob') {
+        const cx = window.innerWidth / 2;
+        vc.querySelectorAll('[data-vc-sharp]').forEach((img) => {
+          const r = img.getBoundingClientRect();
+          const on = Math.abs(r.left + r.width / 2 - cx) < r.width * 0.55;
+          if (img.__on !== on) { img.__on = on; img.style.opacity = on ? '0' : '1'; }
+        });
+      }
+    });
+  }
+  initVC(vc) {
+    const st = { x: 0, ts: 1, hover: false, drag: false, fling: 0, px: 0, pt: 0 };
+    vc.addEventListener('mouseenter', () => { st.hover = true; });
+    vc.addEventListener('mouseleave', () => { st.hover = false; });
+    vc.addEventListener('pointerdown', (e) => { st.drag = true; st.px = e.clientX; st.pt = performance.now(); st.fling = 0; vc.style.cursor = vc.dataset.vc === 'desk' ? 'grabbing' : ''; });
+    window.addEventListener('pointermove', (e) => {
+      if (!st.drag) return;
+      const t = performance.now(), d = e.clientX - st.px;
+      st.x += d; st.fling = d / Math.max((t - st.pt) / 1000, 0.008); st.px = e.clientX; st.pt = t;
+    });
+    const up = () => { if (!st.drag) return; st.drag = false; st.fling = Math.max(-3000, Math.min(3000, st.fling)); vc.style.cursor = vc.dataset.vc === 'desk' ? 'grab' : ''; };
+    window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+    return st;
+  }
   tickLines() {
     const p = document.querySelector('[data-line-reveal]');
     if (!p) return;
@@ -593,6 +702,7 @@ class Component extends DCLogic {
     window.removeEventListener('mousemove', this.onMove);
     document.removeEventListener('mouseleave', this.onLeave);
     cancelAnimationFrame(this.raf);
+    clearInterval(this.clockT); this.ftIO && this.ftIO.disconnect(); this.ftRO && this.ftRO.disconnect(); window.removeEventListener('resize', this.onFtResize);
   }
   setupFloat() {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -734,6 +844,11 @@ class Component extends DCLogic {
       showRuler: this.props.showRuler ?? true,
       showDock: this.props.showDock ?? true,
       rulerDesk, rulerMob,
+      ftRef: this.ftRef, clockRef: this.clockRef,
+      ftLinks: [['Home', '#top'], ['About', '#about'], ['Tools', '#tools'], ['Work', '#work'], ['Experience', '#experience']].map(([label, href]) => ({ label, href })),
+      ftSocials: [['LinkedIn', 'https://www.linkedin.com/in/shiva-kumar-10106b143/'], ['Behance', 'https://www.behance.net/kumarshiva6b36'], ['Dribbble', 'https://dribbble.com/shivakumar']].map(([label, href]) => ({ label, href })),
+      wordmark: 'SHIVA KUMAR'.split('').map((c, i) => ({ c: c === ' ' ? '\u00a0' : c, d: i * 45 })),
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
       hasNote: !!this.state.cfNote, cfNote: this.state.cfNote,
       onSubmit: (e) => {
         e.preventDefault();
