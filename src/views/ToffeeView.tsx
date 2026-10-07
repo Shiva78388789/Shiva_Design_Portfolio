@@ -3,13 +3,15 @@
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
 import DockNav from '@/components/DockNav';
+import SiteRuler from '@/components/SiteRuler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ToffeeView({ v }: { v: any }) {
   return (
     <>
+      <SiteRuler />
       <div
-        style={{ backgroundColor: "#1C1C1C", backgroundImage: "radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
+        style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
         {" "}
         <header
@@ -17,10 +19,6 @@ export default function ToffeeView({ v }: { v: any }) {
         >
           {" "}
           <div style={{ flex: "0 1 auto", minWidth: "0" }}>
-            {" "}
-            <div data-hero="kicker" style={{ fontSize: "12px", fontWeight: "600", letterSpacing: "0.16em", textTransform: "uppercase", color: "#EC5A5A" }}>
-              Toffee Insurance · 2019
-            </div>
             {" "}
             <h1
               aria-label="Toffee Seller App"
@@ -82,22 +80,6 @@ export default function ToffeeView({ v }: { v: any }) {
               </span>
               {" "}
             </h1>
-            {" "}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "22px" }}>
-              {" "}
-              <span data-hero="chip" style={{ background: "#EC5A5A", color: "#FFFFFF", fontSize: "11px", fontWeight: "600", padding: "6px 9px" }}>
-                Mobile app
-              </span>
-              {" "}
-              <span data-hero="chip" style={{ background: "#EC5A5A", color: "#FFFFFF", fontSize: "11px", fontWeight: "600", padding: "6px 9px" }}>
-                Cycle insurance
-              </span>
-              {" "}
-              <span data-hero="chip" style={{ background: "#EC5A5A", color: "#FFFFFF", fontSize: "11px", fontWeight: "600", padding: "6px 9px" }}>
-                Claims
-              </span>
-              {" "}
-            </div>
             {" "}
           </div>
           {" "}

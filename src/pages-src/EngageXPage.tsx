@@ -34,6 +34,7 @@ export default class EngageXPage extends DCPage {
     if (this._lenis) this._lenis.destroy();
     if (this._ctx) this._ctx.revert();
     if (this._keys) window.removeEventListener('keydown', this._keys);
+    if (this._daResize) window.removeEventListener('resize', this._daResize);
   }
   initMotion() {
     const ST = ScrollTrigger;
@@ -76,14 +77,16 @@ export default class EngageXPage extends DCPage {
         gsap.from('[data-metric]', { y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: imp, start: 'top 78%' } });
         const P = '0.18em', H = '1.05em', C = '1.41em';
         const mask = `linear-gradient(to bottom, transparent 0, #000 ${P}, #000 calc(100% - ${P}), transparent 100%)`;
-        $('[data-count]').forEach((el, mi) => {
+        $('[data-count]').forEach((el) => {
           if (el.__nf) return; el.__nf = true;
+          const grp = el.closest('[data-impact],[data-wins]') || imp;
+          const mi = Array.from(grp.querySelectorAll('[data-count]')).indexOf(el);
           const val = String(el.dataset.count), pre = el.dataset.prefix || '';
           el.setAttribute('aria-label', pre + val);
           el.textContent = '';
           el.style.cssText += ';display:inline-flex;font-variant-numeric:tabular-nums';
           const sign = document.createElement('span');
-          sign.textContent = pre; sign.setAttribute('aria-hidden', 'true');
+          sign.textContent = pre || '\u200B'; sign.setAttribute('aria-hidden', 'true');
           sign.style.cssText = 'display:inline-block;opacity:0;transform:translateY(0.3em) scale(0.8);transition:opacity .5s ease, transform .9s cubic-bezier(.3,1.5,.5,1)';
           el.appendChild(sign);
           const wheels = [...val].map((ch, di) => {
@@ -107,8 +110,46 @@ export default class EngageXPage extends DCPage {
             });
           };
           if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { sign.style.opacity = '1'; sign.style.transform = 'none'; wheels.forEach(({ col, d }) => { col.style.transform = `translateY(calc(-${d} * ${C}))`; }); return; }
-          ScrollTrigger.create({ trigger: imp, start: 'top 78%', once: true, onEnter: play });
+          ScrollTrigger.create({ trigger: grp, start: 'top 78%', once: true, onEnter: play });
         });
+      }
+
+      const da = document.querySelector('[data-da]');
+      if (da) {
+        const circles = [...da.querySelectorAll('[data-da-circle]')];
+        const hl = [...da.querySelectorAll('[data-da-hline]')];
+        const placeLines = () => {
+          const r0 = da.getBoundingClientRect();
+          hl.forEach((l, i) => {
+            const a = circles[i].getBoundingClientRect(), b = circles[i + 1].getBoundingClientRect();
+            l.style.left = (a.right - r0.left + 16) + 'px';
+            l.style.width = Math.max(0, b.left - a.right - 32) + 'px';
+          });
+        };
+        placeLines();
+        this._daResize = placeLines; window.addEventListener('resize', placeLines);
+        const mob = window.matchMedia('(max-width:900px)').matches;
+        const lines = mob ? [...da.querySelectorAll('[data-da-vline]')] : hl;
+        const steps = [...da.querySelectorAll('[data-da-step]')];
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const t = gsap.timeline({ scrollTrigger: { trigger: da, start: mob ? 'top 78%' : 'top 82%', end: mob ? 'bottom 72%' : 'bottom 50%', scrub: 0.6 } });
+          steps.forEach((s, i) => {
+            t.fromTo(s.querySelector('[data-da-circle]'), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2.2)' })
+             .fromTo(s.querySelector('[data-da-label]'), { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, '-=0.2')
+             .fromTo(s.querySelectorAll('[data-da-li]'), { y: 18, opacity: 0, filter: 'blur(4px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.4, stagger: 0.14 }, '-=0.15');
+            const l = lines[i];
+            if (l) {
+              const fill = l.querySelector('[data-da-fill]'), tip = l.querySelector('[data-da-tip]');
+              const axis = mob ? 'top' : 'left';
+              t.fromTo(l, mob ? { scaleY: 0, opacity: 0, transformOrigin: 'top' } : { scaleX: 0, opacity: 0, transformOrigin: 'left' }, mob ? { scaleY: 1, opacity: 1, duration: 0.5, ease: 'power2.out' } : { scaleX: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+              t.fromTo(fill, mob ? { scaleY: 0 } : { scaleX: 0 }, mob ? { scaleY: 1, duration: 1.1, ease: 'none' } : { scaleX: 1, duration: 1.1, ease: 'none' })
+               .fromTo(tip, { [axis]: '0%', opacity: 0 }, { [axis]: '100%', duration: 1.1, ease: 'none' }, '<')
+               .to(tip, { opacity: 1, duration: 0.05 }, '<')
+               .to(tip, { opacity: 0, duration: 0.2 });
+              t.set(fill, { transformOrigin: mob ? 'top' : 'left' }, 0);
+            }
+          });
+        }
       }
 
       const folders = $('[data-folder]');
@@ -118,25 +159,11 @@ export default class EngageXPage extends DCPage {
           .from('[data-li]', { x: -14, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.out' }, '-=0.4');
       }
 
-      gsap.from('[data-proto]', { y: 70, opacity: 0, scale: 0.97, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '[data-proto]', start: 'top 85%' } });
-      const ui = document.querySelector('[data-ui]');
-      if (ui) {
-        const names = ["Campaign Dashboard","Create Campaign","Audience Segments","Schedule Campaign","Campaign Reporting"];
-        const n = names.length, track = ui.querySelector('[data-ui-track]');
-        const label = ui.querySelector('[data-ui-label]'), count = ui.querySelector('[data-ui-count]'), note = ui.querySelector('[data-ui-note]');
-        const dots = Array.from(ui.querySelectorAll('[data-ui-dot]'));
-        let cur = 0;
-        const setActive = (i) => {
-          if (i === cur) return;
-          cur = i;
-          dots.forEach((d, j) => { d.style.width = j === i ? '22px' : '8px'; d.style.background = j === i ? '#5BC0E8' : '#555555'; });
-          count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
-          gsap.timeline()
-            .to(note, { y: -14, rotation: -6, opacity: 0, duration: 0.18, ease: 'power2.in', onComplete: () => { label.textContent = names[i]; } })
-            .fromTo(note, { y: 18, rotation: 3, opacity: 0 }, { y: 0, rotation: -2, opacity: 1, duration: 0.45, ease: 'back.out(2)' });
-        };
-        gsap.to(track, { xPercent: -100 * (n - 1), ease: 'none', scrollTrigger: { trigger: ui, start: 'top top', end: 'bottom bottom', scrub: 0.6, onUpdate: (self) => setActive(Math.min(n - 1, Math.round(self.progress * (n - 1)))) } });
-      }
+      $('[data-shot]').forEach((el) => {
+        const t = gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 85%' } });
+        t.from(el.querySelector('[data-shot-frame]'), { y: 70, opacity: 0, scale: 0.96, duration: 1, ease: 'power3.out' })
+         .from(el.querySelector('[data-shot-note]'), { y: -36, opacity: 0, rotation: (i, n) => +n.dataset.rot - 14, duration: 0.7, ease: 'back.out(1.8)' }, '-=0.55');
+      });
       const bento = document.querySelector('[data-bento]');
       if (bento) {
         const tiles = Array.from(bento.querySelectorAll('[data-bt]'));
@@ -172,13 +199,7 @@ export default class EngageXPage extends DCPage {
       const wins = document.querySelector('[data-wins]');
       if (wins) {
         const wst = { trigger: wins, start: 'top 80%' };
-        gsap.from(wins.querySelectorAll('[data-win-div]'), { scaleY: 0, duration: 1.1, ease: 'power2.inOut', stagger: 0.1, scrollTrigger: wst });
         gsap.from(wins.querySelectorAll('[data-win]'), { y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: wst });
-        wins.querySelectorAll('[data-wcount]').forEach((el) => {
-          const end = +el.dataset.wcount, pre = el.dataset.prefix, o = { v: 0 };
-          el.textContent = pre + '0';
-          gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: wst, onUpdate: () => { el.textContent = pre + Math.round(o.v); } });
-        });
       }
       const iaw = document.querySelector('[data-iawrap]');
       if (iaw) {

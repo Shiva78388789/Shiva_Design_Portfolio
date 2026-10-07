@@ -21,7 +21,7 @@ const FONTS =
   'https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800' +
   '&family=Caveat:wght@500;600;700' +
   '&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400' +
-  '&family=Press+Start+2P' +
+  '&family=Instrument+Serif:ital@0;1&family=Press+Start+2P' +
   '&family=Permanent+Marker&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500' +
   '&display=swap';
 

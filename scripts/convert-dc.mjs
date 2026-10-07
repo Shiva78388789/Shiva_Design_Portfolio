@@ -315,6 +315,7 @@ function convertPage(page) {
       const from = attr('from') || '';
       const props = emitAttrs(node, scope, 'x-import');
       if (comp === 'dock-nav') { imports.add('DockNav'); return element('DockNav', props, []); }
+      if (comp === 'site-ruler') { imports.add('SiteRuler'); return element('SiteRuler', [], []); }
       if (from.includes('components/dth')) {
         imports.add('DthScreen');
         const nameExpr = attrExpr(comp, makeResolver(scope));
@@ -337,6 +338,7 @@ function convertPage(page) {
     `import { asset, href, css } from '@/lib/dc';`,
   ];
   if (imports.has('DockNav')) importLines.push(`import DockNav from '@/components/DockNav';`);
+  if (imports.has('SiteRuler')) importLines.push(`import SiteRuler from '@/components/SiteRuler';`);
   if (imports.has('ImageSlot')) importLines.push(`import ImageSlot from '@/components/ImageSlot';`);
   if (imports.has('DthScreen')) importLines.push(`import DthScreen from '@/components/DthScreen';`);
   if (imports.has('Bijak')) importLines.push(`import * as Bijak from '@/components/bijak';`);

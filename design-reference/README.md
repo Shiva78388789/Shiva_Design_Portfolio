@@ -1,163 +1,230 @@
 # Handoff: Shiva Kumar — Design Portfolio Website
 
-## Overview
-Shiva Kumar's personal UX portfolio: a home page plus six case-study pages. Every page has a dark ground (`#1C1C1C`), yellow "sticky note" eyebrows, framed section titles with corner handles, scroll-driven motion, and a floating bottom dock nav. Every page works on desktop and mobile web ("mweb").
-
-| Route (suggested) | Reference file | Accent |
+## How this package is split (each part < 30 MB)
+| Zip | Contents | Approx. size |
 |---|---|---|
-| `/` | `design/Portfolio.dc.html` | `#63C4EC` sky + per-card brand colours |
-| `/work/engage-x` | `design/EngageX.dc.html` | `#22BDE8` |
-| `/work/dth-price-simplification` | `design/DTH Price Simplification.dc.html` | `#DD3732` |
-| `/work/bijak-design-system` | `design/Bijak Web Design System.dc.html` | `#51AC65` |
-| `/work/toffee-seller-app` | `design/Toffee Seller App.dc.html` | `#F26667` |
-| `/work/jugnu` | `design/JugnuCaseStudy.dc.html` | `#63C4EC` |
-| `/work/akhbar-bash` | `design/Akhbar Bash Case Study.dc.html` | `#63C4EC` + Claude clay `#D97757` |
+| **part-1-code** | This README, all 7 page references, JS components, design-system CSS, Figma bundles, and the images for Home, Engage X, DTH, Toffee, Tools, plus the resume PDF | ~19 MB |
+| **part-2-images** | `design/components/dth/assets/` (images used by the DTH Figma bundle) and `design/assets/akhbar/images/` | ~20 MB |
+| **part-3-video** | `design/assets/akhbar/video/` (6 MP4s + `posters/`) | ~23 MB |
+
+Every zip has the same `design/` root. **Unzip all three into the same folder**, letting them merge, before you start. Upload them to Claude Code one at a time, in order. Claude Code should read this README first, then use parts 2 and 3 only as assets.
+
+## Overview
+Shiva Kumar's personal UX portfolio: a home page plus six case-study pages. All pages share these elements:
+- Dark ground `#1C1C1C`, plain with no pattern. The old dot-matrix background has been removed everywhere.
+- A white **design ruler** fixed to the top of every page.
+- Yellow "sticky note" eyebrows.
+- Section titles framed with corner handles.
+- Scroll-driven motion.
+- A floating bottom dock nav.
+
+Every page works on desktop and mobile web.
+
+| Route (suggested) | Reference file |
+|---|---|
+| `/` | `design/Portfolio.dc.html` |
+| `/work/engage-x` | `design/EngageX.dc.html` |
+| `/work/dth-price-simplification` | `design/DTH Price Simplification.dc.html` |
+| `/work/bijak-design-system` | `design/Bijak Web Design System.dc.html` |
+| `/work/toffee-seller-app` | `design/Toffee Seller App.dc.html` |
+| `/work/jugnu` | `design/JugnuCaseStudy.dc.html` |
+| `/work/akhbar-bash` | `design/Akhbar Bash Case Study.dc.html` |
 
 Rewrite every internal `href="X.dc.html"` to these routes, and change `HOME` in `dock-nav.js` to `/`.
 
 ## About the design files
-The files in `design/` are **design references built in HTML**. They are working prototypes that show the intended look, copy and behaviour, and they are **not production code**. They run on a small prototype runtime (`support.js`, the `.dc.html` format) that should not ship.
+The files in `design/` are **design references built in HTML**. They are working prototypes that show the final look, copy and behaviour, and they are **not production code**. They run on a small prototype runtime (`support.js` and the `.dc.html` format), which must not ship.
 
-Your task is to **recreate these designs in a real codebase**. No codebase exists yet, so pick a stack. Recommended:
-- **Next.js (App Router) + TypeScript**, static export (Vercel or GitHub Pages)
-- **Tailwind CSS** or CSS Modules (the references use plain inline styles, which port easily)
-- **Motion:** native `IntersectionObserver` and the Web Animations API cover most of it. Use GSAP + ScrollTrigger only for the scrubbed and pinned sections.
+**Your task is to recreate these designs in a real codebase.** None exists yet, so this is the recommended stack:
+- **Next.js (App Router) + TypeScript**, as a static export deployed to Vercel.
+- **Tailwind CSS** or CSS Modules. The references use inline styles, which port directly.
+- **Motion:** GSAP + ScrollTrigger (the references already use them) and Lenis for smooth scroll. Use the Web Animations API for the rolling-digit counters.
 
-To view a reference, serve the folder (`npx serve design`) and open any `.dc.html` file. Template syntax: `{{ x }}` holes and `<sc-for>`/`<sc-if>` blocks are bound to the `class Component` script at the bottom of each file. `renderVals()` returns the values the template uses.
+To view a reference: `npx serve design`, then open any `.dc.html` file.
+
+How a reference file reads:
+- `{{ x }}` holes and `<sc-for>`/`<sc-if>` blocks are bound to the `class Component` script at the bottom of each file.
+- `renderVals()` returns the values the template uses.
+- `<x-import>` mounts a JS/web component from a sibling file.
 
 ## Fidelity
-**High fidelity.** Colours, type, spacing, copy and motion are final. Recreate them pixel-accurately, and copy all text verbatim.
+**High fidelity.** Colours, type, spacing, copy and motion are final. Recreate them pixel-accurately and keep all copy verbatim, including the existing typos.
 
 ## Global system
-- **Font:** Montserrat 300/400/500/600/700 (Google Fonts). Akhbar Bash also uses **Press Start 2P**, but only for numbers and step counters. The Bijak page loads Roboto, Permanent Marker and Rubik for its specimens.
-- **Colours:** ground `#1C1C1C`; text `#F5F5F5`; secondary `#DCDCDC`/`#B5B5B5`; surface `#262626`; deep panel `#0F1D24`; hairline `rgba(245,245,245,0.14)`; rule `#3A3A3A`.
-- **Brand accents:** sky `#63C4EC`, cream sticky `#F6DFA6`, mint `#A3E4C1`, coral `#F26667`, sun `#F7D158`, clay `#D97757`.
-- **Sticky-note eyebrow:** `#F6DFA6` background, `#1C1C1C` text. Size is 20–22px/500 on desktop and 14–16px on mobile, with 4px 10px padding, rotated between −4° and +6°.
-- **Framed title:** 2px `#63C4EC` border with 7px 34px padding. It has four corner squares (20×20 on desktop, 14×14 on mobile) with a 2px sky border and a `#1C1C1C` fill, offset −11px. The h1/h2 is 82px/98px/600 on desktop and 42px/49px on mobile.
-- **Radius:** 0 by default. Exceptions: Claude Code image cards (8px), pills (999px), the app icon (22%) and the dock bar.
-- **Layout:** content column max 1040px, side margins 32px on desktop and 20px on mobile.
-- **Breakpoints:**
-  - Home page: a separate mobile layout below 900px. The file contains two complete trees and switches between them on `window.innerWidth`.
-  - Case studies: container queries (`container-type:inline-size`) at 1199 / 1023 / 899 / 767px.
-- **Focus:** `outline: 2px solid #63C4EC; outline-offset: 2px`.
-- **Reduced motion:** honour `prefers-reduced-motion` everywhere. Disable reveals, rotations, count-ups and autoplay.
+- **Font:**
+  - Montserrat 300–800 (Google Fonts) is used everywhere.
+  - Akhbar Bash also uses Press Start 2P, for its numbers.
+  - The Bijak page loads Roboto, Permanent Marker and Rubik for its type specimens.
+- **Colours:**
+
+  | Role | Value |
+  |---|---|
+  | Ground | `#1C1C1C` |
+  | Text | `#FFFFFF` / `#F5F5F5` |
+  | Secondary text | `#D6D6D6`, `#CFCFCF`, `#9A9A9A` |
+  | Rule | `#3A3A3A` |
+  | Dashed card border | `2px dashed #6A6A6A` |
+  | Phone and frame border | `#0F0F0F` / `#4A4A4A` |
+
+- **Accents and sticky notes:**
+
+  | Role | Background | Text |
+  |---|---|---|
+  | Sky (title frame) | `#4AA8E0` / `#5BC0E8` | |
+  | Footer | `#63C4EC` | |
+  | Cream note | `#F6DFA6` | `#3D3010`, or `#1D3B1A` on Engage X screen labels |
+  | Mint note | `#A8E6BF` | `#15361F` |
+  | Blue note | `#7FD3F7` | `#12303D` |
+  | Notice / warning band | `#F4C542` | `#2A220A` |
+  | Step circles | `#4FAE62` | |
+
+- **Framed section title:**
+  - A 1.5px `#4AA8E0` border around the h2, which is 62px/1.16/500 on desktop and 36–38px on mobile.
+  - Four 10×10 corner squares with a 1.5px sky border and `#1C1C1C` fill, offset −5px.
+  - Animation: the frame scales in (expo.out, 0.7s), then the handles pop (back.out(3)), then the text fades up.
+- **Sticky note:** rotated −4° to +8°. On scroll it drops in from y −40 with an extra −14° rotation (back.out(1.8), 0.8s).
+- **Radius:** 0. Exceptions are the circles (step markers, persona photos), the dock and the Engage X screen frames (22px desktop, 12px mobile).
+- **Layout:** content column 840–1080px max, side padding 20px. The mobile breakpoint is 860–900px.
+- **Reduced motion:** honour `prefers-reduced-motion` everywhere.
+
+### Top ruler (all pages) — `design/site-ruler.js`
+- A fixed bar, 24px tall, white, at `z-index:800`. It is followed by a 24px spacer so page content starts below it.
+- Ticks: `repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px)`, 5px tall along the bottom edge.
+- Labels 0, 100, 200 … 1400: 8px/10px, `#7a7a7a`, placed at `6 + i*100` px inside a centred container with a 1440px max width.
+- **Mouse marker:** a 1px `#0d99ff` line, 10px tall, plus a `#0d99ff` pill label showing `x − 6` (8px/600, white). It follows the pointer. Labels within 22px of the marker hide.
+- The home page has its own inline copy of the ruler (desktop and mobile variants). A single shared React `<Ruler/>` should replace both.
 
 ## Screens
 
 ### Home (`Portfolio.dc.html`)
-1. **Hero (`#top`)**
-   - "my name is" sticky note above a framed name.
-   - A line reading "I design …" with inline pinwheel images.
-   - **Contact me** button in the white liquid-metal style:
-     - A 999px pill with 2px padding. The outer ring is a `conic-gradient` of whites and greys, blurred 3px and rotated continuously (3.5s per turn, linear, infinite).
-     - The inner face is `linear-gradient(180deg,#fff,#F1F1F3 55%,#DEDEE2)` with `#1C1C1C` 13px/700 text.
-     - On hover a shimmer sweeps across the face and the phone icon rings.
-   - Floating decorative images around the hero drift gently and move away from the cursor on desktop.
-2. **Work (`#work`)**
-   - "explore my work" note above four project cards: Engage X, DTH Price Simplification, Bijak Web Design System, Toffee Seller App.
-   - Each card has an h3 (60px/72px/400 on desktop, 32px/40px on mobile), a subtitle, a "View project →" button (`#0F1D24` background, accent-coloured text) and two tags.
-3. **Claude Code (`#claude`)**
-   - A clay `#D97757` band with a waving mascot and speech bubble above its top edge.
-   - Caption: "Tools and Prototypes I build with Claude Code".
-   - Two 8px-radius image cards: a 2-column grid on desktop (290px tall), stacked on mobile (298px tall).
-   - Card 1 links to Akhbar Bash and card 2 to Jugnu.
-   - On hover a sky shimmer sweeps across the card and a "VIEW PROJECT →" label fades in at the bottom left. On mobile the label is always visible.
-4. **Tools showcase:** on scroll, the Figma, Notion, Jira and Framer logos (12px-radius squares) fly in from different directions, line up in a row, shimmer, and scroll up with the page.
-5. **Experience (`#experience`):** a list of companies, each row showing company, role and years.
-6. **Contact (`#contact`)**
-   - "Let's Talk" framed title and a form: name, email, message.
-   - Validation: all three fields are required, and the email must match `^[^\s@]+@[^\s@]+\.[^\s@]+$`.
-   - The prototype opens a `mailto:kumarshiva1990@gmail.com` draft. **For production, wire it to a form backend** (Formspree, Resend or an API route).
+The sections, in order: hero, work cards, Claude Code band, tools showcase, experience, then the **footer**.
 
-### Engage X, DTH, Bijak, Toffee
-These four pages follow the same pattern: a hero, framed sections, a next-project card, then "← Back to portfolio".
-- **Engage X**
-  - Impact section: metrics with a NumberFlow-style rolling-digit count-up.
-  - Information architecture tree, an embedded Figma Make prototype, and pinned horizontal scrolling through the UI screens.
-  - Illustrations bento grid with a lightbox.
-- **DTH Price Simplification**
-  - The app screens are rendered from `components/dth/` (a Figma extract). **For production, export them as images.**
-  - Pack cards that flip and count up.
-  - Card-exploration option switcher.
-  - Feedback timeline.
-- **Bijak Web Design System**
-  - Interactive grid, spacing, colour (click to copy the hex), typography and component state demos, rendered from `components/bijak/`.
-  - **For production, rebuild these as real React components.**
-- **Toffee Seller App:** pain points, feature rows with phone parallax, claim-status stepper, leaderboard, personas and a user-flow diagram.
+**The "Let's Talk" form is gone.** The footer replaces it:
+- Sky `#63C4EC` background.
+- **Curtain-lift reveal:** the dark page above it has bottom radii and a shadow, and lifts off the footer as you scroll down.
+  - Implementation: CSS `animation-timeline: view()`, with sticky positioning as the fallback.
+  - Do **not** drive it with scroll JS, which causes jitter.
+- **Contents:**
+  - Nav links: Home, About, Tools, Work, Experience.
+  - Contact info.
+  - Location, with a live India-time (IST) clock.
+  - Social links, rolling-text hover, opening in a new tab:
+    - LinkedIn → https://www.linkedin.com/in/shiva-kumar-10106b143/
+    - Behance → https://www.behance.net/kumarshiva6b36
+    - Dribbble → https://dribbble.com/shivakumar
+  - A large "SHIVA KUMAR" wordmark with staggered letters (45ms each).
+  - Back-to-top.
 
-### Jugnu (`JugnuCaseStudy.dc.html`)
-- A character-design case study made of framed sections with body copy, figures, a learnings list, a glass-recipe panel and use-case cards.
-- A Spline 3D embed closes the page. It can be switched off in the prototype's settings.
-- On mobile, stats sit two to a row and the hero details stack.
-- **The figures are empty image placeholders** (`<image-slot id="jugnu-01…10">` pointing at `assets/jugnu/*`, which does not exist yet). Ask the author for the final images.
+### Engage X (`EngageX.dc.html`)
+The sections, in order: hero, Problem Statement, Impact, Design Approach, Personas, Information Architecture, UI Design, Illustrations, Early Wins.
 
-### Akhbar Bash (`Akhbar Bash Case Study.dc.html`)
-**Page order:**
-- Hero: autoplaying video, 1688:780 on desktop and 1:1 on mobile.
-- 5-column metadata row.
-- A deep `#0F1D24` stats band of 6 numbers, which count up in arcade style (12 steps, 50ms each, Press Start 2P, colour `#F7D158`).
-- Sections 01–13, the play-the-game call to action, "keep exploring" links, and the contact section.
+The "AI Prototype" section has been **removed**.
 
-**Desktop:**
-- A fixed section progress rail on the left, shown only at 1024px and wider.
-- City switcher tabs: 6 tabs that crossfade the backdrop (200ms) and swap the caption.
+**Impact:** Business and UX columns with a dashed divider. The numbers use a **rolling-digit odometer**:
+- Each digit is a 0–9 ×2 column, masked top and bottom.
+- Each column animates to `10+d` over `1300 + (n−di)*180` ms with `cubic-bezier(0.18,1.06,0.3,1)`, blurring 1.2px at 35%.
+- The digits are staggered by 90ms. The sign fades in.
+- An empty prefix must still render a zero-width space so the baseline stays aligned.
+- It triggers once at `top 78%`.
+
+**UI Design:** 6 platform screens **stacked vertically**:
+- Screens, in order: Dashboard, Channel Selection, Campaign Creation, Channel Onboarding, Media Library, Scheduler.
+- Images: `assets/engagex/ui-1…6-*.png`, each 2076px wide (2x).
+- **Frame:** 8px `#4A4A4A` border, 22px radius, 140px gap between screens.
+- **Label:** a cream sticky note overlapping the top-left at −26px/−40px. Montserrat 22px/700, text `#1D3B1A`, rotated about −3°, with a soft shadow.
+- **Scroll animation:** the frame rises 70px from 0.96 scale (power3.out, 1s), then the note drops in.
+- **Mobile:** 4px border, 12px radius, 15px note.
+
+**Early Wins:** a 2×2 grid, centred, 58px/500 numbers with labels below, using the same odometer.
+
+| Number | Label |
+|---|---|
+| 66% | Reduction in campaign setup time |
+| 2X | Better CTR with new channels |
+| 20% | Reduction in marketing spends |
+| 30 Cr | Revenue generated |
+
+### DTH Price Simplification (`DTH Price Simplification.dc.html`)
+This page was **rebuilt to match Figma**. The old Assumptions, Research, Card Exploration, scrolling Final Design and Feedback Rounds sections are gone.
+
+The sections, in order:
+1. **Header:** "DTH Price Simplification" (56px/700) and its subtitle on the left. Three notes on the right: Team (mint), Platform (cream), Role (blue).
+2. **Hero phones:** three phone frames.
+   - Layout: 230 / 270 (centre, sky outline) / 230 wide.
+   - The frames render the live `BOX`, `BASEPACKS` and `ReviewOrder` Figma components from `components/dth/`.
+   - **For production, export these as images.**
+3. **Confidentiality Notice:** a yellow band.
+4. **Problem Statement:** body text, What/When/Why cards (`#7FD3F7`), and the TRAI Guidelines band. There is no Goal section.
+5. **Impact:** Business and UX columns with odometer numbers.
+   - Business: −20%, +9%, +15%, −6%.
+   - UX: +80%, 3 min, −25%, 8.
+6. **Design Approach:** 3 steps (Research / Design / Evaluate). Each has a green circle, a connector line and a checklist.
+7. **Personas:** 2 dashed cards with 120px circular photos (`assets/dth/persona-1/2.png`).
+8. **Benchmarking:**
+   - Left: a 2×3 grid of competitor screenshots (`bench-1…6.png`).
+   - Right: four cream notes (Logos, Size, Grouping, Flexibility and control) and two mint "Frame" cards (FREEDOM, EASE).
+9. **Component Exploration:** green "Version" notes, each above a 3-column row of card images:
+   - Version 1: `v1-1…5`, in columns of 2 + 2 + 1.
+   - Version 2: `v2-1…3`.
+   - Version 3: `v3-1…3`.
+   - Bottom Sheet: `bs-1…3`.
+10. **Final Screens:** 3 phones, 330×715, showing the same live components at 0.88 scale. Below 1080px they become a scroll-snap row.
+11. **Early Metrics:** a 2×2 odometer grid.
+
+    | Number | Label |
+    |---|---|
+    | −12% | Pricing and billing-related care calls |
+    | +4% | Pack upgrade conversion |
+    | +7% | Long term recharge adoption |
+    | 4% | Churn within 60 days of recharge |
+
+12. Next project card (Engage X) and "← Back to portfolio".
 
 **Mobile:**
-- Process steps become a vertical timeline.
-- The screen gallery becomes a scroll-snap rail with a "1 / 12" counter.
-- The street, cast and sprite strips scroll sideways.
-- The city strips pan continuously (40s loop, staggered).
-- A sticky **PLAY THE GAME** bar appears between the hero and the footer, sitting above the dock.
+- Everything stacks to 1 column.
+- The side hero phones are hidden.
+- Benchmark notes form a 2-column grid, with the Frame cards full width.
+- The component exploration column is 420px max.
 
-**Videos:**
-- They play only while at least 50% visible and pause when off screen.
-- Each has a 44px play/pause button.
-- With reduced motion or Save-Data on, they show the poster image instead.
-- The full-level video is click to play.
-
-**Other details:**
-- Design boards open in a full-screen lightbox (Esc closes it).
-- Pixel art always uses `image-rendering: pixelated`.
+### Bijak, Toffee, Jugnu, Akhbar Bash
+These pages are unchanged apart from the global changes (ruler added, dot background removed).
+- **Bijak:** its interactive demos are rendered from `components/bijak/`. Rebuild them as real React components.
+- **Jugnu:** the sections that had image figures have been removed: directions, shape, finish, expressions, icons, spec, spline-states and name. The page has no image placeholders left; the 3D embed and the text sections remain.
+- **Akhbar Bash:**
+  - Videos play only while at least 50% visible, and show their poster when `prefers-reduced-motion` or Save-Data is on.
+  - The page has a progress rail (desktop), a city switcher, and a sticky **PLAY THE GAME** bar on mobile.
+  - For production, host the videos on a CDN (Vercel Blob, Cloudflare R2 or Mux).
 
 ## Shared interactions
-- **Reveal on scroll:** opacity 0 → 1 and translateY 16px → 0, over 400ms with `cubic-bezier(.45,0,.2,1)`, triggered at about 10% from the bottom of the viewport.
-- **Line-by-line text reveal:** headline and lead text appear one line at a time, with each line going from blur to sharp (GSAP SplitText-style).
-- **Dock nav (`dock-nav.js`)**
-  - A web component pinned at the bottom centre, with Work, Experience and Contact.
-  - An active pill springs between items (`cubic-bezier(.3,1.35,.4,1)`).
-  - On the home page it highlights the section in view. On case-study pages a click goes to `/#section`.
-  - It can be ported to React almost directly.
+- **Reveal:** y 36–40 → 0 with opacity, power3.out over about 0.85s, triggered at `top 88–90%`.
+- **Smooth scroll:** Lenis (`lerp 0.1`) wired to ScrollTrigger.
+- **Dock nav (`dock-nav.js`):**
+  - A glass pill fixed at the bottom centre, with Work, Experience and Contact.
+  - A springy active pill marks the current item.
+  - On case-study pages its links go to `/#section`.
 
 ## State
-- **Home:** viewport width (to pick the layout) and the contact-form status note.
-- **Akhbar Bash:** active city, active rail section, whether the sticky bar shows, and the lightbox `{src, alt} | null`.
-- **Engage X:** active illustration in the lightbox.
-- **DTH:** card option and which feedback item is open.
-- **Bijak:** breakpoint, font weight, and the button, input, checkbox, radio and toggle states.
+- **Home:** viewport width (desktop or mobile tree), clock time.
+- **Engage X:** illustration lightbox index.
+- **Akhbar Bash:** active city, active rail section, sticky bar visibility, lightbox.
+- **Bijak:** demo control states.
 
-## Not included (size limit)
-To keep this package under 30 MB, these heavy files are **not bundled**. Get them from the author and drop them in at the same paths:
-- `assets/akhbar/video/*.mp4`: `hero-loop.mp4`, `hero-loop-square.mp4`, `controls-demo.mp4`, `first-launch-flow.mp4`, `menus-tour.mp4`, `gameplay-full-level.mp4`. Their poster JPGs are included in `assets/akhbar/video/posters/` with matching names, so build each `<video>` with its poster first.
+## Assets
+- `assets/home/`, `assets/tools/`: home page imagery and tool logos.
+- `assets/engagex/`: laptop hero, personas, illustrations (`ill/`), and UI screens (`ui-*.png`).
+- `assets/dth/`: personas, benchmarks and component cards. These were cropped at 2x from the Figma export. Replace them with original exports if available.
+- `assets/toffee/`: Toffee screens.
+- `assets/akhbar/`: images and video (in parts 2 and 3).
 - `assets/Shiva_Kumar_Resume.pdf`: linked from the home page.
 
-For production, host the videos on a CDN (Cloudflare R2, Mux or Vercel Blob) instead of committing them to the repo.
-
-## Assets (`design/assets/`)
-- `home/`: hero and card imagery.
-- `engagex/`, `toffee/`: case-study images.
-- `akhbar/`: images and video posters, all supplied by the author. The videos themselves are not included (see above).
-
-Still missing:
-- **Jugnu images:** not supplied yet.
-- **Toffee screens:** cropped from a Behance export and soft. Replace them with the originals if available.
-
 ## Files
-- `design/*.dc.html`: the seven page references.
-- `design/dock-nav.js`: the bottom navigation web component.
-- `design/image-slot.js`: the image placeholder used by Jugnu (prototype only).
-- `design/components/dth`, `design/components/bijak`: Figma-extracted bundles (reference only).
-- `design/_ds/`: base stylesheet loaded by the older pages.
+- `design/*.dc.html`: the 7 page references.
+- `design/site-ruler.js`: the top ruler web component.
+- `design/dock-nav.js`: the bottom dock web component.
+- `design/image-slot.js`: the image placeholder (prototype only).
+- `design/components/dth`, `design/components/bijak`: Figma-extracted bundles, for reference only.
+- `design/_ds/`: base stylesheet.
 - `design/support.js`: the prototype runtime. Do not port it.
 
 ## Suggested Claude Code prompt
-> Read `README.md` and the files in `design/`. Scaffold a Next.js + TypeScript + Tailwind static site with the seven routes listed, port `dock-nav.js`, recreate every page pixel-accurately for desktop and mobile, honour `prefers-reduced-motion`, and replace the contact `mailto:` with a form backend.
+> Unzip part-1, part-2 and part-3 into one folder. Read `README.md` and the files in `design/`. Scaffold a Next.js + TypeScript + Tailwind static site with the seven routes listed. Port `site-ruler.js` and `dock-nav.js` to React components used on every page. Recreate every page pixel-accurately for desktop and mobile, including the GSAP/Lenis motion, the rolling-digit counters and the footer curtain reveal. Honour `prefers-reduced-motion`. Copy assets into `public/`, then deploy to Vercel production.

@@ -3,14 +3,15 @@
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
 import DockNav from '@/components/DockNav';
-import ImageSlot from '@/components/ImageSlot';
+import SiteRuler from '@/components/SiteRuler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function EngageXView({ v }: { v: any }) {
   return (
     <>
+      <SiteRuler />
       <div
-        style={{ backgroundColor: "#1C1C1C", backgroundImage: "radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
+        style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
         {" "}
         <div style={{ maxWidth: "1512px", margin: "0 auto", position: "relative" }}>
@@ -61,27 +62,6 @@ export default function EngageXView({ v }: { v: any }) {
               {" "}
               <div data-mw="chips" style={{ display: "flex", gap: "8px", marginTop: "22px" }}>
                 {" "}
-                <span
-                  data-hero="chip"
-                  style={{ background: "#5BC0E8", color: "#10384A", fontSize: "11px", fontWeight: "500", padding: "5px 7px", border: "1px solid #9BDDF5" }}
-                >
-                  Design Lead
-                </span>
-                {" "}
-                <span
-                  data-hero="chip"
-                  style={{ background: "#5BC0E8", color: "#10384A", fontSize: "11px", fontWeight: "500", padding: "5px 7px", border: "1px solid #9BDDF5" }}
-                >
-                  From concept to launch
-                </span>
-                {" "}
-                <span
-                  data-hero="chip"
-                  style={{ background: "#5BC0E8", color: "#10384A", fontSize: "11px", fontWeight: "500", padding: "5px 7px", border: "1px solid #9BDDF5" }}
-                >
-                  6 Months
-                </span>
-                {" "}
               </div>
               {" "}
             </div>
@@ -94,7 +74,7 @@ export default function EngageXView({ v }: { v: any }) {
                 style={{ position: "absolute", left: "2px", top: "0", width: "232px", padding: "12px 12px 10px", background: "#7FD3F7", color: "#12303D", transform: "rotate(-4deg)" }}
               >
                 {" "}
-                <div style={{ fontSize: "15px", fontWeight: "700" }}>
+                <div style={{ fontSize: "23px", fontWeight: "700" }}>
                   Role
                 </div>
                 {" "}
@@ -422,131 +402,255 @@ export default function EngageXView({ v }: { v: any }) {
           {" "}
           <section data-mw="col" style={{ width: "840px", margin: "0 auto", paddingTop: "200px" }}>
             {" "}
-            <div data-title="1" style={{ position: "relative", width: "500px", margin: "0 auto", padding: "16px 0 12px", textAlign: "center" }}>
+            <div data-title="1" data-da-title="1" style={{ position: "relative", width: "100%", margin: "0 auto", padding: "10px 0 16px", textAlign: "center" }}>
               {" "}
-              <div data-frame="1" style={{ position: "absolute", inset: "0", border: "1.5px solid #4AA8E0" }} />
+              <div data-frame="1" style={{ position: "absolute", inset: "0", border: "2px solid #5BC0E8" }} />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", left: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", left: "-12px", top: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", right: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", right: "-12px", top: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", left: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", left: "-12px", bottom: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
               <span
                 data-handle="1"
-                style={{ position: "absolute", right: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
+                style={{ position: "absolute", right: "-12px", bottom: "-12px", width: "24px", height: "24px", border: "2px solid #5BC0E8", background: "#1C1C1C" }}
               />
               {" "}
-              <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "62px", lineHeight: "1.16", fontWeight: "500" }}>
-                Design
-                <br />
+              <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "80px", lineHeight: "1.16", fontWeight: "500" }}>
+                Design{" "}
+                <br data-mbr="1" />
                 Approach
               </h2>
               {" "}
             </div>
             {" "}
-            <div data-mw="folders" style={{ display: "grid", gridTemplateColumns: "263px 263px 278px", gap: "18px", marginTop: "60px", alignItems: "start" }}>
+            <div data-da="1" style={{ position: "relative", display: "grid", gridTemplateColumns: "320px 288px minmax(0,1fr)", marginTop: "100px", paddingLeft: "18px" }}>
               {" "}
-              <div data-folder="1" style={{ position: "relative", paddingTop: "28px" }}>
-                {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "0", width: "88px", height: "30px", background: "#5BC0E8", clipPath: "polygon(0 0,78% 0,100% 100%,0 100%)" }}
+              <div data-da-hline="1" style={{ position: "absolute", top: "23px", left: "0", width: "0", height: "2px", background: "#8E8E8E" }}>
+                <div data-da-fill="1" style={{ position: "absolute", inset: "0", background: "#4FAE62", transformOrigin: "left" }} />
+                <span
+                  data-da-tip="1"
+                  style={{ position: "absolute", top: "50%", left: "0", width: "8px", height: "8px", margin: "-4px 0 0 -4px", borderRadius: "50%", background: "#6FD486", boxShadow: "0 0 10px 2px rgba(111,212,134,0.7)", opacity: "0" }}
                 />
+              </div>
+              {" "}
+              <div data-da-hline="1" style={{ position: "absolute", top: "23px", left: "0", width: "0", height: "2px", background: "#8E8E8E" }}>
+                <div data-da-fill="1" style={{ position: "absolute", inset: "0", background: "#4FAE62", transformOrigin: "left" }} />
+                <span
+                  data-da-tip="1"
+                  style={{ position: "absolute", top: "50%", left: "0", width: "8px", height: "8px", margin: "-4px 0 0 -4px", borderRadius: "50%", background: "#6FD486", boxShadow: "0 0 10px 2px rgba(111,212,134,0.7)", opacity: "0" }}
+                />
+              </div>
+              {" "}
+              <div data-da-step="1" style={{ position: "relative" }}>
                 {" "}
-                <div data-mw="fbody" style={{ background: "#5BC0E8", color: "#12303D", height: "206px", padding: "22px 24px" }}>
+                <div data-da-head="1" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "max-content" }}>
                   {" "}
-                  <div style={{ fontSize: "18px", fontWeight: "700", letterSpacing: "0.02em" }}>
+                  <div
+                    data-da-circle="1"
+                    style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#4FAE62", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", fontWeight: "500", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                  >
+                    1
+                  </div>
+                  {" "}
+                  <div data-da-label="1" style={{ marginTop: "10px", fontSize: "18px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif" }}>
                     RESEARCH
                   </div>
                   {" "}
-                  <ul style={{ margin: "4px 0 0", paddingLeft: "26px", fontSize: "16px", lineHeight: "1.6", fontWeight: "500" }}>
-                    {" "}
-                    <li data-li="1">
+                  <div data-da-vline="1" style={{ display: "none", position: "relative", width: "2px", background: "#8E8E8E" }}>
+                    <div data-da-fill="1" style={{ position: "absolute", inset: "0", background: "#4FAE62", transformOrigin: "top" }} />
+                    <span
+                      data-da-tip="1"
+                      style={{ position: "absolute", left: "50%", top: "0", width: "8px", height: "8px", margin: "-4px 0 0 -4px", borderRadius: "50%", background: "#6FD486", boxShadow: "0 0 10px 2px rgba(111,212,134,0.7)", opacity: "0" }}
+                    />
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  data-da-items="1"
+                  style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "14px", marginTop: "22px", fontSize: "16px", color: "#CFCFCF", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                >
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Personas
-                    </li>
-                    <li data-li="1">
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Benchmarking
-                    </li>
-                    <li data-li="1">
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Affinity Mapping
-                    </li>
-                    <li data-li="1">
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       User Interviews
-                    </li>
-                    {" "}
-                  </ul>
+                    </span>
+                  </div>
                   {" "}
                 </div>
                 {" "}
               </div>
               {" "}
-              <div data-folder="1" style={{ position: "relative", paddingTop: "28px" }}>
+              <div data-da-step="1" style={{ position: "relative" }}>
                 {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "0", width: "88px", height: "30px", background: "#5BC0E8", clipPath: "polygon(0 0,78% 0,100% 100%,0 100%)" }}
-                />
-                {" "}
-                <div data-mw="fbody" style={{ background: "#5BC0E8", color: "#12303D", height: "206px", padding: "22px 24px" }}>
+                <div data-da-head="1" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "max-content" }}>
                   {" "}
-                  <div style={{ fontSize: "18px", fontWeight: "700", letterSpacing: "0.02em" }}>
-                    DESIGN
+                  <div
+                    data-da-circle="1"
+                    style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#4FAE62", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", fontWeight: "500", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                  >
+                    2
                   </div>
                   {" "}
-                  <ul style={{ margin: "4px 0 0", paddingLeft: "26px", fontSize: "16px", lineHeight: "1.6", fontWeight: "500" }}>
-                    {" "}
-                    <li data-li="1">
+                  <div data-da-label="1" style={{ marginTop: "10px", fontSize: "18px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif" }}>
+                    Design
+                  </div>
+                  {" "}
+                  <div data-da-vline="1" style={{ display: "none", position: "relative", width: "2px", background: "#8E8E8E" }}>
+                    <div data-da-fill="1" style={{ position: "absolute", inset: "0", background: "#4FAE62", transformOrigin: "top" }} />
+                    <span
+                      data-da-tip="1"
+                      style={{ position: "absolute", left: "50%", top: "0", width: "8px", height: "8px", margin: "-4px 0 0 -4px", borderRadius: "50%", background: "#6FD486", boxShadow: "0 0 10px 2px rgba(111,212,134,0.7)", opacity: "0" }}
+                    />
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  data-da-items="1"
+                  style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "14px", marginTop: "22px", fontSize: "16px", color: "#CFCFCF", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                >
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Group Brainstorming
-                    </li>
-                    <li data-li="1">
-                      AI prototypes
-                    </li>
-                    <li data-li="1">
-                      AI illustrations
-                    </li>
-                    <li data-li="1">
-                      DS powered UI
-                    </li>
-                    <li data-li="1">
-                      Interactions
-                    </li>
-                    {" "}
-                  </ul>
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" data-ai="1" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "5px 12px 5px 7px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
+                      AI Prototypes
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" data-ai="1" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "5px 12px 5px 7px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
+                      AI Illustrations
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
+                      DS Powered UI
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" data-ai="1" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "5px 12px 5px 7px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
+                      AI Interactions
+                    </span>
+                  </div>
                   {" "}
                 </div>
                 {" "}
               </div>
               {" "}
-              <div data-folder="1" style={{ position: "relative", paddingTop: "28px" }}>
+              <div data-da-step="1" style={{ position: "relative" }}>
                 {" "}
-                <div
-                  style={{ position: "absolute", left: "0", top: "0", width: "88px", height: "30px", background: "#5BC0E8", clipPath: "polygon(0 0,78% 0,100% 100%,0 100%)" }}
-                />
-                {" "}
-                <div data-mw="fbody" style={{ background: "#5BC0E8", color: "#12303D", height: "206px", padding: "22px 24px" }}>
+                <div data-da-head="1" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "max-content" }}>
                   {" "}
-                  <div style={{ fontSize: "18px", fontWeight: "700", letterSpacing: "0.02em" }}>
-                    EVALUATE
+                  <div
+                    data-da-circle="1"
+                    style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#4FAE62", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", fontWeight: "500", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                  >
+                    3
                   </div>
                   {" "}
-                  <ul style={{ margin: "4px 0 0", paddingLeft: "26px", fontSize: "16px", lineHeight: "1.6", fontWeight: "500" }}>
-                    {" "}
-                    <li data-li="1">
+                  <div data-da-label="1" style={{ marginTop: "10px", fontSize: "18px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif" }}>
+                    Evaluate
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+                <div
+                  data-da-items="1"
+                  style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "14px", marginTop: "22px", fontSize: "16px", color: "#CFCFCF", fontFamily: "'Montserrat',system-ui,sans-serif" }}
+                >
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Usability Testing
-                    </li>
-                    <li data-li="1">
+                    </span>
+                  </div>
+                  {" "}
+                  <div data-da-li="1" style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" style={{ flex: "0 0 auto" }} aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#B5B5B5" />
+                      <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>
                       Refinements
-                    </li>
-                    {" "}
-                  </ul>
+                    </span>
+                  </div>
                   {" "}
                 </div>
                 {" "}
@@ -1255,84 +1359,6 @@ export default function EngageXView({ v }: { v: any }) {
               />
               {" "}
               <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "62px", lineHeight: "1.16", fontWeight: "500" }}>
-                AI
-                <br />
-                Prototype
-              </h2>
-              {" "}
-            </div>
-            {" "}
-            <p data-reveal="1" style={{ margin: "52px 0 0", fontSize: "18px", lineHeight: "1.5" }}>
-              A working prototype of the unified campaign flow, built in Figma Make. Click through it below.
-            </p>
-            {" "}
-          </section>
-          {" "}
-          <div data-proto="1" data-mw="col" style={{ width: "840px", margin: "40px auto 0" }}>
-            {" "}
-            <div style={{ border: "2px solid #3A3A3A", background: "#0F0F0F" }}>
-              {" "}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                {" "}
-                <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                {" "}
-                <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                {" "}
-                <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                {" "}
-                <span style={{ flex: "1 1 auto", marginLeft: "10px", fontSize: "12px", color: "#9A9A9A", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                  Unified CLM — Prompt Version 1
-                </span>
-                {" "}
-                <a
-                  href="https://www.figma.com/make/oYWaqmm7Dgtf73TVdMz5M9/Unified-CLM-Prompt-Version-1?fullscreen=1&t=qIcNDzO6gDcvTYhp-1&code-node-id=0-9"
-                  target="_blank"
-                  rel="noopener"
-                  style={{ flex: "0 0 auto", fontSize: "12px", fontWeight: "600", color: "#5BC0E8", textDecoration: "none" }}
-                  className="engage-x-hover-0"
-                >
-                  Open full screen ↗
-                </a>
-                {" "}
-              </div>
-              {" "}
-              <iframe
-                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fmake%2FoYWaqmm7Dgtf73TVdMz5M9%2FUnified-CLM-Prompt-Version-1%3Ffullscreen%3D1%26t%3DqIcNDzO6gDcvTYhp-1%26code-node-id%3D0-9"
-                title="Engage X AI prototype"
-                allow="clipboard-write; fullscreen"
-                allowFullScreen
-                loading="lazy"
-                style={{ display: "block", width: "100%", height: "min(820px, 78vh)", border: "0", background: "#0F0F0F" }}
-              />
-              {" "}
-            </div>
-            {" "}
-          </div>
-          {" "}
-          <section data-mw="col" style={{ width: "840px", margin: "0 auto", paddingTop: "160px" }}>
-            {" "}
-            <div data-title="1" style={{ position: "relative", width: "500px", margin: "0 auto", padding: "16px 0 12px", textAlign: "center" }}>
-              {" "}
-              <div data-frame="1" style={{ position: "absolute", inset: "0", border: "1.5px solid #4AA8E0" }} />
-              {" "}
-              <span
-                data-handle="1"
-                style={{ position: "absolute", left: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
-              />
-              <span
-                data-handle="1"
-                style={{ position: "absolute", right: "-5px", top: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
-              />
-              <span
-                data-handle="1"
-                style={{ position: "absolute", left: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
-              />
-              <span
-                data-handle="1"
-                style={{ position: "absolute", right: "-5px", bottom: "-5px", width: "10px", height: "10px", border: "1.5px solid #4AA8E0", background: "#1C1C1C" }}
-              />
-              {" "}
-              <h2 data-ttext="1" style={{ position: "relative", margin: "0", fontSize: "62px", lineHeight: "1.16", fontWeight: "500" }}>
                 UI
                 <br />
                 Design
@@ -1342,192 +1368,145 @@ export default function EngageXView({ v }: { v: any }) {
             {" "}
           </section>
           {" "}
-          <div data-ui="1" style={{ position: "relative", height: "500vh", marginTop: "40px" }}>
+          <div data-shots="1" style={{ width: "min(1060px, calc(100% - 48px))", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "140px" }}>
             {" "}
-            <div
-              style={{ position: "sticky", top: "0", height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "22px" }}
-            >
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
               {" "}
-              <div data-mw="col" style={{ width: "840px", display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+              <div
+                data-shot-note="1"
+                data-rot="-3"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-3deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Dashboard
+              </div>
+              {" "}
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
                 {" "}
-                <div data-ui-note="1" style={{ minWidth: "230px", padding: "12px 16px 10px", background: "#F6DFA6", color: "#3D3010", transform: "rotate(-2deg)" }}>
-                  {" "}
-                  <div style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                    Now viewing
-                  </div>
-                  {" "}
-                  <div data-ui-label="1" style={{ marginTop: "2px", fontSize: "18px", fontWeight: "700" }}>
-                    Campaign Dashboard
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-                <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                  {" "}
-                  <span data-ui-count="1" style={{ fontSize: "13px", fontWeight: "600", color: "#FFFFFF", letterSpacing: "0.08em" }}>
-                    01 / 05
-                  </span>
-                  {" "}
-                  <div style={{ display: "flex", gap: "6px" }}>
-                    <span data-ui-dot="0" style={{ width: "22px", height: "8px", background: "#5BC0E8", transition: "width 0.3s ease, background 0.3s ease" }} />
-                    <span data-ui-dot="1" style={{ width: "8px", height: "8px", background: "#555555", transition: "width 0.3s ease, background 0.3s ease" }} />
-                    <span data-ui-dot="2" style={{ width: "8px", height: "8px", background: "#555555", transition: "width 0.3s ease, background 0.3s ease" }} />
-                    <span data-ui-dot="3" style={{ width: "8px", height: "8px", background: "#555555", transition: "width 0.3s ease, background 0.3s ease" }} />
-                    <span data-ui-dot="4" style={{ width: "8px", height: "8px", background: "#555555", transition: "width 0.3s ease, background 0.3s ease" }} />
-                  </div>
-                  {" "}
-                </div>
+                <img
+                  src={asset("/assets/engagex/ui-1-dashboard.png")}
+                  alt="EngageX Dashboard screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
                 {" "}
               </div>
               {" "}
-              <div data-mw="col uiframe" style={{ width: "840px", height: "min(525px, calc(100vh - 200px))", overflow: "hidden" }}>
+            </figure>
+            {" "}
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
+              {" "}
+              <div
+                data-shot-note="1"
+                data-rot="-2.5"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-2.5deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Channel Selection
+              </div>
+              {" "}
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
                 {" "}
-                <div data-ui-track="1" style={{ display: "flex", height: "100%", willChange: "transform" }}>
-                  {" "}
-                  <div
-                    data-ui-panel="0"
-                    style={{ flex: "0 0 100%", height: "100%", display: "flex", flexDirection: "column", border: "2px solid #3A3A3A", background: "#0F0F0F" }}
-                  >
-                    {" "}
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                      {" "}
-                      <span style={{ marginLeft: "10px", fontSize: "12px", color: "#9A9A9A" }}>
-                        Campaign Dashboard
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <div style={{ flex: "1 1 auto", minHeight: "0", position: "relative", border: "0" }}>
-                      {" "}
-                      <ImageSlot id="ui-screen-1" placeholder="Drop the Campaign Dashboard screen" style={{ display: "block", width: "100%", height: "100%" }} />
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                  <div
-                    data-ui-panel="1"
-                    style={{ flex: "0 0 100%", height: "100%", display: "flex", flexDirection: "column", border: "2px solid #3A3A3A", background: "#0F0F0F" }}
-                  >
-                    {" "}
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                      {" "}
-                      <span style={{ marginLeft: "10px", fontSize: "12px", color: "#9A9A9A" }}>
-                        Create Campaign
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <div style={{ flex: "1 1 auto", minHeight: "0", position: "relative", border: "0" }}>
-                      {" "}
-                      <ImageSlot id="ui-screen-2" placeholder="Drop the Create Campaign screen" style={{ display: "block", width: "100%", height: "100%" }} />
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                  <div
-                    data-ui-panel="2"
-                    style={{ flex: "0 0 100%", height: "100%", display: "flex", flexDirection: "column", border: "2px solid #3A3A3A", background: "#0F0F0F" }}
-                  >
-                    {" "}
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                      {" "}
-                      <span style={{ marginLeft: "10px", fontSize: "12px", color: "#9A9A9A" }}>
-                        Audience Segments
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <div style={{ flex: "1 1 auto", minHeight: "0", position: "relative", border: "0" }}>
-                      {" "}
-                      <ImageSlot id="ui-screen-3" placeholder="Drop the Audience Segments screen" style={{ display: "block", width: "100%", height: "100%" }} />
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                  <div
-                    data-ui-panel="3"
-                    style={{ flex: "0 0 100%", height: "100%", display: "flex", flexDirection: "column", border: "2px solid #3A3A3A", background: "#0F0F0F" }}
-                  >
-                    {" "}
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                      {" "}
-                      <span style={{ marginLeft: "10px", fontSize: "12px", color: "#9A9A9A" }}>
-                        Schedule Campaign
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <div style={{ flex: "1 1 auto", minHeight: "0", position: "relative", border: "0" }}>
-                      {" "}
-                      <ImageSlot id="ui-screen-4" placeholder="Drop the Schedule Campaign screen" style={{ display: "block", width: "100%", height: "100%" }} />
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                  <div
-                    data-ui-panel="4"
-                    style={{ flex: "0 0 100%", height: "100%", display: "flex", flexDirection: "column", border: "2px solid #3A3A3A", background: "#0F0F0F" }}
-                  >
-                    {" "}
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", borderBottom: "2px solid #3A3A3A" }}>
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF5F57" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FEBC2E" }} />
-                      {" "}
-                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28C840" }} />
-                      {" "}
-                      <span style={{ marginLeft: "10px", fontSize: "12px", color: "#9A9A9A" }}>
-                        Campaign Reporting
-                      </span>
-                      {" "}
-                    </div>
-                    {" "}
-                    <div style={{ flex: "1 1 auto", minHeight: "0", position: "relative", border: "0" }}>
-                      {" "}
-                      <ImageSlot id="ui-screen-5" placeholder="Drop the Campaign Reporting screen" style={{ display: "block", width: "100%", height: "100%" }} />
-                      {" "}
-                    </div>
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
+                <img
+                  src={asset("/assets/engagex/ui-2-channel-selection.png")}
+                  alt="EngageX Channel Selection screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
                 {" "}
               </div>
               {" "}
-              <div style={{ fontSize: "12px", color: "#9A9A9A", letterSpacing: "0.08em" }}>
-                Scroll to move through the screens
+            </figure>
+            {" "}
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
+              {" "}
+              <div
+                data-shot-note="1"
+                data-rot="-3"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-3deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Campaign Creation
               </div>
               {" "}
-            </div>
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
+                {" "}
+                <img
+                  src={asset("/assets/engagex/ui-3-campaign-creation.png")}
+                  alt="EngageX Campaign Creation screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+                {" "}
+              </div>
+              {" "}
+            </figure>
+            {" "}
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
+              {" "}
+              <div
+                data-shot-note="1"
+                data-rot="-2"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-2deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Channel Onboarding
+              </div>
+              {" "}
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
+                {" "}
+                <img
+                  src={asset("/assets/engagex/ui-4-channel-onboarding.png")}
+                  alt="EngageX Channel Onboarding screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+                {" "}
+              </div>
+              {" "}
+            </figure>
+            {" "}
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
+              {" "}
+              <div
+                data-shot-note="1"
+                data-rot="-3"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-3deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Media Library
+              </div>
+              {" "}
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
+                {" "}
+                <img
+                  src={asset("/assets/engagex/ui-5-media-library.png")}
+                  alt="EngageX Media Library screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+                {" "}
+              </div>
+              {" "}
+            </figure>
+            {" "}
+            <figure data-shot="1" style={{ position: "relative", margin: "0" }}>
+              {" "}
+              <div
+                data-shot-note="1"
+                data-rot="-2.5"
+                style={{ position: "absolute", left: "-26px", top: "-40px", zIndex: "2", padding: "12px 30px 10px", background: "#F6DFA6", color: "#1D3B1A", fontSize: "22px", fontWeight: "700", fontFamily: "'Montserrat',system-ui,sans-serif", transform: "rotate(-2.5deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.25)" }}
+              >
+                Scheduler
+              </div>
+              {" "}
+              <div data-shot-frame="1" style={{ border: "8px solid #4A4A4A", borderRadius: "22px", background: "#FFFFFF", overflow: "hidden" }}>
+                {" "}
+                <img
+                  src={asset("/assets/engagex/ui-6-scheduler.png")}
+                  alt="EngageX Scheduler screen"
+                  loading="lazy"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+                {" "}
+              </div>
+              {" "}
+            </figure>
             {" "}
           </div>
           {" "}
@@ -2018,7 +1997,7 @@ export default function EngageXView({ v }: { v: any }) {
                 onClick={v.prevLb}
                 aria-label="Previous"
                 style={{ width: "48px", height: "48px", border: "1.5px solid #5BC0E8", background: "transparent", color: "#FFFFFF", fontSize: "20px", cursor: "pointer" }}
-                className="engage-x-hover-1"
+                className="engage-x-hover-0"
               >
                 ←
               </button>
@@ -2047,7 +2026,7 @@ export default function EngageXView({ v }: { v: any }) {
                 onClick={v.nextLb}
                 aria-label="Next"
                 style={{ width: "48px", height: "48px", border: "1.5px solid #5BC0E8", background: "transparent", color: "#FFFFFF", fontSize: "20px", cursor: "pointer" }}
-                className="engage-x-hover-1"
+                className="engage-x-hover-0"
               >
                 →
               </button>
@@ -2086,69 +2065,57 @@ export default function EngageXView({ v }: { v: any }) {
               {" "}
             </div>
             {" "}
-            <div data-wins="1" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginTop: "80px" }}>
+            <div
+              data-wins="1"
+              style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,280px))", justifyContent: "center", columnGap: "clamp(24px,6vw,96px)", rowGap: "56px", marginTop: "88px", textAlign: "center" }}
+            >
               {" "}
-              <div data-win="1" style={{ position: "relative", textAlign: "center", padding: "0 10px" }}>
-                {" "}
-                <div style={{ fontSize: "34px", fontWeight: "500" }}>
-                  <span data-wcount="66" data-prefix="">
+              <div data-win="1">
+                <div style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
+                  <span data-count="66" data-prefix="">
                     66
                   </span>
                   %
                 </div>
-                {" "}
-                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
+                <div data-mlabel="1" style={{ margin: "10px auto 0", maxWidth: "220px", fontSize: "15px", lineHeight: "1.35" }}>
                   Reduction in campaign setup time
                 </div>
-                {" "}
               </div>
               {" "}
-              <div data-win="1" style={{ position: "relative", textAlign: "center", padding: "0 10px" }}>
-                <div data-win-div="1" style={{ position: "absolute", left: "0", top: "0", bottom: "0", borderLeft: "2px dashed #555555", transformOrigin: "top" }} />
-                {" "}
-                <div style={{ fontSize: "34px", fontWeight: "500" }}>
-                  <span data-wcount="2" data-prefix="">
+              <div data-win="1">
+                <div style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
+                  <span data-count="2" data-prefix="">
                     2
                   </span>
                   X
                 </div>
-                {" "}
-                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
+                <div data-mlabel="1" style={{ margin: "10px auto 0", maxWidth: "220px", fontSize: "15px", lineHeight: "1.35" }}>
                   Better CTR with new channels
                 </div>
-                {" "}
               </div>
               {" "}
-              <div data-win="1" style={{ position: "relative", textAlign: "center", padding: "0 10px" }}>
-                <div data-win-div="1" style={{ position: "absolute", left: "0", top: "0", bottom: "0", borderLeft: "2px dashed #555555", transformOrigin: "top" }} />
-                {" "}
-                <div style={{ fontSize: "34px", fontWeight: "500" }}>
-                  <span data-wcount="20" data-prefix="">
+              <div data-win="1">
+                <div style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
+                  <span data-count="20" data-prefix="">
                     20
                   </span>
                   %
                 </div>
-                {" "}
-                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
+                <div data-mlabel="1" style={{ margin: "10px auto 0", maxWidth: "220px", fontSize: "15px", lineHeight: "1.35" }}>
                   Reduction in marketing spends
                 </div>
-                {" "}
               </div>
               {" "}
-              <div data-win="1" style={{ position: "relative", textAlign: "center", padding: "0 10px" }}>
-                <div data-win-div="1" style={{ position: "absolute", left: "0", top: "0", bottom: "0", borderLeft: "2px dashed #555555", transformOrigin: "top" }} />
-                {" "}
-                <div style={{ fontSize: "34px", fontWeight: "500" }}>
-                  <span data-wcount="30" data-prefix="">
+              <div data-win="1">
+                <div style={{ fontSize: "58px", lineHeight: "1.05", fontWeight: "500" }}>
+                  <span data-count="30" data-prefix="">
                     30
                   </span>
                   {" "}Cr
                 </div>
-                {" "}
-                <div data-mlabel="1" style={{ margin: "2px auto 0", maxWidth: "180px", fontSize: "15px", lineHeight: "1.15" }}>
+                <div data-mlabel="1" style={{ margin: "10px auto 0", maxWidth: "220px", fontSize: "15px", lineHeight: "1.35" }}>
                   Revenue generated
                 </div>
-                {" "}
               </div>
               {" "}
             </div>
@@ -2160,7 +2127,7 @@ export default function EngageXView({ v }: { v: any }) {
             <a
               href={href("/")}
               style={{ fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: "#9A9A9A" }}
-              className="engage-x-hover-0"
+              className="engage-x-hover-1"
             >
               ← Back to portfolio
             </a>

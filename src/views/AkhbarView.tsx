@@ -3,11 +3,13 @@
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
 import DockNav from '@/components/DockNav';
+import SiteRuler from '@/components/SiteRuler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function AkhbarView({ v }: { v: any }) {
   return (
     <>
+      <SiteRuler />
       <div data-screen-label="Akhbar Bash case study" style={{ background: "#1c1c1c", minHeight: "100vh" }}>
         <div
           data-vp={v.vp}
@@ -41,10 +43,6 @@ export default function AkhbarView({ v }: { v: any }) {
               </svg>
               BACK TO PORTFOLIO
             </a>
-            {" "}
-            <span data-desk-only="1" style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", color: "#d97757" }}>
-              BUILT WITH CLAUDE
-            </span>
             {" "}
           </nav>
           {" "}
@@ -88,38 +86,11 @@ export default function AkhbarView({ v }: { v: any }) {
               style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "48px auto 0", display: "flex", flexDirection: "column", alignItems: "center" }}
             >
               {" "}
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
-                <span
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 12px 0", boxSizing: "border-box", background: "#0f1d24", color: "#63c4ec", fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
-                >
-                  CASE STUDY
-                </span>
-                <span
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 12px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f6dfa6", fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
-                >
-                  GAME DESIGN
-                </span>
-                <span
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 12px 0", boxSizing: "border-box", background: "#0f1d24", color: "#f26667", fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
-                >
-                  PIXEL ART
-                </span>
-                <span
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 12px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
-                >
-                  MOBILE WEB
-                </span>
-              </div>
-              {" "}
               <p
                 data-lead="1"
                 style={{ margin: "40px auto 0", maxWidth: "880px", fontSize: "32px", lineHeight: "44px", fontWeight: "500", textAlign: "center", color: "#f5f5f5", textWrap: "balance" }}
               >
                 A 16-bit paper round through India's galis. I designed it, art-directed it and shipped it as a mobile browser game in one afternoon, using Claude as my build partner.
-              </p>
-              {" "}
-              <p data-desk-only="1" style={{ margin: "16px 0 0", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", textAlign: "center" }}>
-                “Akhbaar Rush”, the name on the logo and screens, was the working title.
               </p>
               {" "}
               <div style={{ alignSelf: "stretch", marginTop: "48px" }}>
@@ -236,16 +207,6 @@ export default function AkhbarView({ v }: { v: any }) {
                     Phone browser, landscape, installable to the home screen
                   </dd>
                 </div>
-                <div style={{ padding: "24px 20px 24px 20px", borderLeft: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <dt>
-                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                      TIMELINE
-                    </span>
-                  </dt>
-                  <dd style={{ margin: "0", fontSize: "15px", lineHeight: "22px", color: "#f5f5f5" }}>
-                    One afternoon, about 4½ hours, September 2026
-                  </dd>
-                </div>
                 <div style={{ padding: "24px 0 24px 20px", borderLeft: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "10px" }}>
                   <dt>
                     <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
@@ -258,91 +219,6 @@ export default function AkhbarView({ v }: { v: any }) {
                 </div>
                 {" "}
               </dl>
-              {" "}
-            </div>
-            {" "}
-          </section>
-          {" "}
-          <section id="numbers" aria-label="By the numbers" style={{ marginTop: "120px", background: "#0f1d24", padding: "56px 0" }}>
-            {" "}
-            <div
-              data-colw="1"
-              data-stats6="1"
-              style={{ width: "calc(100% - 64px)", maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(6,minmax(0,1fr))", gap: "32px 24px" }}
-            >
-              {" "}
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="6"
-                  data-suffix=""
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  6
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  cities, each with its own landmarks
-                </span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="60"
-                  data-suffix=""
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  60
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  levels, each the same every time you play
-                </span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="15"
-                  data-suffix=""
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  15
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  screens, from studio splash to route complete
-                </span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="28"
-                  data-suffix=""
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  28
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  rider animation frames across 5 moves
-                </span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="0"
-                  data-suffix=""
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  0
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  audio files. All 3 music tracks are synthesised live.
-                </span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <span
-                  data-count="256"
-                  data-suffix=" KB"
-                  style={{ fontFamily: "'Press Start 2P',monospace", fontSize: "28px", lineHeight: "1.2", color: "#f7d158", whiteSpace: "nowrap" }}
-                >
-                  256 KB
-                </span>
-                <span style={{ fontSize: "14px", lineHeight: "20px", color: "#d6d6d6" }}>
-                  for all 46 sprites and city backdrops
-                </span>
-              </div>
               {" "}
             </div>
             {" "}
@@ -741,52 +617,7 @@ export default function AkhbarView({ v }: { v: any }) {
                     </p>
                   </div>
                   {" "}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                    <span
-                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
-                    >
-                      60 × 66 px frame
-                    </span>
-                    <span
-                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
-                    >
-                      Outline #241610
-                    </span>
-                    <span
-                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
-                    >
-                      Flat 16-bit shading
-                    </span>
-                    <span
-                      style={{ display: "inline-flex", alignItems: "center", height: "30px", padding: "0 12px", borderRadius: "999px", background: "#a3e4c1", color: "#1c1c1c", fontSize: "13px", fontWeight: "500" }}
-                    >
-                      8 caps × 5 cycles
-                    </span>
-                  </div>
-                  {" "}
-                  <button
-                    type="button"
-                    data-open={asset("/assets/akhbar/images/sheet-all-sprites.png")}
-                    data-open-alt="Every sprite in the game: rider animations, obstacles, vehicles, pickups and UI icons"
-                    style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: "10px", height: "44px", padding: "0 14px", border: "1px solid #63c4ec", background: "transparent", color: "#f5f5f5", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
-                    className="akhbar-hover-1"
-                  >
-                    VIEW THE FULL SPRITE SHEET{" "}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </button>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }} />
                   {" "}
                 </div>
                 {" "}
@@ -980,39 +811,6 @@ export default function AkhbarView({ v }: { v: any }) {
               {" "}
               <div data-g2="1" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "16px" }}>
                 {" "}
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "20px", lineHeight: "1.3", fontWeight: "600", color: "#f6dfa6" }}>
-                    Anticipation
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    He leans into the swipe before the cycle moves, so the lane change reads as a decision.
-                  </p>
-                </div>
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "20px", lineHeight: "1.3", fontWeight: "600", color: "#f6dfa6" }}>
-                    Arc and overshoot
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    Lane changes travel on a curve and settle past the line, then back.
-                  </p>
-                </div>
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "20px", lineHeight: "1.3", fontWeight: "600", color: "#f6dfa6" }}>
-                    Squash on landing
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    An 8-frame jump: crouch, pop, hang, then land heavy and recover.
-                  </p>
-                </div>
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "20px", lineHeight: "1.3", fontWeight: "600", color: "#f6dfa6" }}>
-                    Clean rotation
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    Tilts are baked with a RotSprite-style method: upscale ×8 with Scale2x, rotate, then sample back down. Pixels stay crisp.
-                  </p>
-                </div>
-                {" "}
               </div>
               {" "}
               <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "28px" }}>
@@ -1061,65 +859,7 @@ export default function AkhbarView({ v }: { v: any }) {
               {" "}
               <div data-g57="1" style={{ display: "grid", gridTemplateColumns: "minmax(0,5fr) minmax(0,7fr)", gap: "24px", alignItems: "start" }}>
                 {" "}
-                <figure style={{ margin: "0" }}>
-                  <div style={{ position: "relative", border: "2px solid rgba(245,245,245,0.14)", background: "#222222", overflow: "hidden", aspectRatio: "2 / 1" }}>
-                    {" "}
-                    <video
-                      data-auto="1"
-                      muted
-                      loop
-                      preload="metadata"
-                      playsInline
-                      poster={asset("/assets/akhbar/video/posters/controls-demo.jpg")}
-                      aria-label="The rider switching lanes and jumping in response to swipe and tap inputs."
-                      style={{ display: "block", width: "100%", height: "auto", imageRendering: "pixelated" }}
-                    >
-                      <source src={asset("/assets/akhbar/video/controls-demo.mp4")} type="video/mp4" />
-                    </video>
-                    {" "}
-                    <button
-                      type="button"
-                      data-vtoggle="1"
-                      aria-label="Pause video"
-                      style={{ position: "absolute", right: "10px", bottom: "10px", width: "44px", height: "44px", border: "0", background: "rgba(15,29,36,0.8)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: "0" }}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true" data-i-pause="1">
-                        <rect x="6" y="4" width="4" height="16" />
-                        <rect x="14" y="4" width="4" height="16" />
-                      </svg>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true" data-i-play="1" style={{ display: "none" }}>
-                        <path d="M7 4v16l13-8z" />
-                      </svg>
-                    </button>
-                    {" "}
-                  </div>
-                  <figcaption style={{ marginTop: "12px", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", maxWidth: "720px" }}>
-                    <strong style={{ fontWeight: "600", color: "#f5f5f5" }}>
-                      See it move.
-                    </strong>
-                    {" "}Swipe up, swipe down and tap, recorded from the shipped build.
-                  </figcaption>
-                </figure>
-                {" "}
-                <figure style={{ margin: "0" }}>
-                  <div style={{ border: "2px solid rgba(245,245,245,0.14)", background: "#222222", overflow: "hidden" }}>
-                    <img
-                      src={asset("/assets/akhbar/images/sheet-movement.png")}
-                      alt="The full movement sheet: ride, lane down, lane up, jump and throw animations."
-                      loading="lazy"
-                      data-zoom="1"
-                      role="button"
-                      tabIndex={0}
-                      style={{ display: "block", width: "100%", height: "auto", imageRendering: "pixelated", cursor: "zoom-in" }}
-                    />
-                  </div>
-                  <figcaption style={{ marginTop: "12px", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", maxWidth: "720px" }}>
-                    <strong style={{ fontWeight: "600", color: "#f5f5f5" }}>
-                      The movement sheet.
-                    </strong>
-                    {" "}Ride, lane down, lane up, jump and throw: 28 frames in total.
-                  </figcaption>
-                </figure>
+                <figure style={{ margin: "0" }} />
                 {" "}
               </div>
             </div>
@@ -1217,162 +957,17 @@ export default function AkhbarView({ v }: { v: any }) {
                     style={{ display: "block", width: "100%", height: "auto", imageRendering: "pixelated" }}
                   />
                 </div>
-                <figcaption style={{ marginTop: "12px", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", maxWidth: "720px" }}>
-                  <strong style={{ fontWeight: "600", color: "#f5f5f5" }}>
-                    Proof it fits on one screen.
-                  </strong>
-                  {" "}The whole rule set, as the player first sees it.
-                </figcaption>
               </figure>
               {" "}
               <p data-lead="1" style={{ margin: "0", maxWidth: "900px", fontSize: "24px", lineHeight: "36px", fontWeight: "500", color: "#f5f5f5", textWrap: "pretty" }}>
                 That one change created the core tension of the game. The house lane is where the points are, and it is also where the parked cars and dogs are. The traffic lane is safer for weaving, but you deliver nothing there. Every second, the player is choosing between greed and safety, without a single extra control.
               </p>
               {" "}
-              <div
-                role="img"
-                aria-label="Lane model: the house lane on top holds deliveries, parked cars, cows, dogs and potholes, and earns points. The traffic lane below has no deliveries, with oncoming autos, cows and potholes, and is safer."
-                style={{ display: "flex", flexDirection: "column", gap: "0", border: "2px solid #3a3a3a" }}
-              >
-                {" "}
-                <div style={{ height: "10px", backgroundImage: "repeating-linear-gradient(90deg,#f7d158 0 24px,#1c1c1c 24px 48px)" }} />
-                {" "}
-                <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto", gap: "16px", alignItems: "center", padding: "20px 24px", background: "#5f5f5f" }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", color: "#ffffff" }}>
-                      HOUSE LANE (TOP)
-                    </span>
-                    <span style={{ fontSize: "14px", lineHeight: "20px", color: "#ffffff" }}>
-                      Deliveries happen here
-                    </span>
-                    <span style={{ fontSize: "13px", lineHeight: "19px", color: "#f0f0f0" }}>
-                      Parked cars · cows · dogs · potholes
-                    </span>
-                  </div>
-                  <span
-                    style={{ display: "inline-flex", alignItems: "center", gap: "8px", height: "36px", padding: "0 12px", background: "#0f1d24", color: "#f7d158", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", whiteSpace: "nowrap" }}
-                  >
-                    ← POINTS
-                  </span>
-                </div>
-                {" "}
-                <div style={{ height: "2px", backgroundImage: "repeating-linear-gradient(90deg,#ffffff 0 28px,transparent 28px 52px)", backgroundColor: "#5f5f5f" }} />
-                {" "}
-                <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto", gap: "16px", alignItems: "center", padding: "20px 24px", background: "#5f5f5f" }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", color: "#ffffff" }}>
-                      TRAFFIC LANE (BOTTOM)
-                    </span>
-                    <span style={{ fontSize: "14px", lineHeight: "20px", color: "#ffffff" }}>
-                      No deliveries
-                    </span>
-                    <span style={{ fontSize: "13px", lineHeight: "19px", color: "#f0f0f0" }}>
-                      Oncoming autos · cows · potholes
-                    </span>
-                  </div>
-                  <span
-                    style={{ display: "inline-flex", alignItems: "center", gap: "8px", height: "36px", padding: "0 12px", background: "#0f1d24", color: "#a3e4c1", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", whiteSpace: "nowrap" }}
-                  >
-                    ← SAFETY
-                  </span>
-                </div>
-                {" "}
-              </div>
-              {" "}
               <div data-g4="1" style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: "16px" }}>
-                {" "}
-                <div style={{ border: "1px solid #3a3a3a", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                    CONTROLS
-                  </span>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#f5f5f5" }}>
-                    <strong>
-                      Swipe up
-                    </strong>
-                    {" "}to the house lane ·{" "}
-                    <strong>
-                      Swipe down
-                    </strong>
-                    {" "}to the traffic lane ·{" "}
-                    <strong>
-                      Tap
-                    </strong>
-                    {" "}to jump
-                  </p>
-                  <p style={{ margin: "0", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", fontStyle: "italic" }}>
-                    On-screen buttons and keyboard as alternatives
-                  </p>
-                </div>
-                <div style={{ border: "1px solid #3a3a3a", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                    ONE RULE TO LEARN
-                  </span>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#f5f5f5" }}>
-                    <strong>
-                      Tall
-                    </strong>
-                    {" "}things (cow, car, auto): change lane.{" "}
-                    <strong>
-                      Low
-                    </strong>
-                    {" "}things (pothole, dog): jump.
-                  </p>
-                  <p style={{ margin: "0", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", fontStyle: "italic" }}>
-                    Three hearts. A bump costs one, gives a moment of invulnerability and breaks your combo.
-                  </p>
-                </div>
-                <div style={{ border: "1px solid #3a3a3a", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                    SCORING
-                  </span>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#f5f5f5" }}>
-                    Delivery: 10 × combo, up to{" "}
-                    <strong>
-                      x5
-                    </strong>
-                    {" "}· AIR MAIL:{" "}
-                    <strong>
-                      +25
-                    </strong>
-                    {" "}· Stars: target met · 85% served · no crashes
-                  </p>
-                  <p style={{ margin: "0", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", fontStyle: "italic" }}>
-                    Stars unlock the next city
-                  </p>
-                </div>
-                <div style={{ border: "1px solid #3a3a3a", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                    FAIR BY CONSTRUCTION
-                  </span>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#f5f5f5" }}>
-                    Levels are generated from a fixed seed, so a level plays the same every time and can be learned.
-                  </p>
-                  <p style={{ margin: "0", fontSize: "14px", lineHeight: "21px", color: "#b5b5b5", fontStyle: "italic" }}>
-                    A hard rule: never tall obstacles in both lanes within 120 px. There is always a way through.
-                  </p>
-                </div>
                 {" "}
               </div>
               {" "}
               <div data-g2="1" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "16px" }}>
-                {" "}
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "22px", lineHeight: "1.3", fontWeight: "600", color: "#f5f5f5" }}>
-                    Difficulty curve
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    One new idea per level: potholes and cows, then parked cars, then oncoming autos, then dogs. Level 5 is a city event, and level 10 is a finale with everything at speed.
-                  </p>
-                </div>
-                {" "}
-                <div style={{ background: "#262626", padding: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <h3 style={{ margin: "0", fontSize: "22px", lineHeight: "1.3", fontWeight: "600", color: "#f5f5f5" }}>
-                    Reasons to come back
-                  </h3>
-                  <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
-                    Coins buy cycles with real stat trade-offs (speed, handling, jump, basket) and caps that recolour your rider. A 7-day bonus streak rewards daily play, and a weekly leaderboard resets every Monday.
-                  </p>
-                </div>
                 {" "}
               </div>
             </div>
@@ -2522,17 +2117,7 @@ export default function AkhbarView({ v }: { v: any }) {
               </div>
               {" "}
               <figure style={{ margin: "0" }}>
-                <div style={{ border: "2px solid rgba(245,245,245,0.14)", background: "#222222", overflow: "hidden" }}>
-                  <img
-                    src={asset("/assets/akhbar/images/board-brand-and-cities.png")}
-                    alt="Brand board: city backdrops, app icon sizes, studio logos, avatars and cycle colours."
-                    loading="lazy"
-                    data-zoom="1"
-                    role="button"
-                    tabIndex={0}
-                    style={{ display: "block", width: "100%", height: "auto", imageRendering: "pixelated", cursor: "zoom-in" }}
-                  />
-                </div>
+                <div style={{ border: "2px solid rgba(245,245,245,0.14)", background: "#222222", overflow: "hidden" }} />
               </figure>
             </div>
             {" "}
@@ -2663,129 +2248,6 @@ export default function AkhbarView({ v }: { v: any }) {
                   <p style={{ margin: "0", fontSize: "15px", lineHeight: "24px", color: "#dcdcdc" }}>
                     The package ships with a guide for Claude Code covering coordinates, how to add a city or cycle, and a release checklist, so the next feature is one request away.
                   </p>
-                </div>
-                {" "}
-              </div>
-              {" "}
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
-                  ARCHITECTURE
-                </span>
-                {" "}
-                <div
-                  role="img"
-                  aria-label="Architecture: a phone browser PWA made of index.html and style.css for 15 screens, a 380 by 176 canvas for the engine, a Web Audio synth, a service worker, and an optional Supabase backend with a public read view and a submit_score write function. Deploys by git push to a static host."
-                  style={{ border: "1px solid #3a3a3a", borderTop: "0", background: "#262626" }}
-                >
-                  {" "}
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 16px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#63c4ec" }}>
-                      Phone browser (PWA)
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }} />
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 44px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      index.html + style.css
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      15 screens
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 44px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      Canvas 380×176 → scaled
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      engine, levels, sprites
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 44px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      Web Audio synth
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      3 tracks + sound effects
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 44px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      Service worker
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      offline + update toast
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 44px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      Supabase (optional)
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }} />
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 72px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      public view
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      ← read
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 72px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f5f5f5" }}>
-                      <span aria-hidden="true" style={{ color: "#7a7a7a" }}>
-                        └{" "}
-                      </span>
-                      submit_score()
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      ← write, checks device secret
-                    </span>
-                  </div>
-                  <div
-                    style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "8px 24px", padding: "12px 16px 12px 16px", borderTop: "1px solid #3a3a3a" }}
-                  >
-                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#f6dfa6" }}>
-                      Deploy
-                    </span>
-                    <span style={{ fontSize: "14px", color: "#b5b5b5" }}>
-                      git push → static host (Cloudflare Pages / Netlify / GitHub Pages)
-                    </span>
-                  </div>
-                  {" "}
                 </div>
                 {" "}
               </div>
@@ -3023,12 +2485,6 @@ export default function AkhbarView({ v }: { v: any }) {
                 </div>
               </div>
               {" "}
-              <p
-                data-lead="1"
-                style={{ margin: "0 auto", maxWidth: "900px", fontSize: "28px", lineHeight: "40px", fontWeight: "500", color: "#1c1c1c", textAlign: "center", textWrap: "balance" }}
-              >
-                When making things is nearly free, the scarce skill is knowing what to make and when it is good enough. That was what I spent my afternoon on, and it is the part of this project I am proudest of.
-              </p>
             </div>
             {" "}
           </section>
@@ -3112,65 +2568,6 @@ export default function AkhbarView({ v }: { v: any }) {
             {" "}
             <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "0 auto" }}>
               {" "}
-              <div
-                data-cta="1"
-                style={{ background: "#0f1d24", padding: "40px 48px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "32px" }}
-              >
-                {" "}
-                <div data-ctaid="1" style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                  <img
-                    src={asset("/assets/akhbar/images/app-icon-1024.png")}
-                    alt=""
-                    style={{ display: "block", width: "88px", height: "88px", borderRadius: "20px", imageRendering: "pixelated" }}
-                  />
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <h2 style={{ margin: "0", fontSize: "32px", lineHeight: "38px", fontWeight: "600", color: "#f5f5f5" }}>
-                      Akhbar Bash
-                    </h2>
-                    <span style={{ fontSize: "14px", lineHeight: "21px", color: "#dcdcdc" }}>
-                      A Shiva Games production · Designed by Shiva, built with Claude
-                    </span>
-                  </div>
-                </div>
-                {" "}
-                <div data-ctabtns="1" style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                  {" "}
-                  <a
-                    href="https://claude.ai/artifact/4dQjfkABaJHkov8M3SbbHr"
-                    target="_blank"
-                    rel="noopener"
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", height: "48px", padding: "0 24px", background: "#63c4ec", color: "#0f1d24", fontSize: "14px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
-                    className="akhbar-hover-2"
-                  >
-                    PLAY THE GAME{" "}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </a>
-                  {" "}
-                  <a
-                    href={href("/#work")}
-                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: "48px", padding: "0 24px", border: "1px solid #63c4ec", color: "#f5f5f5", fontSize: "14px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none", boxSizing: "border-box" }}
-                    className="akhbar-hover-1"
-                  >
-                    ALL PROJECTS
-                  </a>
-                  {" "}
-                </div>
-                {" "}
-              </div>
-              {" "}
             </div>
             {" "}
           </section>
@@ -3181,179 +2578,10 @@ export default function AkhbarView({ v }: { v: any }) {
             style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "160px", display: "flex", flexDirection: "column", alignItems: "center", gap: "40px" }}
           >
             {" "}
-            <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-2deg)" }}
-            >
-              keep exploring
-            </span>
-            {" "}
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
-              <a
-                href={href("/")}
-                style={{ display: "inline-flex", alignItems: "center", gap: "10px", height: "44px", padding: "0 14px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none", boxSizing: "border-box" }}
-                className="akhbar-hover-3"
-              >
-                BACK TO HOME{" "}
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </a>
-              <a
-                href={href("/work/jugnu/")}
-                style={{ display: "inline-flex", alignItems: "center", gap: "10px", height: "44px", padding: "0 14px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none", boxSizing: "border-box" }}
-                className="akhbar-hover-3"
-              >
-                NEXT PROJECT: JUGNU{" "}
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }} />
             {" "}
           </section>
           {" "}
-          <section
-            id="contact"
-            data-contact="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", padding: "244px 0 224px", display: "flex", flexDirection: "column", alignItems: "center" }}
-          >
-            {" "}
-            <div data-fh="1" style={{ position: "relative", border: "2px solid #63c4ec", padding: "23px 47px" }}>
-              {" "}
-              <h2 data-h2big="1" style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
-                Let’s Talk
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              {" "}
-            </div>
-            {" "}
-            <div
-              data-cgrid="1"
-              style={{ width: "calc(100% - 64px)", maxWidth: "1040px", marginTop: "102px", display: "grid", gridTemplateColumns: "minmax(0,530fr) minmax(0,510fr)" }}
-            >
-              {" "}
-              <div data-cdeco="1" style={{ padding: "256px 0 0 88px" }}>
-                {" "}
-                <div
-                  data-cflower="1"
-                  aria-hidden="true"
-                  style={{ width: "333px", height: "333px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}
-                >
-                  {" "}
-                  <span style={{ background: "#f7d158", borderBottomLeftRadius: "100%" }} />
-                  <span style={{ background: "#f7d158", borderTopLeftRadius: "100%" }} />
-                  <span style={{ background: "#f7d158", borderBottomRightRadius: "100%" }} />
-                  <span style={{ background: "#f7d158", borderTopRightRadius: "100%" }} />
-                  {" "}
-                </div>
-                {" "}
-              </div>
-              {" "}
-              <div>
-                {" "}
-                <p style={{ margin: "0", fontSize: "20px", lineHeight: "27px", fontWeight: "500", color: "#f5f5f5" }}>
-                  I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
-                </p>
-                {" "}
-                <form
-                  onSubmit={v.onSubmit}
-                  noValidate
-                  style={{ marginTop: "36px", background: "#51ac65", borderRadius: "8px", padding: "34px 32px 32px", display: "flex", flexDirection: "column" }}
-                >
-                  {" "}
-                  <label htmlFor="cf-name" style={{ fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                    YOUR NAME
-                  </label>
-                  <input
-                    id="cf-name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                    className="akhbar-focus-4"
-                  />
-                  <label htmlFor="cf-email" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                    YOUR EMAIL
-                  </label>
-                  <input
-                    id="cf-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                    className="akhbar-focus-4"
-                  />
-                  <label htmlFor="cf-msg" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                    IDEAS/PROJECTS DESCRIPTION
-                  </label>
-                  <textarea
-                    id="cf-msg"
-                    name="message"
-                    style={{ marginTop: "13px", height: "197px", padding: "12px 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", lineHeight: "1.4", resize: "none", outline: "none" }}
-                    className="akhbar-focus-4"
-                  />
-                  {" "}
-                  <button
-                    type="submit"
-                    style={{ marginTop: "42px", height: "45px", border: "0", borderRadius: "4px", background: "#ffffff", color: "#1c1c1c", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
-                    className="akhbar-hover-5"
-                  >
-                    SUBMIT
-                  </button>
-                  {" "}
-                  {v.hasNote ? (
-                    <>
-                    <p style={{ margin: "14px 0 0", fontSize: "13px", lineHeight: "18px", color: "#ffffff" }}>
-                      {v.cfNote}
-                    </p>
-                    </>
-                  ) : null}
-                  {" "}
-                </form>
-                {" "}
-              </div>
-              {" "}
-            </div>
-            {" "}
-          </section>
         </div>
         {v.showRail ? (
           <>

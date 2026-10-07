@@ -12,7 +12,10 @@ export default function HomeView({ v }: { v: any }) {
       <div data-screen-label="Homepage" style={{ position: "relative", minHeight: "100vh", background: "#1c1c1c", color: "#f5f5f5", overflow: "clip" }}>
         {v.isDesk ? (
           <>
-          <div data-view="desktop" style={{ position: "relative" }}>
+          <div
+            data-view="desktop"
+            style={{ position: "relative", zIndex: "2", background: "#1c1c1c", borderRadius: "0 0 clamp(24px,3vw,48px) clamp(24px,3vw,48px)", boxShadow: "0 30px 60px rgba(0,0,0,.35)" }}
+          >
             {" "}
             {v.showRuler ? (
               <>
@@ -56,6 +59,94 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
               </>
             ) : null}
+            {" "}
+            <div
+              data-notice=""
+              role="status"
+              aria-label="The website is updated weekly every Sunday"
+              style={{ position: "relative", zIndex: "5", overflow: "hidden", background: "#51ac65", color: "#ffffff", borderBottom: "2px solid #1c1c1c" }}
+            >
+              {" "}
+              <div
+                data-notice-track=""
+                aria-hidden="true"
+                style={{ display: "flex", width: "max-content", alignItems: "center", minHeight: "44px", fontSize: "15px", lineHeight: "1.35", fontWeight: "600", whiteSpace: "nowrap" }}
+              >
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "28px", paddingRight: "28px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+              </div>
+              {" "}
+            </div>
             {" "}
             <section
               id="top"
@@ -240,22 +331,6 @@ export default function HomeView({ v }: { v: any }) {
               style={{ position: "relative", maxWidth: "1440px", margin: "302px auto 0", display: "flex", flexDirection: "column", alignItems: "center" }}
             >
               {" "}
-              <div
-                style={{ position: "absolute", left: "calc(50% - 621px)", top: "131px", width: "256px", height: "349px", transform: "rotate(-12deg)", borderRadius: "14px", overflow: "hidden", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
-              >
-                {" "}
-                <ImageSlot id="home-about-1" shape="rounded" radius="14" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
-                {" "}
-              </div>
-              {" "}
-              <div
-                style={{ position: "absolute", left: "calc(50% + 393px)", top: "161px", width: "254px", height: "350px", transform: "rotate(4deg)", borderRadius: "14px", overflow: "hidden", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", background: "#f0f0f0" }}
-              >
-                {" "}
-                <ImageSlot id="home-about-2" shape="rounded" radius="14" placeholder="Drop a photo" style={{ width: "100%", height: "100%" }} />
-                {" "}
-              </div>
-              {" "}
               <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "23px 31px" }}>
                 {" "}
                 <h2 style={{ margin: "0", fontSize: "36px", lineHeight: "44px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
@@ -318,7 +393,267 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
             </section>
             {" "}
-            <section id="work" style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "325px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <section
+              id="tools"
+              aria-label="Tools I use"
+              style={{ position: "relative", paddingTop: "260px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            >
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-3deg)" }}
+              >
+                tools I use
+              </span>
+              {" "}
+              <div data-vc="desk" style={{ alignSelf: "stretch", marginTop: "64px", overflow: "hidden", cursor: "grab", touchAction: "pan-y" }}>
+                {" "}
+                <div data-vc-track="" style={{ display: "flex", gap: "16px", width: "max-content", paddingRight: "16px", willChange: "transform" }}>
+                  {" "}
+                  <div title="Figma" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/figma-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/figma.png")}
+                      alt="Figma"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Lottie" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/lottie-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/lottie.png")}
+                      alt="Lottie"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Higgsfield" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/higgsfield-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/higgsfield.png")}
+                      alt="Higgsfield"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Spline" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/spline-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/spline.png")}
+                      alt="Spline"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Claude" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/claude-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/claude.png")}
+                      alt="Claude"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Notion" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/notion-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/notion.png")}
+                      alt="Notion"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Jira" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/jira-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/jira.png")}
+                      alt="Jira"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Figma" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/figma-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/figma.png")}
+                      alt="Figma"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Lottie" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/lottie-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/lottie.png")}
+                      alt="Lottie"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Higgsfield" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/higgsfield-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/higgsfield.png")}
+                      alt="Higgsfield"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Spline" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/spline-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/spline.png")}
+                      alt="Spline"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Claude" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/claude-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/claude.png")}
+                      alt="Claude"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Notion" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/notion-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/notion.png")}
+                      alt="Notion"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                  <div title="Jira" style={{ position: "relative", flex: "none", width: "214px", height: "214px" }}>
+                    <img
+                      src={asset("/assets/tools/jira-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      src={asset("/assets/tools/jira.png")}
+                      alt="Jira"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                      className="home-hover-1"
+                    />
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="work" style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "260px", display: "flex", flexDirection: "column", alignItems: "center" }}>
               {" "}
               <span
                 style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
@@ -608,136 +943,79 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
             </section>
             {" "}
-            <section id="claude" style={{ position: "relative", marginTop: "290px", background: "#d97757", padding: "52px 0 44px" }}>
-              {" "}
-              <div
-                data-mascot=""
-                aria-label="Claude mascot waving hello"
-                role="img"
-                style={{ position: "absolute", bottom: "100%", left: "min(calc(50% + 300px), calc(100% - 260px))", zIndex: "2", flex: "none", width: "170px", paddingTop: "48px" }}
-              >
-                {" "}
-                <div
-                  data-bubble=""
-                  style={{ position: "absolute", top: "0", left: "105px", background: "#ffffff", color: "#1c1c1c", border: "2px solid #1c1c1c", padding: "6px 12px", fontSize: "15px", lineHeight: "1.2", fontWeight: "700", whiteSpace: "nowrap", transformOrigin: "0% 100%", boxShadow: "3px 3px 0 #1c1c1c" }}
-                >
-                  Hello!
-                  <span
-                    style={{ position: "absolute", left: "8px", bottom: "-8px", width: "8px", height: "8px", background: "#ffffff", borderLeft: "2px solid #1c1c1c", borderBottom: "2px solid #1c1c1c", boxSizing: "content-box", transform: "translateY(-3px) skewY(-45deg)" }}
-                  />
-                </div>
-                {" "}
-                <svg data-bob="" viewBox="0 0 18 11" width="170" height="104" shapeRendering="crispEdges" style={{ display: "block", overflow: "visible" }}>
-                  {" "}
-                  <rect x="2" y="0" width="12" height="8" fill="#c15f3c" />
-                  {" "}
-                  <rect x="0" y="3" width="2" height="2" fill="#c15f3c" />
-                  {" "}
-                  <g data-wave="" style={{ transformBox: "fill-box", transformOrigin: "0% 50%" }}>
-                    <rect x="14" y="3" width="2.4" height="2" fill="#c15f3c" />
-                  </g>
-                  {" "}
-                  <rect x="5" y="2" width="1" height="2" fill="#1c1c1c" />
-                  {" "}
-                  <rect x="10" y="2" width="1" height="2" fill="#1c1c1c" />
-                  {" "}
-                  <rect x="3" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="5" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="10" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="12" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                </svg>
-                {" "}
-              </div>
+            <section id="claude" style={{ position: "relative", marginTop: "290px", padding: "52px 0 44px" }}>
               {" "}
               <div style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "0 auto" }}>
                 {" "}
-                <img src={asset("/assets/home/claude-code-logo.png")} alt="Claude Code" style={{ display: "block", width: "437px", height: "auto" }} />
+                <img
+                  src={asset("/assets/home/claude-code-logo-white.png")}
+                  alt="Claude Code"
+                  style={{ display: "block", width: "min(490px,100%)", height: "auto", marginLeft: "-5px" }}
+                />
                 {" "}
-                <p style={{ margin: "29px 0 0", fontSize: "14px", lineHeight: "18px", fontWeight: "600", color: "#ffffff" }}>
+                <p style={{ margin: "18px 0 0", fontSize: "20px", lineHeight: "24px", fontWeight: "600", color: "#ffffff" }}>
                   Tools and Prototypes I build with Claude Code
                 </p>
                 {" "}
-                <div style={{ marginTop: "67px", display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "19px" }}>
+                <div style={{ marginTop: "65px", display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: "24px" }}>
                   {" "}
                   <a
                     href={href("/work/akhbar-bash/")}
                     aria-label="Akhbar Bash — case study"
-                    data-shimmer=""
-                    style={{ position: "relative", display: "block", height: "290px", borderRadius: "8px", overflow: "hidden" }}
+                    style={{ display: "flex", flexDirection: "column", background: "#ffffff", borderRadius: "20px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", transition: "transform .25s ease" }}
+                    className="home-hover-2"
                   >
                     <img
-                      src={asset("/assets/home/claude-1.jpg")}
-                      alt="Hands playing a game on a phone"
-                      style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      src={asset("/assets/home/claude-akhbar.png")}
+                      alt="Akhbar Bash pixel game screenshot"
+                      style={{ display: "block", width: "100%", aspectRatio: "505 / 256", height: "auto", objectFit: "cover" }}
                     />
-                    <span
-                      data-shine=""
-                      aria-hidden="true"
-                      style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
-                    />
-                    <span
-                      data-hover-label=""
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "0", transform: "translateY(6px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
-                    >
-                      VIEW PROJECT{" "}
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    <span style={{ display: "flex", alignItems: "center", gap: "20px", minHeight: "100px", boxSizing: "border-box", padding: "12px 15px 12px 20px" }}>
+                      <img src={asset("/assets/home/claude-icon.png")} alt="" aria-hidden="true" style={{ display: "block", flex: "none", width: "60px", height: "60px" }} />
+                      <span style={{ display: "flex", flexDirection: "column", gap: "2px", flex: "1", minWidth: "0" }}>
+                        <span style={{ fontSize: "20px", lineHeight: "1.25", fontWeight: "600", color: "#1c1c1c" }}>
+                          Akhbar Bash: Game
+                        </span>
+                        <span style={{ fontSize: "16px", lineHeight: "1.3", fontWeight: "500", color: "#a3a3a3" }}>
+                          Edited 6 days ago
+                        </span>
+                      </span>
+                      <span
                         aria-hidden="true"
+                        style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: "none", width: "62px", height: "62px", borderRadius: "50%", background: "#51ac65", color: "#ffffff", fontSize: "24px", fontWeight: "500" }}
                       >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
+                        SK
+                      </span>
                     </span>
                   </a>
                   {" "}
                   <a
                     href={href("/work/jugnu/")}
                     aria-label="Jugnu — case study"
-                    data-shimmer=""
-                    style={{ position: "relative", display: "block", height: "290px", borderRadius: "8px", overflow: "hidden" }}
+                    style={{ display: "flex", flexDirection: "column", background: "#ffffff", borderRadius: "20px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", transition: "transform .25s ease" }}
+                    className="home-hover-2"
                   >
                     <img
-                      src={asset("/assets/home/claude-2.jpg")}
-                      alt="Toy robot in front of an orange light"
-                      style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                      src={asset("/assets/home/claude-jugnu.png")}
+                      alt="Jugnu bot floating above a base"
+                      style={{ display: "block", width: "100%", aspectRatio: "505 / 256", height: "auto", objectFit: "cover" }}
                     />
-                    <span
-                      data-shine=""
-                      aria-hidden="true"
-                      style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
-                    />
-                    <span
-                      data-hover-label=""
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "0", transform: "translateY(6px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
-                    >
-                      VIEW PROJECT{" "}
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    <span style={{ display: "flex", alignItems: "center", gap: "20px", minHeight: "100px", boxSizing: "border-box", padding: "12px 15px 12px 20px" }}>
+                      <img src={asset("/assets/home/claude-icon.png")} alt="" aria-hidden="true" style={{ display: "block", flex: "none", width: "60px", height: "60px" }} />
+                      <span style={{ display: "flex", flexDirection: "column", gap: "2px", flex: "1", minWidth: "0" }}>
+                        <span style={{ fontSize: "20px", lineHeight: "1.25", fontWeight: "600", color: "#1c1c1c" }}>
+                          Jugnu: Bot
+                        </span>
+                        <span style={{ fontSize: "16px", lineHeight: "1.3", fontWeight: "500", color: "#a3a3a3" }}>
+                          Edited 10 days ago
+                        </span>
+                      </span>
+                      <span
                         aria-hidden="true"
+                        style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: "none", width: "62px", height: "62px", borderRadius: "50%", background: "#51ac65", color: "#ffffff", fontSize: "24px", fontWeight: "500" }}
                       >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
+                        SK
+                      </span>
                     </span>
                   </a>
                   {" "}
@@ -883,125 +1161,48 @@ export default function HomeView({ v }: { v: any }) {
                 {" "}
               </div>
               {" "}
-            </section>
-            {" "}
-            <section
-              id="contact"
-              style={{ maxWidth: "1440px", margin: "0 auto", padding: "244px 0 224px", display: "flex", flexDirection: "column", alignItems: "center" }}
-            >
-              {" "}
-              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "23px 47px" }}>
-                {" "}
-                <h2 style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
-                  Let’s Talk
-                </h2>
-                {" "}
+              <a
+                data-shimmer=""
+                data-lmbtn=""
+                href={asset("/assets/Shiva_Kumar_Resume.pdf")}
+                download=""
+                style={{ position: "relative", overflow: "hidden", marginTop: "64px", display: "flex", padding: "2px", boxSizing: "border-box", height: "45px", borderRadius: "999px", background: "#bdbdbd", textDecoration: "none", boxShadow: "0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" }}
+                className="home-hover-0"
+              >
                 <span
-                  style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
+                  data-lm=""
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "50%", top: "50%", width: "300px", height: "300px", margin: "-150px 0 0 -150px", background: "conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff)", filter: "blur(3px)", pointerEvents: "none" }}
                 />
-                {" "}
                 <span
-                  style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-                <span
-                  style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-                <span
-                  style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-              </div>
-              {" "}
-              <div style={{ width: "calc(100% - 64px)", maxWidth: "1040px", marginTop: "102px", display: "grid", gridTemplateColumns: "minmax(0,530fr) minmax(0,510fr)" }}>
-                {" "}
-                <div style={{ padding: "256px 0 0 88px" }}>
-                  {" "}
-                  <div aria-hidden="true" style={{ width: "333px", height: "333px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}>
-                    {" "}
-                    <span style={{ background: "#f7d158", borderBottomLeftRadius: "100%" }} />
-                    {" "}
-                    <span style={{ background: "#f7d158", borderTopLeftRadius: "100%" }} />
-                    {" "}
-                    <span style={{ background: "#f7d158", borderBottomRightRadius: "100%" }} />
-                    {" "}
-                    <span style={{ background: "#f7d158", borderTopRightRadius: "100%" }} />
-                    {" "}
-                  </div>
-                  {" "}
-                </div>
-                {" "}
-                <div>
-                  {" "}
-                  <p style={{ margin: "0", fontSize: "20px", lineHeight: "27px", fontWeight: "500", color: "#f5f5f5" }}>
-                    I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
-                  </p>
-                  {" "}
-                  <form
-                    onSubmit={v.onSubmit}
-                    noValidate
-                    style={{ marginTop: "36px", background: "#51ac65", borderRadius: "8px", padding: "34px 32px 32px", display: "flex", flexDirection: "column" }}
+                  style={{ position: "relative", overflow: "hidden", flex: "1", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", padding: "0 20px", borderRadius: "999px", background: "linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%)", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", boxShadow: "inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)" }}
+                >
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                  />
+                  <span style={{ position: "relative" }}>
+                    DOWNLOAD RESUME
+                  </span>
+                  <svg
+                    style={{ position: "relative" }}
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
                   >
-                    {" "}
-                    <label htmlFor="cf-name-d" style={{ fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                      YOUR NAME
-                    </label>
-                    {" "}
-                    <input
-                      id="cf-name-d"
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                      className="home-focus-1"
-                    />
-                    {" "}
-                    <label htmlFor="cf-email-d" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                      YOUR EMAIL
-                    </label>
-                    {" "}
-                    <input
-                      id="cf-email-d"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      style={{ marginTop: "13px", height: "50px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                      className="home-focus-1"
-                    />
-                    {" "}
-                    <label htmlFor="cf-msg-d" style={{ marginTop: "27px", fontSize: "10px", lineHeight: "12px", fontWeight: "600", letterSpacing: "0.12em", color: "#ffffff" }}>
-                      IDEAS/PROJECTS DESCRIPTION
-                    </label>
-                    {" "}
-                    <textarea
-                      id="cf-msg-d"
-                      name="message"
-                      style={{ marginTop: "13px", height: "197px", padding: "12px 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", lineHeight: "1.4", resize: "none", outline: "none" }}
-                      className="home-focus-1"
-                    />
-                    {" "}
-                    <button
-                      type="submit"
-                      style={{ marginTop: "42px", height: "45px", border: "0", borderRadius: "4px", background: "#ffffff", color: "#1c1c1c", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
-                      className="home-hover-2"
-                    >
-                      SUBMIT
-                    </button>
-                    {" "}
-                    {v.hasNote ? (
-                      <>
-                      <p style={{ margin: "14px 0 0", fontSize: "13px", lineHeight: "18px", color: "#ffffff" }}>
-                        {v.cfNote}
-                      </p>
-                      </>
-                    ) : null}
-                    {" "}
-                  </form>
-                  {" "}
-                </div>
-                {" "}
-              </div>
+                    <path d="M12 15V3" />
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="m7 10 5 5 5-5" />
+                  </svg>
+                </span>
+              </a>
               {" "}
             </section>
           </div>
@@ -1009,7 +1210,10 @@ export default function HomeView({ v }: { v: any }) {
         ) : null}
         {v.isMob ? (
           <>
-          <div data-view="mobile" style={{ position: "relative" }}>
+          <div
+            data-view="mobile"
+            style={{ position: "relative", zIndex: "2", background: "#1c1c1c", borderRadius: "0 0 clamp(24px,3vw,48px) clamp(24px,3vw,48px)", boxShadow: "0 30px 60px rgba(0,0,0,.35)" }}
+          >
             {" "}
             {v.showRuler ? (
               <>
@@ -1033,6 +1237,94 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
               </>
             ) : null}
+            {" "}
+            <div
+              data-notice=""
+              role="status"
+              aria-label="The website is updated weekly every Sunday"
+              style={{ position: "relative", zIndex: "5", overflow: "hidden", background: "#51ac65", color: "#ffffff", borderBottom: "2px solid #1c1c1c" }}
+            >
+              {" "}
+              <div
+                data-notice-track=""
+                aria-hidden="true"
+                style={{ display: "flex", width: "max-content", alignItems: "center", minHeight: "38px", fontSize: "13px", lineHeight: "1.35", fontWeight: "600", whiteSpace: "nowrap" }}
+              >
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "20px", paddingRight: "20px", flex: "none" }}>
+                  <span>
+                    The website is updated weekly every Sunday
+                  </span>
+                  <span aria-hidden="true" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff" }} />
+                </span>
+              </div>
+              {" "}
+            </div>
             {" "}
             <section id="top" style={{ position: "relative", paddingTop: "86px", display: "flex", flexDirection: "column", alignItems: "center" }}>
               {" "}
@@ -1308,7 +1600,267 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
             </section>
             {" "}
-            <section id="work" style={{ paddingTop: "167px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <section
+              id="tools"
+              aria-label="Tools I use"
+              style={{ position: "relative", paddingTop: "140px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            >
+              {" "}
+              <span
+                style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "16px", lineHeight: "20px", fontWeight: "500", padding: "3px 10px", transform: "rotate(-3deg)" }}
+              >
+                tools I use
+              </span>
+              {" "}
+              <div data-vc="mob" style={{ alignSelf: "stretch", marginTop: "36px", overflow: "hidden", touchAction: "pan-y" }}>
+                {" "}
+                <div data-vc-track="" style={{ display: "flex", gap: "12px", width: "max-content", paddingRight: "12px", willChange: "transform" }}>
+                  {" "}
+                  <div title="Figma" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/figma-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/figma.png")}
+                      alt="Figma"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Lottie" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/lottie-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/lottie.png")}
+                      alt="Lottie"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Higgsfield" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/higgsfield-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/higgsfield.png")}
+                      alt="Higgsfield"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Spline" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/spline-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/spline.png")}
+                      alt="Spline"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Claude" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/claude-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/claude.png")}
+                      alt="Claude"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Notion" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/notion-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/notion.png")}
+                      alt="Notion"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Jira" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/jira-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/jira.png")}
+                      alt="Jira"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Figma" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/figma-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/figma.png")}
+                      alt="Figma"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Lottie" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/lottie-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/lottie.png")}
+                      alt="Lottie"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Higgsfield" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/higgsfield-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/higgsfield.png")}
+                      alt="Higgsfield"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Spline" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/spline-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/spline.png")}
+                      alt="Spline"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Claude" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/claude-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/claude.png")}
+                      alt="Claude"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Notion" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/notion-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/notion.png")}
+                      alt="Notion"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                  <div title="Jira" style={{ position: "relative", flex: "none", width: "140px", height: "140px" }}>
+                    <img
+                      src={asset("/assets/tools/jira-blur.png")}
+                      alt=""
+                      aria-hidden="true"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block" }}
+                    />
+                    <img
+                      data-vc-sharp=""
+                      src={asset("/assets/tools/jira.png")}
+                      alt="Jira"
+                      draggable="false"
+                      style={{ position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", transition: "opacity .35s ease" }}
+                    />
+                  </div>
+                  {" "}
+                </div>
+                {" "}
+              </div>
+              {" "}
+            </section>
+            {" "}
+            <section id="work" style={{ paddingTop: "140px", display: "flex", flexDirection: "column", alignItems: "center" }}>
               {" "}
               <span
                 style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "16px", lineHeight: "20px", fontWeight: "500", padding: "3px 10px", transform: "rotate(5deg)" }}
@@ -1596,134 +2148,77 @@ export default function HomeView({ v }: { v: any }) {
               {" "}
             </section>
             {" "}
-            <section id="claude" style={{ position: "relative", marginTop: "161px", background: "#d97757", padding: "47px 20px 42px" }}>
+            <section id="claude" style={{ position: "relative", marginTop: "161px", padding: "47px 20px 42px" }}>
               {" "}
-              <div
-                data-mascot=""
-                aria-label="Claude mascot waving hello"
-                role="img"
-                style={{ position: "absolute", bottom: "100%", right: "28px", zIndex: "2", flex: "none", width: "96px", paddingTop: "34px" }}
-              >
-                {" "}
-                <div
-                  data-bubble=""
-                  style={{ position: "absolute", top: "0", left: "60px", background: "#ffffff", color: "#1c1c1c", border: "2px solid #1c1c1c", padding: "4px 8px", fontSize: "12px", lineHeight: "1.2", fontWeight: "700", whiteSpace: "nowrap", transformOrigin: "0% 100%", boxShadow: "3px 3px 0 #1c1c1c" }}
-                >
-                  Hello!
-                  <span
-                    style={{ position: "absolute", left: "8px", bottom: "-8px", width: "8px", height: "8px", background: "#ffffff", borderLeft: "2px solid #1c1c1c", borderBottom: "2px solid #1c1c1c", boxSizing: "content-box", transform: "translateY(-3px) skewY(-45deg)" }}
-                  />
-                </div>
-                {" "}
-                <svg data-bob="" viewBox="0 0 18 11" width="96" height="59" shapeRendering="crispEdges" style={{ display: "block", overflow: "visible" }}>
-                  {" "}
-                  <rect x="2" y="0" width="12" height="8" fill="#c15f3c" />
-                  {" "}
-                  <rect x="0" y="3" width="2" height="2" fill="#c15f3c" />
-                  {" "}
-                  <g data-wave="" style={{ transformBox: "fill-box", transformOrigin: "0% 50%" }}>
-                    <rect x="14" y="3" width="2.4" height="2" fill="#c15f3c" />
-                  </g>
-                  {" "}
-                  <rect x="5" y="2" width="1" height="2" fill="#1c1c1c" />
-                  {" "}
-                  <rect x="10" y="2" width="1" height="2" fill="#1c1c1c" />
-                  {" "}
-                  <rect x="3" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="5" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="10" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                  <rect x="12" y="8" width="1" height="3" fill="#c15f3c" />
-                  {" "}
-                </svg>
-                {" "}
-              </div>
+              <img
+                src={asset("/assets/home/claude-code-logo-white.png")}
+                alt="Claude Code"
+                style={{ display: "block", width: "213px", height: "auto", marginLeft: "-2px" }}
+              />
               {" "}
-              <img src={asset("/assets/home/claude-code-logo.png")} alt="Claude Code" style={{ display: "block", width: "205px", height: "auto" }} />
-              {" "}
-              <p style={{ margin: "25px 0 0", fontSize: "13px", lineHeight: "18px", fontWeight: "600", color: "#ffffff" }}>
+              <p style={{ margin: "20px 0 0", fontSize: "14px", lineHeight: "18px", fontWeight: "600", color: "#ffffff" }}>
                 Tools and Prototypes I build with Claude Code
               </p>
               {" "}
-              <div style={{ marginTop: "39px", display: "flex", flexDirection: "column", gap: "32px" }}>
+              <div style={{ marginTop: "40px", display: "flex", flexDirection: "column", gap: "32px" }}>
                 {" "}
                 <a
                   href={href("/work/akhbar-bash/")}
                   aria-label="Akhbar Bash — case study"
-                  data-shimmer=""
-                  style={{ position: "relative", display: "block", height: "298px", borderRadius: "8px", overflow: "hidden" }}
+                  style={{ display: "flex", flexDirection: "column", background: "#ffffff", borderRadius: "20px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", transition: "transform .25s ease" }}
+                  className="home-hover-2"
                 >
                   <img
-                    src={asset("/assets/home/claude-1.jpg")}
-                    alt="Hands playing a game on a phone"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    src={asset("/assets/home/claude-akhbar.png")}
+                    alt="Akhbar Bash pixel game screenshot"
+                    style={{ display: "block", width: "100%", aspectRatio: "366 / 186", height: "auto", objectFit: "cover" }}
                   />
-                  <span
-                    data-shine=""
-                    aria-hidden="true"
-                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
-                  />
-                  <span
-                    data-hover-label=""
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "1", transform: "translateY(0px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
-                  >
-                    VIEW PROJECT{" "}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  <span style={{ display: "flex", alignItems: "center", gap: "20px", minHeight: "88px", boxSizing: "border-box", padding: "12px 21px 12px 20px" }}>
+                    <img src={asset("/assets/home/claude-icon.png")} alt="" aria-hidden="true" style={{ display: "block", flex: "none", width: "40px", height: "40px" }} />
+                    <span style={{ display: "flex", flexDirection: "column", gap: "2px", flex: "1", minWidth: "0" }}>
+                      <span style={{ fontSize: "17px", lineHeight: "1.25", fontWeight: "600", color: "#1c1c1c" }}>
+                        Akhbar Bash
+                      </span>
+                      <span style={{ fontSize: "14px", lineHeight: "1.3", fontWeight: "500", color: "#a3a3a3" }}>
+                        Edited 7 days ago
+                      </span>
+                    </span>
+                    <span
                       aria-hidden="true"
+                      style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: "none", width: "50px", height: "50px", borderRadius: "50%", background: "#51ac65", color: "#ffffff", fontSize: "20px", fontWeight: "500" }}
                     >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
+                      SK
+                    </span>
                   </span>
                 </a>
                 {" "}
                 <a
                   href={href("/work/jugnu/")}
                   aria-label="Jugnu — case study"
-                  data-shimmer=""
-                  style={{ position: "relative", display: "block", height: "298px", borderRadius: "8px", overflow: "hidden" }}
+                  style={{ display: "flex", flexDirection: "column", background: "#ffffff", borderRadius: "20px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", transition: "transform .25s ease" }}
+                  className="home-hover-2"
                 >
                   <img
-                    src={asset("/assets/home/claude-2.jpg")}
-                    alt="Toy robot in front of an orange light"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    src={asset("/assets/home/claude-jugnu.png")}
+                    alt="Jugnu bot floating above a base"
+                    style={{ display: "block", width: "100%", aspectRatio: "366 / 186", height: "auto", objectFit: "cover" }}
                   />
-                  <span
-                    data-shine=""
-                    aria-hidden="true"
-                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
-                  />
-                  <span
-                    data-hover-label=""
-                    aria-hidden="true"
-                    style={{ position: "absolute", left: "16px", bottom: "16px", display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", opacity: "1", transform: "translateY(0px)", transition: "opacity .25s ease,transform .25s ease", pointerEvents: "none" }}
-                  >
-                    VIEW PROJECT{" "}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  <span style={{ display: "flex", alignItems: "center", gap: "20px", minHeight: "88px", boxSizing: "border-box", padding: "12px 21px 12px 20px" }}>
+                    <img src={asset("/assets/home/claude-icon.png")} alt="" aria-hidden="true" style={{ display: "block", flex: "none", width: "40px", height: "40px" }} />
+                    <span style={{ display: "flex", flexDirection: "column", gap: "2px", flex: "1", minWidth: "0" }}>
+                      <span style={{ fontSize: "17px", lineHeight: "1.25", fontWeight: "600", color: "#1c1c1c" }}>
+                        Jugnu: Bot
+                      </span>
+                      <span style={{ fontSize: "14px", lineHeight: "1.3", fontWeight: "500", color: "#a3a3a3" }}>
+                        Edited 7 days ago
+                      </span>
+                    </span>
+                    <span
                       aria-hidden="true"
+                      style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: "none", width: "50px", height: "50px", borderRadius: "50%", background: "#51ac65", color: "#ffffff", fontSize: "20px", fontWeight: "500" }}
                     >
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
+                      SK
+                    </span>
                   </span>
                 </a>
                 {" "}
@@ -1862,141 +2357,261 @@ export default function HomeView({ v }: { v: any }) {
               </div>
               {" "}
               <a
+                data-shimmer=""
+                data-lmbtn=""
                 href={asset("/assets/Shiva_Kumar_Resume.pdf")}
                 download=""
-                style={{ marginTop: "27px", width: "225px", height: "47px", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", boxSizing: "border-box", background: "#ffffff", color: "#1c1c1c", borderRadius: "4px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none" }}
+                style={{ position: "relative", overflow: "hidden", marginTop: "27px", display: "flex", padding: "2px", boxSizing: "border-box", height: "45px", borderRadius: "999px", background: "#bdbdbd", textDecoration: "none", boxShadow: "0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(255,255,255,0.08)" }}
+                className="home-hover-0"
               >
-                DOWNLOAD RESUME{" "}
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <span
+                  data-lm=""
                   aria-hidden="true"
+                  style={{ position: "absolute", left: "50%", top: "50%", width: "300px", height: "300px", margin: "-150px 0 0 -150px", background: "conic-gradient(from 0deg,#ffffff,#7d7d82,#f4f4f6,#4a4a4f,#e2e2e6,#9b9ba0,#ffffff,#6a6a70,#ffffff)", filter: "blur(3px)", pointerEvents: "none" }}
+                />
+                <span
+                  style={{ position: "relative", overflow: "hidden", flex: "1", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", padding: "0 20px", borderRadius: "999px", background: "linear-gradient(180deg,#ffffff 0%,#f1f1f3 55%,#dedee2 100%)", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", boxShadow: "inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 2px rgba(0,0,0,0.18)" }}
                 >
-                  <path d="M12 15V3" />
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <path d="m7 10 5 5 5-5" />
-                </svg>
-                {" "}
+                  <span
+                    data-shine=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", top: "0", bottom: "0", left: "0", width: "60%", background: "linear-gradient(100deg,transparent 0%,rgba(99,196,236,0) 20%,rgba(99,196,236,0.55) 50%,rgba(99,196,236,0) 80%,transparent 100%)", transform: "translateX(-120%) skewX(-18deg)", pointerEvents: "none" }}
+                  />
+                  <span style={{ position: "relative" }}>
+                    DOWNLOAD RESUME
+                  </span>
+                  <svg
+                    style={{ position: "relative" }}
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 15V3" />
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <path d="m7 10 5 5 5-5" />
+                  </svg>
+                </span>
               </a>
-              {" "}
-            </section>
-            {" "}
-            <section id="contact" style={{ padding: "162px 20px 89px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              {" "}
-              <div style={{ position: "relative", border: "2px solid #63c4ec", padding: "21px 18px" }}>
-                {" "}
-                <h2 style={{ margin: "0", fontSize: "42px", lineHeight: "49px", fontWeight: "600", color: "#f5f5f5", whiteSpace: "nowrap" }}>
-                  Lets Talk
-                </h2>
-                {" "}
-                <span
-                  style={{ position: "absolute", left: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-                <span
-                  style={{ position: "absolute", right: "-8px", top: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-                <span
-                  style={{ position: "absolute", left: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-                <span
-                  style={{ position: "absolute", right: "-8px", bottom: "-8px", width: "14px", height: "14px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c" }}
-                />
-                {" "}
-              </div>
-              {" "}
-              <div
-                aria-hidden="true"
-                style={{ marginTop: "31px", width: "111px", height: "111px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}
-              >
-                {" "}
-                <span style={{ background: "#f7d158", borderBottomLeftRadius: "100%" }} />
-                {" "}
-                <span style={{ background: "#f7d158", borderTopLeftRadius: "100%" }} />
-                {" "}
-                <span style={{ background: "#f7d158", borderBottomRightRadius: "100%" }} />
-                {" "}
-                <span style={{ background: "#f7d158", borderTopRightRadius: "100%" }} />
-                {" "}
-              </div>
-              {" "}
-              <p style={{ alignSelf: "stretch", margin: "41px 0 0", fontSize: "15px", lineHeight: "19.5px", fontWeight: "500", color: "#f5f5f5" }}>
-                I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
-              </p>
-              {" "}
-              <form
-                onSubmit={v.onSubmit}
-                noValidate
-                style={{ alignSelf: "stretch", marginTop: "24px", background: "#51ac65", borderRadius: "8px", padding: "30px 20px 27px", display: "flex", flexDirection: "column" }}
-              >
-                {" "}
-                <label htmlFor="cf-name-m" style={{ fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
-                  YOUR NAME
-                </label>
-                {" "}
-                <input
-                  id="cf-name-m"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  style={{ marginTop: "12px", height: "49px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                  className="home-focus-1"
-                />
-                {" "}
-                <label htmlFor="cf-email-m" style={{ marginTop: "28px", fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
-                  YOUR EMAIL
-                </label>
-                {" "}
-                <input
-                  id="cf-email-m"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  style={{ marginTop: "12px", height: "49px", padding: "0 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", outline: "none" }}
-                  className="home-focus-1"
-                />
-                {" "}
-                <label htmlFor="cf-msg-m" style={{ marginTop: "28px", fontSize: "11px", lineHeight: "13px", fontWeight: "600", letterSpacing: "0.15em", color: "#ffffff" }}>
-                  IDEAS/PROJECTS DESCRIPTION
-                </label>
-                {" "}
-                <textarea
-                  id="cf-msg-m"
-                  name="message"
-                  style={{ marginTop: "12px", height: "198px", padding: "12px 14px", boxSizing: "border-box", background: "#428c52", border: "1px solid #66c77a", borderRadius: "6px", color: "#ffffff", fontSize: "16px", lineHeight: "1.4", resize: "none", outline: "none" }}
-                  className="home-focus-1"
-                />
-                {" "}
-                <button
-                  type="submit"
-                  style={{ marginTop: "41px", height: "45px", border: "0", borderRadius: "4px", background: "#ffffff", color: "#1c1c1c", fontSize: "13px", fontWeight: "700", letterSpacing: "0.1em", cursor: "pointer" }}
-                  className="home-hover-2"
-                >
-                  SUBMIT
-                </button>
-                {" "}
-                {v.hasNote ? (
-                  <>
-                  <p style={{ margin: "14px 0 0", fontSize: "13px", lineHeight: "18px", color: "#ffffff" }}>
-                    {v.cfNote}
-                  </p>
-                  </>
-                ) : null}
-                {" "}
-              </form>
               {" "}
             </section>
           </div>
           </>
         ) : null}
+        <footer
+          id="contact"
+          ref={v.ftRef}
+          data-ft=""
+          data-screen-label="Contact"
+          style={{ position: "relative", zIndex: "1", background: "#63c4ec", color: "#1c1c1c", overflow: "hidden" }}
+        >
+          {" "}
+          <div
+            style={{ maxWidth: "1600px", margin: "0 auto", padding: "clamp(72px,9vw,140px) clamp(20px,3vw,40px) 20px", display: "flex", flexDirection: "column", gap: "clamp(40px,5vw,72px)" }}
+          >
+            {" "}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))", gap: "32px clamp(24px,3vw,48px)", alignItems: "end" }}>
+              {" "}
+              <h2
+                data-ft-reveal=""
+                style={{ margin: "0", fontWeight: "600", fontSize: "clamp(64px,9vw,168px)", lineHeight: ".9", letterSpacing: "-.05em", color: "#1c1c1c" }}
+              >
+                Let’s{" "}
+                <em style={{ fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: "400", letterSpacing: "-.02em" }}>
+                  talk
+                </em>
+              </h2>
+              {" "}
+              <div data-ft-reveal="" data-delay="120" style={{ display: "flex", flexDirection: "column", gap: "24px", alignItems: "flex-start" }}>
+                {" "}
+                <p style={{ margin: "0", fontSize: "clamp(16px,1.4vw,19px)", lineHeight: "1.45", fontWeight: "500", maxWidth: "38ch", color: "#1c1c1c" }}>
+                  I'm most energized by projects where I can dig into complex problems, collaborate with smart people, and ship things that genuinely improve someone's day.
+                </p>
+                {" "}
+                <a
+                  href="mailto:kumarshiva1990@gmail.com"
+                  data-ft-roll=""
+                  style={{ display: "flex", alignItems: "center", gap: "14px", height: "64px", padding: "0 8px 0 28px", borderRadius: "999px", background: "#1c1c1c", color: "#f5f5f5", textDecoration: "none", fontWeight: "600", fontSize: "18px" }}
+                  className="home-hover-3"
+                >
+                  {" "}
+                  <span style={{ height: "64px", overflow: "hidden" }}>
+                    <span data-ft-roll-in="" style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ height: "64px", display: "flex", alignItems: "center" }}>
+                        Contact
+                      </span>
+                      <span style={{ height: "64px", display: "flex", alignItems: "center", color: "#63c4ec" }}>
+                        Contact
+                      </span>
+                    </span>
+                  </span>
+                  {" "}
+                  <span
+                    style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#63c4ec", color: "#1c1c1c", display: "flex", alignItems: "center", justifyContent: "center" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
+                      <path d="M7 7h10v10" />
+                      <path d="M7 17 17 7" />
+                    </svg>
+                  </span>
+                  {" "}
+                </a>
+                {" "}
+              </div>
+              {" "}
+            </div>
+            {" "}
+            <div
+              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(50% - 12px,200px),1fr))", gap: "32px 24px", paddingTop: "28px", borderTop: "1px solid rgba(28,28,28,.22)" }}
+            >
+              {" "}
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                {" "}
+                <span style={{ fontFamily: "Montserrat", fontStyle: "normal", fontWeight: "500", fontSize: "14px", opacity: ".7", marginBottom: "6px" }}>
+                  Menu
+                </span>
+                {" "}
+                {((v.ftLinks ?? []) as any[]).map((l: any, i0: number) => (
+                  <Fragment key={i0}>
+                    {" "}
+                    <a
+                      href={l?.href}
+                      data-ft-roll=""
+                      style={{ display: "block", height: "28px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", fontSize: "17px", fontWeight: "500" }}
+                      className="home-hover-4"
+                    >
+                      {" "}
+                      <span data-ft-roll-in="" style={{ display: "flex", flexDirection: "column" }}>
+                        <span style={{ height: "28px", lineHeight: "28px" }}>
+                          {l?.label}
+                        </span>
+                        <span style={{ height: "28px", lineHeight: "28px", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: "400", fontSize: "19px" }}>
+                          {l?.label}
+                        </span>
+                      </span>
+                      {" "}
+                    </a>
+                    {" "}
+                  </Fragment>
+                ))}
+                {" "}
+              </div>
+              {" "}
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                {" "}
+                <span style={{ fontFamily: "Montserrat", fontStyle: "normal", fontWeight: "500", fontSize: "14px", opacity: ".7", marginBottom: "6px" }}>
+                  Socials
+                </span>
+                {" "}
+                {((v.ftSocials ?? []) as any[]).map((so: any, i0: number) => (
+                  <Fragment key={i0}>
+                    {" "}
+                    <a
+                      href={so?.href}
+                      target="_blank"
+                      rel="noopener"
+                      data-ft-roll=""
+                      style={{ display: "flex", alignItems: "center", gap: "6px", height: "28px", overflow: "hidden", color: "#1c1c1c", textDecoration: "none", fontSize: "17px", fontWeight: "500" }}
+                      className="home-hover-4"
+                    >
+                      {" "}
+                      <span style={{ height: "28px", overflow: "hidden" }}>
+                        <span data-ft-roll-in="" style={{ display: "flex", flexDirection: "column" }}>
+                          <span style={{ height: "28px", lineHeight: "28px" }}>
+                            {so?.label}
+                          </span>
+                          <span style={{ height: "28px", lineHeight: "28px", fontFamily: "'Instrument Serif',serif", fontStyle: "italic", fontWeight: "400", fontSize: "19px" }}>
+                            {so?.label}
+                          </span>
+                        </span>
+                      </span>
+                      {" "}
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
+                        <path d="M7 7h10v10" />
+                        <path d="M7 17 17 7" />
+                      </svg>
+                      {" "}
+                    </a>
+                    {" "}
+                  </Fragment>
+                ))}
+                {" "}
+              </div>
+              {" "}
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                {" "}
+                <span style={{ fontFamily: "Montserrat", fontStyle: "normal", fontWeight: "500", fontSize: "14px", opacity: ".7", marginBottom: "6px" }}>
+                  Contact
+                </span>
+                {" "}
+                <a
+                  href="mailto:kumarshiva1990@gmail.com"
+                  style={{ color: "#1c1c1c", fontSize: "15px", fontWeight: "500", textDecoration: "underline", textUnderlineOffset: "4px", overflowWrap: "anywhere" }}
+                  className="home-hover-5"
+                >
+                  kumarshiva1990@gmail.com
+                </a>
+                {" "}
+                <span style={{ fontSize: "17px", fontWeight: "500" }}>
+                  Gurugram, India
+                </span>
+                {" "}
+              </div>
+              {" "}
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                {" "}
+              </div>
+              {" "}
+            </div>
+            {" "}
+            <div
+              aria-hidden="true"
+              style={{ display: "flex", justifyContent: "space-between", fontSize: "clamp(32px,10.4vw,170px)", fontWeight: "700", letterSpacing: "-.04em", lineHeight: ".85", whiteSpace: "nowrap", overflow: "hidden", paddingBottom: ".04em", color: "#1c1c1c" }}
+            >
+              {" "}
+              {((v.wordmark ?? []) as any[]).map((ch: any, i0: number) => (
+                <Fragment key={i0}>
+                  <span style={{ display: "block", overflow: "hidden" }}>
+                    <span data-ft-reveal="line" data-delay={ch?.d} style={{ display: "block" }}>
+                      {ch?.c}
+                    </span>
+                  </span>
+                </Fragment>
+              ))}
+              {" "}
+            </div>
+            {" "}
+            <div
+              style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "16px", paddingTop: "20px", borderTop: "1px solid rgba(28,28,28,.22)", fontSize: "14px", fontWeight: "500" }}
+            >
+              {" "}
+              <span>
+                ©2026 Shiva Kumar. All rights reserved
+              </span>
+              {" "}
+              <button
+                onClick={v.toTop}
+                aria-label="Back to top"
+                style={{ width: "56px", height: "56px", borderRadius: "50%", border: "none", background: "#1c1c1c", color: "#63c4ec", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: "0" }}
+                className="home-hover-6"
+              >
+                {" "}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
+                  <path d="M12 19V5" />
+                  <path d="m5 12 7-7 7 7" />
+                </svg>
+                {" "}
+              </button>
+              {" "}
+            </div>
+            {" "}
+          </div>
+        </footer>
         {v.showDock ? (
           <>
           {" "}

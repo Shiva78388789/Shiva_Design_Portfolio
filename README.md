@@ -41,10 +41,9 @@ npm start        # serve out/
 
 ## Content still to add
 
-- **Jugnu imagery:** the case study expects images in `public/assets/jugnu/` (the file
-  names are in `src/views/JugnuView.tsx`); until they're added each shows a placeholder frame.
-- **Project imagery:** the five Engage X UI screens were empty image slots in the design. Add the files to `public/assets/` and map each slot id
-  in `src/content/image-slots.ts`; until then they show a placeholder frame.
+- **About photos (mobile home):** the two tilted photo frames in the mobile "what's up"
+  section are image slots `home-about-1` and `home-about-2`; map them in
+  `src/content/image-slots.ts`.
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in
   `public/assets/toffee/` if originals exist.
 

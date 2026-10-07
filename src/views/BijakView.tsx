@@ -3,14 +3,16 @@
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
 import DockNav from '@/components/DockNav';
+import SiteRuler from '@/components/SiteRuler';
 import * as Bijak from '@/components/bijak';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function BijakView({ v }: { v: any }) {
   return (
     <>
+      <SiteRuler />
       <div
-        style={{ backgroundColor: "#1C1C1C", backgroundImage: "radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px)", backgroundSize: "28px 28px", backgroundPosition: "-14px -14px", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
+        style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
         {" "}
         <header

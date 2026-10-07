@@ -73,8 +73,3 @@ html{scroll-behavior:smooth}
 @media (hover:none){[data-rail-btns]{display:none!important}}
 /* style-hover / style-focus / style-active rules */
 .akhbar-hover-0:hover{color:#63c4ec !important}
-.akhbar-hover-1:hover{background:rgba(99,196,236,0.12) !important}
-.akhbar-hover-2:hover{background:#8ad3f1 !important}
-.akhbar-hover-3:hover{color:#9ad8f2 !important}
-.akhbar-focus-4:focus{border-color:#ffffff !important}
-.akhbar-hover-5:hover{background:#ecf7ee !important}

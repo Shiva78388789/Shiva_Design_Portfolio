@@ -10,8 +10,8 @@
 <helmet>
 <link rel="stylesheet" href="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/styles.css">
 <script src="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/_ds_bundle.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -43,22 +43,20 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
 }
 </style>
 </helmet>
+<x-import component-from-global-scope="site-ruler" from="./site-ruler.js" hint-size="100%,24px"></x-import>
 
-<div style="background-color:#1C1C1C;background-image:radial-gradient(circle, rgba(243,242,242,0.18) 1.3px, transparent 1.3px);background-size:28px 28px;background-position:-14px -14px;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
+
+<div style="background-color:#1C1C1C;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
 
   <header style="max-width:1272px;margin:0 auto;padding:clamp(64px,9vw,120px) 20px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:40px">
     <div style="flex:0 1 auto;min-width:0">
-      <div data-hero="kicker" style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#EC5A5A">Toffee Insurance · 2019</div>
+      
       <h1 aria-label="Toffee Seller App" style="margin:14px 0 0;font-size:clamp(44px,8vw,96px);line-height:1.02;font-weight:700;display:flex;flex-wrap:wrap;column-gap:0.28em">
         <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">T</span><span data-char="1" style="display:inline-block">o</span><span data-char="1" style="display:inline-block">f</span><span data-char="1" style="display:inline-block">f</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">e</span></span>
         <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">S</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">l</span><span data-char="1" style="display:inline-block">l</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">r</span></span>
         <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">A</span><span data-char="1" style="display:inline-block">p</span><span data-char="1" style="display:inline-block">p</span></span>
       </h1>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
-        <span data-hero="chip" style="background:#EC5A5A;color:#FFFFFF;font-size:11px;font-weight:600;padding:6px 9px">Mobile app</span>
-        <span data-hero="chip" style="background:#EC5A5A;color:#FFFFFF;font-size:11px;font-weight:600;padding:6px 9px">Cycle insurance</span>
-        <span data-hero="chip" style="background:#EC5A5A;color:#FFFFFF;font-size:11px;font-weight:600;padding:6px 9px">Claims</span>
-      </div>
+      
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:16px 14px;max-width:520px;padding-bottom:6px">
       <div data-note="1" data-rot="-3" style="width:220px;padding:12px 12px 10px;background:#7FD3F7;color:#12303D;transform:rotate(-3deg)">
@@ -78,7 +76,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
 
   <div style="max-width:1272px;margin:clamp(48px,7vw,90px) auto 0;padding:0 20px">
     <div data-heroimg="1" style="overflow:hidden;background:#FFFFFF">
-      <img src="assets/toffee/hero.png" alt="Toffee Seller App screens" style="display:block;width:100%;height:auto"></img>
+      <img src="assets/toffee/hero.png" alt="Toffee Seller App screens" style="display:block;width:100%;height:auto">
     </div>
   </div>
 
@@ -98,7 +96,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
   <section style="max-width:880px;margin:0 auto;padding:clamp(80px,10vw,130px) 20px 0">
     <h3 data-reveal="1" style="margin:0 0 36px;text-align:center;font-size:clamp(18px,2vw,22px);font-weight:600">Toffee Insurance web app design (Old)</h3>
     <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;align-items:center">
-      <img data-phone="1" src="assets/toffee/old-web.png" alt="Old Toffee PWA" style="display:block;width:100%;max-width:300px;height:auto;margin:0 auto"></img>
+      <img data-phone="1" src="assets/toffee/old-web.png" alt="Old Toffee PWA" style="display:block;width:100%;max-width:300px;height:auto;margin:0 auto">
       <div data-pains="1" style="border:2px dashed #6A6A6A;padding:28px 26px">
         <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px">
           <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Notifications</span></li>
@@ -136,7 +134,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
 
   <section style="max-width:1000px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0;display:flex;flex-direction:column;gap:clamp(96px,12vw,150px)">
     <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:64px;align-items:center">
-      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/home.png" alt="Toffee Seller homescreen" style="display:block;width:100%;max-width:300px;height:auto"></img></div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/home.png" alt="Toffee Seller homescreen" style="display:block;width:100%;max-width:300px;height:auto"></div>
       <div>
         <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">01</div>
         <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Bigger and better homescreen</h3>
@@ -163,11 +161,11 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
           </div>
         </div>
       </div>
-      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/claims.png" alt="Claims screen" style="display:block;width:100%;max-width:380px;height:auto"></img></div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/claims.png" alt="Claims screen" style="display:block;width:100%;max-width:380px;height:auto"></div>
     </div>
 
     <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:64px;align-items:center">
-      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/leaderboard.png" alt="Ranking board" style="display:block;width:100%;max-width:300px;height:auto"></img></div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/leaderboard.png" alt="Ranking board" style="display:block;width:100%;max-width:300px;height:auto"></div>
       <div>
         <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">03</div>
         <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Motivate with leaderboard</h3>
@@ -189,7 +187,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
         <p data-reveal="1" style="margin:14px 0 0;font-size:18px;font-weight:500;line-height:1.5">Cycle dealers will instantly get the data of the customer to whom the insured cycle has been sold.</p>
         <p data-reveal="1" style="margin:14px 0 0;font-size:15px;line-height:1.65;color:#D6D6D6">Data captured at the time of policy issuance will get stored on the server and instantly reflect in the seller app for the convenience of the cycle dealer. Moreover, the data could be used for customer engagement later, with the help of date and cycle model filters, customer data can be segregated easily.</p>
       </div>
-      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/customer.png" alt="My Customer screen" style="display:block;width:100%;max-width:380px;height:auto"></img></div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/customer.png" alt="My Customer screen" style="display:block;width:100%;max-width:380px;height:auto"></div>
     </div>
   </section>
 
@@ -239,7 +237,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
     <h3 data-reveal="1" style="margin:56px 0 0;font-size:20px;font-weight:700">Competitive analysis</h3>
     <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">We first looked into the market to examine if there's already any similar insurance app and if so, then, how they are solving the problem.</p>
     <div data-reveal="1" style="margin-top:28px;background:#FFFFFF;padding:18px 20px">
-      <img src="assets/toffee/logos.png" alt="Policybazaar, Lemonade, Coverfox, Digit" style="display:block;width:100%;height:auto"></img>
+      <img src="assets/toffee/logos.png" alt="Policybazaar, Lemonade, Coverfox, Digit" style="display:block;width:100%;height:auto">
     </div>
     <h3 data-reveal="1" style="margin:40px 0 0;font-size:18px;font-weight:700">We found that:</h3>
     <ul style="margin:12px 0 0;padding-left:20px;font-size:clamp(15px,1.5vw,17px);line-height:1.6;display:flex;flex-direction:column;gap:8px">
@@ -252,8 +250,8 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
     <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">Affinity mapping</h3>
     <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">To better understand the possibilities and features to be included in the app, we conducted affinity mapping sessions and asked developers, product managers, and graphic designers to participate in the activity, so that as a group, we can brainstorm solutions based on our findings. Simultaneously, we started analyzing the data of previous field visits to pick any problem which could be solved with this app.</p>
     <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px">
-      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-1.png" alt="Affinity mapping wall" style="display:block;width:100%;height:auto"></img></div>
-      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-2.png" alt="Affinity mapping board" style="display:block;width:100%;height:auto"></img></div>
+      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-1.png" alt="Affinity mapping wall" style="display:block;width:100%;height:auto"></div>
+      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-2.png" alt="Affinity mapping board" style="display:block;width:100%;height:auto"></div>
     </div>
 
     <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">Users Persona</h3>
@@ -262,7 +260,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
     <div style="display:flex;flex-direction:column;gap:32px;margin-top:32px">
       <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 26px">
         <div data-mw="phead" style="display:flex;gap:24px;align-items:center">
-          <img src="assets/toffee/naveen.png" alt="Naveen" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto"></img>
+          <img src="assets/toffee/naveen.png" alt="Naveen" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto">
           <div>
             <div style="font-size:15px;font-weight:700">Bio</div>
             <p style="margin:6px 0 0;font-size:14px;line-height:1.55;color:#D6D6D6">Naveen lives in Tagore Garden (New Delhi) and owns a firefox cycle showroom in ModelTown. He has a good volume of cycle sales and maintains a good relationship with his customers.</p>
@@ -278,7 +276,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
 
       <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 26px">
         <div data-mw="phead" style="display:flex;gap:24px;align-items:center">
-          <img src="assets/toffee/sunny.png" alt="Sunny" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto"></img>
+          <img src="assets/toffee/sunny.png" alt="Sunny" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto">
           <div>
             <div style="font-size:15px;font-weight:700">Bio</div>
             <p style="margin:6px 0 0;font-size:14px;line-height:1.55;color:#D6D6D6">Sunny lives in Dwarka (New Delhi) and owns a Multibrand cycle showroom in Dwarka. He has a good volume of cycle sales and has a range of expensive cycles as well. He likes to experiment with sale strategies and is very clear about his business objectives.</p>
@@ -315,7 +313,7 @@ h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:
       <div style="display:inline-block;background:#FFFFFF;color:#1C1C1C;padding:7px 14px;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase">Next project</div>
       <a href="EngageX.dc.html" data-mw="next" style="display:grid;grid-template-columns:1fr 1fr;border:2px solid #3A3A3A;background:#141414;text-decoration:none;color:#FFFFFF" style-hover="border-color:#5BC0E8">
         <div data-mw="nextimg" style="display:flex;align-items:center;justify-content:center;min-height:280px;border-right:2px solid #3A3A3A;padding:24px;overflow:hidden">
-          <img data-nextimg="1" src="assets/engagex/laptop.png" alt="Engage X" style="display:block;width:100%;max-width:340px;height:auto"></img>
+          <img data-nextimg="1" src="assets/engagex/laptop.png" alt="Engage X" style="display:block;width:100%;max-width:340px;height:auto">
         </div>
         <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding:clamp(28px,4vw,44px)">
           <h3 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:700;color:#FFFFFF">Engage X</h3>
