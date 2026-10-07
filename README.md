@@ -41,9 +41,6 @@ npm start        # serve out/
 
 ## Content still to add
 
-- **About photos (mobile home):** the two tilted photo frames in the mobile "what's up"
-  section are image slots `home-about-1` and `home-about-2`; map them in
-  `src/content/image-slots.ts`.
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in
   `public/assets/toffee/` if originals exist.
 
