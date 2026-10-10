@@ -46,6 +46,11 @@ npm start        # serve out/
 - `public/assets/` — images and the resume PDF. `public/assets/dth/` holds the DTH app
   screens exported by `scripts/export-dth-screens.mjs` (needs Playwright + Chromium).
 
+## Live token counter
+
+The home page's "Tokens Used" chip shows Shiva's real Claude Code token total. Setup and
+how it works: [`scripts/claude-tokens/README.md`](scripts/claude-tokens/README.md).
+
 ## Content still to add
 
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in

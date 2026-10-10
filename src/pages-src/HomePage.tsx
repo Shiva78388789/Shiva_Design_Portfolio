@@ -4,23 +4,33 @@
 // Behaviour for the home page, ported from design-reference/design/Portfolio v2.dc.html.
 import React from 'react';
 import DCPage from '@/lib/DCPage';
+import { Odometer } from '@/lib/odometer';
+import { fetchTokenTotal } from '@/lib/tokens';
 import HomeView from '@/views/HomeView';
 
 export default class HomePage extends DCPage {
   state = { nav: false };
   tokRef = React.createRef();
   componentDidMount() {
-    let n = 123456766;
-    const fmt = new Intl.NumberFormat('en-US');
-    this.tick = setInterval(() => {
-      n += 1 + Math.floor(Math.random() * 37);
-      if (this.tokRef.current) this.tokRef.current.textContent = fmt.format(n);
-    }, 110);
+    // "Tokens Used" shows Shiva's real Claude Code total (see src/lib/tokens.ts),
+    // checked every 30 s while the tab is visible; changes roll in digit by digit.
+    this.odo = new Odometer(this.tokRef.current);
+    this.odo.placeholder('—');
+    let last = null;
+    const load = async () => {
+      const t = await fetchTokenTotal();
+      if (t !== null && t !== last && this.tokRef.current) { last = t; this.odo.set(t); }
+    };
+    load();
+    this.tick = setInterval(() => { if (document.visibilityState === 'visible') load(); }, 30000);
+    this.onVis = () => { if (document.visibilityState === 'visible') load(); };
+    document.addEventListener('visibilitychange', this.onVis);
     this.onKey = e => { if (e.key === 'Escape') this.setNav(false); };
     window.addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() {
     clearInterval(this.tick);
+    document.removeEventListener('visibilitychange', this.onVis);
     window.removeEventListener('keydown', this.onKey);
     document.documentElement.style.overflow = '';
   }
