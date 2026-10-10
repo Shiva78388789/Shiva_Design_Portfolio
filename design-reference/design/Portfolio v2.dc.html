@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#1c1c1c"><rect width="100" height="100" fill="#1c1c1c"></rect><text x="50" y="60" font-family="Montserrat,sans-serif" font-size="26" font-weight="600" fill="#f5f5f5" text-anchor="middle">SK</text></svg></template>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#f5f5f5;text-decoration:none}a:hover{color:#ffffff}
+@keyframes v2-shimmer{from{background-position:125% 0}to{background-position:-125% 0}}
+@media (prefers-reduced-motion:reduce){[style*="v2-shimmer"]{animation:none!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Homepage v2" style="min-height:100vh;background:#1c1c1c;color:#f5f5f5;padding:0 clamp(20px,5vw,40px) clamp(80px,10vw,140px)">
+  <div style="max-width:1040px;margin:0 auto">
+
+    <header style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:clamp(24px,5vw,56px)">
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="display:inline-flex;align-items:center;height:36px;padding:0 16px;border:1.5px solid #4f4f4f;border-radius:999px;font-size:14px;font-weight:500;color:#e8e8e8">Version 1.1</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 16px;border:1.5px solid #4f4f4f;border-radius:999px;font-size:14px;font-weight:500;color:#e8e8e8">Tokens Used: <span ref="{{ tokRef }}" style="font-weight:600;color:#ffffff;font-variant-numeric:tabular-nums">123,456,766</span></span>
+      </div>
+      <button type="button" aria-label="Open menu" onClick="{{ openNav }}" style="flex:none;width:56px;height:56px;border-radius:50%;background:#2a2a2a;border:1.5px solid #444;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s" style-hover="background:#353535">
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 2h22M1 12h22"></path></svg>
+      </button>
+    </header>
+
+    <section id="top" style="padding-top:clamp(12px,2vw,24px)">
+      <h1 style="margin:0;display:flex;align-items:center;gap:14px;font-size:clamp(32px,4.2vw,50px);line-height:1.2;font-weight:600;color:#ffffff"><span aria-hidden="true">👋</span><span>Hi, I'm Shiva</span></h1>
+      <div style="margin-top:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:clamp(20px,2.6vw,32px);font-size:clamp(24px,3.6vw,46px);line-height:1.25;font-weight:500;color:#8c8c8c;text-wrap:pretty">
+        <p style="margin:0">I design for the messy middle, where business, tech and people collide.</p>
+        <p style="margin:0">8 years in, I now lead experience design at <span style="color:#ffffff">Airtel</span> (Gurugram) and <span style="background:linear-gradient(100deg,#8c8c8c 0%,#8c8c8c 40%,#f5f5f5 50%,#8c8c8c 60%,#8c8c8c 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:v2-shimmer 3.2s linear infinite">use AI to explore, test and ship faster without losing the craft.</span></p>
+        <p style="margin:0">Before Airtel: <span style="color:#ffffff">Bijak, Toffee Insurance &amp; Byo.</span></p>
+      </div>
+    </section>
+
+    <section id="work" style="padding-top:clamp(96px,13vw,160px)">
+      <h2 style="margin:0;font-size:clamp(30px,3.8vw,46px);line-height:1.2;font-weight:600;color:#ffffff">Selected Projects</h2>
+      <div style="margin-top:clamp(28px,3.5vw,44px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:20px">
+        <a href="EngageX v2.dc.html" aria-label="Engage X case study" style="display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-4px)">
+            <div style="position:relative;aspect-ratio:510/250;background:#4a4a4a">
+              <img src="assets/v2/proj-engagex.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:20px 20px 22px">
+              <img src="assets/v2/logo-xtelify.png" alt="Xtelify" style="flex:none;width:60px;height:60px;border-radius:50%;object-fit:cover;display:block">
+              <div style="min-width:0">
+                <h3 style="margin:0;font-size:clamp(20px,1.9vw,24px);line-height:1.25;font-weight:600">Engage X</h3>
+                <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;font-weight:400;color:#c9c9c9">A unified campaign lifecycle manager</p>
+              </div>
+            </div>
+          </a>
+          <a href="DTH Price Simplification v2.dc.html" aria-label="DTH Price Simplification case study" style="display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-4px)">
+            <div style="position:relative;aspect-ratio:510/250;background:#4a4a4a">
+              <img src="assets/v2/proj-dth.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:20px 20px 22px">
+              
+              <img src="assets/v2/logo-airtel.png" alt="Airtel" style="flex:none;width:60px;height:60px;border-radius:50%;object-fit:cover;display:block">
+              <div style="min-width:0">
+                <h3 style="margin:0;font-size:clamp(20px,1.9vw,24px);line-height:1.25;font-weight:600">DTH Price Simplification</h3>
+                <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;font-weight:400;color:#c9c9c9">Simplified DTH packs, Add Ons and VAS</p>
+              </div>
+            </div>
+          </a>
+          <a href="Bijak Web Design System v2.dc.html" aria-label="Bijak Web Design System case study" style="display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-4px)">
+            <div style="position:relative;aspect-ratio:510/250;background:#4a4a4a">
+              <img src="assets/v2/proj-bijak.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:20px 20px 22px">
+              <img src="assets/v2/logo-bijak.png" alt="Bijak" style="flex:none;width:60px;height:60px;border-radius:50%;object-fit:cover;display:block">
+              <div style="min-width:0">
+                <h3 style="margin:0;font-size:clamp(20px,1.9vw,24px);line-height:1.25;font-weight:600">Bijak Web Design System</h3>
+                <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;font-weight:400;color:#c9c9c9">UI Foundations for Bijak on the web</p>
+              </div>
+            </div>
+          </a>
+          <a href="Toffee Seller App v2.dc.html" aria-label="Toffee Seller App case study" style="display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-4px)">
+            <div style="position:relative;aspect-ratio:510/250;background:#4a4a4a">
+              <img src="assets/v2/proj-toffee.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;padding:20px 20px 22px">
+              <img src="assets/v2/logo-toffee.png" alt="Toffee Insurance" style="flex:none;width:60px;height:60px;border-radius:50%;object-fit:cover;display:block">
+              <div style="min-width:0">
+                <h3 style="margin:0;font-size:clamp(20px,1.9vw,24px);line-height:1.25;font-weight:600">Toffee Seller App</h3>
+                <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;font-weight:400;color:#c9c9c9">Insurance App for cycle insurance</p>
+              </div>
+            </div>
+          </a>
+      </div>
+    </section>
+
+    <section id="claude" style="padding-top:clamp(80px,10vw,120px)">
+      <h2 aria-label="Claude Code" style="margin:0;line-height:0"><img src="assets/v2/claude-code-title.png" alt="Claude Code" style="display:block;height:clamp(34px,3.8vw,46px);width:auto;max-width:100%"></h2>
+      <div style="margin-top:clamp(28px,3.5vw,44px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:20px">
+        <a href="Akhbar Bash Case Study v2.dc.html" aria-label="Akhbar Bash case study" style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1),background .3s" style-hover="transform:translateY(-4px);background:#333333">
+            <div style="flex:1;min-width:0">
+              <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Game</span>
+              <h3 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600">Akhbar Bash</h3>
+              <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9">A 16-bit game about our childhood paperboy.</p>
+            </div>
+            <img src="assets/v2/akhbar.png" alt="" style="flex:none;width:clamp(88px,10vw,116px);height:clamp(88px,10vw,116px);object-fit:contain;display:block">
+          </a>
+          <a href="Jugnu Case Study v2.dc.html" aria-label="Jugnu case study" style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e;color:#ffffff;transition:transform .3s cubic-bezier(.2,.7,.2,1),background .3s" style-hover="transform:translateY(-4px);background:#333333">
+            <div style="flex:1;min-width:0">
+              <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Bot</span>
+              <h3 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600">Jugnu</h3>
+              <p style="margin:4px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9">A personal assistant that get things done.</p>
+            </div>
+            <img src="assets/v2/jugnu.png" alt="" style="flex:none;width:clamp(88px,10vw,116px);height:clamp(88px,10vw,116px);object-fit:contain;display:block">
+          </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="{{ navHidden }}" style="position:fixed;inset:0;z-index:100;background:#1c1c1c;overflow-y:auto;opacity:{{ navOpacity }};visibility:{{ navVis }};transition:opacity .35s ease,visibility .35s;padding:0 clamp(20px,5vw,40px) 64px">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="display:flex;justify-content:flex-end;padding-top:clamp(24px,5vw,56px)">
+      <button type="button" aria-label="Close menu" onClick="{{ closeNav }}" style="width:56px;height:56px;border-radius:50%;background:#2a2a2a;border:1.5px solid #444;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s" style-hover="background:#353535">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l18 18M20 2 2 20"></path></svg>
+      </button>
+    </div>
+    <nav style="margin-top:clamp(24px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(18px,2.6vw,32px);transform:{{ navShift }};transition:transform .45s cubic-bezier(.2,.7,.2,1)">
+      <a href="Tools I Use.dc.html" style="font-size:clamp(36px,4.6vw,58px);line-height:1.15;font-weight:600;color:#ffffff;transition:color .2s" style-hover="color:#9a9a9a">Tools I use</a>
+      <a href="Side Hustle.dc.html" style="font-size:clamp(36px,4.6vw,58px);line-height:1.15;font-weight:600;color:#ffffff;transition:color .2s" style-hover="color:#9a9a9a">Side hustle</a>
+      <a href="Failed Startups.dc.html" style="font-size:clamp(36px,4.6vw,58px);line-height:1.15;font-weight:600;color:#ffffff;transition:color .2s" style-hover="color:#9a9a9a">Failed startups</a>
+      <span aria-disabled="true" title="Coming soon" style="display:flex;align-items:center;gap:14px;font-size:clamp(36px,4.6vw,58px);line-height:1.15;font-weight:600;color:#4a4a4a;cursor:not-allowed">
+        <svg width="36" height="40" viewBox="0 0 24 26" fill="none" stroke="#4a4a4a" stroke-width="2.4" aria-hidden="true" style="width:.62em;height:auto"><rect x="2" y="11" width="20" height="13" rx="3"></rect><path d="M6.5 11V7.5a5.5 5.5 0 0 1 11 0V11"></path></svg>
+        My thoughts
+      </span>
+      <a href="assets/Shiva_Kumar_Resume.pdf" download="" style="margin-top:clamp(16px,2.5vw,32px);display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 22px;border-radius:999px;background:#2a2a2a;border:1.5px solid #4a4a4a;font-size:17px;font-weight:600;color:#ffffff;transition:background .2s" style-hover="background:#353535">
+        Download Resume
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 17v3h16v-3"></path></svg>
+      </a>
+      <div style="margin-top:clamp(28px,4.5vw,64px);display:flex;flex-wrap:wrap;gap:14px">
+        <a href="https://www.linkedin.com/in/shiva-kumar-10106b143/" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:56px;height:56px;border-radius:50%;display:flex;transition:opacity .2s" style-hover="opacity:.75"><img src="assets/v2/s-linkedin.svg" alt="" style="width:56px;height:56px;display:block"></a>
+        <a href="https://dribbble.com/shivakumar" target="_blank" rel="noopener" aria-label="Dribbble" style="width:56px;height:56px;border-radius:50%;display:flex;transition:opacity .2s" style-hover="opacity:.75"><img src="assets/v2/s-dribbble.svg" alt="" style="width:56px;height:56px;display:block"></a>
+        <a href="https://x.com/shiva_pdf" target="_blank" rel="noopener" aria-label="X" style="width:56px;height:56px;border-radius:50%;display:flex;transition:opacity .2s" style-hover="opacity:.75"><img src="assets/v2/s-x.svg" alt="" style="width:56px;height:56px;display:block"></a>
+        <a href="https://github.com/Shiva78388789" target="_blank" rel="noopener" aria-label="GitHub" style="width:56px;height:56px;border-radius:50%;display:flex;transition:opacity .2s" style-hover="opacity:.75"><img src="assets/v2/s-github.svg" alt="" style="width:56px;height:56px;display:block"></a>
+        <a href="mailto:kumarshiva1990@gmail.com" aria-label="Email" style="margin-left:10px;width:56px;height:56px;border-radius:50%;display:flex;transition:opacity .2s" style-hover="opacity:.75"><img src="assets/v2/s-mail.svg" alt="" style="width:56px;height:56px;display:block"></a>
+      </div>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { nav: false };
+  tokRef = React.createRef();
+  componentDidMount() {
+    let n = 123456766;
+    const fmt = new Intl.NumberFormat('en-US');
+    this.tick = setInterval(() => {
+      n += 1 + Math.floor(Math.random() * 37);
+      if (this.tokRef.current) this.tokRef.current.textContent = fmt.format(n);
+    }, 110);
+    this.onKey = e => { if (e.key === 'Escape') this.setNav(false); };
+    window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    clearInterval(this.tick);
+    window.removeEventListener('keydown', this.onKey);
+    document.documentElement.style.overflow = '';
+  }
+  setNav(v) {
+    this.setState({ nav: v });
+    document.documentElement.style.overflow = v ? 'hidden' : '';
+  }
+  renderVals() {
+    const nav = this.state.nav;
+    return {
+      tokRef: this.tokRef,
+      openNav: () => this.setNav(true),
+      closeNav: () => this.setNav(false),
+      navOpacity: nav ? 1 : 0,
+      navVis: nav ? 'visible' : 'hidden',
+      navHidden: nav ? 'false' : 'true',
+      navShift: nav ? 'none' : 'translateY(24px)'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -5,13 +5,16 @@ It recreates the HTML design references in [`design-reference/`](design-referenc
 
 | Route | Page |
 |---|---|
-| `/` | Home: hero, Work, Experience, Contact |
+| `/` | Home: hero, Selected Projects, Claude Code, full-screen menu |
 | `/work/engage-x/` | Engage X |
 | `/work/dth-price-simplification/` | DTH Price Simplification |
 | `/work/bijak-design-system/` | Bijak Web Design System |
 | `/work/toffee-seller-app/` | Toffee Seller App |
 | `/work/jugnu/` | Jugnu |
 | `/work/akhbar-bash/` | Akhbar Bash |
+| `/tools/` | Tools I use |
+| `/side-hustle/` | Side Hustle |
+| `/failed-startups/` | Failed Startups |
 
 ## Develop
 
@@ -31,11 +34,15 @@ npm start        # serve out/
   same inline styles, hover rules and bindings. They're regular source files now;
   edit them directly.
 - `src/pages-src/*Page.tsx` — page behaviour (state, GSAP/ScrollTrigger + Lenis motion,
-  forms, lightbox…), ported from the prototypes' logic. Each class computes the values
+  menu, lightbox…), ported from the prototypes' logic. Each class computes the values
   its view reads (`renderVals()`).
 - `src/styles/*.css` — page stylesheets (responsive rules, keyframes, hover states).
-- `src/components/` — `DockNav` (floating bottom nav), `ImageSlot`, `DthScreen`,
-  and `bijak/` (the Bijak design-system components, materialised from Figma as React).
+  `ds.css` is the prototypes' base design-system sheet; only Engage X, DTH, Bijak and
+  Toffee load it, as in the references. `base.css` holds the few global rules.
+- The pages without behaviour (Tools, Side Hustle, Failed Startups) render their view
+  straight from `src/app/*/page.tsx`.
+- `src/components/` — `DthScreen` and `bijak/` (the Bijak design-system components,
+  materialised from Figma as React).
 - `public/assets/` — images and the resume PDF. `public/assets/dth/` holds the DTH app
   screens exported by `scripts/export-dth-screens.mjs` (needs Playwright + Chromium).
 
@@ -43,12 +50,6 @@ npm start        # serve out/
 
 - **Toffee screens** were cropped from a Behance export and are soft; replace them in
   `public/assets/toffee/` if originals exist.
-
-## Contact form
-
-Set `NEXT_PUBLIC_FORMSPREE_ID` to a [Formspree](https://formspree.io) form id to deliver
-messages. Without it, submitting opens the visitor's mail app addressed to
-kumarshiva1990@gmail.com (the prototype's behaviour).
 
 ## Deploy (Vercel)
 
@@ -58,9 +59,7 @@ One-time setup:
 1. On Vercel, **Add New… → Project**, and import `Shiva78388789/Shiva_Design_Portfolio`
    from GitHub (install the Vercel GitHub app for the repo if asked).
 2. Keep the detected settings (framework: Next.js) and click **Deploy**.
-3. Optional: under **Settings → Environment Variables**, add `NEXT_PUBLIC_FORMSPREE_ID`
-   to deliver the contact form, then redeploy.
-4. Optional: add a custom domain under **Settings → Domains**.
+3. Optional: add a custom domain under **Settings → Domains**.
 
 After that, every push to `main` deploys to production and every other branch or pull
 request gets its own preview URL.

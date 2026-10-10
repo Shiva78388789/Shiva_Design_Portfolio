@@ -1,22 +1,33 @@
-// Ported from design-reference/design/DTH Price Simplification.dc.html by scripts/convert-dc.mjs.
+// Ported from design-reference/design/DTH Price Simplification v2.dc.html by scripts/convert-dc.mjs.
 /* eslint-disable */
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
-import DockNav from '@/components/DockNav';
-import SiteRuler from '@/components/SiteRuler';
 import DthScreen from '@/components/DthScreen';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function DthView({ v }: { v: any }) {
   return (
     <>
-      <SiteRuler />
       <div
         style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
+        <div
+          style={{ maxWidth: "1040px", margin: "0 auto", padding: "clamp(24px,5vw,56px) clamp(20px,5vw,40px) 0", display: "flex", justifyContent: "flex-end", position: "relative", zIndex: "5" }}
+        >
+          <a
+            href={href("/")}
+            aria-label="Close and go back home"
+            style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#2a2a2a", border: "1.5px solid #444", display: "flex", alignItems: "center", justifyContent: "center", transition: "background .2s" }}
+            className="dth-hover-0"
+          >
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+              <path d="M2 2l18 18M20 2 2 20" />
+            </svg>
+          </a>
+        </div>
         {" "}
         <header
-          style={{ maxWidth: "1080px", margin: "0 auto", padding: "clamp(64px,8vw,110px) 20px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}
+          style={{ maxWidth: "1080px", margin: "0 auto", padding: "clamp(8px,2vw,24px) 20px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}
         >
           {" "}
           <div style={{ flex: "0 1 auto", minWidth: "0" }}>
@@ -138,7 +149,7 @@ export default function DthView({ v }: { v: any }) {
         {" "}
         <div style={{ maxWidth: "1080px", margin: "clamp(56px,7vw,80px) auto 0", padding: "0 20px" }}>
           {" "}
-          <div data-reveal="1" style={{ background: "#F4C542", color: "#2A220A", padding: "18px 20px 16px" }}>
+          <div data-reveal="1" style={{ background: "#2e2e2e", color: "#e8e8e8", borderRadius: "18px", padding: "18px 20px 16px" }}>
             {" "}
             <div style={{ fontSize: "14px", fontWeight: "700" }}>
               Confidentiality Notice
@@ -243,7 +254,7 @@ export default function DthView({ v }: { v: any }) {
             {" "}
           </div>
           {" "}
-          <div data-reveal="1" style={{ marginTop: "72px", background: "#F4C542", color: "#2A220A", padding: "18px 20px 16px" }}>
+          <div data-reveal="1" style={{ marginTop: "72px", background: "#2e2e2e", color: "#e8e8e8", borderRadius: "18px", padding: "18px 20px 16px" }}>
             {" "}
             <div style={{ fontSize: "14px", fontWeight: "700" }}>
               TRAI Guidelines
@@ -1369,7 +1380,7 @@ export default function DthView({ v }: { v: any }) {
               href={href("/work/engage-x/")}
               data-mw="next"
               style={{ display: "grid", gridTemplateColumns: "1fr 1fr", border: "2px solid #3A3A3A", background: "#141414", textDecoration: "none", color: "#FFFFFF" }}
-              className="dth-hover-0"
+              className="dth-hover-1"
             >
               {" "}
               <div
@@ -1418,7 +1429,7 @@ export default function DthView({ v }: { v: any }) {
             <a
               href={href("/")}
               style={{ fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: "#9A9A9A" }}
-              className="dth-hover-1"
+              className="dth-hover-2"
             >
               ← Back to portfolio
             </a>
@@ -1427,7 +1438,6 @@ export default function DthView({ v }: { v: any }) {
           {" "}
         </section>
       </div>
-      <DockNav active="work" />
     </>
   );
 }

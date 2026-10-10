@@ -3,14 +3,13 @@
 
 // Behaviour for the Akhbar page, ported from design-reference/design/Akhbar Bash Case Study.dc.html.
 import DCPage from '@/lib/DCPage';
-import { submitContactForm } from '@/lib/contactForm';
 import AkhbarView from '@/views/AkhbarView';
 
 
 
 export default class AkhbarPage extends DCPage {
 
-  state = { w: 1440, city: 0, cur: '', bar: false, lb: null, cfNote: '' };
+  state = { w: 1440, city: 0, cur: '', bar: false, lb: null };
   componentDidMount() {
     // SSR renders the 1440px layout; settle the real width first so DOM wiring targets the final tree.
     this.setState({ w: window.innerWidth }, () => this.initMount());
@@ -93,21 +92,12 @@ export default class AkhbarPage extends DCPage {
     const labels = ["The spark","Process","Character","World building","Motion","Game design","Experience design","Local, not generic","Brand","Under the hood","Craft","Working with Claude","Outcome"];
     return {
       vp,
-      cityTabs: names.map((name, i) => { const sel = i === this.state.city; return { name, num: '0' + (i + 1), sel: String(sel), bg: sel ? '#262626' : 'transparent', bc: sel ? '#63c4ec' : '#3a3a3a', pick: () => this.setState({ city: i }) }; }),
+      cityTabs: names.map((name, i) => { const sel = i === this.state.city; return { name, num: '0' + (i + 1), sel: String(sel), bg: sel ? '#2e2e2e' : 'transparent', bc: sel ? '#f5f5f5' : '#3a3a3a', pick: () => this.setState({ city: i }) }; }),
       showRail: (true) && !mob && vp !== 'mobile' && this.state.w >= 1024,
       rail: ["01","02","03","04","05","06","07","08","09","10","11","12","13"].map((n, i) => { const on = n === this.state.cur; return { n, href: '#' + ['spark','process','character','world','motion','game-design','experience','cities','brand','engineering','craft','claude','outcome'][i], label: n + ' ' + labels[i], c: on ? '#63c4ec' : '#7a7a7a', w: on ? '24px' : '12px' }; }),
       showBar: mob && this.state.bar,
       hasLb: !!this.state.lb, lbSrc: this.state.lb ? this.state.lb.src : '', lbAlt: this.state.lb ? this.state.lb.alt : '',
-      closeLb: () => this.setState({ lb: null }),
-      hasNote: !!this.state.cfNote, cfNote: this.state.cfNote,
-      onSubmit: (e) => {
-        e.preventDefault();
-        const f = new FormData(e.currentTarget);
-        const name = String(f.get('name') || '').trim(), email = String(f.get('email') || '').trim(), msg = String(f.get('message') || '').trim();
-        if (!name || !email || !msg) return this.setState({ cfNote: 'Please fill in all three fields.' });
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ cfNote: 'That email doesn\'t look right.' });
-        submitContactForm(this, e.currentTarget, name, email, msg);
-      }
+      closeLb: () => this.setState({ lb: null })
     };
   }
 

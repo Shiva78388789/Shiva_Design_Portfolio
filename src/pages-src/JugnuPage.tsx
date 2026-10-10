@@ -3,14 +3,13 @@
 
 // Behaviour for the Jugnu page, ported from design-reference/design/JugnuCaseStudy.dc.html.
 import DCPage from '@/lib/DCPage';
-import { submitContactForm } from '@/lib/contactForm';
 import JugnuView from '@/views/JugnuView';
 
 
 
 export default class JugnuPage extends DCPage {
 
-  state = { l1: false, l2: false, cfNote: '' };
+  state = { l1: false, l2: false };
   componentDidMount() {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce || !('IntersectionObserver' in window)) return;
@@ -33,16 +32,7 @@ export default class JugnuPage extends DCPage {
       notLoaded1: !this.state.l1, notLoaded2: !this.state.l2,
       onLoad1: () => this.setState({ l1: true }), onLoad2: () => this.setState({ l2: true }),
       showClosing: true,
-      vp: 'auto',
-      hasNote: !!this.state.cfNote, cfNote: this.state.cfNote,
-      onSubmit: (e) => {
-        e.preventDefault();
-        const f = new FormData(e.currentTarget);
-        const name = String(f.get('name') || '').trim(), email = String(f.get('email') || '').trim(), msg = String(f.get('message') || '').trim();
-        if (!name || !email || !msg) return this.setState({ cfNote: 'Please fill in all three fields.' });
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ cfNote: 'That email doesn\'t look right.' });
-        submitContactForm(this, e.currentTarget, name, email, msg);
-      }
+      vp: 'auto'
     };
   }
 

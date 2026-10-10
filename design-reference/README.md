@@ -1,230 +1,187 @@
-# Handoff: Shiva Kumar — Design Portfolio Website
+# Handoff: Shiva Kumar — Design Portfolio Website (v2)
 
-## How this package is split (each part < 30 MB)
-| Zip | Contents | Approx. size |
+## Package split (each part under 30 MB)
+| Folder / zip | Contents | Approx. size |
 |---|---|---|
-| **part-1-code** | This README, all 7 page references, JS components, design-system CSS, Figma bundles, and the images for Home, Engage X, DTH, Toffee, Tools, plus the resume PDF | ~19 MB |
-| **part-2-images** | `design/components/dth/assets/` (images used by the DTH Figma bundle) and `design/assets/akhbar/images/` | ~20 MB |
-| **part-3-video** | `design/assets/akhbar/video/` (6 MP4s + `posters/`) | ~23 MB |
+| **part-1-code** | This README, all 10 page references, prototype JS, design-system CSS, Figma bundles, images for Home/Engage X/DTH/Toffee/Bijak, resume PDF | ~15 MB |
+| **part-2-images** | `design/components/dth/assets/` (DTH Figma bundle images) and `design/assets/akhbar/images/` | ~20 MB |
+| **part-3-video** | `design/assets/akhbar/video/` (MP4s + `posters/`) | ~23 MB |
 
-Every zip has the same `design/` root. **Unzip all three into the same folder**, letting them merge, before you start. Upload them to Claude Code one at a time, in order. Claude Code should read this README first, then use parts 2 and 3 only as assets.
+All three share the same `design/` root. **Unzip all three into one folder so `design/` merges.** Upload to Claude Code one at a time, in order. Claude Code should read this README first; parts 2 and 3 are assets only.
 
 ## Overview
-Shiva Kumar's personal UX portfolio: a home page plus six case-study pages. All pages share these elements:
-- Dark ground `#1C1C1C`, plain with no pattern. The old dot-matrix background has been removed everywhere.
-- A white **design ruler** fixed to the top of every page.
-- Yellow "sticky note" eyebrows.
-- Section titles framed with corner handles.
-- Scroll-driven motion.
-- A floating bottom dock nav.
-
-Every page works on desktop and mobile web.
+Shiva Kumar's personal UX portfolio, v2 visual direction: a minimal dark single-column site. One home page, six case studies and three secondary pages reached from a full-screen menu.
 
 | Route (suggested) | Reference file |
 |---|---|
-| `/` | `design/Portfolio.dc.html` |
-| `/work/engage-x` | `design/EngageX.dc.html` |
-| `/work/dth-price-simplification` | `design/DTH Price Simplification.dc.html` |
-| `/work/bijak-design-system` | `design/Bijak Web Design System.dc.html` |
-| `/work/toffee-seller-app` | `design/Toffee Seller App.dc.html` |
-| `/work/jugnu` | `design/JugnuCaseStudy.dc.html` |
-| `/work/akhbar-bash` | `design/Akhbar Bash Case Study.dc.html` |
+| `/` | `design/Portfolio v2.dc.html` |
+| `/work/engage-x` | `design/EngageX v2.dc.html` |
+| `/work/dth-price-simplification` | `design/DTH Price Simplification v2.dc.html` |
+| `/work/bijak-design-system` | `design/Bijak Web Design System v2.dc.html` |
+| `/work/toffee-seller-app` | `design/Toffee Seller App v2.dc.html` |
+| `/work/akhbar-bash` | `design/Akhbar Bash Case Study v2.dc.html` |
+| `/work/jugnu` | `design/Jugnu Case Study v2.dc.html` |
+| `/tools` | `design/Tools I Use.dc.html` |
+| `/side-hustle` | `design/Side Hustle.dc.html` |
+| `/failed-startups` | `design/Failed Startups.dc.html` |
 
-Rewrite every internal `href="X.dc.html"` to these routes, and change `HOME` in `dock-nav.js` to `/`.
+Rewrite every internal `href="X.dc.html"` to these routes (e.g. `Portfolio v2.dc.html` → `/`).
+
+**v2 vs the earlier build:** the top design ruler (`site-ruler.js`), bottom dock nav (`dock-nav.js`), dot background, sky footer with curtain reveal and the old home sections (tools showcase, experience, Let's Talk) are **not used** in v2. Do not port them.
 
 ## About the design files
-The files in `design/` are **design references built in HTML**. They are working prototypes that show the final look, copy and behaviour, and they are **not production code**. They run on a small prototype runtime (`support.js` and the `.dc.html` format), which must not ship.
+Files in `design/` are **design references built in HTML**: working prototypes showing final look, copy and behaviour. They are **not production code**. They run on a prototype runtime (`support.js`, `.dc.html` format, `image-slot.js`) that must not ship.
 
-**Your task is to recreate these designs in a real codebase.** None exists yet, so this is the recommended stack:
-- **Next.js (App Router) + TypeScript**, as a static export deployed to Vercel.
-- **Tailwind CSS** or CSS Modules. The references use inline styles, which port directly.
-- **Motion:** GSAP + ScrollTrigger (the references already use them) and Lenis for smooth scroll. Use the Web Animations API for the rolling-digit counters.
+**Task: recreate these designs in a real codebase.** None exists yet; recommended stack:
+- **Next.js (App Router) + TypeScript**, static export, deployed to Vercel.
+- **Tailwind CSS** or CSS Modules. References use inline styles, which port directly.
+- **Motion:** GSAP + ScrollTrigger and Lenis (case studies already load these from jsDelivr: gsap@3.12.5, lenis@1.1.13).
 
-To view a reference: `npx serve design`, then open any `.dc.html` file.
+To view a reference: `npx serve design` (after merging all 3 parts), then open any `.dc.html`.
 
-How a reference file reads:
-- `{{ x }}` holes and `<sc-for>`/`<sc-if>` blocks are bound to the `class Component` script at the bottom of each file.
-- `renderVals()` returns the values the template uses.
-- `<x-import>` mounts a JS/web component from a sibling file.
+Reading a reference file:
+- `{{ x }}` holes, `<sc-for>` and `<sc-if>` bind to the `class Component` script at the bottom; `renderVals()` returns template values.
+- `style-hover="…"` = the element's `:hover` styles.
+- `<x-import>` mounts a JS/web component from a sibling file (DTH and Bijak Figma bundles).
 
 ## Fidelity
-**High fidelity.** Colours, type, spacing, copy and motion are final. Recreate them pixel-accurately and keep all copy verbatim, including the existing typos.
+**High fidelity.** Colours, type, spacing, copy and motion are final. Recreate pixel-accurately on desktop and mobile web. Keep copy verbatim, including existing typos (e.g. "A personal assistant that get things done.").
 
-## Global system
-- **Font:**
-  - Montserrat 300–800 (Google Fonts) is used everywhere.
-  - Akhbar Bash also uses Press Start 2P, for its numbers.
-  - The Bijak page loads Roboto, Permanent Marker and Rubik for its type specimens.
+## Global system (v2)
+- **Font:** Montserrat 400/500/600/700 (Google Fonts) everywhere. Akhbar Bash also uses Press Start 2P. Bijak loads Roboto, Permanent Marker and Rubik for its type specimens.
+- **Body:** `background:#1c1c1c; color:#f5f5f5;` antialiased, `box-sizing:border-box`. Links `#f5f5f5`, hover `#ffffff`, no underline.
 - **Colours:**
 
   | Role | Value |
   |---|---|
   | Ground | `#1C1C1C` |
-  | Text | `#FFFFFF` / `#F5F5F5` |
-  | Secondary text | `#D6D6D6`, `#CFCFCF`, `#9A9A9A` |
-  | Rule | `#3A3A3A` |
-  | Dashed card border | `2px dashed #6A6A6A` |
-  | Phone and frame border | `#0F0F0F` / `#4A4A4A` |
+  | Card surface | `#2E2E2E` (hover `#333333`) |
+  | Card image well | `#4A4A4A` |
+  | Round button | bg `#2A2A2A`, border `1.5px #444`, hover bg `#353535` |
+  | Pill / chip border | `1.5px #4F4F4F` (header pills), `1.5px #555` (card tags) |
+  | Primary text | `#FFFFFF` / `#F5F5F5` |
+  | Secondary text | `#C9C9C9` (card descriptions), `#8C8C8C` (hero body), `#E8E8E8` (pill text) |
+  | Disabled | `#4A4A4A` |
 
-- **Accents and sticky notes:**
-
-  | Role | Background | Text |
-  |---|---|---|
-  | Sky (title frame) | `#4AA8E0` / `#5BC0E8` | |
-  | Footer | `#63C4EC` | |
-  | Cream note | `#F6DFA6` | `#3D3010`, or `#1D3B1A` on Engage X screen labels |
-  | Mint note | `#A8E6BF` | `#15361F` |
-  | Blue note | `#7FD3F7` | `#12303D` |
-  | Notice / warning band | `#F4C542` | `#2A220A` |
-  | Step circles | `#4FAE62` | |
-
-- **Framed section title:**
-  - A 1.5px `#4AA8E0` border around the h2, which is 62px/1.16/500 on desktop and 36–38px on mobile.
-  - Four 10×10 corner squares with a 1.5px sky border and `#1C1C1C` fill, offset −5px.
-  - Animation: the frame scales in (expo.out, 0.7s), then the handles pop (back.out(3)), then the text fades up.
-- **Sticky note:** rotated −4° to +8°. On scroll it drops in from y −40 with an extra −14° rotation (back.out(1.8), 0.8s).
-- **Radius:** 0. Exceptions are the circles (step markers, persona photos), the dock and the Engage X screen frames (22px desktop, 12px mobile).
-- **Layout:** content column 840–1080px max, side padding 20px. The mobile breakpoint is 860–900px.
-- **Reduced motion:** honour `prefers-reduced-motion` everywhere.
-
-### Top ruler (all pages) — `design/site-ruler.js`
-- A fixed bar, 24px tall, white, at `z-index:800`. It is followed by a 24px spacer so page content starts below it.
-- Ticks: `repeating-linear-gradient(to right,#c8c8c8 0 1px,transparent 1px 10px)`, 5px tall along the bottom edge.
-- Labels 0, 100, 200 … 1400: 8px/10px, `#7a7a7a`, placed at `6 + i*100` px inside a centred container with a 1440px max width.
-- **Mouse marker:** a 1px `#0d99ff` line, 10px tall, plus a `#0d99ff` pill label showing `x − 6` (8px/600, white). It follows the pointer. Labels within 22px of the marker hide.
-- The home page has its own inline copy of the ruler (desktop and mobile variants). A single shared React `<Ruler/>` should replace both.
+  Case studies keep their own accents (sky `#4AA8E0`/`#5BC0E8`, cream note `#F6DFA6`, mint `#A8E6BF`, Toffee red `#EC5A5A`, Bijak green `#56C381`, Jugnu `#5CF2C1`, Akhbar yellow `#F7D158`). Take exact values from each file.
+- **Layout:** content column `max-width:1040px; margin:0 auto`, side padding `clamp(20px,5vw,40px)`, top padding `clamp(24px,5vw,56px)`. All type sizes use `clamp()`; copy the values exactly.
+- **Radius:** cards 18px (home, Tools) / 16px (Side Hustle, Failed Startups); pills and round buttons 999px / 50%; tool logo tile 12px.
+- **Card grids:** `display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,Npx),1fr)); gap:20px` with N = 400 (home), 440 (Tools), 230 (Side Hustle), 300 (Failed Startups). They reflow to 1 column on mobile on their own.
+- **Card hover:** `translateY(-4px)`, `transition: transform .3s cubic-bezier(.2,.7,.2,1)`.
+- **Close button (all non-home pages):** 56×56 round button, top-right of the 1040px column, white 22px X icon (1.6 stroke). Links to `/`. aria-label "Close and go back home" (case studies) / "Close" (secondary pages).
+- **Reduced motion:** honour `prefers-reduced-motion` everywhere (shimmer stops, reveals disabled).
 
 ## Screens
 
-### Home (`Portfolio.dc.html`)
-The sections, in order: hero, work cards, Claude Code band, tools showcase, experience, then the **footer**.
+### Home (`Portfolio v2.dc.html`)
+1. **Header row** (flex, space-between):
+   - Left: two pills (36px tall, 0 16px padding, 14px/500): "Version 1.1" and "Tokens Used: 123,456,766".
+   - The token number is 600 weight, white, tabular-nums. It **ticks up live**: every 110ms add `1 + random(0–36)`, formatted `en-US`.
+   - Right: 56px round menu button with a two-line hamburger icon (24×14, lines at y=2 and y=12).
+2. **Hero** (`#top`):
+   - h1 "👋 Hi, I'm Shiva": `clamp(32px,4.2vw,50px)`/1.2/600, emoji + text with 14px gap.
+   - Three paragraphs: `clamp(24px,3.6vw,46px)`/1.25/500, `#8C8C8C`, gap `clamp(20px,2.6vw,32px)`, `text-wrap:pretty`.
+   - Highlighted spans in white: "Airtel", "Bijak, Toffee Insurance &amp; Byo."
+   - **Shimmer text** on "use AI to explore, test and ship faster without losing the craft.": `background:linear-gradient(100deg,#8c8c8c 0%,#8c8c8c 40%,#f5f5f5 50%,#8c8c8c 60%,#8c8c8c 100%)`, `background-size:250% 100%`, background-clip text, `animation: shimmer 3.2s linear infinite` (`background-position` 125% → -125%).
+3. **Selected Projects** (`#work`):
+   - Top padding `clamp(96px,13vw,160px)`. h2 `clamp(30px,3.8vw,46px)`/600.
+   - 4 cards, each: an image well (aspect 510/250, `object-fit:cover`), then a row with a 60px circle logo and title (`clamp(20px,1.9vw,24px)`/600) + description (`clamp(15px,1.4vw,18px)`, `#C9C9C9`). Row padding `20px 20px 22px`, gap 16px.
 
-**The "Let's Talk" form is gone.** The footer replaces it:
-- Sky `#63C4EC` background.
-- **Curtain-lift reveal:** the dark page above it has bottom radii and a shadow, and lifts off the footer as you scroll down.
-  - Implementation: CSS `animation-timeline: view()`, with sticky positioning as the fallback.
-  - Do **not** drive it with scroll JS, which causes jitter.
-- **Contents:**
-  - Nav links: Home, About, Tools, Work, Experience.
-  - Contact info.
-  - Location, with a live India-time (IST) clock.
-  - Social links, rolling-text hover, opening in a new tab:
-    - LinkedIn → https://www.linkedin.com/in/shiva-kumar-10106b143/
-    - Behance → https://www.behance.net/kumarshiva6b36
-    - Dribbble → https://dribbble.com/shivakumar
-  - A large "SHIVA KUMAR" wordmark with staggered letters (45ms each).
-  - Back-to-top.
+   | Title | Description | Image / logo | Links to |
+   |---|---|---|---|
+   | Engage X | A unified campaign lifecycle manager | `proj-engagex.svg` / `logo-xtelify.png` | `/work/engage-x` |
+   | DTH Price Simplification | Simplified DTH packs, Add Ons and VAS | `proj-dth.svg` / `logo-airtel.png` | `/work/dth-price-simplification` |
+   | Bijak Web Design System | UI Foundations for Bijak on the web | `proj-bijak.svg` / `logo-bijak.png` | `/work/bijak-design-system` |
+   | Toffee Seller App | Insurance App for cycle insurance | `proj-toffee.svg` / `logo-toffee.png` | `/work/toffee-seller-app` |
+4. **Claude Code** (`#claude`):
+   - Top padding `clamp(80px,10vw,120px)`. The title is an image: `assets/v2/claude-code-title.png`, height `clamp(34px,3.8vw,46px)`, alt "Claude Code".
+   - 2 horizontal cards: tag pill (28px tall, 13px/600), title, description on the left; a square image `clamp(88px,10vw,116px)` on the right. Hover also changes bg to `#333`.
+     - "Game" · Akhbar Bash · "A 16-bit game about our childhood paperboy." · `akhbar.png` → `/work/akhbar-bash`
+     - "Bot" · Jugnu · "A personal assistant that get things done." · `jugnu.png` → `/work/jugnu`
+5. **Full-screen menu** (`role="dialog"`, `aria-modal`):
+   - Fixed, inset 0, z-index 100, bg `#1C1C1C`, scrolls internally.
+   - Opens from the hamburger. Fades in with opacity + visibility over .35s. The nav list moves `translateY(24px)` → 0 over .45s `cubic-bezier(.2,.7,.2,1)`.
+   - While open, lock page scroll (`html{overflow:hidden}`). Escape or the close (X) button closes it.
+   - Items (`clamp(36px,4.6vw,58px)`/1.15/600, white, hover `#9A9A9A`): Tools I use → `/tools`, Side hustle → `/side-hustle`, Failed startups → `/failed-startups`.
+   - Then a disabled "My thoughts" with a lock icon (`#4A4A4A`, `cursor:not-allowed`, title "Coming soon").
+   - "Download Resume" pill button (48px tall, 17px/600, download icon) → `/Shiva_Kumar_Resume.pdf` with the `download` attribute.
+   - Social row: 56px icons, 14px gap, hover opacity .75, open in a new tab.
+     - LinkedIn → https://www.linkedin.com/in/shiva-kumar-10106b143/
+     - Dribbble → https://dribbble.com/shivakumar
+     - X → https://x.com/shiva_pdf
+     - GitHub → https://github.com/Shiva78388789
+     - Email (extra 10px left margin) → `mailto:kumarshiva1990@gmail.com`
 
-### Engage X (`EngageX.dc.html`)
-The sections, in order: hero, Problem Statement, Impact, Design Approach, Personas, Information Architecture, UI Design, Illustrations, Early Wins.
+### Tools I use (`Tools I Use.dc.html`)
+- Close button, then h1 "Tools I use" (`clamp(36px,4.6vw,58px)`/600).
+- 8 horizontal cards (same pattern as the Claude Code cards). The logo tile is `clamp(88px,9vw,112px)` wide, aspect 116/110, radius 12px.
+- Cards (tag · name · description):
+  - Design · Figma · UI design, prototyping and design systems.
+  - Documentation · Notion · Research notes, planning and documentation.
+  - Sprint · Jira · Sprint planning, task tracking and team collaboration.
+  - Code Repository · Github · Hosting side projects and shipping code with AI.
+  - Harness · Lottie Animation · Micro-interactions, animated icons and motion design.
+  - Harness · Spline 3D · 3D modelling, interactions and animated characters
+  - Harness · Higgsfield Media · AI video generation, motion and creative experiments
+  - LLM · Claude · AI build partner for code, research and ideas.
+- Logos: `assets/v2/t-*.svg|png`.
 
-The "AI Prototype" section has been **removed**.
+### Side Hustle (`Side Hustle.dc.html`)
+- 6 vertical cards. Image well aspect 243/150, bg `#4A4A4A`; the illustration is inset `14% 20%` with `object-fit:contain`. Body padding `18px 20px 20px`, title 17px/600, description 14px.
+- Cards: Book Worm (Learning, one book at a time), Gymming (Strong body, clear mind), Automation Expert (Building my digital team), Gaming (Respawn, retry, repeat), Projection Mapping (Painting with light), Djing (Mixing beats after hours).
+- Images: `assets/v2/h-*.svg`.
 
-**Impact:** Business and UX columns with a dashed divider. The numbers use a **rolling-digit odometer**:
-- Each digit is a 0–9 ×2 column, masked top and bottom.
-- Each column animates to `10+d` over `1300 + (n−di)*180` ms with `cubic-bezier(0.18,1.06,0.3,1)`, blurring 1.2px at 35%.
-- The digits are staggered by 90ms. The sign fades in.
-- An empty prefix must still render a zero-width space so the baseline stays aligned.
-- It triggers once at `top 78%`.
+### Failed Startups (`Failed Startups.dc.html`)
+- 4 cards. Image well aspect 333/150; the illustration is inset `8% 20%`. Row: 60px circle logo (`#D9D9D9` placeholder), title 20px/600, years 15px `#C9C9C9`.
+- Cards: SFED (2019 - 2020), Neon Central (2022-2023), Content Creation (2023), Big fat Bakery (2024).
+- Images: `assets/v2/f-*.svg`. Logos: `assets/v2/logo-sfed.png`, `logo-neon.png`, `logo-content.png`, `logo-bakery.png` (60px circles, `object-fit:cover`).
 
-**UI Design:** 6 platform screens **stacked vertically**:
-- Screens, in order: Dashboard, Channel Selection, Campaign Creation, Channel Onboarding, Media Library, Scheduler.
-- Images: `assets/engagex/ui-1…6-*.png`, each 2076px wide (2x).
-- **Frame:** 8px `#4A4A4A` border, 22px radius, 140px gap between screens.
-- **Label:** a cream sticky note overlapping the top-left at −26px/−40px. Montserrat 22px/700, text `#1D3B1A`, rotated about −3°, with a soft shadow.
-- **Scroll animation:** the frame rises 70px from 0.96 scale (power3.out, 1s), then the note drops in.
-- **Mobile:** 4px border, 12px radius, 15px note.
+### Case studies (Engage X, DTH, Bijak, Toffee, Akhbar Bash, Jugnu)
+Each page has the v2 close button at the top right of the 1040px column. The page body is in the reference file; follow each file section by section.
+- **Engage X:** hero, Problem Statement, Impact (rolling-digit odometer), Design Approach, Proto Personas, Information Architecture, UI Design (6 stacked framed screens, 8px `#4A4A4A` border, 22px radius, cream sticky labels), Illustrations (12, lightbox), Early Wins (2×2 odometer: 66%, 2X, 20%, 30 Cr). Footer link to the next project.
+- **DTH Price Simplification:** header with Team/Platform/Role notes, 3 hero phones rendered from the `components/dth` Figma bundle (**export these as images for production**), Confidentiality notice, Problem Statement, Impact, Design Approach, Personas, Benchmarking, Component Exploration (V1/V2/V3/Bottom Sheet), Final Screens, Early Metrics. Next project: Engage X.
+- **Bijak Web Design System:** Overview, Grid & Layouts, Spacing, Colour Palette, Typography, Components, Cursor States, Governance. Its interactive demos come from `components/bijak`; **rebuild them as real React components**. Next project: Toffee.
+- **Toffee Seller App:** Overview, Our Approach, Research, then screens. Accent `#EC5A5A`. Next project: Engage X.
+- **Akhbar Bash:** sections `#hero #spark #process #character #world #motion #game-design #experience #cities #brand #engineering #craft #claude #outcome #footer`.
+  - Videos play only while at least 50% visible. Show the poster image instead when `prefers-reduced-motion` or Save-Data is on.
+  - The page has a progress rail (desktop) and a city switcher (6 cities).
+  - Host the videos on a CDN (Vercel Blob, Cloudflare R2 or Mux).
+- **Jugnu:** sections `#top #overview #problem #principles #states #use-cases #learnings`, plus a 3D embed. Accent `#5CF2C1`.
 
-**Early Wins:** a 2×2 grid, centred, 58px/500 numbers with labels below, using the same odometer.
-
-| Number | Label |
-|---|---|
-| 66% | Reduction in campaign setup time |
-| 2X | Better CTR with new channels |
-| 20% | Reduction in marketing spends |
-| 30 Cr | Revenue generated |
-
-### DTH Price Simplification (`DTH Price Simplification.dc.html`)
-This page was **rebuilt to match Figma**. The old Assumptions, Research, Card Exploration, scrolling Final Design and Feedback Rounds sections are gone.
-
-The sections, in order:
-1. **Header:** "DTH Price Simplification" (56px/700) and its subtitle on the left. Three notes on the right: Team (mint), Platform (cream), Role (blue).
-2. **Hero phones:** three phone frames.
-   - Layout: 230 / 270 (centre, sky outline) / 230 wide.
-   - The frames render the live `BOX`, `BASEPACKS` and `ReviewOrder` Figma components from `components/dth/`.
-   - **For production, export these as images.**
-3. **Confidentiality Notice:** a yellow band.
-4. **Problem Statement:** body text, What/When/Why cards (`#7FD3F7`), and the TRAI Guidelines band. There is no Goal section.
-5. **Impact:** Business and UX columns with odometer numbers.
-   - Business: −20%, +9%, +15%, −6%.
-   - UX: +80%, 3 min, −25%, 8.
-6. **Design Approach:** 3 steps (Research / Design / Evaluate). Each has a green circle, a connector line and a checklist.
-7. **Personas:** 2 dashed cards with 120px circular photos (`assets/dth/persona-1/2.png`).
-8. **Benchmarking:**
-   - Left: a 2×3 grid of competitor screenshots (`bench-1…6.png`).
-   - Right: four cream notes (Logos, Size, Grouping, Flexibility and control) and two mint "Frame" cards (FREEDOM, EASE).
-9. **Component Exploration:** green "Version" notes, each above a 3-column row of card images:
-   - Version 1: `v1-1…5`, in columns of 2 + 2 + 1.
-   - Version 2: `v2-1…3`.
-   - Version 3: `v3-1…3`.
-   - Bottom Sheet: `bs-1…3`.
-10. **Final Screens:** 3 phones, 330×715, showing the same live components at 0.88 scale. Below 1080px they become a scroll-snap row.
-11. **Early Metrics:** a 2×2 odometer grid.
-
-    | Number | Label |
-    |---|---|
-    | −12% | Pricing and billing-related care calls |
-    | +4% | Pack upgrade conversion |
-    | +7% | Long term recharge adoption |
-    | 4% | Churn within 60 days of recharge |
-
-12. Next project card (Engage X) and "← Back to portfolio".
-
-**Mobile:**
-- Everything stacks to 1 column.
-- The side hero phones are hidden.
-- Benchmark notes form a 2-column grid, with the Frame cards full width.
-- The component exploration column is 420px max.
-
-### Bijak, Toffee, Jugnu, Akhbar Bash
-These pages are unchanged apart from the global changes (ruler added, dot background removed).
-- **Bijak:** its interactive demos are rendered from `components/bijak/`. Rebuild them as real React components.
-- **Jugnu:** the sections that had image figures have been removed: directions, shape, finish, expressions, icons, spec, spline-states and name. The page has no image placeholders left; the 3D embed and the text sections remain.
-- **Akhbar Bash:**
-  - Videos play only while at least 50% visible, and show their poster when `prefers-reduced-motion` or Save-Data is on.
-  - The page has a progress rail (desktop), a city switcher, and a sticky **PLAY THE GAME** bar on mobile.
-  - For production, host the videos on a CDN (Vercel Blob, Cloudflare R2 or Mux).
-
-## Shared interactions
-- **Reveal:** y 36–40 → 0 with opacity, power3.out over about 0.85s, triggered at `top 88–90%`.
+Shared case-study motion:
+- **Reveal:** elements rise y 36–40px → 0 with an opacity fade, power3.out over about 0.85s, triggered when they reach `top 88–90%`.
 - **Smooth scroll:** Lenis (`lerp 0.1`) wired to ScrollTrigger.
-- **Dock nav (`dock-nav.js`):**
-  - A glass pill fixed at the bottom centre, with Work, Experience and Contact.
-  - A springy active pill marks the current item.
-  - On case-study pages its links go to `/#section`.
+- **Odometer:** each digit is a 0–9 ×2 column. It rolls to `10+d` over `1300 + (n−i)*180` ms with `cubic-bezier(0.18,1.06,0.3,1)`, staggered 90ms. It triggers once at `top 78%`.
 
 ## State
-- **Home:** viewport width (desktop or mobile tree), clock time.
-- **Engage X:** illustration lightbox index.
-- **Akhbar Bash:** active city, active rail section, sticky bar visibility, lightbox.
+- **Home:** `menuOpen` (bool; also locks scroll; Esc closes), live token counter (interval; clear on unmount).
+- **Engage X:** lightbox index.
+- **Akhbar Bash:** active city, active rail section, lightbox, video visibility.
 - **Bijak:** demo control states.
+- No data fetching; everything is static.
 
 ## Assets
-- `assets/home/`, `assets/tools/`: home page imagery and tool logos.
-- `assets/engagex/`: laptop hero, personas, illustrations (`ill/`), and UI screens (`ui-*.png`).
-- `assets/dth/`: personas, benchmarks and component cards. These were cropped at 2x from the Figma export. Replace them with original exports if available.
-- `assets/toffee/`: Toffee screens.
-- `assets/akhbar/`: images and video (in parts 2 and 3).
-- `assets/Shiva_Kumar_Resume.pdf`: linked from the home page.
+- `assets/v2/`: home project images and logos, Claude Code title, Akhbar/Jugnu thumbnails, social icons (`s-*`), tool logos (`t-*`), side-hustle (`h-*`) and startup (`f-*`) illustrations.
+- `assets/engagex/`, `assets/dth/`, `assets/toffee/`: case-study imagery.
+- `assets/akhbar/`: images (part 2) and video (part 3).
+- `components/dth/assets/` (part 2): images for the DTH Figma bundle.
+- `assets/Shiva_Kumar_Resume.pdf`: the resume download.
 
 ## Files
-- `design/*.dc.html`: the 7 page references.
-- `design/site-ruler.js`: the top ruler web component.
-- `design/dock-nav.js`: the bottom dock web component.
-- `design/image-slot.js`: the image placeholder (prototype only).
+- `design/*.dc.html`: the 10 page references.
 - `design/components/dth`, `design/components/bijak`: Figma-extracted bundles, for reference only.
-- `design/_ds/`: base stylesheet.
-- `design/support.js`: the prototype runtime. Do not port it.
+- `design/_ds/`: base stylesheet loaded by the case studies.
+- `design/support.js`, `design/image-slot.js`: the prototype runtime. **Do not port these.**
+
+## Production checklist
+- All asset references in the 10 pages have been checked and every file is in parts 1–3.
+- Rename files containing `@` (Akhbar images, e.g. `character-rider@8x.png` → `character-rider-8x.png`) when copying to `public/`, and update the references.
+- Map `.dc.html` links to the routes above; "next project" links: DTH → Engage X, Bijak → Toffee, Toffee → Engage X.
+- Resume: serve `assets/Shiva_Kumar_Resume.pdf` at `/Shiva_Kumar_Resume.pdf`.
+- SEO: per-page `<title>`/description, Open Graph image, favicon, `sitemap.xml`, `robots.txt`.
+- Performance: convert large PNGs to WebP/AVIF via `next/image`, lazy-load below-the-fold media, self-host Montserrat via `next/font`.
+- Accessibility: keyboard-accessible menu with focus trap, visible focus rings, alt text as given in the references.
+- Deploy: Vercel, custom domain, analytics optional.
 
 ## Suggested Claude Code prompt
-> Unzip part-1, part-2 and part-3 into one folder. Read `README.md` and the files in `design/`. Scaffold a Next.js + TypeScript + Tailwind static site with the seven routes listed. Port `site-ruler.js` and `dock-nav.js` to React components used on every page. Recreate every page pixel-accurately for desktop and mobile, including the GSAP/Lenis motion, the rolling-digit counters and the footer curtain reveal. Honour `prefers-reduced-motion`. Copy assets into `public/`, then deploy to Vercel production.
+> Unzip part-1, part-2 and part-3 into one folder. Read `README.md` and the files in `design/`. Scaffold a Next.js + TypeScript + Tailwind static site with the ten routes listed. Build shared components: the round close button, card variants, pill tag and the full-screen menu. Recreate every page pixel-accurately for desktop and mobile, including the hero shimmer, the live token counter, the GSAP/Lenis reveals and the odometer counters. Honour `prefers-reduced-motion`. Copy assets into `public/` (videos to a CDN), add basic SEO metadata, then deploy to Vercel production.

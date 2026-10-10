@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import DthPage from '@/pages-src/DthPage';
+import '@/styles/ds.css';
 import '@/styles/dth.css';
 
 export const metadata: Metadata = {

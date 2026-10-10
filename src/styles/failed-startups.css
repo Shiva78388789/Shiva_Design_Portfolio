@@ -1,0 +1,6 @@
+html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#f5f5f5;text-decoration:none}
+a:hover{color:#ffffff}
+/* style-hover / style-focus / style-active rules */
+.failed-startups-hover-0:hover{background:#353535 !important}
