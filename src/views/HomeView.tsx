@@ -29,7 +29,7 @@ export default function HomeView({ v }: { v: any }) {
               >
                 Tokens Used:{" "}
                 <span ref={v.tokRef} style={{ fontWeight: "600", color: "#ffffff", fontVariantNumeric: "tabular-nums" }}>
-                  123,456,766
+                  —
                 </span>
               </span>
               {" "}
