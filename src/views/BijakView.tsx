@@ -1,22 +1,33 @@
-// Ported from design-reference/design/Bijak Web Design System.dc.html by scripts/convert-dc.mjs.
+// Ported from design-reference/design/Bijak Web Design System v2.dc.html by scripts/convert-dc.mjs.
 /* eslint-disable */
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
-import DockNav from '@/components/DockNav';
-import SiteRuler from '@/components/SiteRuler';
 import * as Bijak from '@/components/bijak';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function BijakView({ v }: { v: any }) {
   return (
     <>
-      <SiteRuler />
       <div
         style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
+        <div
+          style={{ maxWidth: "1040px", margin: "0 auto", padding: "clamp(24px,5vw,56px) clamp(20px,5vw,40px) 0", display: "flex", justifyContent: "flex-end", position: "relative", zIndex: "5" }}
+        >
+          <a
+            href={href("/")}
+            aria-label="Close and go back home"
+            style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#2a2a2a", border: "1.5px solid #444", display: "flex", alignItems: "center", justifyContent: "center", transition: "background .2s" }}
+            className="bijak-hover-0"
+          >
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+              <path d="M2 2l18 18M20 2 2 20" />
+            </svg>
+          </a>
+        </div>
         {" "}
         <header
-          style={{ maxWidth: "1272px", margin: "0 auto", padding: "clamp(64px,9vw,120px) 20px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "40px" }}
+          style={{ maxWidth: "1272px", margin: "0 auto", padding: "clamp(8px,2vw,24px) 20px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "40px" }}
         >
           {" "}
           <div style={{ flex: "0 1 auto", minWidth: "0" }}>
@@ -824,7 +835,7 @@ export default function BijakView({ v }: { v: any }) {
                 <div
                   data-cur="1"
                   style={css(`background:#FFFFFF;color:#25282B;padding:18px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:12px;cursor:${cu?.css ?? ""}`)}
-                  className="bijak-hover-0"
+                  className="bijak-hover-1"
                 >
                   {" "}
                   <Bijak.Cursor cursorType={cu?.t} />
@@ -951,7 +962,7 @@ export default function BijakView({ v }: { v: any }) {
               href={href("/work/toffee-seller-app/")}
               data-mw="next"
               style={{ display: "grid", gridTemplateColumns: "1fr 1fr", border: "2px solid #3A3A3A", background: "#141414", textDecoration: "none", color: "#FFFFFF" }}
-              className="bijak-hover-1"
+              className="bijak-hover-2"
             >
               {" "}
               <div
@@ -1000,7 +1011,7 @@ export default function BijakView({ v }: { v: any }) {
             <a
               href={href("/")}
               style={{ fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: "#9A9A9A" }}
-              className="bijak-hover-2"
+              className="bijak-hover-3"
             >
               ← Back to portfolio
             </a>
@@ -1019,7 +1030,6 @@ export default function BijakView({ v }: { v: any }) {
           {v.toastMsg}
         </div>
       </div>
-      <DockNav active="work" />
     </>
   );
 }

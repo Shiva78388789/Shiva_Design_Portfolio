@@ -19,23 +19,29 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const SRC = path.join(ROOT, 'design-reference/design');
 
 const PAGES = [
-  { file: 'Portfolio.dc.html', name: 'Home', css: 'home' },
-  { file: 'EngageX.dc.html', name: 'EngageX', css: 'engage-x' },
-  { file: 'DTH Price Simplification.dc.html', name: 'Dth', css: 'dth' },
-  { file: 'Bijak Web Design System.dc.html', name: 'Bijak', css: 'bijak' },
-  { file: 'Toffee Seller App.dc.html', name: 'Toffee', css: 'toffee' },
-  { file: 'JugnuCaseStudy.dc.html', name: 'Jugnu', css: 'jugnu' },
-  { file: 'Akhbar Bash Case Study.dc.html', name: 'Akhbar', css: 'akhbar' },
+  { file: 'Portfolio v2.dc.html', name: 'Home', css: 'home' },
+  { file: 'EngageX v2.dc.html', name: 'EngageX', css: 'engage-x' },
+  { file: 'DTH Price Simplification v2.dc.html', name: 'Dth', css: 'dth' },
+  { file: 'Bijak Web Design System v2.dc.html', name: 'Bijak', css: 'bijak' },
+  { file: 'Toffee Seller App v2.dc.html', name: 'Toffee', css: 'toffee' },
+  { file: 'Jugnu Case Study v2.dc.html', name: 'Jugnu', css: 'jugnu' },
+  { file: 'Akhbar Bash Case Study v2.dc.html', name: 'Akhbar', css: 'akhbar' },
+  { file: 'Tools I Use.dc.html', name: 'Tools', css: 'tools' },
+  { file: 'Side Hustle.dc.html', name: 'SideHustle', css: 'side-hustle' },
+  { file: 'Failed Startups.dc.html', name: 'FailedStartups', css: 'failed-startups' },
 ];
 
 export const ROUTES = {
-  'Portfolio.dc.html': '/',
-  'EngageX.dc.html': '/work/engage-x/',
-  'DTH Price Simplification.dc.html': '/work/dth-price-simplification/',
-  'Bijak Web Design System.dc.html': '/work/bijak-design-system/',
-  'Toffee Seller App.dc.html': '/work/toffee-seller-app/',
-  'JugnuCaseStudy.dc.html': '/work/jugnu/',
-  'Akhbar Bash Case Study.dc.html': '/work/akhbar-bash/',
+  'Portfolio v2.dc.html': '/',
+  'EngageX v2.dc.html': '/work/engage-x/',
+  'DTH Price Simplification v2.dc.html': '/work/dth-price-simplification/',
+  'Bijak Web Design System v2.dc.html': '/work/bijak-design-system/',
+  'Toffee Seller App v2.dc.html': '/work/toffee-seller-app/',
+  'Jugnu Case Study v2.dc.html': '/work/jugnu/',
+  'Akhbar Bash Case Study v2.dc.html': '/work/akhbar-bash/',
+  'Tools I Use.dc.html': '/tools/',
+  'Side Hustle.dc.html': '/side-hustle/',
+  'Failed Startups.dc.html': '/failed-startups/',
 };
 
 const EVENT_MAP = {

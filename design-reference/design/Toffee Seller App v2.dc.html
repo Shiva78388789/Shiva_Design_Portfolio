@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/styles.css">
+<script src="_ds/modernist-96652345-75a5-44c7-bbed-b936585fef46/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<style>
+html,body{margin:0;background:#1C1C1C;color:#FFFFFF}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:#EC5A5A}a:hover{color:#FFFFFF}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif!important;letter-spacing:normal!important}
+@media (max-width:860px){
+  [data-mw~="two"]{grid-template-columns:1fr!important;gap:36px!important}
+  [data-mw~="imgfirst"]{order:-1}
+  [data-mw~="four"]{grid-template-columns:1fr 1fr!important}
+  [data-mw~="three"]{grid-template-columns:1fr!important;gap:28px!important}
+  [data-mw~="pgrid"]{grid-template-columns:1fr 1fr!important}
+  [data-mw~="pgrid"] > :first-child{grid-column:1 / -1}
+  [data-mw~="flow"]{grid-template-columns:minmax(0,300px)!important;justify-content:center;row-gap:44px!important}
+  [data-mw~="flow"] > [data-node]{grid-column:1!important;grid-row:auto!important}
+  [data-arr]{left:calc(50% - 20px)!important;right:auto!important;top:calc(100% + 16px)!important;width:40px!important;transform:rotate(90deg)!important}
+  [data-mw~="next"]{grid-template-columns:1fr!important}
+  [data-mw~="nextimg"]{min-height:220px!important;border-right:0!important;border-bottom:2px solid #3A3A3A}
+}
+@media (max-width:560px){
+  [data-mw~="four"]{grid-template-columns:1fr!important}
+  [data-mw~="pgrid"]{grid-template-columns:1fr!important}
+  [data-mw~="phead"]{flex-direction:column!important;align-items:flex-start!important;gap:16px!important}
+  [data-mw~="steps"] [data-step] span:last-child{font-size:10px!important}
+}
+
+[data-title]{text-align:left!important;margin-left:0!important;margin-right:0!important;max-width:none!important;width:auto!important;padding:0!important}
+[data-frame],[data-handle]{display:none!important}
+[data-ttext]{font-weight:600!important;font-size:clamp(30px,3.8vw,46px)!important;line-height:1.2!important;color:#ffffff;text-wrap:balance}
+[data-ttext] br{display:none}
+header h1{font-weight:600!important}
+header [data-note]{background:#2e2e2e!important;color:#ffffff!important;border-radius:14px;transform:none!important;padding:14px 16px!important}
+header [data-note] > div:first-child{font-size:13px!important;font-weight:600!important;color:#9a9a9a;margin-bottom:4px}
+header [data-note] > div{font-size:15px!important}
+section [data-note],[data-shot-note]{background:#1c1c1c!important;color:#e8e8e8!important;border:1.5px solid #4f4f4f;border-radius:999px;transform:none!important;width:max-content!important;padding:6px 14px!important;font-size:14px!important;font-weight:500!important;font-family:'Montserrat',system-ui,sans-serif!important;box-shadow:none!important;text-align:left}
+section [data-note][style*="Permanent"]{border:0;border-radius:16px;background:#2e2e2e!important;width:auto!important;padding:16px 18px!important;font-size:15px!important;line-height:1.45!important}
+[data-mw~="goal"]{margin-left:0!important}
+[data-hero="chip"]{background:transparent!important;color:#e8e8e8!important;border:1.5px solid #4f4f4f;border-radius:999px;padding:5px 12px!important;font-size:13px!important}
+</style>
+</helmet>
+
+
+<div style="background-color:#1C1C1C;color:#FFFFFF;font-family:'Montserrat',system-ui,sans-serif;min-height:100vh;overflow-x:clip;padding-bottom:180px">
+<div style="max-width:1040px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(20px,5vw,40px) 0;display:flex;justify-content:flex-end;position:relative;z-index:5"><a href="Portfolio v2.dc.html" aria-label="Close and go back home" style="width:56px;height:56px;border-radius:50%;background:#2a2a2a;border:1.5px solid #444;display:flex;align-items:center;justify-content:center;transition:background .2s" style-hover="background:#353535"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l18 18M20 2 2 20"></path></svg></a></div>
+
+  <header style="max-width:1272px;margin:0 auto;padding:clamp(8px,2vw,24px) 20px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div style="flex:0 1 auto;min-width:0">
+      
+      <h1 aria-label="Toffee Seller App" style="margin:14px 0 0;font-size:clamp(44px,8vw,96px);line-height:1.02;font-weight:700;display:flex;flex-wrap:wrap;column-gap:0.28em">
+        <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">T</span><span data-char="1" style="display:inline-block">o</span><span data-char="1" style="display:inline-block">f</span><span data-char="1" style="display:inline-block">f</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">e</span></span>
+        <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">S</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">l</span><span data-char="1" style="display:inline-block">l</span><span data-char="1" style="display:inline-block">e</span><span data-char="1" style="display:inline-block">r</span></span>
+        <span data-word="1" style="display:inline-flex;overflow:hidden;padding-bottom:0.06em"><span data-char="1" style="display:inline-block">A</span><span data-char="1" style="display:inline-block">p</span><span data-char="1" style="display:inline-block">p</span></span>
+      </h1>
+      
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 14px;max-width:520px;padding-bottom:6px">
+      <div data-note="1" data-rot="-3" style="width:220px;padding:12px 12px 10px;background:#7FD3F7;color:#12303D;transform:rotate(-3deg)">
+        <div style="font-size:15px;font-weight:700">My Role</div>
+        <div style="font-size:14px;font-weight:500">UI/UX Designer</div>
+      </div>
+      <div data-note="1" data-rot="2" style="width:250px;padding:12px 12px 10px;background:#A8E6BF;color:#15361F;transform:rotate(2deg)">
+        <div style="font-size:15px;font-weight:700">Team</div>
+        <div style="font-size:14px;font-weight:500;line-height:1.35">Shiva Kumar, Priyanka Pathania, Nishant Jain, Ashish and Ankush</div>
+      </div>
+      <div data-note="1" data-rot="1.5" style="width:250px;padding:12px 12px 10px;background:#F6DFA6;color:#3D3010;transform:rotate(1.5deg)">
+        <div style="font-size:15px;font-weight:700">Tools</div>
+        <div style="font-size:14px;font-weight:500">Sketch, Invision, Balsamiq, Illustrator</div>
+      </div>
+    </div>
+  </header>
+
+  <div style="max-width:1272px;margin:clamp(48px,7vw,90px) auto 0;padding:0 20px">
+    <div data-heroimg="1" style="overflow:hidden;background:#FFFFFF">
+      <img src="assets/toffee/hero.png" alt="Toffee Seller App screens" style="display:block;width:100%;height:auto">
+    </div>
+  </div>
+
+  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
+    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:14px 0 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #EC5A5A"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Overview</h2>
+    </div>
+    <h3 data-reveal="1" style="margin:56px 0 0;font-size:20px;font-weight:700">Problem</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">Cycle dealers were experiencing a lot of difficulties in issuing cycle insurance through Toffee PWA due to network connectivity or technical errors. A lot of the cycle dealers felt frustrated due to the amount of time involved in policy issuance and the limited features of the web app. Moreover, it was getting difficult for the toffee team to capture the appropriate data to improve the user experience and integrate new features and products as well.</p>
+  </section>
+
+  <section style="max-width:880px;margin:0 auto;padding:clamp(80px,10vw,130px) 20px 0">
+    <h3 data-reveal="1" style="margin:0 0 36px;text-align:center;font-size:clamp(18px,2vw,22px);font-weight:600">Toffee Insurance web app design (Old)</h3>
+    <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;align-items:center">
+      <img data-phone="1" src="assets/toffee/old-web.png" alt="Old Toffee PWA" style="display:block;width:100%;max-width:300px;height:auto;margin:0 auto">
+      <div data-pains="1" style="border:2px dashed #6A6A6A;padding:28px 26px">
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px">
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Notifications</span></li>
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Claims transparency</span></li>
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Customers data</span></li>
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Dealers commission data</span></li>
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Customer support</span></li>
+          <li data-pain="1" style="display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500"><span data-x="1" style="flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#EC5A5A;display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span><span>Dull Leaderboard/Milestones</span></li>
+        </ul>
+        <p data-pain="1" style="margin:28px 0 0;font-size:14px;font-weight:600;line-height:1.5;color:#D6D6D6">These are the pain points and limitations of PWA for Cycle dealers and Toffee team.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;margin-top:10px">
+      <span data-drop="1" style="display:block;width:1.5px;height:70px;background:#EC5A5A;transform-origin:top"></span>
+      <div data-result="1" style="background:#FFFFFF;color:#1C1C1C;font-size:14px;font-weight:700;padding:14px 30px">As a result....</div>
+      <span data-drop="1" style="display:block;width:1.5px;height:60px;background:#EC5A5A;transform-origin:top"></span>
+      <svg data-drop="1" width="12" height="8" viewBox="0 0 12 8" style="display:block;margin-top:-1px"><path d="M0 0h12L6 8z" fill="#EC5A5A"></path></svg>
+    </div>
+    <div data-mw="pgrid" data-res-wrap="1" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:18px auto 0;perspective:900px">
+      <div data-res="1" style="background:#FFFFFF;color:#1C1C1C;padding:22px 18px;font-size:14px;font-weight:600;line-height:1.45"><span style="color:#D63F3F">Low sales</span> of insurance policies on cycles.</div>
+      <div data-res="1" style="background:#FFFFFF;color:#1C1C1C;padding:22px 18px;font-size:14px;font-weight:600;line-height:1.45"><span style="color:#D63F3F">Reduced engagement</span> rate of cycle dealers.</div>
+      <div data-res="1" style="background:#FFFFFF;color:#1C1C1C;padding:22px 18px;font-size:14px;font-weight:600;line-height:1.45"><span style="color:#D63F3F">Lack of trust</span> in Toffee Insurance.</div>
+      <div data-res="1" style="background:#FFFFFF;color:#1C1C1C;padding:22px 18px;font-size:14px;font-weight:600;line-height:1.45"><span style="color:#D63F3F">Increased friction</span> in insurance policy issuance and claim settlement.</div>
+    </div>
+
+    <div data-q="1" style="position:relative;margin:clamp(80px,10vw,120px) auto 0;max-width:640px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center">
+      <span data-qmark="1" aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(160px,22vw,240px);font-weight:800;line-height:1;color:#EC5A5A;opacity:0.35">?</span>
+      <p data-qtext="1" style="position:relative;margin:0;font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.4">How can we improve the Toffee experience and entice our users (cycle dealers) to sell more policies?</p>
+    </div>
+
+    <h3 data-reveal="1" style="margin:clamp(72px,9vw,110px) 0 0;font-size:20px;font-weight:700">Solution</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">We designed Toffee Seller, a mobile app that empowers our users(cycle dealers) by providing them salient information regarding their commissions earned and push alerts on various offers run by Toffee Insurance to keep them engaged. It also enables users to get control over their customer's data, claims as well as market competition via a leaderboard.</p>
+  </section>
+
+  <section style="max-width:1000px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0;display:flex;flex-direction:column;gap:clamp(96px,12vw,150px)">
+    <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:64px;align-items:center">
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/home.png" alt="Toffee Seller homescreen" style="display:block;width:100%;max-width:300px;height:auto"></div>
+      <div>
+        <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">01</div>
+        <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Bigger and better homescreen</h3>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:18px;font-weight:500;line-height:1.5">Whether cycle dealers wants to check their commission earned,Local rank or sell cycle insurance, every information has been kept upfront.</p>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:15px;line-height:1.65;color:#D6D6D6">Toffee seller app shows the data about the number of policies sold and commissions earned by the cycle dealer in the current month, apart from that "clear credit" feature and Buyflow CTA saves a substantial amount of time in clearing credit as well as issuing the policy.</p>
+      </div>
+    </div>
+
+    <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:center">
+      <div>
+        <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">02</div>
+        <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Claims experience redesigned</h3>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:18px;font-weight:500;line-height:1.5">All the information cycle dealers need regarding claims, at one place.</p>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:15px;line-height:1.65;color:#D6D6D6">Want a quick overview of the claims process? don't know how much time the claim will take in the settlement? No idea of documents required? Cycle dealers can get all this information in the claims section of the Toffee seller app.</p>
+        <div data-steps="1" data-mw="steps" style="position:relative;margin-top:30px;border:2px dashed #6A6A6A;padding:22px 16px 18px">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#D6D6D6;margin-bottom:18px">Claim Status</div>
+          <div style="position:relative;display:grid;grid-template-columns:repeat(4,1fr)">
+            <span aria-hidden="true" style="position:absolute;left:12.5%;right:12.5%;top:17px;height:2px;background:#4A4A4A"></span>
+            <span data-sline="1" aria-hidden="true" style="position:absolute;left:12.5%;right:12.5%;top:17px;height:2px;background:#EC5A5A;transform-origin:left;transform:scaleX(0)"></span>
+            <div data-step="1" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><span data-dot="1" style="width:36px;height:36px;border-radius:50%;border:2px solid #4A4A4A;background:#1C1C1C;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:11.5px;line-height:1.3;color:#D6D6D6">Estimate Added</span></div>
+            <div data-step="1" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><span data-dot="1" style="width:36px;height:36px;border-radius:50%;border:2px solid #4A4A4A;background:#1C1C1C;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:11.5px;line-height:1.3;color:#D6D6D6">Estimate Approved</span></div>
+            <div data-step="1" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><span data-dot="1" style="width:36px;height:36px;border-radius:50%;border:2px solid #4A4A4A;background:#1C1C1C;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:11.5px;line-height:1.3;color:#D6D6D6">Add Invoice</span></div>
+            <div data-step="1" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><span data-dot="1" style="width:36px;height:36px;border-radius:50%;border:2px solid #4A4A4A;background:#1C1C1C;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:11.5px;line-height:1.3;color:#D6D6D6">Payment Transferred</span></div>
+          </div>
+        </div>
+      </div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/claims.png" alt="Claims screen" style="display:block;width:100%;max-width:380px;height:auto"></div>
+    </div>
+
+    <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:64px;align-items:center">
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/leaderboard.png" alt="Ranking board" style="display:block;width:100%;max-width:300px;height:auto"></div>
+      <div>
+        <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">03</div>
+        <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Motivate with leaderboard</h3>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:18px;font-weight:500;line-height:1.5">Ranking features to foster competition among all the cycle dealers in the market place and to motivate them to sell more policies.</p>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:15px;line-height:1.65;color:#D6D6D6">Cycle dealers can use the leaderboard to check their ranking locally and would be able to unlock special incentives based on their performance.The more insurance gets sold the more incentives can be earned. However, ranking reset every month to remove bias.</p>
+        <div data-board="1" style="margin-top:30px;border:2px dashed #6A6A6A">
+          <div data-lrow="1" style="display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #3A3A3A"><span style="width:28px;height:28px;border-radius:50%;background:#EC5A5A;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:14px;font-weight:500">SS Overseas, Nashik</span><span style="font-size:15px;font-weight:700">★ <span data-lcount="237">237</span></span></div>
+          <div data-lrow="1" style="display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #3A3A3A"><span style="width:28px;height:28px;border-radius:50%;background:#EC5A5A;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-size:14px;font-weight:500">SS Overseas, Ahmednagar</span><span style="font-size:15px;font-weight:700">★ <span data-lcount="222">222</span></span></div>
+          <div data-lrow="1" style="display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #3A3A3A"><span style="width:28px;height:28px;border-radius:50%;background:#EC5A5A;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:14px;font-weight:500">Bali &amp; Sons., Kohlapur</span><span style="font-size:15px;font-weight:700">★ <span data-lcount="216">216</span></span></div>
+          <div data-lrow="1" style="display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:14px 16px;background:#FFFFFF;color:#1C1C1C"><span style="font-size:15px;font-weight:700;padding-left:4px">24</span><span style="font-size:14px;font-weight:700">Me <span style="font-weight:500;color:#555555">· Level-1 · ₹5000 earned</span></span><span style="font-size:15px;font-weight:700">★ <span data-lcount="110">110</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-mw="two" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:center">
+      <div>
+        <div data-reveal="1" style="font-size:13px;font-weight:700;letter-spacing:0.14em;color:#EC5A5A">04</div>
+        <h3 data-reveal="1" style="margin:8px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:700;text-transform:uppercase">Leveraging the data</h3>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:18px;font-weight:500;line-height:1.5">Cycle dealers will instantly get the data of the customer to whom the insured cycle has been sold.</p>
+        <p data-reveal="1" style="margin:14px 0 0;font-size:15px;line-height:1.65;color:#D6D6D6">Data captured at the time of policy issuance will get stored on the server and instantly reflect in the seller app for the convenience of the cycle dealer. Moreover, the data could be used for customer engagement later, with the help of date and cycle model filters, customer data can be segregated easily.</p>
+      </div>
+      <div data-mw="imgfirst" style="display:flex;justify-content:center"><img data-phone="1" src="assets/toffee/customer.png" alt="My Customer screen" style="display:block;width:100%;max-width:380px;height:auto"></div>
+    </div>
+  </section>
+
+  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
+    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:14px 0 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #EC5A5A"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Our Approach</h2>
+    </div>
+    <div data-mw="three" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px">
+      <div data-appr="1" style="position:relative;border:2px dashed #6A6A6A;padding:26px 22px 28px;min-height:230px">
+        <div data-num="1" style="font-size:64px;font-weight:800;line-height:1;color:#EC5A5A">01</div>
+        <div style="margin-top:14px;font-size:18px;font-weight:700">Research</div>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;color:#D6D6D6"><li>Competitive analysis</li><li>Interviews</li><li>Affinity Mapping</li><li>Personas</li></ul>
+      </div>
+      <div data-appr="1" style="position:relative;border:2px dashed #6A6A6A;padding:26px 22px 28px;min-height:230px">
+        <div data-num="1" style="font-size:64px;font-weight:800;line-height:1;color:#EC5A5A">02</div>
+        <div style="margin-top:14px;font-size:18px;font-weight:700">Design</div>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;color:#D6D6D6"><li>Group Brainstorming</li><li>Wireframes</li><li>Pre-Iterations</li><li>Hi-Fi Design</li><li>Interactions</li></ul>
+      </div>
+      <div data-appr="1" style="position:relative;border:2px dashed #6A6A6A;padding:26px 22px 28px;min-height:230px">
+        <div data-num="1" style="font-size:64px;font-weight:800;line-height:1;color:#EC5A5A">03</div>
+        <div style="margin-top:14px;font-size:18px;font-weight:700">Evaluate</div>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;color:#D6D6D6"><li>Usability Testing</li><li>Post-Iterations</li></ul>
+      </div>
+    </div>
+
+    <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">My Contribution</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">As the UI/UX designer on the team, I advocated and participated in conducting user research and brainstorming sessions before arriving at solutions.</p>
+    <p data-reveal="1" style="margin:14px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">I did all the research and design activities with other designers and developers. Created Wireframes, Hi and low-fidelity designs, interactions, and testing.</p>
+    <p data-reveal="1" style="margin:14px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">After the product pushed to the market,  I refined the designs by gathering feedback data and made improvements in the app.</p>
+  </section>
+
+  <section style="max-width:880px;margin:0 auto;padding:clamp(96px,12vw,160px) 20px 0">
+    <div data-title="1" style="position:relative;width:min(500px,100%);margin:0 auto;padding:14px 0 10px;text-align:center">
+      <div data-frame="1" style="position:absolute;inset:0;border:1.5px solid #EC5A5A"></div>
+      <span data-handle="1" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;top:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;left:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <span data-handle="1" style="position:absolute;right:-5px;bottom:-5px;width:10px;height:10px;border:1.5px solid #EC5A5A;background:#1C1C1C"></span>
+      <h2 data-ttext="1" style="position:relative;margin:0;font-size:clamp(38px,6vw,62px);line-height:1.16;font-weight:500">Research</h2>
+    </div>
+
+    <h3 data-reveal="1" style="margin:56px 0 0;font-size:20px;font-weight:700">Competitive analysis</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">We first looked into the market to examine if there's already any similar insurance app and if so, then, how they are solving the problem.</p>
+    <div data-reveal="1" style="margin-top:28px;background:#FFFFFF;padding:18px 20px">
+      <img src="assets/toffee/logos.png" alt="Policybazaar, Lemonade, Coverfox, Digit" style="display:block;width:100%;height:auto">
+    </div>
+    <h3 data-reveal="1" style="margin:40px 0 0;font-size:18px;font-weight:700">We found that:</h3>
+    <ul style="margin:12px 0 0;padding-left:20px;font-size:clamp(15px,1.5vw,17px);line-height:1.6;display:flex;flex-direction:column;gap:8px">
+      <li data-reveal="1">There was no product similar to the toffee seller app in the insurance market at that time.</li>
+      <li data-reveal="1">There were apps for insurance agents and consumers but were lacking in unique features that Toffee insurance is offering.</li>
+      <li data-reveal="1">No end to end claims experience by any competitor in an app.</li>
+    </ul>
+    <div data-reveal="1" style="margin-top:32px;background:#2e2e2e;color:#e8e8e8;border-radius:18px;padding:18px 18px 16px;font-size:14.5px;font-weight:600;line-height:1.5">Therefore, we hope to create a tool for our insurance sellers, to help them in selling policies impeccably without the hassle of claims and giving them complete transparency with the help of data.</div>
+
+    <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">Affinity mapping</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">To better understand the possibilities and features to be included in the app, we conducted affinity mapping sessions and asked developers, product managers, and graphic designers to participate in the activity, so that as a group, we can brainstorm solutions based on our findings. Simultaneously, we started analyzing the data of previous field visits to pick any problem which could be solved with this app.</p>
+    <div data-mw="two" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px">
+      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-1.png" alt="Affinity mapping wall" style="display:block;width:100%;height:auto"></div>
+      <div data-photo="1" style="overflow:hidden"><img src="assets/toffee/affinity-2.png" alt="Affinity mapping board" style="display:block;width:100%;height:auto"></div>
+    </div>
+
+    <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">Users Persona</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">To better guide our designs and enable everyone on the team to empathize with our users, We further synthesized the interview results and came up with the following personas.</p>
+
+    <div style="display:flex;flex-direction:column;gap:32px;margin-top:32px">
+      <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 26px">
+        <div data-mw="phead" style="display:flex;gap:24px;align-items:center">
+          <img src="assets/toffee/naveen.png" alt="Naveen" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto">
+          <div>
+            <div style="font-size:15px;font-weight:700">Bio</div>
+            <p style="margin:6px 0 0;font-size:14px;line-height:1.55;color:#D6D6D6">Naveen lives in Tagore Garden (New Delhi) and owns a firefox cycle showroom in ModelTown. He has a good volume of cycle sales and maintains a good relationship with his customers.</p>
+          </div>
+        </div>
+        <div data-mw="four" style="display:grid;grid-template-columns:1.05fr 1fr 1fr 1.15fr;gap:14px;margin-top:22px">
+          <div data-pbox="1" style="background:#262626;padding:16px;font-size:12.5px;line-height:1.85;color:#D6D6D6">Age - <b style="color:#FFFFFF">45 Years</b><br>Work - <b style="color:#FFFFFF">Businessman</b><br>Status - <b style="color:#FFFFFF">Married</b><br>Location - <b style="color:#FFFFFF">New Delhi</b><br>Personality - <b style="color:#FFFFFF">Introvert</b><br>Self Motivated - <b style="color:#FFFFFF">No</b><br>Technology - <b style="color:#FFFFFF">Internet and Mobile apps</b><br>Monthly Policies - <b style="color:#FFFFFF">15-20</b></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700">Needs</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Increase the volume of sales</li><li>Customer Satisfaction</li></ul></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700">Motivation</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Commissions</li><li>Customers loyalty</li></ul></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700;color:#EC5A5A">Frustrations</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Difficulty in explaining insurance to customers</li><li>Disparity in commissions</li><li>Selling insurance hinders cycle sales</li></ul></div>
+        </div>
+      </article>
+
+      <article data-persona="1" style="border:2px dashed #6A6A6A;padding:24px 22px 26px">
+        <div data-mw="phead" style="display:flex;gap:24px;align-items:center">
+          <img src="assets/toffee/sunny.png" alt="Sunny" style="width:104px;height:104px;border-radius:50%;object-fit:cover;flex:0 0 auto">
+          <div>
+            <div style="font-size:15px;font-weight:700">Bio</div>
+            <p style="margin:6px 0 0;font-size:14px;line-height:1.55;color:#D6D6D6">Sunny lives in Dwarka (New Delhi) and owns a Multibrand cycle showroom in Dwarka. He has a good volume of cycle sales and has a range of expensive cycles as well. He likes to experiment with sale strategies and is very clear about his business objectives.</p>
+          </div>
+        </div>
+        <div data-mw="four" style="display:grid;grid-template-columns:1.05fr 1fr 1fr 1.15fr;gap:14px;margin-top:22px">
+          <div data-pbox="1" style="background:#262626;padding:16px;font-size:12.5px;line-height:1.85;color:#D6D6D6">Age - <b style="color:#FFFFFF">25 Years</b><br>Work - <b style="color:#FFFFFF">Businessman</b><br>Status - <b style="color:#FFFFFF">Single</b><br>Location - <b style="color:#FFFFFF">New Delhi</b><br>Personality - <b style="color:#FFFFFF">Extrovert</b><br>Self Motivated - <b style="color:#FFFFFF">Yes</b><br>Technology - <b style="color:#FFFFFF">Internet and Mobile apps</b><br>Monthly Policies - <b style="color:#FFFFFF">25-30</b></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700">Needs</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Increase the volume of sales</li><li>Cater all age group and class</li></ul></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700">Motivation</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Commissions</li><li>Ranking among local sellers</li></ul></div>
+          <div data-pbox="1" style="background:#262626;padding:16px"><div style="font-size:15px;font-weight:700;color:#EC5A5A">Frustrations</div><ul style="margin:8px 0 0;padding-left:16px;font-size:13.5px;line-height:1.6;color:#D6D6D6"><li>Hard to convince cycle buyers to buy insurance</li><li>Disparity in commissions</li><li>Slow system due to internet connection or mobile device</li></ul></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 data-reveal="1" style="margin:clamp(64px,8vw,96px) 0 0;font-size:20px;font-weight:700">User Flow</h3>
+    <p data-reveal="1" style="margin:10px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6">With our research findings, old designs and personas in mind, I have created a user flow to visualize all the specific steps a user needs to take in coming to the platform and selling insurance policy.</p>
+    <div data-flow="1" data-mw="flow" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:36px;row-gap:44px;margin-top:40px">
+      <div data-node="1" style="position:relative;grid-row:1;grid-column:1;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Seller app download<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:100%;top:calc(50% - 6px);width:36px;height:12px;transform-origin:center"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:1;grid-column:2;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF;box-shadow:4px 4px 0 -1.5px #1C1C1C, 4px 4px 0 0 #EC5A5A">Splash screen with sign-in<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:100%;top:calc(50% - 6px);width:36px;height:12px"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:1;grid-column:3;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Enter registered mobile number<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:100%;top:calc(50% - 6px);width:36px;height:12px"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:1;grid-column:4;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Enter OTP<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:calc(50% - 20px);top:calc(100% + 16px);width:40px;height:12px;transform:rotate(90deg)"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:2;grid-column:4;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Dealer Home Screen<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;right:100%;top:calc(50% - 6px);width:36px;height:12px;transform:rotate(180deg)"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:2;grid-column:3;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Buy Cycle Insurance<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;right:100%;top:calc(50% - 6px);width:36px;height:12px;transform:rotate(180deg)"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:2;grid-column:2;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF;box-shadow:4px 4px 0 -1.5px #1C1C1C, 4px 4px 0 0 #EC5A5A">Cycle buyer details<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;right:100%;top:calc(50% - 6px);width:36px;height:12px;transform:rotate(180deg)"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:2;grid-column:1;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Calculate Premium<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:calc(50% - 20px);top:calc(100% + 16px);width:40px;height:12px;transform:rotate(90deg)"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:3;grid-column:1;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Issue Policy<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:100%;top:calc(50% - 6px);width:36px;height:12px"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:3;grid-column:2;border:1.5px solid #EC5A5A;background:#1C1C1C;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#FFFFFF">Policy issued successfully<svg data-arr="1" viewBox="0 0 40 12" preserveAspectRatio="none" style="position:absolute;left:100%;top:calc(50% - 6px);width:36px;height:12px"><path d="M0 6h34" stroke="#EC5A5A" stroke-width="1.5"></path><path d="M33 1l6 5-6 5" fill="none" stroke="#EC5A5A" stroke-width="1.5"></path></svg></div>
+      <div data-node="1" style="position:relative;grid-row:3;grid-column:3;border:1.5px solid #EC5A5A;background:#EC5A5A;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:700;line-height:1.35;color:#FFFFFF">Back on Homescreen</div>
+    </div>
+  </section>
+
+  <section style="max-width:880px;margin:0 auto;padding:clamp(110px,14vw,180px) 20px 0">
+    <div data-next="1">
+      <div style="display:inline-block;background:#FFFFFF;color:#1C1C1C;padding:7px 14px;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase">Next project</div>
+      <a href="EngageX v2.dc.html" data-mw="next" style="display:grid;grid-template-columns:1fr 1fr;border:2px solid #3A3A3A;background:#141414;text-decoration:none;color:#FFFFFF" style-hover="border-color:#5BC0E8">
+        <div data-mw="nextimg" style="display:flex;align-items:center;justify-content:center;min-height:280px;border-right:2px solid #3A3A3A;padding:24px;overflow:hidden">
+          <img data-nextimg="1" src="assets/engagex/laptop.png" alt="Engage X" style="display:block;width:100%;max-width:340px;height:auto">
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding:clamp(28px,4vw,44px)">
+          <h3 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:700;color:#FFFFFF">Engage X</h3>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#D6D6D6">A Unified Campaign Lifecycle Manager</p>
+          <span data-nextcta="1" style="display:inline-flex;align-items:center;gap:10px;margin-top:6px;background:#5BC0E8;color:#10384A;padding:12px 18px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+        </div>
+      </a>
+    </div>
+    <div style="margin-top:56px">
+      <a href="Portfolio v2.dc.html" style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:#9A9A9A" style-hover="color:#FFFFFF">← Back to portfolio</a>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    let tries = 0;
+    const wait = () => {
+      if (window.gsap && window.ScrollTrigger) this.initMotion();
+      else if (tries++ < 100) this._t = setTimeout(wait, 60);
+    };
+    wait();
+  }
+  componentWillUnmount() {
+    clearTimeout(this._t);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._lenis) this._lenis.destroy();
+    if (this._ctx) this._ctx.revert();
+  }
+  initMotion() {
+    const gsap = window.gsap, ST = window.ScrollTrigger;
+    gsap.registerPlugin(ST);
+    if (window.Lenis && !this._lenis) {
+      const lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+      this._lenis = lenis; window.__lenis = lenis;
+      lenis.on('scroll', ST.update);
+      const raf = (t) => { lenis.raf(t); this._raf = requestAnimationFrame(raf); };
+      this._raf = requestAnimationFrame(raf);
+    }
+    const $ = (s, r) => Array.from((r || document).querySelectorAll(s));
+    const C = '#EC5A5A';
+    this._ctx = gsap.context(() => {
+      gsap.timeline({ defaults: { ease: 'power4.out' } })
+        .from('[data-hero="kicker"]', { y: 16, opacity: 0, duration: 0.6 })
+        .from('[data-char]', { yPercent: 115, duration: 0.9, stagger: 0.035 }, '-=0.3')
+        .from('[data-hero="chip"]', { y: 12, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.5')
+        .from('header [data-note]', { y: -60, opacity: 0, rotation: (i, el) => +el.dataset.rot + (i % 2 ? 12 : -12), duration: 0.9, stagger: 0.12, ease: 'back.out(1.6)' }, '-=0.6')
+        .from('[data-heroimg]', { y: 80, opacity: 0, duration: 1.1 }, '-=0.6');
+      gsap.to('[data-heroimg] img', { yPercent: 6, scale: 1.06, ease: 'none', scrollTrigger: { trigger: '[data-heroimg]', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+      $('[data-title]').forEach((el) => {
+        gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 82%' } })
+          .from(el.querySelector('[data-frame]'), { scaleX: 0, scaleY: 0.2, duration: 0.7, ease: 'expo.out' })
+          .from($('[data-handle]', el), { scale: 0, duration: 0.35, stagger: 0.05, ease: 'back.out(3)' }, '-=0.35')
+          .from(el.querySelector('[data-ttext]'), { y: 24, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+      });
+      $('[data-reveal]').forEach((el) => gsap.from(el, { y: 36, opacity: 0, duration: 0.85, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+
+      $('[data-phone]').forEach((el, i) => {
+        gsap.from(el, { y: 110, opacity: 0, rotation: i % 2 ? 4 : -4, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+        gsap.to(el, { yPercent: -8, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+
+      const pains = document.querySelector('[data-pains]');
+      if (pains) {
+        const pt = gsap.timeline({ scrollTrigger: { trigger: pains, start: 'top 75%' } });
+        pt.from(pains, { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' });
+        $('[data-pain]', pains).forEach((li) => {
+          const x = li.querySelector('[data-x]');
+          if (x) pt.from(x, { scale: 0, rotation: -180, duration: 0.45, ease: 'back.out(2.4)' }, '>-0.15');
+          pt.from(x ? li.lastElementChild : li, { x: -18, opacity: 0, duration: 0.4, ease: 'power2.out' }, '<0.1');
+        });
+      }
+
+      const drops = $('[data-drop]');
+      if (drops.length) {
+        gsap.timeline({ scrollTrigger: { trigger: drops[0], start: 'top 80%' } })
+          .from(drops[0], { scaleY: 0, duration: 0.5, ease: 'power2.inOut' })
+          .from('[data-result]', { scale: 0.6, opacity: 0, duration: 0.5, ease: 'back.out(2.2)' })
+          .from(drops[1], { scaleY: 0, duration: 0.4, ease: 'power2.inOut' })
+          .from(drops[2], { opacity: 0, y: -6, duration: 0.2 })
+          .from('[data-res]', { rotationX: -90, transformOrigin: '50% 0%', opacity: 0, duration: 0.8, stagger: 0.14, ease: 'back.out(1.4)' });
+      }
+
+      const q = document.querySelector('[data-q]');
+      if (q) gsap.timeline({ scrollTrigger: { trigger: q, start: 'top 80%' } })
+        .from('[data-qmark]', { scale: 0.3, rotation: -25, opacity: 0, duration: 1, ease: 'elastic.out(1, 0.55)' })
+        .from('[data-qtext]', { y: 26, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.6');
+
+      const steps = document.querySelector('[data-steps]');
+      if (steps) {
+        const dots = $('[data-dot]', steps), line = steps.querySelector('[data-sline]');
+        const stl = gsap.timeline({ scrollTrigger: { trigger: steps, start: 'top 80%' } });
+        dots.forEach((d, i) => {
+          stl.to(d, { backgroundColor: C, borderColor: C, duration: 0.3, ease: 'power2.out' })
+             .fromTo(d, { scale: 0.7 }, { scale: 1, duration: 0.5, ease: 'back.out(3)' }, '<')
+             .to(d.querySelector('svg'), { opacity: 1, duration: 0.2 }, '<0.1');
+          if (i < dots.length - 1) stl.to(line, { scaleX: (i + 1) / (dots.length - 1), duration: 0.5, ease: 'power1.inOut' });
+        });
+      }
+
+      const board = document.querySelector('[data-board]');
+      if (board) {
+        const bst = { trigger: board, start: 'top 82%' };
+        gsap.from($('[data-lrow]', board), { x: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out', scrollTrigger: bst });
+        $('[data-lcount]', board).forEach((el) => {
+          const end = +el.dataset.lcount, o = { v: 0 };
+          el.textContent = '0';
+          gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: bst, onUpdate: () => { el.textContent = Math.round(o.v); } });
+        });
+      }
+
+      const appr = $('[data-appr]');
+      if (appr.length) gsap.timeline({ scrollTrigger: { trigger: appr[0], start: 'top 82%' } })
+        .from(appr, { y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' })
+        .from($('[data-num]'), { yPercent: 60, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'back.out(2)' }, 0.2);
+
+      $('[data-photo]').forEach((el, i) => gsap.from(el, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1, delay: i * 0.12, ease: 'power3.inOut', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+
+      $('[data-persona]').forEach((el) => {
+        gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 82%' } })
+          .from(el, { y: 60, opacity: 0, duration: 0.8, ease: 'power3.out' })
+          .from(el.querySelector('img'), { scale: 0.5, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, '-=0.5')
+          .from($('[data-pbox]', el), { y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' }, '-=0.3');
+      });
+
+      const flow = document.querySelector('[data-flow]');
+      if (flow) {
+        const ft = gsap.timeline({ scrollTrigger: { trigger: flow, start: 'top 78%' } });
+        $('[data-node]', flow).forEach((n) => {
+          ft.from(n, { scale: 0.7, opacity: 0, duration: 0.35, ease: 'back.out(2.4)' });
+          const a = n.querySelector('[data-arr]');
+          if (a) ft.from(a, { scaleX: 0, transformOrigin: '0% 50%', duration: 0.22, ease: 'none' });
+        });
+      }
+
+      const next = document.querySelector('[data-next]');
+      if (next) {
+        gsap.from(next, { y: 60, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: next, start: 'top 85%' } });
+        const img = next.querySelector('[data-nextimg]'), cta = next.querySelector('[data-nextcta]'), link = next.querySelector('a');
+        link.addEventListener('mouseenter', () => { gsap.to(img, { scale: 1.06, y: -6, duration: 0.6, ease: 'power3.out' }); gsap.to(cta, { x: 6, duration: 0.4, ease: 'power3.out' }); });
+        link.addEventListener('mouseleave', () => { gsap.to(img, { scale: 1, y: 0, duration: 0.6, ease: 'power3.out' }); gsap.to(cta, { x: 0, duration: 0.4, ease: 'power3.out' }); });
+      }
+    });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

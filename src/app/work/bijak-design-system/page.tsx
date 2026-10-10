@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BijakPage from '@/pages-src/BijakPage';
+import '@/styles/ds.css';
 import '@/styles/bijak.css';
 
 export const metadata: Metadata = {

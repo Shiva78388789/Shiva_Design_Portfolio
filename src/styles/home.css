@@ -1,18 +1,12 @@
-html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;overflow-x:clip}
-html,body,h1,h2,h3,p,span,div,a,button,input,textarea,label{font-family:"Montserrat",system-ui,sans-serif}
-a{color:#63c4ec}
-a:hover{color:#9ad8f2}
-html{scroll-behavior:smooth}
-[data-ft-roll-in]{transition:transform .55s cubic-bezier(.7,0,.2,1)}
-[data-ft-roll]:hover [data-ft-roll-in]{transform:translateY(-50%)}
-@keyframes ft-blink{50%{opacity:.25}}
-@keyframes ft-curtain{from{transform:translateY(calc(var(--ft-m,100vh) * -1))}to{transform:none}}
-@supports (animation-timeline:view()){footer[data-ft]{animation:ft-curtain linear both;animation-timeline:view();animation-range:entry 0% entry 100%}}
+html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#f5f5f5;text-decoration:none}
+a:hover{color:#ffffff}
+@keyframes v2-shimmer{from{background-position:125% 0}to{background-position:-125% 0}}
+@media (prefers-reduced-motion:reduce){[style*="v2-shimmer"]{animation:none!important}}
 /* style-hover / style-focus / style-active rules */
-.home-hover-0:hover{box-shadow:0 1px 2px rgba(0,0,0,0.5),0 10px 30px rgba(255,255,255,0.16) !important}
-.home-hover-1:hover{opacity:0 !important}
-.home-hover-2:hover{transform:translateY(-4px) !important}
-.home-hover-3:hover{color:#f5f5f5 !important}
-.home-hover-4:hover{color:#1c1c1c !important}
-.home-hover-5:hover{color:#1c1c1c !important;text-decoration-thickness:2px !important}
-.home-hover-6:hover{background:#333333 !important}
+.home-hover-0:hover{background:#353535 !important}
+.home-hover-1:hover{transform:translateY(-4px) !important}
+.home-hover-2:hover{transform:translateY(-4px) !important;background:#333333 !important}
+.home-hover-3:hover{color:#9a9a9a !important}
+.home-hover-4:hover{opacity:.75 !important}

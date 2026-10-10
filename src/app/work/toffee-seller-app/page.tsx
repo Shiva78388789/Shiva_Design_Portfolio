@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ToffeePage from '@/pages-src/ToffeePage';
+import '@/styles/ds.css';
 import '@/styles/toffee.css';
 
 export const metadata: Metadata = {

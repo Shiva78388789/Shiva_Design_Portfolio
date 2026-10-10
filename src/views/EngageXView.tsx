@@ -1,23 +1,34 @@
-// Ported from design-reference/design/EngageX.dc.html by scripts/convert-dc.mjs.
+// Ported from design-reference/design/EngageX v2.dc.html by scripts/convert-dc.mjs.
 /* eslint-disable */
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
-import DockNav from '@/components/DockNav';
-import SiteRuler from '@/components/SiteRuler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function EngageXView({ v }: { v: any }) {
   return (
     <>
-      <SiteRuler />
       <div
         style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF", fontFamily: "'Montserrat',system-ui,sans-serif", minHeight: "100vh", overflowX: "clip", paddingBottom: "180px" }}
       >
+        <div
+          style={{ maxWidth: "1040px", margin: "0 auto", padding: "clamp(24px,5vw,56px) clamp(20px,5vw,40px) 0", display: "flex", justifyContent: "flex-end", position: "relative", zIndex: "5" }}
+        >
+          <a
+            href={href("/")}
+            aria-label="Close and go back home"
+            style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#2a2a2a", border: "1.5px solid #444", display: "flex", alignItems: "center", justifyContent: "center", transition: "background .2s" }}
+            className="engage-x-hover-0"
+          >
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+              <path d="M2 2l18 18M20 2 2 20" />
+            </svg>
+          </a>
+        </div>
         {" "}
         <div style={{ maxWidth: "1512px", margin: "0 auto", position: "relative" }}>
           {" "}
           <header
-            style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "40px", padding: "120px clamp(24px,8vw,120px) 0" }}
+            style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "40px", padding: "clamp(8px,2vw,24px) clamp(24px,8vw,120px) 0" }}
           >
             {" "}
             <div style={{ flex: "0 1 auto" }}>
@@ -66,13 +77,9 @@ export default function EngageXView({ v }: { v: any }) {
               {" "}
             </div>
             {" "}
-            <div style={{ position: "relative", flex: "0 0 auto", width: "500px", height: "200px", marginTop: "88px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", maxWidth: "500px", marginTop: "88px" }}>
               {" "}
-              <div
-                data-note="1"
-                data-rot="-4"
-                style={{ position: "absolute", left: "2px", top: "0", width: "232px", padding: "12px 12px 10px", background: "#7FD3F7", color: "#12303D", transform: "rotate(-4deg)" }}
-              >
+              <div data-note="1" data-rot="-4" style={{ width: "232px", padding: "12px 12px 10px", background: "#7FD3F7", color: "#12303D", transform: "rotate(-4deg)" }}>
                 {" "}
                 <div style={{ fontSize: "23px", fontWeight: "700" }}>
                   Role
@@ -84,11 +91,7 @@ export default function EngageXView({ v }: { v: any }) {
                 {" "}
               </div>
               {" "}
-              <div
-                data-note="1"
-                data-rot="1.5"
-                style={{ position: "absolute", left: "0", top: "92px", width: "236px", padding: "12px 12px 10px", background: "#A8E6BF", color: "#15361F", transform: "rotate(1.5deg)" }}
-              >
+              <div data-note="1" data-rot="1.5" style={{ width: "236px", padding: "12px 12px 10px", background: "#A8E6BF", color: "#15361F", transform: "rotate(1.5deg)" }}>
                 {" "}
                 <div style={{ fontSize: "15px", fontWeight: "700" }}>
                   Team
@@ -100,11 +103,7 @@ export default function EngageXView({ v }: { v: any }) {
                 {" "}
               </div>
               {" "}
-              <div
-                data-note="1"
-                data-rot="2.5"
-                style={{ position: "absolute", right: "0", top: "56px", width: "234px", padding: "12px 12px 22px", background: "#F6DFA6", color: "#3D3010", transform: "rotate(2.5deg)" }}
-              >
+              <div data-note="1" data-rot="2.5" style={{ width: "234px", padding: "12px 12px 22px", background: "#F6DFA6", color: "#3D3010", transform: "rotate(2.5deg)" }}>
                 {" "}
                 <div style={{ fontSize: "15px", fontWeight: "700" }}>
                   Platform
@@ -164,7 +163,7 @@ export default function EngageXView({ v }: { v: any }) {
           <div
             data-reveal="1"
             data-mw="col notice"
-            style={{ width: "840px", margin: "100px auto 0", background: "#F4C542", color: "#2A220A", padding: "16px 14px 14px" }}
+            style={{ width: "840px", margin: "100px auto 0", background: "#2e2e2e", color: "#e8e8e8", borderRadius: "18px", padding: "16px 14px 14px" }}
           >
             {" "}
             <div style={{ fontSize: "12px", fontWeight: "700" }}>
@@ -1997,7 +1996,7 @@ export default function EngageXView({ v }: { v: any }) {
                 onClick={v.prevLb}
                 aria-label="Previous"
                 style={{ width: "48px", height: "48px", border: "1.5px solid #5BC0E8", background: "transparent", color: "#FFFFFF", fontSize: "20px", cursor: "pointer" }}
-                className="engage-x-hover-0"
+                className="engage-x-hover-1"
               >
                 ←
               </button>
@@ -2026,7 +2025,7 @@ export default function EngageXView({ v }: { v: any }) {
                 onClick={v.nextLb}
                 aria-label="Next"
                 style={{ width: "48px", height: "48px", border: "1.5px solid #5BC0E8", background: "transparent", color: "#FFFFFF", fontSize: "20px", cursor: "pointer" }}
-                className="engage-x-hover-0"
+                className="engage-x-hover-1"
               >
                 →
               </button>
@@ -2127,7 +2126,7 @@ export default function EngageXView({ v }: { v: any }) {
             <a
               href={href("/")}
               style={{ fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: "#9A9A9A" }}
-              className="engage-x-hover-1"
+              className="engage-x-hover-2"
             >
               ← Back to portfolio
             </a>
@@ -2136,7 +2135,6 @@ export default function EngageXView({ v }: { v: any }) {
           {" "}
         </div>
       </div>
-      <DockNav active="work" />
     </>
   );
 }

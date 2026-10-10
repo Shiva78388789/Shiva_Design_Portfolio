@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap">
+<style>
+html,body{margin:0;background:#1c1c1c;color:#f5f5f5;font-family:"Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#f5f5f5;text-decoration:none}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div data-screen-label="Tools I use" style="min-height:100vh;background:#1c1c1c;color:#f5f5f5;padding:0 clamp(20px,5vw,40px) clamp(64px,8vw,120px)">
+  <div style="max-width:1040px;margin:0 auto">
+    <div style="display:flex;justify-content:flex-end;padding-top:clamp(24px,5vw,56px)">
+      <a href="Portfolio v2.dc.html" aria-label="Close" style="width:56px;height:56px;border-radius:50%;background:#2a2a2a;border:1.5px solid #444;display:flex;align-items:center;justify-content:center;transition:background .2s" style-hover="background:#353535"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l18 18M20 2 2 20"></path></svg></a>
+    </div>
+    <h1 style="margin:clamp(8px,2vw,24px) 0 0;font-size:clamp(36px,4.6vw,58px);line-height:1.15;font-weight:600;color:#ffffff">Tools I use</h1>
+    <div style="margin-top:clamp(28px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:20px">
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Design</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Figma</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">UI design, prototyping and design systems.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-figma.svg" alt="Figma" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Documentation</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Notion</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">Research notes, planning and documentation.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-notion.png" alt="Notion" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Sprint</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Jira</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">Sprint planning, task tracking and team collaboration.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-jira.svg" alt="Jira" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Code Repository</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Github</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">Hosting side projects and shipping code with AI.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-github.svg" alt="Github" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Harness</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Lottie Animation</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">Micro-interactions, animated icons and motion design.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-lottie.svg" alt="Lottie Animation" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Harness</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Spline 3D</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">3D modelling, interactions and animated characters</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-spline.png" alt="Spline 3D" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">Harness</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Higgsfield Media</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">AI video generation, motion and creative experiments</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-higgsfield-2.png" alt="Higgsfield Media" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:20px;border-radius:18px;background:#2e2e2e">
+          <div style="flex:1;min-width:0">
+            <span style="display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1.5px solid #555;border-radius:999px;font-size:13px;font-weight:600;color:#e8e8e8">LLM</span>
+            <h2 style="margin:12px 0 0;font-size:clamp(20px,1.9vw,22px);line-height:1.25;font-weight:600;color:#ffffff">Claude</h2>
+            <p style="margin:6px 0 0;font-size:clamp(15px,1.4vw,18px);line-height:1.4;color:#c9c9c9;text-wrap:pretty">AI build partner for code, research and ideas.</p>
+          </div>
+          <div style="flex:none;width:clamp(88px,9vw,112px);aspect-ratio:116/110;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+            <img src="assets/v2/t-claude.svg" alt="Claude" style="width:100%;height:100%;object-fit:contain;display:block">
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

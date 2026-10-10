@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import EngageXPage from '@/pages-src/EngageXPage';
+import '@/styles/ds.css';
 import '@/styles/engage-x.css';
 
 export const metadata: Metadata = {

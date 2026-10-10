@@ -1,62 +1,50 @@
-// Ported from design-reference/design/JugnuCaseStudy.dc.html by scripts/convert-dc.mjs.
+// Ported from design-reference/design/Jugnu Case Study v2.dc.html by scripts/convert-dc.mjs.
 /* eslint-disable */
 import { Fragment } from 'react';
 import { asset, href, css } from '@/lib/dc';
-import DockNav from '@/components/DockNav';
-import SiteRuler from '@/components/SiteRuler';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function JugnuView({ v }: { v: any }) {
   return (
     <>
-      <SiteRuler />
       <div data-screen-label="Jugnu case study" style={{ background: "#1c1c1c", minHeight: "100vh" }}>
         <div
           data-vp={v.vp}
-          style={{ position: "relative", minHeight: "100vh", background: "#1c1c1c", color: "#f5f5f5", overflow: "clip", paddingBottom: "40px", containerType: "inline-size", containerName: "jg" }}
+          style={{ position: "relative", minHeight: "100vh", background: "#1c1c1c", color: "#f5f5f5", overflow: "clip", padding: "0 clamp(20px,5vw,40px) clamp(80px,10vw,140px)", containerType: "inline-size", containerName: "jg" }}
         >
+          {" "}
+          <header style={{ maxWidth: "1040px", margin: "0 auto", display: "flex", justifyContent: "flex-end", paddingTop: "clamp(24px,5vw,56px)" }}>
+            <a
+              href={href("/")}
+              aria-label="Close and go back home"
+              style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#2a2a2a", border: "1.5px solid #444", display: "flex", alignItems: "center", justifyContent: "center", transition: "background .2s" }}
+              className="jugnu-hover-0"
+            >
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+                <path d="M2 2l18 18M20 2 2 20" />
+              </svg>
+            </a>
+          </header>
           {" "}
           <section
             id="top"
             data-reveal="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "140px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(8px,2vw,24px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-4deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              a claude code project
+              A claude code project
             </span>
             {" "}
-            <div data-fh="1" style={{ position: "relative", marginTop: "58px", border: "2px solid #63c4ec", padding: "7px 34px" }}>
-              <h1 data-h1="1" style={{ margin: "0", fontSize: "82px", lineHeight: "98px", fontWeight: "600", color: "#f5f5f5" }}>
-                Jugnu
-              </h1>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h1 style={{ margin: "16px 0 0", fontSize: "clamp(44px,6vw,72px)", lineHeight: "1.1", fontWeight: "600", color: "#ffffff" }}>
+              Jugnu
+            </h1>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "64px auto 0", display: "flex", flexDirection: "column" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column" }}>
               {" "}
-              <p
-                data-lead="1"
-                style={{ margin: "0px auto 0", maxWidth: "880px", fontSize: "40px", lineHeight: "52px", fontWeight: "500", textAlign: "center", color: "#f5f5f5", textWrap: "balance" }}
-              >
+              <p style={{ margin: "0", maxWidth: "960px", fontSize: "clamp(24px,3.4vw,42px)", lineHeight: "1.25", fontWeight: "500", color: "#8c8c8c", textWrap: "pretty" }}>
                 A personal assistant with a face. Designed from a blank page to a live 3D character that listens, works and lights up when you need it.
               </p>
               {" "}
@@ -67,7 +55,7 @@ export default function JugnuView({ v }: { v: any }) {
               >
                 {" "}
                 <div style={{ padding: "28px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     ROLE
                   </span>
                   <span style={{ fontSize: "18px", lineHeight: "26px", color: "#f5f5f5" }}>
@@ -75,7 +63,7 @@ export default function JugnuView({ v }: { v: any }) {
                   </span>
                 </div>
                 <div style={{ padding: "28px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     TOOLS
                   </span>
                   <span style={{ fontSize: "18px", lineHeight: "26px", color: "#f5f5f5" }}>
@@ -83,7 +71,7 @@ export default function JugnuView({ v }: { v: any }) {
                   </span>
                 </div>
                 <div style={{ padding: "28px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     DELIVERABLES
                   </span>
                   <span style={{ fontSize: "18px", lineHeight: "26px", color: "#f5f5f5" }}>
@@ -96,38 +84,20 @@ export default function JugnuView({ v }: { v: any }) {
               <div style={{ marginTop: "88px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   {" "}
-                  <div data-embedpad="1" style={{ position: "relative", border: "2px solid #63c4ec", padding: "10px" }}>
+                  <div data-embedpad="1" style={{ position: "relative", borderRadius: "22px", background: "#2e2e2e", padding: "10px" }}>
                     {" "}
                     <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-                    />
-                    <span
-                      aria-hidden="true"
-                      style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-                    />
-                    {" "}
-                    <span
-                      data-sticky-live="1"
-                      style={{ position: "absolute", left: "-14px", top: "-24px", zIndex: "3", display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "18px", lineHeight: "22px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-4deg)" }}
+                      style={{ position: "absolute", left: "24px", top: "24px", zIndex: "3", display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8", background: "#1c1c1c" }}
                     >
-                      live — tap it
+                      Live — tap it
                     </span>
                     {" "}
-                    <div data-embed="1" style={{ position: "relative", height: "620px", background: "#1c1c1c", overflow: "hidden" }}>
+                    <div data-embed="1" style={{ position: "relative", height: "620px", background: "#1c1c1c", overflow: "hidden", borderRadius: "14px" }}>
                       {" "}
                       {v.notLoaded1 ? (
                         <>
                         <span
-                          style={{ position: "absolute", inset: "0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}
+                          style={{ position: "absolute", inset: "0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", color: "#6f6f6f" }}
                         >
                           LOADING JUGNU…
                         </span>
@@ -150,7 +120,7 @@ export default function JugnuView({ v }: { v: any }) {
                   {" "}
                   <div data-capline="1" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "32px" }}>
                     {" "}
-                    <p style={{ margin: "0", maxWidth: "640px", fontSize: "14px", lineHeight: "20px", color: "rgba(245,245,245,0.64)", fontStyle: "italic" }}>
+                    <p style={{ margin: "0", maxWidth: "640px", fontSize: "15px", lineHeight: "22px", color: "#9a9a9a" }}>
                       This is the real thing, not a video. Hover and Jugnu follows your cursor. Tap it to get a reaction. Switch states and moods from the controls, or press the mic and ask ‘what time is it?’
                     </p>
                     {" "}
@@ -158,10 +128,10 @@ export default function JugnuView({ v }: { v: any }) {
                       href="https://my.spline.design/blip-zy9Nv8xMTLVTZGHek8vudPoL/"
                       target="_blank"
                       rel="noopener"
-                      style={{ display: "inline-flex", alignItems: "center", gap: "10px", height: "40px", padding: "0 12px", background: "#0f1d24", color: "#63c4ec", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textDecoration: "none", alignSelf: "flex-start" }}
+                      style={{ flex: "none", display: "inline-flex", alignItems: "center", gap: "10px", height: "44px", padding: "0 20px", borderRadius: "999px", background: "#2a2a2a", border: "1.5px solid #4a4a4a", color: "#ffffff", fontSize: "15px", fontWeight: "600", textDecoration: "none", alignSelf: "flex-start", transition: "background .2s" }}
                       className="jugnu-hover-0"
                     >
-                      OPEN FULL SCREEN{" "}
+                      Open full screen{" "}
                       <svg
                         width="12"
                         height="12"
@@ -190,48 +160,25 @@ export default function JugnuView({ v }: { v: any }) {
           <section
             id="overview"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              the short version
+              The short version
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Overview
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              Overview
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
               <div data-g3="1" style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "48px 40px" }}>
                 {" "}
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     THE CHALLENGE
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -242,7 +189,7 @@ export default function JugnuView({ v }: { v: any }) {
                   </p>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     THE APPROACH
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -253,7 +200,7 @@ export default function JugnuView({ v }: { v: any }) {
                   </p>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     THE OUTCOME
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -313,43 +260,20 @@ export default function JugnuView({ v }: { v: any }) {
           <section
             id="problem"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-2deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              why a face at all
+              Why a face at all
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                The problem
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              The problem
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
               <div data-body="1" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <p style={{ margin: "0", maxWidth: "720px", fontSize: "20px", lineHeight: "32px", fontWeight: "400", color: "#f5f5f5", textWrap: "pretty" }}>
@@ -363,8 +287,8 @@ export default function JugnuView({ v }: { v: any }) {
                 </p>
               </div>
               {" "}
-              <blockquote style={{ margin: "24px auto 0", maxWidth: "880px", borderLeft: "2px solid #63c4ec", padding: "8px 0 8px 40px" }}>
-                <p data-lead="1" style={{ margin: "0", fontSize: "40px", lineHeight: "52px", fontWeight: "500", textAlign: "center", color: "#f5f5f5", textWrap: "balance" }}>
+              <blockquote style={{ margin: "8px 0 0", padding: "clamp(24px,4vw,48px)", borderRadius: "18px", background: "#2e2e2e" }}>
+                <p style={{ margin: "0", fontSize: "clamp(22px,2.8vw,34px)", lineHeight: "1.3", fontWeight: "500", color: "#ffffff", textWrap: "pretty" }}>
                   How might I give an assistant that acts on my behalf a face that tells me what it’s doing at a glance, and stays calm enough to live on my screen all day?
                 </p>
               </blockquote>
@@ -375,48 +299,25 @@ export default function JugnuView({ v }: { v: any }) {
           <section
             id="principles"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              the rules I set first
+              The rules I set first
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Principles
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              Principles
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
-              <div data-g2="1" style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", borderBottom: "1px solid rgba(245,245,245,0.14)" }}>
+              <div data-g2="1" style={{ width: "100%", display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "20px" }}>
                 {" "}
-                <div style={{ padding: "40px 40px 40px 0", borderTop: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                <div style={{ padding: "clamp(24px,3vw,32px)", borderRadius: "18px", background: "#2e2e2e", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     01
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -426,11 +327,8 @@ export default function JugnuView({ v }: { v: any }) {
                     Every state must be identifiable from shape and motion alone, in greyscale, at 40px.
                   </p>
                 </div>
-                <div
-                  data-cl="1"
-                  style={{ padding: "40px 0 40px 40px", borderTop: "1px solid rgba(245,245,245,0.14)", borderLeft: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "16px" }}
-                >
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                <div style={{ padding: "clamp(24px,3vw,32px)", borderRadius: "18px", background: "#2e2e2e", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     02
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -440,8 +338,8 @@ export default function JugnuView({ v }: { v: any }) {
                     Idle is the state it lives in 90% of the time, so idle has to be the quietest thing on screen.
                   </p>
                 </div>
-                <div style={{ padding: "40px 40px 40px 0", borderTop: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                <div style={{ padding: "clamp(24px,3vw,32px)", borderRadius: "18px", background: "#2e2e2e", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     03
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -451,11 +349,8 @@ export default function JugnuView({ v }: { v: any }) {
                     Character comes from small, specific behaviour, like how it blinks, leans and settles, not from more decoration.
                   </p>
                 </div>
-                <div
-                  data-cl="1"
-                  style={{ padding: "40px 0 40px 40px", borderTop: "1px solid rgba(245,245,245,0.14)", borderLeft: "1px solid rgba(245,245,245,0.14)", display: "flex", flexDirection: "column", gap: "16px" }}
-                >
-                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                <div style={{ padding: "clamp(24px,3vw,32px)", borderRadius: "18px", background: "#2e2e2e", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                     04
                   </span>
                   <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "36px", fontWeight: "600", color: "#f5f5f5" }}>
@@ -474,43 +369,20 @@ export default function JugnuView({ v }: { v: any }) {
           <section
             id="states"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-4deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              behaviour before looks
+              Behaviour before looks
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Defining the states
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              Defining the states
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
               <div data-body="1" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <p style={{ margin: "0", maxWidth: "720px", fontSize: "20px", lineHeight: "32px", fontWeight: "400", color: "#f5f5f5", textWrap: "pretty" }}>
@@ -527,13 +399,13 @@ export default function JugnuView({ v }: { v: any }) {
                     style={{ display: "grid", gridTemplateColumns: "24px 150px minmax(0,1fr) minmax(0,1fr)", columnGap: "32px", alignItems: "center", minHeight: "auto", padding: "20px 0" }}
                   >
                     <span />
-                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                       STATE
                     </span>
-                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                       WHEN IT HAPPENS
                     </span>
-                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#63c4ec" }}>
+                    <span style={{ display: "block", fontSize: "11px", lineHeight: "16px", fontWeight: "700", letterSpacing: "0.1em", color: "#9a9a9a" }}>
                       HOW IT MOVES
                     </span>
                   </div>
@@ -656,86 +528,22 @@ export default function JugnuView({ v }: { v: any }) {
           </section>
           {" "}
           <section
-            id="motion"
-            data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
-          >
-            {" "}
-            <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
-            >
-              how it moves between states
-            </span>
-            {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Motion and transitions
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
-            {" "}
-          </section>
-          {" "}
-          <section
             id="use-cases"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(6deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              where jugnu lives
+              Where jugnu lives
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Use cases
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              Use cases
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
               <div data-body="1" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <p style={{ margin: "0", maxWidth: "720px", fontSize: "20px", lineHeight: "32px", fontWeight: "400", color: "#f5f5f5", textWrap: "pretty" }}>
@@ -746,163 +554,163 @@ export default function JugnuView({ v }: { v: any }) {
               <div data-g3="1" style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "40px 20px" }}>
                 {" "}
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 01
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 01
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Agent status at a glance.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       Sits in the corner while Claude Code or another agent runs a long task. Working while it runs, Success or Error when done, so you stop checking the terminal.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        DEV
+                        Dev
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        AGENTS
+                        Agents
                       </span>
                     </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 02
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 02
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Personal task runner.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       The face for the bot that sends emails, books cabs and pays bills, showing what it’s doing without opening a log.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        PRODUCTIVITY
+                        Productivity
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        AUTOMATION
+                        Automation
                       </span>
                     </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 03
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 03
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Desk companion.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       A small always-on screen for timers, reminders and focus sessions that sleeps when you do.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        FOCUS
+                        Focus
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        HOME
+                        Home
                       </span>
                     </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 04
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 04
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Smart-home voice.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       A friendlier face for “turn off the lights” or “what’s the weather”, reacting as it listens and answers.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        VOICE
+                        Voice
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        IOT
+                        Iot
                       </span>
                     </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 05
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 05
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Family helper.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       Reminders for medicines and calls home, with warm moods (Love, Proud) that make it feel less like software.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        FAMILY
+                        Family
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        CARE
+                        Care
                       </span>
                     </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span
-                    style={{ display: "flex", alignItems: "center", height: "36px", minWidth: "104px", padding: "0 16px", boxSizing: "border-box", background: "#a3e4c1", color: "#0f1d24", fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", alignSelf: "flex-start" }}
-                  >
-                    USE CASE 06
-                  </span>
-                  <div data-uc="1" style={{ flex: "1", background: "#a3e4c1", padding: "31px 30px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <h3 style={{ margin: "0", fontSize: "28px", lineHeight: "34px", fontWeight: "500", color: "#0f1d24" }}>
+                  <div data-uc="1" style={{ flex: "1", background: "#2e2e2e", borderRadius: "18px", padding: "24px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", color: "#e8e8e8", alignSelf: "flex-start", height: "28px", fontSize: "13px", fontWeight: "600" }}
+                    >
+                      Use case 06
+                    </span>
+                    <h3 style={{ margin: "0", fontSize: "24px", lineHeight: "30px", fontWeight: "600", color: "#ffffff" }}>
                       Product onboarding and support.
                     </h3>
-                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#0f1d24" }}>
+                    <p style={{ margin: "0", fontSize: "16px", lineHeight: "24px", color: "#c9c9c9" }}>
                       A brand character that explains, waits and celebrates inside an app, using the same spec.
                     </p>
                     <div style={{ marginTop: "auto", paddingTop: "24px", display: "flex", gap: "12px" }}>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        PRODUCT
+                        Product
                       </span>
                       <span
-                        style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "78px", height: "42px", padding: "8px 10px 0", boxSizing: "border-box", background: "#0f1d24", color: "#a3e4c1", fontSize: "9px", fontWeight: "500", letterSpacing: "0.04em", clipPath: "polygon(0 0,46% 0,56% 8px,100% 8px,100% 100%,0 100%)" }}
+                        style={{ display: "inline-flex", alignItems: "center", height: "28px", padding: "0 12px", border: "1.5px solid #555", borderRadius: "999px", fontSize: "12px", fontWeight: "600", color: "#e8e8e8" }}
                       >
-                        SUPPORT
+                        Support
                       </span>
                     </div>
                   </div>
@@ -916,43 +724,20 @@ export default function JugnuView({ v }: { v: any }) {
           <section
             id="learnings"
             data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center" }}
+            style={{ maxWidth: "1040px", margin: "0 auto", paddingTop: "clamp(96px,12vw,160px)", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}
           >
             {" "}
             <span
-              data-sticky="1"
-              style={{ display: "inline-block", background: "#f6dfa6", color: "#1c1c1c", fontSize: "22px", lineHeight: "26px", fontWeight: "500", padding: "4px 10px", transform: "rotate(-4deg)" }}
+              style={{ display: "inline-flex", alignItems: "center", height: "32px", padding: "0 14px", border: "1.5px solid #4f4f4f", borderRadius: "999px", fontSize: "14px", fontWeight: "500", color: "#e8e8e8" }}
             >
-              looking back
+              Looking back
             </span>
             {" "}
-            <div
-              data-fh="1"
-              style={{ position: "relative", marginTop: "51px", border: "2px solid #63c4ec", padding: "7px 34px", maxWidth: "calc(100% - 64px)", boxSizing: "border-box" }}
-            >
-              <h2 data-h2="1" style={{ margin: "0", fontSize: "56px", lineHeight: "68px", fontWeight: "600", color: "#f5f5f5", textAlign: "center", textWrap: "balance" }}>
-                Learnings
-              </h2>
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", left: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", top: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-              <span
-                aria-hidden="true"
-                style={{ position: "absolute", right: "-11px", bottom: "-11px", width: "20px", height: "20px", boxSizing: "border-box", border: "2px solid #63c4ec", background: "#1c1c1c", zIndex: "2" }}
-              />
-            </div>
+            <h2 style={{ margin: "4px 0 0", fontSize: "clamp(30px,3.8vw,46px)", lineHeight: "1.2", fontWeight: "600", color: "#ffffff", textWrap: "balance" }}>
+              Learnings
+            </h2>
             {" "}
-            <div data-colw="1" style={{ width: "calc(100% - 64px)", maxWidth: "1040px", margin: "96px auto 0", display: "flex", flexDirection: "column", gap: "56px" }}>
+            <div style={{ width: "100%", margin: "clamp(28px,4vw,48px) 0 0", display: "flex", flexDirection: "column", gap: "56px" }}>
               {" "}
               <div style={{ display: "flex", flexDirection: "column", borderBottom: "1px solid rgba(245,245,245,0.14)" }}>
                 {" "}
@@ -960,7 +745,7 @@ export default function JugnuView({ v }: { v: any }) {
                   data-learn="1"
                   style={{ display: "grid", gridTemplateColumns: "96px minmax(0,1fr)", gap: "24px", padding: "32px 0", borderTop: "1px solid rgba(245,245,245,0.14)" }}
                 >
-                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#63c4ec" }}>
+                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#6f6f6f" }}>
                     1
                   </span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "10px" }}>
@@ -976,7 +761,7 @@ export default function JugnuView({ v }: { v: any }) {
                   data-learn="1"
                   style={{ display: "grid", gridTemplateColumns: "96px minmax(0,1fr)", gap: "24px", padding: "32px 0", borderTop: "1px solid rgba(245,245,245,0.14)" }}
                 >
-                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#63c4ec" }}>
+                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#6f6f6f" }}>
                     2
                   </span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "10px" }}>
@@ -992,7 +777,7 @@ export default function JugnuView({ v }: { v: any }) {
                   data-learn="1"
                   style={{ display: "grid", gridTemplateColumns: "96px minmax(0,1fr)", gap: "24px", padding: "32px 0", borderTop: "1px solid rgba(245,245,245,0.14)" }}
                 >
-                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#63c4ec" }}>
+                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#6f6f6f" }}>
                     3
                   </span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "10px" }}>
@@ -1008,7 +793,7 @@ export default function JugnuView({ v }: { v: any }) {
                   data-learn="1"
                   style={{ display: "grid", gridTemplateColumns: "96px minmax(0,1fr)", gap: "24px", padding: "32px 0", borderTop: "1px solid rgba(245,245,245,0.14)" }}
                 >
-                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#63c4ec" }}>
+                  <span style={{ fontSize: "60px", lineHeight: "72px", fontWeight: "400", color: "#6f6f6f" }}>
                     4
                   </span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "10px" }}>
@@ -1026,16 +811,7 @@ export default function JugnuView({ v }: { v: any }) {
             {" "}
           </section>
           {" "}
-          <section
-            data-reveal="1"
-            data-sec="1"
-            style={{ maxWidth: "1440px", margin: "0 auto", paddingTop: "196px", display: "flex", flexDirection: "column", alignItems: "center", gap: "40px" }}
-          >
-            {" "}
-          </section>
-          {" "}
         </div>
-        <DockNav />
       </div>
     </>
   );
